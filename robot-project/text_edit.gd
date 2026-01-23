@@ -1,8 +1,9 @@
 extends TextEdit
-var codeLines = {}
+var codeLines = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
 	pass # Replace with function body.
 
 
@@ -13,7 +14,7 @@ func _process(delta: float) -> void:
 
 
 func _on_button_pressed():
-	codeLines = {}
+	codeLines = []
 	var x = 0
 	for i in range (get_line_count()):
 		var ind = get_indent_level(i)

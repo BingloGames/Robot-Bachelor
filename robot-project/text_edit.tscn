@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7xm7lsovxbqr"]
+
+[ext_resource type="Script" uid="uid://d00d8g8ts5gs8" path="res://text_edit.gd" id="1_gem3i"]
+
+[node name="TextEdit" type="TextEdit"]
+offset_right = 188.0
+offset_bottom = 172.0
+placeholder_text = "Code your code here!
+"
+script = ExtResource("1_gem3i")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.011
+anchor_bottom = 1.2850001
+offset_left = 114.0
+offset_top = 121.0
+offset_right = -0.06800842
+offset_bottom = -50.02002
+text = "GO!"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

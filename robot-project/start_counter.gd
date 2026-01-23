@@ -10,8 +10,8 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
-		new_start()
+		new_star()
 
-func new_start():
+func new_star():
 	star_count += 1
 	get_node("HBoxContainer/"+str(star_count)+"/Sprite2D").texture = full_star

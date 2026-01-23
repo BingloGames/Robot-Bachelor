@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d15rfrw3f52ry"
-path="res://.godot/imported/star (1).png-891ef68f5a9a0ca31756536e85212030.ctex"
+uid="uid://4syj2wtvlvjb"
+path="res://.godot/imported/robot walk new.png-9e682f5cea97935956a5b45b3bda84cb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://star (1).png"
-dest_files=["res://.godot/imported/star (1).png-891ef68f5a9a0ca31756536e85212030.ctex"]
+source_file="res://robot walk new.png"
+dest_files=["res://.godot/imported/robot walk new.png-9e682f5cea97935956a5b45b3bda84cb.ctex"]
 
 [params]
 
@@ -37,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

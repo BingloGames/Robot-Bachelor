@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkcxr5ltukhr1"]
+
+[ext_resource type="Script" uid="uid://g0voy427r38" path="res://robot.gd" id="1_dfm56"]
+[ext_resource type="Texture2D" uid="uid://4syj2wtvlvjb" path="res://robot walk new.png" id="2_yhfw1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ru5oq"]
+size = Vector2(32, 32)
+
+[node name="robot" type="CharacterBody2D"]
+script = ExtResource("1_dfm56")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ru5oq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_yhfw1")
+hframes = 4
+vframes = 3
+frame = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

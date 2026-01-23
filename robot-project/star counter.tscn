@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdbqr488vc61t"]
+
+[ext_resource type="Script" uid="uid://dcjy1dg26gfdp" path="res://start_counter.gd" id="1_nb07x"]
+[ext_resource type="Texture2D" uid="uid://gruwufbivd2w" path="res://star empty.png" id="2_1pkc1"]
+
+[node name="star counter" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nb07x")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 184.0
+offset_bottom = 64.0
+metadata/_edit_group_ = true
+
+[node name="1" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/1"]
+position = Vector2(80, 72)
+texture = ExtResource("2_1pkc1")
+
+[node name="2" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/2"]
+position = Vector2(74, 72)
+texture = ExtResource("2_1pkc1")
+
+[node name="3" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/3"]
+position = Vector2(67, 72)
+texture = ExtResource("2_1pkc1")

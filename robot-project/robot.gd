@@ -5,22 +5,28 @@ var SPEED = 100
 
 
 var direction = Vector2i.RIGHT
-var target_position
 var next_tile
 
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("ui_up") and target_position == null:
+	if Input.is_action_just_pressed("ui_up") and next_tile == null:
 		print("pressed! up")
 		forward()
 		
-	if Input.is_action_just_pressed("ui_left") and target_position == null:
+	elif Input.is_action_just_pressed("ui_left") and next_tile == null:
 		print("pressed! left")
 		left()
 	
-	if Input.is_action_just_pressed("ui_right") and target_position == null:
+	elif Input.is_action_just_pressed("ui_right") and next_tile == null:
 		print("pressed! right")
 		right()
+	
+	elif Input.is_action_just_pressed("ui_down") and next_tile == null:
+		print("pressed! down")
+		right()
+	
+	elif next_tile == null:
+		idle()
 
 
 func _physics_process(delta: float) -> void:
@@ -40,18 +46,51 @@ func _physics_process(delta: float) -> void:
 		next_tile = null
 
 
-func forward():
+func play_animation(animation: String) -> void:
+	if get_node("AnimationPlayer").get_current_animation() == animation:
+		return
+	get_node("AnimationPlayer").play(animation)
+
+
+func idle() -> void:
+	play_animation("idle")
+
+
+func walk_animation() -> void:
+	match direction:
+		Vector2i.LEFT:
+			play_animation("walk left")
+		Vector2i.RIGHT:
+			play_animation("walk right")
+		Vector2i.UP:
+			play_animation("walk up")
+		Vector2i.DOWN:
+			play_animation("walk down")
+		_:
+			play_animation("idle")
+
+
+func forward() -> void:
 	var current_tile = get_node("/root/Node2D/TileMapLayer").local_to_map(global_position)
 	next_tile = current_tile + direction
+	
+	walk_animation()
 
 
-func left():
+func backward() -> void:
+	var current_tile = get_node("/root/Node2D/TileMapLayer").local_to_map(global_position)
+	next_tile = current_tile - direction
+	
+	walk_animation()
+
+
+func left() -> void:
 	direction = Vector2(direction).rotated(-PI/2)
 	direction = Vector2i(direction)
 	print("Left! direction: ", direction)
 
 
-func right():
+func right() -> void:
 	direction = Vector2(direction).rotated(PI/2)
 	direction = Vector2i(direction)
 	print("Right! direction: ", direction)

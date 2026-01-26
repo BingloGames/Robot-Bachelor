@@ -11,3 +11,8 @@ func _ready() -> void:
 func new_star():
 	star_count += 1
 	get_node("HBoxContainer/"+str(star_count)+"/Sprite2D").texture = full_star
+
+
+func save_stars():
+	#change to correct level
+	get_node("/root/Global").stars["level1"] = star_count

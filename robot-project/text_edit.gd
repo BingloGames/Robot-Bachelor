@@ -3,6 +3,8 @@ var codeLines = []
 @onready var robot = get_node("/root/Node2D/robot")
 var waiting = false
 
+var running_code = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
@@ -11,7 +13,14 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if codeLines.is_empty() or waiting:
+	if waiting:
+		return
+	if not running_code:
+		return
+	
+	
+	if codeLines.is_empty():
+		robot.check_end()
 		return
 	
 	
@@ -29,7 +38,6 @@ func _process(delta: float) -> void:
 	
 	
 	waiting = true
-	
 
 
 func _on_button_pressed():
@@ -48,3 +56,5 @@ func _on_button_pressed():
 			var lines = prevLine + line
 			codeLines.append(lines)
 	print(codeLines)
+	
+	running_code = true

@@ -38,8 +38,6 @@ func _physics_process(delta: float) -> void:
 		return
 	
 	
-	
-	
 	var halv_a_tile = get_node("/root/Node2D/TileMapLayer").tile_set.tile_size/2
 	var current_tile = get_node("/root/Node2D/TileMapLayer").local_to_map(Vector2i(global_position)-(halv_a_tile*direction))
 	
@@ -54,7 +52,7 @@ func _physics_process(delta: float) -> void:
 			direction *= -1
 			walking_backwards = false
 			
-			
+		
 		next_tile = null
 		get_node("/root/Node2D/TextEdit").waiting = false
 
@@ -88,6 +86,20 @@ func walk_animation() -> void:
 			play_animation("walk down")
 		_:
 			play_animation("idle")
+
+
+func check_end():
+	var current_tile = get_node("/root/Node2D/TileMapLayer").local_to_map(global_position)
+	var tile_data = get_node("/root/Node2D/TileMapLayer").get_cell_tile_data(current_tile)
+	
+	
+	if not tile_data.get_custom_data("Property") == "End":
+		#loses and restarts
+		return
+	
+	
+	get_node("/root/Node2D/end_particles").emitting = true
+	get_node("/root/Node2D/star counter").save_stars()
 
 
 func forward() -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://cqh6a7oaixmli"]
+[gd_scene load_steps=10 format=4 uid="uid://cqh6a7oaixmli"]
 
 [ext_resource type="Texture2D" uid="uid://dg5wvosf0gdc4" path="res://scifitiles.png" id="1_kyxg0"]
 [ext_resource type="PackedScene" uid="uid://b7xm7lsovxbqr" path="res://text_edit.tscn" id="2_dn5ey"]
@@ -11,6 +11,7 @@ resource_name = "Base Map"
 texture = ExtResource("1_kyxg0")
 texture_region_size = Vector2i(32, 32)
 2:0/0 = 0
+2:0/0/custom_data_0 = &"End"
 3:0/0 = 0
 4:0/0 = 0
 5:0/0 = 0
@@ -51,7 +52,17 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSet" id="TileSet_cove1"]
 tile_size = Vector2i(32, 32)
+custom_data_layer_0/name = "Property"
+custom_data_layer_0/type = 21
 sources/0 = SubResource("TileSetAtlasSource_8mrap")
+
+[sub_resource type="Curve" id="Curve_dn5ey"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.5157018, 0.0, 0, 0]
+point_count = 2
+metadata/_snap_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_lmyl5"]
+colors = PackedColorArray(1, 0, 0, 1, 0, 0, 0, 1)
 
 [node name="Node2D" type="Node2D"]
 
@@ -60,9 +71,9 @@ tile_map_data = PackedByteArray("AAABAAEAAAAEAAAAAAABAAUAAAAEAAAAAAABAAcAAAAEAAA
 tile_set = SubResource("TileSet_cove1")
 
 [node name="TextEdit" parent="." instance=ExtResource("2_dn5ey")]
-offset_left = 400.0
+offset_left = 384.0
 offset_top = 32.0
-offset_right = 588.0
+offset_right = 576.0
 offset_bottom = 204.0
 
 [node name="star counter" parent="." instance=ExtResource("2_mc20k")]
@@ -80,3 +91,17 @@ position = Vector2(240, 144)
 
 [node name="Star3" parent="stars" instance=ExtResource("4_dwyiq")]
 position = Vector2(304, 144)
+
+[node name="end_particles" type="CPUParticles2D" parent="."]
+position = Vector2(272, 144)
+emitting = false
+amount = 32
+direction = Vector2(0, -1)
+spread = 90.0
+gravity = Vector2(0, 100)
+initial_velocity_max = 100.0
+scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_dn5ey")
+color_ramp = SubResource("Gradient_lmyl5")
+hue_variation_min = -0.43
+hue_variation_max = 0.45

@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://bg4r8nehxu2g3"]
+[gd_scene load_steps=2 format=3 uid="uid://dqdijlggb57o1"]
 
 [ext_resource type="Script" uid="uid://b1slommj35oow" path="res://item_list.gd" id="1_ujeow"]
 
@@ -6,28 +6,50 @@
 layout_mode = 3
 anchors_preset = 0
 offset_right = 384.0
-offset_bottom = 280.0
+offset_bottom = 256.0
 
 [node name="ItemList" type="ItemList" parent="."]
 layout_mode = 0
 offset_right = 139.0
-offset_bottom = 278.0
+offset_bottom = 256.0
 auto_height = true
 script = ExtResource("1_ujeow")
 
-[node name="Button" type="Button" parent="."]
+[node name="Button1" type="Button" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 124.0
 offset_right = 140.0
 offset_bottom = 31.0
 text = "?"
 
-[node name="Label" type="Label" parent="Button"]
+[node name="Label1" type="Label" parent="Button1"]
+visible = false
 layout_mode = 0
 offset_left = 28.0
 offset_right = 260.0
 offset_bottom = 128.0
 text = "Test"
 
-[connection signal="mouse_entered" from="Button" to="ItemList" method="_on_button_mouse_entered"]
-[connection signal="mouse_exited" from="Button" to="ItemList" method="_on_button_mouse_exited"]
+[node name="Button2" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 124.0
+offset_top = 32.0
+offset_right = 140.0
+offset_bottom = 63.0
+text = "?"
+
+[node name="Label2" type="Label" parent="Button2"]
+visible = false
+layout_mode = 0
+offset_left = 28.0
+offset_right = 260.0
+offset_bottom = 128.0
+text = "Test"
+
+[connection signal="item_clicked" from="ItemList" to="ItemList" method="_on_item_clicked"]
+[connection signal="mouse_entered" from="Button1" to="ItemList" method="_on_button_1_mouse_entered"]
+[connection signal="mouse_exited" from="Button1" to="ItemList" method="_on_button_1_mouse_exited"]
+[connection signal="mouse_entered" from="Button2" to="ItemList" method="_on_button_2_mouse_entered"]
+[connection signal="mouse_exited" from="Button2" to="ItemList" method="_on_button_2_mouse_exited"]

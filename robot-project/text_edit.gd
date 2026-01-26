@@ -55,6 +55,5 @@ func _on_button_pressed():
 			var line = get_line(i)
 			var lines = prevLine + line
 			codeLines.append(lines)
-	print(codeLines)
 	
 	running_code = true

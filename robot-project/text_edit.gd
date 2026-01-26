@@ -29,4 +29,3 @@ func _on_button_pressed():
 			var lines = prevLine + line
 			codeLines[y] = lines
 	print(codeLines)
-	

@@ -51,7 +51,7 @@ func _physics_process(delta: float) -> void:
 		if walking_backwards:
 			direction *= -1
 			walking_backwards = false
-			
+		
 		
 		next_tile = null
 		get_node("/root/Node2D/TextEdit").waiting = false
@@ -64,7 +64,17 @@ func play_animation(animation: String) -> void:
 
 
 func idle() -> void:
-	play_animation("idle")
+	match direction:
+		Vector2i.LEFT:
+			play_animation("idle left")
+		Vector2i.RIGHT:
+			play_animation("idle right")
+		Vector2i.UP:
+			play_animation("idle up")
+		Vector2i.DOWN:
+			play_animation("idle down")
+		_:
+			print("????????????????")
 
 
 func walk_animation() -> void:
@@ -85,7 +95,7 @@ func walk_animation() -> void:
 		Vector2i.DOWN:
 			play_animation("walk down")
 		_:
-			play_animation("idle")
+			idle()
 
 
 func check_end():

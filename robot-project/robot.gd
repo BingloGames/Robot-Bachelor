@@ -3,47 +3,60 @@ extends CharacterBody2D
 
 var SPEED = 100
 
+var test = ""
+
 
 var direction = Vector2i.RIGHT
+var walking_backwards = false
+
 var next_tile
 
 
-func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("ui_up") and next_tile == null:
-		print("pressed! up")
-		forward()
-		
-	elif Input.is_action_just_pressed("ui_left") and next_tile == null:
-		print("pressed! left")
-		left()
-	
-	elif Input.is_action_just_pressed("ui_right") and next_tile == null:
-		print("pressed! right")
-		right()
-	
-	elif Input.is_action_just_pressed("ui_down") and next_tile == null:
-		print("pressed! down")
-		right()
-	
-	elif next_tile == null:
-		idle()
+#func _process(delta: float) -> void:
+	#if Input.is_action_just_pressed("ui_up") and next_tile == null:
+		#print("pressed! up")
+		#forward()
+		#
+	#elif Input.is_action_just_pressed("ui_left") and next_tile == null:
+		#print("pressed! left")
+		#left()
+	#
+	#elif Input.is_action_just_pressed("ui_right") and next_tile == null:
+		#print("pressed! right")
+		#right()
+	#
+	#elif Input.is_action_just_pressed("ui_down") and next_tile == null:
+		#print("pressed! down")
+		#right()
+	#
+	#elif next_tile == null:
+		#idle()
 
 
 func _physics_process(delta: float) -> void:
 	if next_tile == null:
 		return
 	
-	set_velocity((direction)*SPEED)
-	move_and_slide()
+	
 	
 	
 	var halv_a_tile = get_node("/root/Node2D/TileMapLayer").tile_set.tile_size/2
 	var current_tile = get_node("/root/Node2D/TileMapLayer").local_to_map(Vector2i(global_position)-(halv_a_tile*direction))
 	
 	
+	set_velocity((direction)*SPEED)
+	move_and_slide()
+	
+	
 	if current_tile == next_tile:
 		position = get_node("/root/Node2D/TileMapLayer").map_to_local(next_tile)
+		if walking_backwards:
+			direction *= -1
+			walking_backwards = false
+			
+			
 		next_tile = null
+		get_node("/root/Node2D/TextEdit").waiting = false
 
 
 func play_animation(animation: String) -> void:
@@ -57,7 +70,14 @@ func idle() -> void:
 
 
 func walk_animation() -> void:
-	match direction:
+	var walking_direction = direction
+	
+	
+	if walking_backwards:
+		walking_direction *= -1
+	
+	
+	match walking_direction:
 		Vector2i.LEFT:
 			play_animation("walk left")
 		Vector2i.RIGHT:
@@ -78,8 +98,11 @@ func forward() -> void:
 
 
 func backward() -> void:
-	var current_tile = get_node("/root/Node2D/TileMapLayer").local_to_map(global_position)
-	next_tile = current_tile - direction
+	#var current_tile = get_node("/root/Node2D/TileMapLayer").local_to_map(global_position)
+	direction *= -1
+	walking_backwards = true
+	forward()
+	
 	
 	walk_animation()
 
@@ -87,10 +110,12 @@ func backward() -> void:
 func left() -> void:
 	direction = Vector2(direction).rotated(-PI/2)
 	direction = Vector2i(direction)
+	forward()
 	print("Left! direction: ", direction)
 
 
 func right() -> void:
 	direction = Vector2(direction).rotated(PI/2)
 	direction = Vector2i(direction)
+	forward()
 	print("Right! direction: ", direction)

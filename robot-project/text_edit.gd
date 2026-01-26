@@ -1,5 +1,7 @@
 extends TextEdit
 var codeLines = []
+@onready var robot = get_node("/root/Node2D/robot")
+var waiting = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -9,8 +11,25 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
-	# In _physics_process or _process
+	if codeLines.is_empty() or waiting:
+		return
+	
+	
+	var code = codeLines.pop_front()
+	
+	match code:
+		"forward()":
+			robot.forward()
+		"backward()":
+			robot.backward()
+		"left()":
+			robot.left()
+		"right()":
+			robot.right()
+	
+	
+	waiting = true
+	
 
 
 func _on_button_pressed():
@@ -20,12 +39,12 @@ func _on_button_pressed():
 		var ind = get_indent_level(i)
 		if ind == 0:
 			var line = get_line(i)
-			codeLines[x] = line
+			codeLines.append(line)
 			x += 1
 		else:
 			var y = x-1
 			var prevLine = codeLines[y]
 			var line = get_line(i)
 			var lines = prevLine + line
-			codeLines[y] = lines
+			codeLines.append(lines)
 	print(codeLines)

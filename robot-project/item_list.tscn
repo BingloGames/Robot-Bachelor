@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dqdijlggb57o1"]
+[gd_scene load_steps=3 format=3 uid="uid://dqdijlggb57o1"]
 
 [ext_resource type="Script" uid="uid://b1slommj35oow" path="res://item_list.gd" id="1_ujeow"]
+[ext_resource type="Texture2D" uid="uid://oad1da3fp06l" path="res://question.png" id="2_um5md"]
 
 [node name="Container" type="Control"]
 layout_mode = 3
@@ -10,46 +11,112 @@ offset_bottom = 256.0
 
 [node name="ItemList" type="ItemList" parent="."]
 layout_mode = 0
-offset_right = 139.0
+offset_right = 153.0
 offset_bottom = 256.0
 auto_height = true
 script = ExtResource("1_ujeow")
+metadata/_edit_group_ = true
+
+[node name="Text" type="Label" parent="."]
+layout_mode = 0
+offset_left = 157.0
+offset_right = 384.0
+offset_bottom = 256.0
 
 [node name="Button1" type="Button" parent="."]
-visible = false
 layout_mode = 0
-offset_left = 124.0
-offset_right = 140.0
+offset_left = 128.0
+offset_top = 4.0
+offset_right = 153.0
 offset_bottom = 31.0
-text = "?"
-
-[node name="Label1" type="Label" parent="Button1"]
-visible = false
-layout_mode = 0
-offset_left = 28.0
-offset_right = 260.0
-offset_bottom = 128.0
-text = "Test"
+icon = ExtResource("2_um5md")
+icon_alignment = 1
+expand_icon = true
 
 [node name="Button2" type="Button" parent="."]
-visible = false
 layout_mode = 0
-offset_left = 124.0
-offset_top = 32.0
-offset_right = 140.0
-offset_bottom = 63.0
-text = "?"
+offset_left = 128.0
+offset_top = 31.0
+offset_right = 153.0
+offset_bottom = 58.0
+icon = ExtResource("2_um5md")
+icon_alignment = 1
+expand_icon = true
 
-[node name="Label2" type="Label" parent="Button2"]
-visible = false
+[node name="Button3" type="Button" parent="."]
 layout_mode = 0
-offset_left = 28.0
-offset_right = 260.0
-offset_bottom = 128.0
-text = "Test"
+offset_left = 128.0
+offset_top = 58.0
+offset_right = 153.0
+offset_bottom = 85.0
+icon = ExtResource("2_um5md")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Button4" type="Button" parent="."]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 85.0
+offset_right = 153.0
+offset_bottom = 112.0
+icon = ExtResource("2_um5md")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Button5" type="Button" parent="."]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 112.0
+offset_right = 153.0
+offset_bottom = 139.0
+icon = ExtResource("2_um5md")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Button6" type="Button" parent="."]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 139.0
+offset_right = 153.0
+offset_bottom = 166.0
+icon = ExtResource("2_um5md")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Button7" type="Button" parent="."]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 166.0
+offset_right = 153.0
+offset_bottom = 193.0
+icon = ExtResource("2_um5md")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Button8" type="Button" parent="."]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 193.0
+offset_right = 153.0
+offset_bottom = 220.0
+icon = ExtResource("2_um5md")
+icon_alignment = 1
+expand_icon = true
 
 [connection signal="item_clicked" from="ItemList" to="ItemList" method="_on_item_clicked"]
 [connection signal="mouse_entered" from="Button1" to="ItemList" method="_on_button_1_mouse_entered"]
 [connection signal="mouse_exited" from="Button1" to="ItemList" method="_on_button_1_mouse_exited"]
 [connection signal="mouse_entered" from="Button2" to="ItemList" method="_on_button_2_mouse_entered"]
 [connection signal="mouse_exited" from="Button2" to="ItemList" method="_on_button_2_mouse_exited"]
+[connection signal="mouse_entered" from="Button3" to="ItemList" method="_on_button_3_mouse_entered"]
+[connection signal="mouse_exited" from="Button3" to="ItemList" method="_on_button_3_mouse_exited"]
+[connection signal="mouse_entered" from="Button4" to="ItemList" method="_on_button_4_mouse_entered"]
+[connection signal="mouse_exited" from="Button4" to="ItemList" method="_on_button_4_mouse_exited"]
+[connection signal="mouse_entered" from="Button5" to="ItemList" method="_on_button_5_mouse_entered"]
+[connection signal="mouse_exited" from="Button5" to="ItemList" method="_on_button_5_mouse_exited"]
+[connection signal="mouse_entered" from="Button6" to="ItemList" method="_on_button_6_mouse_entered"]
+[connection signal="mouse_exited" from="Button6" to="ItemList" method="_on_button_6_mouse_exited"]
+[connection signal="mouse_entered" from="Button7" to="ItemList" method="_on_button_7_mouse_entered"]
+[connection signal="mouse_exited" from="Button7" to="ItemList" method="_on_button_7_mouse_exited"]
+[connection signal="mouse_entered" from="Button8" to="ItemList" method="_on_button_8_mouse_entered"]
+[connection signal="mouse_exited" from="Button8" to="ItemList" method="_on_button_8_mouse_exited"]

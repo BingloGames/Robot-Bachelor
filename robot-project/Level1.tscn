@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bdbqr488vc61t" path="res://star counter.tscn" id="2_mc20k"]
 [ext_resource type="PackedScene" uid="uid://bkcxr5ltukhr1" path="res://robot.tscn" id="3_cove1"]
 [ext_resource type="PackedScene" uid="uid://fwhkk0ctks56" path="res://Star.tscn" id="4_dwyiq"]
-[ext_resource type="PackedScene" uid="uid://bg4r8nehxu2g3" path="res://item_list.tscn" id="6_lmyl5"]
+[ext_resource type="PackedScene" uid="uid://dqdijlggb57o1" path="res://item_list.tscn" id="6_lmyl5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8mrap"]
 resource_name = "Base Map"

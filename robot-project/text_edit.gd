@@ -43,17 +43,19 @@ func _process(delta: float) -> void:
 func _on_button_pressed():
 	codeLines = []
 	var x = 0
-	for i in range (get_line_count()):
+	for i in range(get_line_count()):
 		var ind = get_indent_level(i)
+		var line = get_line(i)
+		if line.is_empty():
+			continue
+		
 		if ind == 0:
-			var line = get_line(i)
 			codeLines.append(line)
 			x += 1
 		else:
 			var y = x-1
 			var prevLine = codeLines[y]
-			var line = get_line(i)
 			var lines = prevLine + line
 			codeLines.append(lines)
-	
+	print(codeLines)
 	running_code = true

@@ -107,7 +107,6 @@ func check_end():
 		#loses and restarts
 		return
 	
-	
 	get_node("/root/Node2D/end_particles").emitting = true
 	get_node("/root/Node2D/star counter").save_stars()
 

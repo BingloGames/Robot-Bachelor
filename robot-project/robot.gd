@@ -42,8 +42,13 @@ func _physics_process(delta: float) -> void:
 	var current_tile = get_node("/root/Node2D/TileMapLayer").local_to_map(Vector2i(global_position)-(halv_a_tile*direction))
 	
 	
-	set_velocity((direction)*SPEED)
-	move_and_slide()
+	#set_velocity((direction)*SPEED)
+	var collision = move_and_collide(direction*SPEED*delta)
+	
+	
+	if collision:
+		print("Collided!")
+		return
 	
 	
 	if current_tile == next_tile:
@@ -98,7 +103,7 @@ func walk_animation() -> void:
 			idle()
 
 
-func check_end():
+func check_end() -> void:
 	var current_tile = get_node("/root/Node2D/TileMapLayer").local_to_map(global_position)
 	var tile_data = get_node("/root/Node2D/TileMapLayer").get_cell_tile_data(current_tile)
 	

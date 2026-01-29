@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0ujd0xpga4ra"]
+
+[sub_resource type="Curve" id="Curve_dn5ey"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.5157018, 0.0, 0, 0]
+point_count = 2
+metadata/_snap_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_lmyl5"]
+colors = PackedColorArray(1, 0, 0, 1, 0, 0, 0, 1)
+
+[node name="end_particles" type="CPUParticles2D"]
+emitting = false
+amount = 32
+direction = Vector2(0, -1)
+spread = 90.0
+gravity = Vector2(0, 100)
+initial_velocity_max = 100.0
+scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_dn5ey")
+color_ramp = SubResource("Gradient_lmyl5")
+hue_variation_min = -0.43
+hue_variation_max = 0.45

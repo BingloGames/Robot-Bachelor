@@ -1,5 +1,5 @@
 extends ItemList
-@export var itemsList = ["forward()", "backward()", "left()", "right()", "for i in range(n)" ,"X = ", "Y = ", "List = []"]
+@export var itemsList = ["forward()", "backward()", "left()", "right()", "for i in range(n):" ,"X = ", "Y = ", "List = []"]
 var items = 8
 var function = ""
 # Called when the node enters the scene tree for the first time.
@@ -59,7 +59,7 @@ func _on_button_4_mouse_exited() -> void:
 
 #Button 5:
 func _on_button_5_mouse_entered() -> void:
-	get_node("/root/Node2D/Container/Text").set_text("Text for for i in range(n)")
+	get_node("/root/Node2D/Container/Text").set_text("Text for for i in range(n):")
 	get_node("/root/Node2D/Container/Text").show()
 	pass # Replace with function body.
 

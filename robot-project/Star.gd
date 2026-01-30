@@ -10,5 +10,5 @@ func _process(delta: float) -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	get_node("/root/Node2D/star counter").new_star()
-	
-	queue_free()
+	get_node("AnimationPlayer").play("collect")
+	#queue_free()

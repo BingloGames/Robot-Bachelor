@@ -39,6 +39,7 @@ position = Vector2(272, 144)
 position = Vector2(48, 176)
 
 [node name="end_particles" parent="." instance=ExtResource("6_h8oof")]
+position = Vector2(272, 208)
 
 [node name="Container" parent="." instance=ExtResource("6_545p4")]
 offset_left = 512.0

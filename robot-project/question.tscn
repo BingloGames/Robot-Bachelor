@@ -1,0 +1,105 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfi8sav4ayb5r"]
+
+[ext_resource type="Script" uid="uid://lw5os3vs34u" path="res://question.gd" id="1_g5b5r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g5b5r"]
+size = Vector2(26, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aq3vb"]
+size = Vector2(26, 26)
+
+[node name="question" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g5b5r")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 192.0
+offset_right = 512.0
+offset_bottom = 128.0
+text = "What is the answer to the question?"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 128.0
+offset_right = 512.0
+offset_bottom = 168.0
+
+[node name="var1" type="Area2D" parent="HBoxContainer"]
+position = Vector2(-64, 0)
+
+[node name="Label" type="Label" parent="HBoxContainer/var1"]
+offset_top = 8.0
+offset_right = 60.0
+offset_bottom = 31.0
+size_flags_horizontal = 3
+text = "X"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/var1"]
+position = Vector2(5, 21)
+shape = SubResource("RectangleShape2D_g5b5r")
+
+[node name="Label2" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "+"
+
+[node name="var2" type="Area2D" parent="HBoxContainer"]
+position = Vector2(56, 0)
+
+[node name="Label" type="Label" parent="HBoxContainer/var2"]
+offset_top = 8.0
+offset_right = 60.0
+offset_bottom = 31.0
+size_flags_horizontal = 3
+text = "Y"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/var2"]
+position = Vector2(5, 21)
+shape = SubResource("RectangleShape2D_g5b5r")
+
+[node name="Label4" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "="
+
+[node name="Label5" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "5"
+
+[node name="var_picked_up1" type="Area2D" parent="."]
+position = Vector2(224, 224)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="var_picked_up1"]
+shape = SubResource("RectangleShape2D_aq3vb")
+
+[node name="Label" type="Label" parent="var_picked_up1"]
+offset_left = -5.0
+offset_top = -11.0
+offset_right = 35.0
+offset_bottom = 12.0
+text = "X"
+
+[node name="var_picked_up2" type="Area2D" parent="."]
+position = Vector2(416, 224)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="var_picked_up2"]
+shape = SubResource("RectangleShape2D_aq3vb")
+
+[node name="Label" type="Label" parent="var_picked_up2"]
+offset_left = -5.0
+offset_top = -11.0
+offset_right = 35.0
+offset_bottom = 12.0
+text = "Y"
+
+[connection signal="mouse_entered" from="var_picked_up1" to="." method="_on_var_picked_up_1_mouse_entered"]
+[connection signal="mouse_entered" from="var_picked_up2" to="." method="_on_var_picked_up_2_mouse_entered"]

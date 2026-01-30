@@ -128,7 +128,7 @@ func start_for_loop(code_split, code):
 		
 		
 		i += 1
-	print("for loop contentes: ", for_loop_contents)
+	print("for loop contents: ", for_loop_contents)
 	continue_for_loop()
 
 
@@ -173,6 +173,9 @@ func run_base_functions(code):
 			robot.left()
 		"right()":
 			robot.right()
+		_:
+			print("wrong!")
+			return
 	
 	
 	waiting = true
@@ -189,11 +192,12 @@ func _on_button_pressed():
 		
 		if ind == 0:
 			codeLines.append(line)
-			x += 1
 		else:
 			var y = x-1
 			var prevLine = codeLines[y]
 			var lines = prevLine + line
 			codeLines.append(lines)
+		
+		x += 1
 	print(codeLines)
 	running_code = true

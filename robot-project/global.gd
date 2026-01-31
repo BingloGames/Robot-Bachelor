@@ -12,3 +12,9 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func restart_level():
+	get_node("/root/Node2D/star counter").restart_stars()
+	get_node("/root/Node2D/robot").respawn()
+	get_node("/root/Node2D/TextEdit").stop_running_code()

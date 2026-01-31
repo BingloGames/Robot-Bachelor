@@ -62,3 +62,6 @@ hue_variation_max = 0.45
 [node name="Container" parent="." instance=ExtResource("6_lmyl5")]
 offset_left = 512.0
 offset_right = 896.0
+
+[node name="start point" type="Node2D" parent="."]
+position = Vector2(80, 144)

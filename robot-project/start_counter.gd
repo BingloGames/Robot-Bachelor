@@ -3,10 +3,21 @@ extends Control
 
 var star_count = 0
 var full_star = preload("res://star full.png")
+var empty_star = preload("res://star empty.png")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
+
+
+func restart_stars():
+	star_count = 0
+	for star in get_node("/root/Node2D/stars").get_children():
+		star.respawn()
+	
+	for star_sprite_parent in get_node("HBoxContainer").get_children():
+		star_sprite_parent.get_child(0).texture = empty_star
+
 
 func new_star():
 	star_count += 1

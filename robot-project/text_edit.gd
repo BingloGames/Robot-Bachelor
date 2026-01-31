@@ -1,4 +1,6 @@
 extends TextEdit
+
+
 var codeLines = []
 @onready var robot = get_node("/root/Node2D/robot")
 var waiting = false
@@ -54,6 +56,23 @@ func _process(delta: float) -> void:
 	
 	var code = codeLines.pop_front()
 	run_line(code)
+
+
+func stop_running_code():
+	waiting = false
+	running_code = false
+	
+	codeLines.clear()
+	
+	for_looping = false
+	for_loop_count = 0
+	for_loop_line = 0
+	for_loop_contents.clear()
+	for_loop_max = 0
+	for_loop_string = ""
+	
+	variables.clear()
+	for_loop_variables.clear()
 
 
 func run_line(code):
@@ -182,7 +201,7 @@ func run_base_functions(code):
 
 
 func _on_button_pressed():
-	codeLines = []
+	codeLines.clear()
 	var x = 0
 	for i in range(get_line_count()):
 		var ind = get_indent_level(i)

@@ -3,10 +3,8 @@ extends CharacterBody2D
 
 var SPEED = 100
 
-var test = ""
-
-
-var direction = Vector2i.RIGHT
+var start_direction = Vector2i.RIGHT
+var direction = start_direction
 var walking_backwards = false
 
 var next_tile
@@ -48,6 +46,8 @@ func _physics_process(delta: float) -> void:
 	
 	if collision:
 		print("Collided!")
+		#play animation before running this code?
+		Global.restart_level()
 		return
 	
 	
@@ -60,6 +60,15 @@ func _physics_process(delta: float) -> void:
 		
 		next_tile = null
 		get_node("/root/Node2D/TextEdit").waiting = false
+
+
+func respawn():
+	global_position = get_node("/root/Node2D/start point").global_position
+	next_tile = null
+	walking_backwards = false
+	direction = start_direction
+	
+	idle()
 
 
 func play_animation(animation: String) -> void:
@@ -124,7 +133,6 @@ func forward() -> void:
 
 
 func backward() -> void:
-	#var current_tile = get_node("/root/Node2D/TileMapLayer").local_to_map(global_position)
 	direction *= -1
 	walking_backwards = true
 	forward()

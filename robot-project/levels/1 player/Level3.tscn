@@ -27,15 +27,15 @@ offset_bottom = -16.0
 [node name="robot" parent="." instance=ExtResource("4_545p4")]
 position = Vector2(48, 80)
 
-[node name="Stars" type="Node2D" parent="."]
+[node name="stars" type="Node2D" parent="."]
 
-[node name="Star" parent="Stars" instance=ExtResource("5_h8oof")]
+[node name="Star" parent="stars" instance=ExtResource("5_h8oof")]
 position = Vector2(208, 80)
 
-[node name="Star2" parent="Stars" instance=ExtResource("5_h8oof")]
+[node name="Star2" parent="stars" instance=ExtResource("5_h8oof")]
 position = Vector2(272, 144)
 
-[node name="Star3" parent="Stars" instance=ExtResource("5_h8oof")]
+[node name="Star3" parent="stars" instance=ExtResource("5_h8oof")]
 position = Vector2(48, 176)
 
 [node name="end_particles" parent="." instance=ExtResource("6_h8oof")]

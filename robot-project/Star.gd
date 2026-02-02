@@ -12,7 +12,6 @@ func _process(delta: float) -> void:
 
 func respawn():
 	get_node("AnimationPlayer").stop()
-	show()
 	scale = Vector2(1,1)
 	get_node("Star").position = Vector2(0,0)
 	get_node("Star").scale = Vector2(1,1)

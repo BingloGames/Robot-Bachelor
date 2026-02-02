@@ -100,5 +100,5 @@ func _on_button_8_mouse_exited() -> void:
 #Function so when we click on a function from the item list, it gets pasted in to the coding window:
 func _on_item_clicked(index: int, at_position: Vector2, mouse_button_index: int) -> void:
 	function = str(itemsList[index]) + "\n"
-	get_node("/root/Node2D/TextEdit").text += function
+	get_node("/root/Node2D/code/TextEdit").text += function
 	pass # Replace with function body.

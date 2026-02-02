@@ -59,7 +59,7 @@ func _physics_process(delta: float) -> void:
 		
 		
 		next_tile = null
-		get_node("/root/Node2D/TextEdit").waiting = false
+		get_node("/root/Node2D/code").waiting = false
 
 
 func respawn():
@@ -119,6 +119,8 @@ func check_end() -> void:
 	
 	if not tile_data.get_custom_data("Property") == "End":
 		#loses and restarts
+		print("Lost! restarting...")
+		Global.restart_level()
 		return
 	
 	get_node("/root/Node2D/end_particles").emitting = true

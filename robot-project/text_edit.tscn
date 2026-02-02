@@ -2,21 +2,37 @@
 
 [ext_resource type="Script" uid="uid://d00d8g8ts5gs8" path="res://text_edit.gd" id="1_gem3i"]
 
-[node name="TextEdit" type="TextEdit"]
+[node name="code" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 offset_right = 192.0
 offset_bottom = 256.0
+script = ExtResource("1_gem3i")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+layout_mode = 0
+offset_right = 192.0
+offset_bottom = 224.0
 placeholder_text = "Code your code here!
 "
-script = ExtResource("1_gem3i")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.021
 anchor_bottom = 1.0
-offset_left = 114.0
+offset_left = 112.0
 offset_top = 224.0
-offset_right = -1.947998
+offset_right = -4.032013
 text = "GO!"
 
+[node name="line limit" type="Label" parent="."]
+layout_mode = 0
+offset_top = 224.0
+offset_right = 112.0
+offset_bottom = 256.0
+text = "Line Limit: "
+vertical_alignment = 1
+
+[connection signal="lines_edited_from" from="TextEdit" to="." method="_on_lines_edited_from"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,8 +1,11 @@
-extends TextEdit
+extends Control
 
 
 var codeLines = []
+@export var line_limit: int = 5
+
 @onready var robot = get_node("/root/Node2D/robot")
+@onready var text_edit = get_node("TextEdit")
 var waiting = false
 
 
@@ -22,7 +25,7 @@ var for_loop_variables = {} #what about nested loops?
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
+	get_node("line limit").text += str(line_limit)
 	pass # Replace with function body.
 
 
@@ -84,6 +87,7 @@ func run_line(code):
 			print("starting a for loop inside a for loop. What to do if nested loop?")
 			return
 		start_for_loop(code_split, code)
+		return
 	
 	
 	run_base_functions(code)
@@ -175,6 +179,7 @@ func continue_for_loop():
 			for_loop_variables.clear()
 			return
 	
+	
 	print("run line in for loop")
 	var code_line = for_loop_contents[for_loop_line]
 	print("code line: ", code_line)
@@ -194,6 +199,7 @@ func run_base_functions(code):
 			robot.right()
 		_:
 			print("wrong!")
+			print(code)
 			return
 	
 	
@@ -203,9 +209,9 @@ func run_base_functions(code):
 func _on_button_pressed():
 	codeLines.clear()
 	var x = 0
-	for i in range(get_line_count()):
-		var ind = get_indent_level(i)
-		var line = get_line(i)
+	for i in range(text_edit.get_line_count()):
+		var ind = text_edit.get_indent_level(i)
+		var line = text_edit.get_line(i)
 		if line.is_empty():
 			continue
 		
@@ -220,3 +226,9 @@ func _on_button_pressed():
 		x += 1
 	print(codeLines)
 	running_code = true
+
+
+func _on_lines_edited_from(from_line: int, to_line: int) -> void:
+	if to_line >= line_limit:
+		print("line limit!")
+		text_edit.remove_line_at(to_line)

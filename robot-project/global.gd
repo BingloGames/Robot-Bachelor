@@ -17,4 +17,4 @@ func _process(delta: float) -> void:
 func restart_level():
 	get_node("/root/Node2D/star counter").restart_stars()
 	get_node("/root/Node2D/robot").respawn()
-	get_node("/root/Node2D/TextEdit").stop_running_code()
+	get_node("/root/Node2D/code").stop_running_code()

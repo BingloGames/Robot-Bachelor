@@ -1,6 +1,5 @@
 extends Control
 
-
 var codeLines = []
 @export var line_limit: int = 5
 
@@ -35,7 +34,6 @@ func _process(delta: float) -> void:
 		return
 	if not running_code:
 		return
-	
 	
 	if codeLines.is_empty():
 		robot.check_end()
@@ -300,6 +298,7 @@ func _on_lines_edited_from(from_line: int, to_line: int) -> void:
 	if to_line >= line_limit:
 		print("line limit!")
 		text_edit.remove_line_at(to_line)
+	
 	
 	
 	

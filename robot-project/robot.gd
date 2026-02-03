@@ -36,8 +36,8 @@ func _physics_process(delta: float) -> void:
 		return
 	
 	
-	var halv_a_tile = get_node("/root/Node2D/TileMapLayer").tile_set.tile_size/2
-	var current_tile = get_node("/root/Node2D/TileMapLayer").local_to_map(Vector2i(global_position)-(halv_a_tile*direction))
+	var halv_a_tile = get_node("/root/Node2D/special").tile_set.tile_size/2
+	var current_tile = get_node("/root/Node2D/special").local_to_map(Vector2i(global_position)-(halv_a_tile*direction))
 	
 	
 	#set_velocity((direction)*SPEED)
@@ -52,7 +52,7 @@ func _physics_process(delta: float) -> void:
 	
 	
 	if current_tile == next_tile:
-		position = get_node("/root/Node2D/TileMapLayer").map_to_local(next_tile)
+		position = get_node("/root/Node2D/special").map_to_local(next_tile)
 		if walking_backwards:
 			direction *= -1
 			walking_backwards = false
@@ -113,8 +113,8 @@ func walk_animation() -> void:
 
 
 func check_end() -> void:
-	var current_tile = get_node("/root/Node2D/TileMapLayer").local_to_map(global_position)
-	var tile_data = get_node("/root/Node2D/TileMapLayer").get_cell_tile_data(current_tile)
+	var current_tile = get_node("/root/Node2D/special").local_to_map(global_position)
+	var tile_data = get_node("/root/Node2D/special").get_cell_tile_data(current_tile)
 	
 	
 	if not tile_data.get_custom_data("Property") == "End":
@@ -128,7 +128,7 @@ func check_end() -> void:
 
 
 func forward() -> void:
-	var current_tile = get_node("/root/Node2D/TileMapLayer").local_to_map(global_position)
+	var current_tile = get_node("/root/Node2D/special").local_to_map(global_position)
 	next_tile = current_tile + direction
 	
 	walk_animation()

@@ -2,6 +2,9 @@ extends Control
 @export var itemsList = ["forward()", "backward()", "left()", "right()", "for i in range(n):" ,"X = ", "Y = ", "List = []"]
 var items = 8
 var function = ""
+var file_path = "res://Texts"
+var language = "/ENG/"
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for i in range(items):
@@ -19,7 +22,12 @@ func _process(delta: float) -> void:
 
 #Button 1:
 func _on_button_1_mouse_entered() -> void:
-	get_node("Text").set_text("Text for forward()")
+	var file = file_path + language + str(get_node("ItemList").get_item_text)
+	if FileAccess.file_exists(file):
+		var text = FileAccess.open(file, FileAccess.READ)
+		get_node("Text").set_text(text)
+	else: 
+		print("Error opening file: ", file)
 	get_node("Text").show()
 	pass # Replace with function body.
 

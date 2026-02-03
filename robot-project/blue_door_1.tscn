@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bltyxdt2ewqgv" path="res://blue door 1.png" id="1_siyxv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_051jp"]
-size = Vector2(32, 32)
+size = Vector2(32, 16)
 
 [sub_resource type="Animation" id="Animation_g212j"]
 length = 1.1
@@ -47,6 +47,7 @@ _data = {
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_051jp")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]

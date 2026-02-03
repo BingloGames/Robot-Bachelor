@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://q7nu5j63vchf"]
+[gd_scene load_steps=9 format=4 uid="uid://q7nu5j63vchf"]
 
 [ext_resource type="TileSet" uid="uid://b86b5a6rn7qvr" path="res://TileSet.tres" id="1_0vw6x"]
 [ext_resource type="PackedScene" uid="uid://b7xm7lsovxbqr" path="res://text_edit.tscn" id="2_sbb5h"]
 [ext_resource type="PackedScene" uid="uid://bdbqr488vc61t" path="res://star counter.tscn" id="3_jfjt6"]
 [ext_resource type="PackedScene" uid="uid://bkcxr5ltukhr1" path="res://robot.tscn" id="4_0vw6x"]
 [ext_resource type="PackedScene" uid="uid://fwhkk0ctks56" path="res://Star.tscn" id="5_0vw6x"]
+[ext_resource type="PackedScene" uid="uid://cc4r5wtmlaj02" path="res://blue_door_2.tscn" id="5_qriun"]
 [ext_resource type="PackedScene" uid="uid://dqdijlggb57o1" path="res://item_list.tscn" id="6_cgold"]
 [ext_resource type="PackedScene" uid="uid://b0ujd0xpga4ra" path="res://temp_end_particles.tscn" id="6_evb8c"]
 
@@ -29,12 +30,17 @@ line_limit = 20
 
 [node name="star counter" parent="." instance=ExtResource("3_jfjt6")]
 offset_left = 96.0
-offset_top = -16.0
+offset_top = 200.0
 offset_right = 96.0
-offset_bottom = -16.0
+offset_bottom = 200.0
 
 [node name="robot" parent="." instance=ExtResource("4_0vw6x")]
 position = Vector2(48, 80)
+
+[node name="doors" type="Node2D" parent="."]
+
+[node name="Node2D" parent="doors" instance=ExtResource("5_qriun")]
+position = Vector2(240, 144)
 
 [node name="stars" type="Node2D" parent="."]
 

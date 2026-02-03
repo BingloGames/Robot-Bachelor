@@ -8,6 +8,7 @@ anchors_preset = 0
 offset_right = 192.0
 offset_bottom = 256.0
 script = ExtResource("1_gem3i")
+metadata/_edit_vertical_guides_ = [-320.0]
 
 [node name="TextEdit" type="TextEdit" parent="."]
 layout_mode = 0
@@ -34,5 +35,15 @@ offset_bottom = 256.0
 text = "Line Limit: "
 vertical_alignment = 1
 
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="error message" type="Label" parent="."]
+layout_mode = 0
+offset_left = -320.0
+offset_bottom = 64.0
+text = "Error:"
+
 [connection signal="lines_edited_from" from="TextEdit" to="." method="_on_lines_edited_from"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

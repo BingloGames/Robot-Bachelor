@@ -1,6 +1,9 @@
 extends Control
 
 
+var base_functions = ["forward()", "backward()", "left()", "right()"]
+
+
 var codeLines = []
 @export var line_limit: int = 5
 
@@ -39,6 +42,7 @@ func _process(delta: float) -> void:
 	
 	if codeLines.is_empty():
 		robot.check_end()
+		running_code = false
 		return
 	
 	
@@ -82,7 +86,14 @@ func run_line(code):
 	var code_split = code.split(" ", false)
 	
 	
-	#var code_vaidator(code)
+	var validation_array = code_validator(code, code_split)
+	var validation = validation_array[0]
+	var error_message = validation_array[1]
+	
+	
+	if not validation or error_message == "No code":
+		print("Error: ", error_message)
+		return
 	
 	
 	if code_split[0] == "for":
@@ -98,38 +109,11 @@ func run_line(code):
 
 func start_for_loop(code_split, code):
 	print("For loop start!")
-	if not len(code_split) == 4:
-		print("Syntax error!")
-		return
 	
-	
-	if code_split[1] in variables.keys():
-		print("Error! Variable in for loop already exist")
-		return
-	
-	
-	if not code_split[2] == "in":
-		print("Syntax error! (no 'in' or 'in' at wrong place)")
-		return
-	
-	
-	if code_split[3].begins_with("range(") and code_split[3].ends_with("):"):
-		print("For looping in range!")
-		
-		var range_split = code_split[3].split("(", false) #should have range_split[0] = "range", range_split[1] = "n):"
-		var after_range_split = range_split[1].split(")", false) # should have after_range_split[0] = "n", after_range_split[1] = ":"
-		
-		
-		if not after_range_split[0].is_valid_int():
-			print("Syntax error! (error inside range())")
-			return
-		
-		
-		for_loop_max = after_range_split[0].to_int()
-	else:
-		print("Invalid syntax with range. May still be valid, but no support yet") #for example "for item in list:"
-		print("code split[3]: ", code_split[3])
-		return
+	#for loop already validated, so we know this works
+	var range_split = code_split[3].split("(", false) #should have range_split[0] = "range", range_split[1] = "n):"
+	var after_range_split = range_split[1].split(")", false) # should have after_range_split[0] = "n", after_range_split[1] = ":"
+	for_loop_max = after_range_split[0].to_int()
 	
 	
 	for_loop_variables[code_split[1]] = 0 #usually i = 0
@@ -191,50 +175,37 @@ func continue_for_loop():
 
 
 func run_base_functions(code):
-	match code:
-		"forward()":
-			robot.forward()
-		"backward()":
-			robot.backward()
-		"left()":
-			robot.left()
-		"right()":
-			robot.right()
-		_:
-			print("wrong!")
-			print(code)
-			return
+	if not code in base_functions:
+		print("wrong!")
+		print(code)
+		return
 	
 	
+	code = code.replace("()", "")
+	
+	
+	robot.call(code)
 	waiting = true
 
 
-func code_validator(code) -> Array:
-	var code_split = code.split(" ", false)
-	
+func code_validator(code, code_split) -> Array:
+	if code_split.is_empty():
+		return[true, "No code"]
 	
 	if code_split[0] == "for":
 		if for_looping:
 			print("starting a for loop inside a for loop. What to do if nested loop?")
 			return [false, "Nested loop"]
+		
+		
 		return for_loop_validator(code_split)
 	return base_func_validator(code)
 
 
 func base_func_validator(code) -> Array:
-	match code:
-		"forward()":
-			return [true, code]
-		"backward()":
-			return [true, code]
-		"left()":
-			return [true, code]
-		"right()":
-			return [true, code]
-		_:
-			print("wrong!")
-			print(code)
-			return [false, "Unknown function: " + code]
+	if not code in base_functions:
+		return [false, "Unknown function: " + code]
+	return [true, code]
 
 
 func for_loop_validator(code_split) -> Array:
@@ -264,9 +235,7 @@ func for_loop_validator(code_split) -> Array:
 		if not after_range_split[0].is_valid_int():
 			print("Syntax error! (error inside range())")
 			return [false, "Syntax error! (error inside range())"]
-		
-		
-		for_loop_max = after_range_split[0].to_int()
+			
 	else:
 		print("Invalid syntax with range. May still be valid, but no support yet") #for example "for item in list:"
 		print("code split[3]: ", code_split[3])
@@ -302,4 +271,43 @@ func _on_lines_edited_from(from_line: int, to_line: int) -> void:
 		text_edit.remove_line_at(to_line)
 	
 	
+	get_node("Timer").start()
+
+
+func _on_timer_timeout() -> void:
+	var errors_text = []
 	
+	for i in range(get_node("TextEdit").get_line_count()):
+		var line = get_node("TextEdit").get_line(i)
+		
+		
+		line = line.strip_edges()
+		var line_split = line.split(" ", false)
+		
+		
+		var validation_array = code_validator(line, line_split)
+		var validation = validation_array[0]
+		var error_message = validation_array[1]
+		
+		if validation:
+			get_node("TextEdit").set_line_background_color(i, Color(0, 0, 0, 0))
+			continue
+		
+		get_node("TextEdit").set_line_background_color(i, Color(255,0,0))
+		errors_text.append(error_message)
+		print("Error: ", error_message)
+	
+	
+	if errors_text.is_empty():
+		get_node("error message").text = ""
+		return
+	
+	
+	var full_error = ""
+	for error in errors_text:
+		if not full_error.is_empty():
+			full_error += "\n"
+		full_error += error
+	
+	
+	get_node("error message").text = full_error

@@ -125,6 +125,11 @@ func check_end() -> void:
 	
 	get_node("/root/Node2D/end_particles").emitting = true
 	get_node("/root/Node2D/star counter").save_stars()
+	
+	
+	var tween = get_tree().create_tween()
+	tween.tween_property(get_node("/root/Node2D/black"),"modulate", Color(0,0,0,255), 0.5)
+	tween.tween_callback(Callable(Global, "next_level_player_1")).set_delay(0.2)
 
 
 func forward() -> void:

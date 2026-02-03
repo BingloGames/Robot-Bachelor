@@ -29,9 +29,9 @@ line_limit = 20
 
 [node name="star counter" parent="." instance=ExtResource("3_jfjt6")]
 offset_left = 96.0
-offset_top = -16.0
+offset_top = 200.0
 offset_right = 96.0
-offset_bottom = -16.0
+offset_bottom = 200.0
 
 [node name="robot" parent="." instance=ExtResource("4_0vw6x")]
 position = Vector2(48, 80)

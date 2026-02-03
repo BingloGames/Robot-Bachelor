@@ -39,9 +39,9 @@ line_limit = 10
 
 [node name="star counter" parent="." instance=ExtResource("2_mc20k")]
 offset_left = 96.0
-offset_top = 208.0
+offset_top = 200.0
 offset_right = 96.0
-offset_bottom = 208.0
+offset_bottom = 200.0
 metadata/_edit_group_ = true
 
 [node name="robot" parent="." instance=ExtResource("3_cove1")]

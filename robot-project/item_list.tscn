@@ -8,13 +8,13 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 384.0
 offset_bottom = 256.0
+script = ExtResource("1_ujeow")
 
 [node name="ItemList" type="ItemList" parent="."]
 layout_mode = 0
 offset_right = 153.0
 offset_bottom = 256.0
 auto_height = true
-script = ExtResource("1_ujeow")
 metadata/_edit_group_ = true
 
 [node name="Text" type="Label" parent="."]
@@ -103,20 +103,21 @@ icon = ExtResource("2_um5md")
 icon_alignment = 1
 expand_icon = true
 
-[connection signal="item_clicked" from="ItemList" to="ItemList" method="_on_item_clicked"]
-[connection signal="mouse_entered" from="Button1" to="ItemList" method="_on_button_1_mouse_entered"]
-[connection signal="mouse_exited" from="Button1" to="ItemList" method="_on_button_1_mouse_exited"]
-[connection signal="mouse_entered" from="Button2" to="ItemList" method="_on_button_2_mouse_entered"]
-[connection signal="mouse_exited" from="Button2" to="ItemList" method="_on_button_2_mouse_exited"]
-[connection signal="mouse_entered" from="Button3" to="ItemList" method="_on_button_3_mouse_entered"]
-[connection signal="mouse_exited" from="Button3" to="ItemList" method="_on_button_3_mouse_exited"]
-[connection signal="mouse_entered" from="Button4" to="ItemList" method="_on_button_4_mouse_entered"]
-[connection signal="mouse_exited" from="Button4" to="ItemList" method="_on_button_4_mouse_exited"]
-[connection signal="mouse_entered" from="Button5" to="ItemList" method="_on_button_5_mouse_entered"]
-[connection signal="mouse_exited" from="Button5" to="ItemList" method="_on_button_5_mouse_exited"]
-[connection signal="mouse_entered" from="Button6" to="ItemList" method="_on_button_6_mouse_entered"]
-[connection signal="mouse_exited" from="Button6" to="ItemList" method="_on_button_6_mouse_exited"]
-[connection signal="mouse_entered" from="Button7" to="ItemList" method="_on_button_7_mouse_entered"]
-[connection signal="mouse_exited" from="Button7" to="ItemList" method="_on_button_7_mouse_exited"]
-[connection signal="mouse_entered" from="Button8" to="ItemList" method="_on_button_8_mouse_entered"]
-[connection signal="mouse_exited" from="Button8" to="ItemList" method="_on_button_8_mouse_exited"]
+[connection signal="item_clicked" from="ItemList" to="." method="_on_item_clicked"]
+[connection signal="mouse_entered" from="ItemList" to="." method="_on_button_1_mouse_entered"]
+[connection signal="mouse_entered" from="Button1" to="." method="_on_button_1_mouse_entered"]
+[connection signal="mouse_exited" from="Button1" to="." method="_on_button_1_mouse_exited"]
+[connection signal="mouse_entered" from="Button2" to="." method="_on_button_2_mouse_entered"]
+[connection signal="mouse_exited" from="Button2" to="." method="_on_button_2_mouse_exited"]
+[connection signal="mouse_entered" from="Button3" to="." method="_on_button_3_mouse_entered"]
+[connection signal="mouse_exited" from="Button3" to="." method="_on_button_3_mouse_exited"]
+[connection signal="mouse_entered" from="Button4" to="." method="_on_button_4_mouse_entered"]
+[connection signal="mouse_exited" from="Button4" to="." method="_on_button_4_mouse_exited"]
+[connection signal="mouse_entered" from="Button5" to="." method="_on_button_5_mouse_entered"]
+[connection signal="mouse_exited" from="Button5" to="." method="_on_button_5_mouse_exited"]
+[connection signal="mouse_entered" from="Button6" to="." method="_on_button_6_mouse_entered"]
+[connection signal="mouse_exited" from="Button6" to="." method="_on_button_6_mouse_exited"]
+[connection signal="mouse_entered" from="Button7" to="." method="_on_button_7_mouse_entered"]
+[connection signal="mouse_exited" from="Button7" to="." method="_on_button_7_mouse_exited"]
+[connection signal="mouse_entered" from="Button8" to="." method="_on_button_8_mouse_entered"]
+[connection signal="mouse_exited" from="Button8" to="." method="_on_button_8_mouse_exited"]

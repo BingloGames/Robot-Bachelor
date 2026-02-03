@@ -39,7 +39,6 @@ func _process(delta: float) -> void:
 	if not running_code:
 		return
 	
-	
 	if codeLines.is_empty():
 		robot.check_end()
 		running_code = false

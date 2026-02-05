@@ -1,7 +1,12 @@
-[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://b86b5a6rn7qvr"]
+[gd_resource type="TileSet" load_steps=11 format=3 uid="uid://b86b5a6rn7qvr"]
 
 [ext_resource type="Texture2D" uid="uid://dg5wvosf0gdc4" path="res://scifitiles.png" id="1_g2hbc"]
 [ext_resource type="Texture2D" uid="uid://b6tsydf15p2gp" path="res://scifitiles - copia.png" id="2_hhvbn"]
+[ext_resource type="PackedScene" uid="uid://fwhkk0ctks56" path="res://Star.tscn" id="3_t7fou"]
+[ext_resource type="PackedScene" uid="uid://ba7flvblhi3ln" path="res://blue_door_1.tscn" id="4_8aw2l"]
+[ext_resource type="PackedScene" uid="uid://cc4r5wtmlaj02" path="res://blue_door_2.tscn" id="5_k8lel"]
+[ext_resource type="PackedScene" uid="uid://bd2tgyavymlfj" path="res://red_door_1.tscn" id="6_s4r4k"]
+[ext_resource type="PackedScene" uid="uid://c5mvioyabxh42" path="res://red_door_2.tscn" id="7_uoop1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8mrap"]
 resource_name = "Base Map"
@@ -632,6 +637,13 @@ texture_region_size = Vector2i(32, 32)
 8:23/0/terrains_peering_bit/left_side = 0
 8:23/0/terrains_peering_bit/top_side = 0
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_2edxk"]
+scenes/1/scene = ExtResource("3_t7fou")
+scenes/2/scene = ExtResource("4_8aw2l")
+scenes/3/scene = ExtResource("5_k8lel")
+scenes/4/scene = ExtResource("6_s4r4k")
+scenes/5/scene = ExtResource("7_uoop1")
+
 [resource]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
@@ -660,3 +672,4 @@ custom_data_layer_0/name = "Property"
 custom_data_layer_0/type = 21
 sources/0 = SubResource("TileSetAtlasSource_8mrap")
 sources/1 = SubResource("TileSetAtlasSource_t7fou")
+sources/2 = SubResource("TileSetScenesCollectionSource_2edxk")

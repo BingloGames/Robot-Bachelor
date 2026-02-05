@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=4 uid="uid://cj5x0a534yaa6"]
+[gd_scene load_steps=8 format=4 uid="uid://cj5x0a534yaa6"]
 
 [ext_resource type="TileSet" uid="uid://b86b5a6rn7qvr" path="res://TileSet.tres" id="1_tjh38"]
 [ext_resource type="PackedScene" uid="uid://b7xm7lsovxbqr" path="res://text_edit.tscn" id="2_tjh38"]
 [ext_resource type="PackedScene" uid="uid://bdbqr488vc61t" path="res://star counter.tscn" id="3_lhhoo"]
 [ext_resource type="PackedScene" uid="uid://bkcxr5ltukhr1" path="res://robot.tscn" id="4_ufpxx"]
 [ext_resource type="PackedScene" uid="uid://ba7flvblhi3ln" path="res://blue_door_1.tscn" id="5_5pfj7"]
-[ext_resource type="PackedScene" uid="uid://fwhkk0ctks56" path="res://Star.tscn" id="5_67ewg"]
 [ext_resource type="PackedScene" uid="uid://dqdijlggb57o1" path="res://item_list.tscn" id="6_knvoa"]
 [ext_resource type="PackedScene" uid="uid://b0ujd0xpga4ra" path="res://temp_end_particles.tscn" id="6_lhhoo"]
 
@@ -20,7 +19,7 @@ tile_map_data = PackedByteArray("AAAJAAcAAQACABcAAAAJAAYAAQACABYAAAAJAAUAAQACABY
 tile_set = ExtResource("1_tjh38")
 
 [node name="special" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAFAAYAAQAIABYAAAAIAAQAAQAHABcAAAABAAMAAQAIAAsAAAA=")
+tile_map_data = PackedByteArray("AAAFAAYAAQAIABYAAAAIAAQAAQAHABcAAAABAAMAAQAIAAsAAAABAAYAAgAAAAAAAQAFAAIAAgAAAAAAAQAHAAUAAgAAAAAAAQA=")
 tile_set = ExtResource("1_tjh38")
 
 [node name="code" parent="." instance=ExtResource("2_tjh38")]
@@ -37,21 +36,12 @@ offset_bottom = 200.0
 [node name="robot" parent="." instance=ExtResource("4_ufpxx")]
 position = Vector2(48, 112)
 
+[node name="buttons" type="Node2D" parent="."]
+
 [node name="doors" type="Node2D" parent="."]
 
 [node name="Node2D" parent="doors" instance=ExtResource("5_5pfj7")]
 position = Vector2(176, 176)
-
-[node name="stars" type="Node2D" parent="."]
-
-[node name="Star" parent="stars" instance=ExtResource("5_67ewg")]
-position = Vector2(48, 208)
-
-[node name="Star2" parent="stars" instance=ExtResource("5_67ewg")]
-position = Vector2(176, 80)
-
-[node name="Star3" parent="stars" instance=ExtResource("5_67ewg")]
-position = Vector2(240, 176)
 
 [node name="end_particles" parent="." instance=ExtResource("6_lhhoo")]
 position = Vector2(176, 208)

@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bd2tgyavymlfj"]
+[gd_scene load_steps=7 format=3 uid="uid://bd2tgyavymlfj"]
 
+[ext_resource type="Script" uid="uid://uegcnafddenv" path="res://door.gd" id="1_fd3b1"]
 [ext_resource type="Texture2D" uid="uid://dv05plo7oowcv" path="res://red door 1.png" id="1_jqqfo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_051jp"]
-size = Vector2(32, 32)
+size = Vector2(32, 16)
 
 [sub_resource type="Animation" id="Animation_g212j"]
 length = 1.1
@@ -42,18 +43,18 @@ _data = {
 &"open door": SubResource("Animation_5qsjy")
 }
 
-[node name="Node2D" type="Node2D"]
+[node name="door" type="StaticBody2D"]
+script = ExtResource("1_fd3b1")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_051jp")
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_jqqfo")
 hframes = 11
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="StaticBody2D"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_goqka")
 }

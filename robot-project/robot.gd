@@ -117,6 +117,13 @@ func check_end() -> void:
 	var tile_data = get_node("/root/Node2D/special").get_cell_tile_data(current_tile)
 	
 	
+	if tile_data == null:
+		#loses and restarts
+		print("Lost! restarting...")
+		Global.restart_level()
+		return
+	
+	
 	if not tile_data.get_custom_data("Property") == "End":
 		#loses and restarts
 		print("Lost! restarting...")

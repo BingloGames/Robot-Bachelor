@@ -46,18 +46,18 @@ func _process(delta: float) -> void:
 	
 	
 	if for_looping:
-		print("at start of continue for loop")
+		#print("at start of continue for loop")
 		continue_for_loop()
 		
 		#still for looping?
 		if for_looping:
-			print("still for looping, so exiting")
+			#print("still for looping, so exiting")
 			return
 		if len(codeLines) == 0:
-			print("ended with a loop. exiting")
+			#print("ended with a loop. exiting")
 			return
-		else:
-			print("for loop ended, so stopping")
+		#else:
+			#print("for loop ended, so stopping")
 	
 	
 	var code = codeLines.pop_front()
@@ -97,7 +97,7 @@ func run_line(code):
 	
 	if code_split[0] == "for":
 		if for_looping:
-			print("starting a for loop inside a for loop. What to do if nested loop?")
+			#print("starting a for loop inside a for loop. What to do if nested loop?")
 			return
 		start_for_loop(code_split, code)
 		return
@@ -107,7 +107,7 @@ func run_line(code):
 
 
 func start_for_loop(code_split, code):
-	print("For loop start!")
+	#print("For loop start!")
 	
 	#for loop already validated, so we know this works
 	var range_split = code_split[3].split("(", false) #should have range_split[0] = "range", range_split[1] = "n):"
@@ -137,24 +137,24 @@ func start_for_loop(code_split, code):
 		
 		
 		i += 1
-	print("for loop contents: ", for_loop_contents)
+	#print("for loop contents: ", for_loop_contents)
 	continue_for_loop()
 
 
 func continue_for_loop():
-	print("for looping!")
+	#print("for looping!")
 	if for_loop_line >= len(for_loop_contents):
 		for_loop_line = 0
 		for_loop_count += 1
 		
 		
 		if for_loop_count >= for_loop_max: #verify if correct?
-			print("for loop end!")
+			#print("for loop end!")
 			
 			#remove the codeLines in the for loop that just ended
 			for i in range(len(for_loop_contents)):
 				codeLines.pop_front()
-			print("codeLines: ", codeLines)
+			#print("codeLines: ", codeLines)
 			
 			#reset for loop variables
 			for_looping = false
@@ -166,9 +166,9 @@ func continue_for_loop():
 			return
 	
 	
-	print("run line in for loop")
+	#print("run line in for loop")
 	var code_line = for_loop_contents[for_loop_line]
-	print("code line: ", code_line)
+	#print("code line: ", code_line)
 	run_line(code_line)
 	for_loop_line += 1
 
@@ -193,7 +193,7 @@ func code_validator(code, code_split) -> Array:
 	
 	if code_split[0] == "for":
 		if for_looping:
-			print("starting a for loop inside a for loop. What to do if nested loop?")
+			#print("starting a for loop inside a for loop. What to do if nested loop?")
 			return [false, "Nested loop"]
 		
 		
@@ -210,34 +210,34 @@ func base_func_validator(code) -> Array:
 func for_loop_validator(code_split) -> Array:
 	print("For loop start!")
 	if not len(code_split) == 4:
-		print("Syntax error!")
+		#print("Syntax error!")
 		return [false, "Syntax error!"]
 	
 	
 	if code_split[1] in variables.keys():
-		print("Error! Variable: ",str(code_split[1]) ,"in for loop already exist")
+		#print("Error! Variable: ",str(code_split[1]) ,"in for loop already exist")
 		return [false, "Error! Variable: " + str(code_split[1]) + "in for loop already exist"]
 	
 	
 	if not code_split[2] == "in":
-		print("Syntax error! (no 'in' or 'in' at wrong place)")
+		#print("Syntax error! (no 'in' or 'in' at wrong place)")
 		return [false, "Syntax error! (no 'in' or 'in' at wrong place)"]
 	
 	
 	if code_split[3].begins_with("range(") and code_split[3].ends_with("):"):
-		print("For looping in range!")
+		#print("For looping in range!")
 		
 		var range_split = code_split[3].split("(", false) #should have range_split[0] = "range", range_split[1] = "n):"
 		var after_range_split = range_split[1].split(")", false) # should have after_range_split[0] = "n", after_range_split[1] = ":"
 		
 		
 		if not after_range_split[0].is_valid_int():
-			print("Syntax error! (error inside range())")
+			#print("Syntax error! (error inside range())")
 			return [false, "Syntax error! (error inside range())"]
 			
 	else:
-		print("Invalid syntax with range. May still be valid, but no support yet") #for example "for item in list:"
-		print("code split[3]: ", code_split[3])
+		#print("Invalid syntax with range. May still be valid, but no support yet") #for example "for item in list:"
+		#print("code split[3]: ", code_split[3])
 		return [false, "Invalid syntax with range!"]
 	return [true, "success"]
 
@@ -266,7 +266,7 @@ func _on_button_pressed():
 
 func _on_lines_edited_from(from_line: int, to_line: int) -> void:
 	if to_line >= line_limit:
-		print("line limit!")
+		#print("line limit!")
 		text_edit.remove_line_at(to_line)
 	
 	

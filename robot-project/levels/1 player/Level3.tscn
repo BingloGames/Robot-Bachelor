@@ -29,11 +29,11 @@ tile_set = ExtResource("1_545p4")
 
 [node name="button" parent="buttons" instance=ExtResource("5_wxujf")]
 position = Vector2(208, 208)
-door = NodePath("../../doors/Node2D")
+door = NodePath("../../doors/door")
 
 [node name="doors" type="Node2D" parent="."]
 
-[node name="Node2D" parent="doors" instance=ExtResource("5_wmnt6")]
+[node name="door" parent="doors" instance=ExtResource("5_wmnt6")]
 position = Vector2(240, 208)
 
 [node name="code" parent="." instance=ExtResource("2_qlmxs")]

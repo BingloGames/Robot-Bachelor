@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://uegcnafddenv" path="res://door.gd" id="1_051jp"]
 [ext_resource type="Texture2D" uid="uid://bltyxdt2ewqgv" path="res://blue door 1.png" id="1_siyxv"]
+[ext_resource type="Animation" uid="uid://bis1ives8dt40" path="res://levels/open door anim.res" id="3_5qsjy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_051jp"]
 size = Vector2(32, 16)
@@ -21,26 +22,10 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 }
 
-[sub_resource type="Animation" id="Animation_5qsjy"]
-resource_name = "open door"
-length = 1.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.099999994, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
-"transitions": PackedFloat32Array(0.0003700454, 1, 1e-05, 0.0003221422, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_goqka"]
 _data = {
 &"RESET": SubResource("Animation_g212j"),
-&"open door": SubResource("Animation_5qsjy")
+&"open door anim": ExtResource("3_5qsjy")
 }
 
 [node name="door" type="StaticBody2D"]

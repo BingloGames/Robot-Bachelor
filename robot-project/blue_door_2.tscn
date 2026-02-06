@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_051jp"]
 size = Vector2(16, 32)
 
-[sub_resource type="Animation" id="Animation_g212j"]
+[sub_resource type="Animation" id="Animation_204xh"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -21,9 +21,9 @@ tracks/0/keys = {
 "values": [0]
 }
 
-[sub_resource type="Animation" id="Animation_5qsjy"]
-resource_name = "open door"
-length = 1.1
+[sub_resource type="Animation" id="Animation_waioa"]
+resource_name = "open door anim"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -31,16 +31,30 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.099999994, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
-"transitions": PackedFloat32Array(0.0003700454, 1, 1e-05, 0.0003221422, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 10]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"finished"
+}]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_goqka"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tn51q"]
 _data = {
-&"RESET": SubResource("Animation_g212j"),
-&"open door": SubResource("Animation_5qsjy")
+&"RESET": SubResource("Animation_204xh"),
+&"open door anim": SubResource("Animation_waioa")
 }
 
 [node name="door" type="StaticBody2D"]
@@ -56,5 +70,5 @@ hframes = 11
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-&"": SubResource("AnimationLibrary_goqka")
+&"": SubResource("AnimationLibrary_tn51q")
 }

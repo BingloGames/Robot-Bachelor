@@ -120,18 +120,18 @@ func check_tile():
 	
 	
 	if tile_data == null:
-		print("nothing special...")
 		return
 	
 	
 	if not tile_data.has_custom_data("Property"):
-		print("nothing special again")
 		return
 	
 	
 	var custom_data = tile_data.get_custom_data("Property")
+	print("custom data: ", custom_data)
 	match custom_data:
 		"Hole":
+			print("hole!")
 			get_node("AnimationPlayer").play("fall in hole")
 			get_node("/root/Node2D/code").waiting = true
 

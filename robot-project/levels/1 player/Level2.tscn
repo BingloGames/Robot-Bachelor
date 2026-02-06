@@ -23,6 +23,10 @@ tile_set = ExtResource("1_wwdpc")
 tile_map_data = PackedByteArray("AAAHAAQAAQAJABUAAAACAAMAAQAAAAwAAAADAAMAAQAGABUAAAADAAQAAQAGABYAAAAFAAMAAQAHABYAAAAHAAIAAQAHABUAAAAGAAIAAQAHABUAAAAEAAIAAQAHABUAAAAFAAIAAQAGABUAAAADAAIAAQAGABUAAAAFAAUAAQAHABUAADAEAAMAAgAAAAAAAQAGAAUAAgAAAAAAAQAHAAMAAgAAAAAAAQA=")
 tile_set = ExtResource("1_wwdpc")
 
+[node name="buttons" type="Node2D" parent="."]
+
+[node name="doors" type="Node2D" parent="."]
+
 [node name="code" parent="." instance=ExtResource("2_psxy2")]
 offset_left = 320.0
 offset_right = 512.0

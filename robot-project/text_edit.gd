@@ -37,6 +37,7 @@ func _process(delta: float) -> void:
 	if waiting:
 		return
 	if not running_code:
+		robot.idle()
 		return
 	
 	if codeLines.is_empty():

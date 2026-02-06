@@ -5,6 +5,8 @@ var levels_1_player_path = "res://levels/1 player"
 var levels_file_start = "Level"
 var path_end = ".tscn"
 
+var text_path = "res://Texts"
+var text_language = "/ENG/"
 
 var inventory = []
 

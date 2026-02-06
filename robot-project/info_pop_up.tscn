@@ -1,4 +1,6 @@
-[gd_scene load_steps=0 format=3 uid="uid://bu5wqujjgco58"]
+[gd_scene load_steps=2 format=3 uid="uid://bu5wqujjgco58"]
+
+[ext_resource type="Script" uid="uid://cpveoq8deqyi" path="res://info_pop_up.gd" id="1_i6fiq"]
 
 [node name="Info pop up" type="Control"]
 layout_mode = 3
@@ -7,11 +9,34 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_i6fiq")
+
+[node name="Close" type="Button" parent="."]
+layout_mode = 0
+offset_left = 872.0
+offset_top = 8.0
+offset_right = 890.0
+offset_bottom = 39.0
+text = "X"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.9990001
 anchor_bottom = 1.0
-offset_right = -0.10406494
-offset_bottom = -1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -15.104065
+offset_bottom = -16.0
+
+[node name="Open" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 872.0
+offset_top = 8.0
+offset_right = 888.0
+offset_bottom = 39.0
+text = "?"
+
+[connection signal="pressed" from="Close" to="." method="_on_Close_pressed"]
+[connection signal="pressed" from="Open" to="." method="_on_Open_pressed"]

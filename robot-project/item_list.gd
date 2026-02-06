@@ -2,8 +2,10 @@ extends Control
 @export var itemsList = ["forward()", "backward()", "left()", "right()", "for i in range(n):" ,"X = ", "Y = ", "List = []"]
 var items = 8
 var function = ""
-var path = "res://Texts"
-var language = "/ENG/"
+
+@onready var path = Global.text_path
+@onready var language = Global.text_language
+
 var item = ""
 
 # Called when the node enters the scene tree for the first time.

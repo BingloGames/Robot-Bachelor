@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://cj5x0a534yaa6"]
+[gd_scene load_steps=9 format=4 uid="uid://cj5x0a534yaa6"]
 
 [ext_resource type="TileSet" uid="uid://b86b5a6rn7qvr" path="res://TileSet.tres" id="1_tjh38"]
 [ext_resource type="PackedScene" uid="uid://b7xm7lsovxbqr" path="res://text_edit.tscn" id="2_tjh38"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://ba7flvblhi3ln" path="res://blue_door_1.tscn" id="5_5pfj7"]
 [ext_resource type="PackedScene" uid="uid://dqdijlggb57o1" path="res://item_list.tscn" id="6_knvoa"]
 [ext_resource type="PackedScene" uid="uid://b0ujd0xpga4ra" path="res://temp_end_particles.tscn" id="6_lhhoo"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_25xmc"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -52,3 +54,9 @@ offset_right = 896.0
 
 [node name="start point" type="Node2D" parent="."]
 position = Vector2(48, 112)
+
+[node name="black" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0)
+position = Vector2(447.75, 127.75)
+scale = Vector2(896.5, 256.5)
+texture = SubResource("CanvasTexture_25xmc")

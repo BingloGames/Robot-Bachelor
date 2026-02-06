@@ -14,7 +14,7 @@ metadata/_snap_enabled = true
 [sub_resource type="Gradient" id="Gradient_lmyl5"]
 colors = PackedColorArray(1, 0, 0, 1, 0, 0, 0, 1)
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_lrqwn"]
+[sub_resource type="CanvasTexture" id="CanvasTexture_44r2x"]
 
 [node name="Node2D" type="Node2D"]
 metadata/_edit_vertical_guides_ = [0.0, 320.0]
@@ -69,6 +69,6 @@ position = Vector2(80, 144)
 
 [node name="black" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 0)
-position = Vector2(448.75, 127.74999)
-scale = Vector2(894.5, 256.5)
-texture = SubResource("CanvasTexture_lrqwn")
+position = Vector2(448, 128)
+scale = Vector2(896, 256)
+texture = SubResource("CanvasTexture_44r2x")

@@ -60,9 +60,11 @@ func _physics_process(delta: float) -> void:
 		
 		next_tile = null
 		get_node("/root/Node2D/code").waiting = false
+		check_tile()
 
 
 func respawn():
+	scale = Vector2(1,1)
 	global_position = get_node("/root/Node2D/start point").global_position
 	next_tile = null
 	walking_backwards = false
@@ -112,6 +114,28 @@ func walk_animation() -> void:
 			idle()
 
 
+func check_tile():
+	var current_tile = get_node("/root/Node2D/special").local_to_map(global_position)
+	var tile_data = get_node("/root/Node2D/special").get_cell_tile_data(current_tile)
+	
+	
+	if tile_data == null:
+		print("nothing special...")
+		return
+	
+	
+	if not tile_data.has_custom_data("Property"):
+		print("nothing special again")
+		return
+	
+	
+	var custom_data = tile_data.get_custom_data("Property")
+	match custom_data:
+		"Hole":
+			get_node("AnimationPlayer").play("fall in hole")
+			get_node("/root/Node2D/code").waiting = true
+
+
 func check_end() -> void:
 	var current_tile = get_node("/root/Node2D/special").local_to_map(global_position)
 	var tile_data = get_node("/root/Node2D/special").get_cell_tile_data(current_tile)
@@ -119,24 +143,28 @@ func check_end() -> void:
 	
 	if tile_data == null:
 		#loses and restarts
-		print("Lost! restarting...")
-		Global.restart_level()
+		die()
 		return
 	
 	
 	if not tile_data.get_custom_data("Property") == "End":
 		#loses and restarts
-		print("Lost! restarting...")
-		Global.restart_level()
+		die()
 		return
+	
 	
 	get_node("/root/Node2D/end_particles").emitting = true
 	get_node("/root/Node2D/star counter").save_stars()
 	
 	
 	var tween = get_tree().create_tween()
-	tween.tween_property(get_node("/root/Node2D/black"),"modulate", Color(0,0,0,255), 0.5)
+	tween.tween_property(get_node("/root/Node2D/black"),"modulate:a", 1, 0.5)
 	tween.tween_callback(Callable(Global, "next_level_player_1")).set_delay(0.2)
+
+
+func die():
+	print("Lost! restarting...")
+	Global.restart_level()
 
 
 func forward() -> void:

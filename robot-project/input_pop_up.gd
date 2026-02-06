@@ -5,7 +5,7 @@ var no_players = "1"
 @onready var current_level = Global.current_level
 var item = no_players + " player" + "/Question" + "/Level" + current_level
 
-var Answer = "Answer = "
+@export var Answer = "Answer = "
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:	
@@ -27,8 +27,12 @@ func _process(delta: float) -> void:
 func _on_button_pressed() -> void:
 	var line = get_node("TextEdit").get_line(0)
 	if line == Answer:
-		#open door
-		get_node("Input pop up").hide()
+		if get_node("/root/Node2D/doors").has_node("Node2D"):
+			var open = "door" #Change for open door function
+			get_node("Input pop up").hide()
+		else: 
+			get_node("/root/Node2D/Container").add_item(Answer)
+			return
 	else: 
 		return
 	pass # Replace with function body.

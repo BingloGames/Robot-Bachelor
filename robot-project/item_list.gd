@@ -1,6 +1,6 @@
 extends Control
-@export var itemsList = ["forward()", "backward()", "left()", "right()", "for i in range(n):" ,"X = ", "Y = ", "List = []"]
-var items = 8
+var itemsList = ["forward()", "backward()", "left()", "right()", "for i in range(n):" ,"X = ", "Y = ", "List = []"]
+@export var items = 2
 var function = ""
 
 @onready var path = Global.text_path

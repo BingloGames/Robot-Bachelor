@@ -12,7 +12,7 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 
-func restart_stars():
+func restart_stars() -> void:
 	star_count = 0
 	for star in stars_collected:
 		star.respawn()
@@ -21,12 +21,11 @@ func restart_stars():
 		star_sprite_parent.get_child(0).texture = empty_star
 
 
-func new_star(star_node):
+func new_star(star_node) -> void:
 	stars_collected.append(star_node)
 	star_count += 1
 	get_node("HBoxContainer/"+str(star_count)+"/Sprite2D").texture = full_star
 
 
-func save_stars():
-	#change to correct level
-	get_node("/root/Global").stars["level1"] = star_count
+func save_stars() -> void:
+	Global.save_stars(star_count)

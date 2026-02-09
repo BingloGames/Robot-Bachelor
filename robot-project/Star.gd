@@ -3,7 +3,7 @@ extends Node2D
 var collected = false
 
 
-func respawn():
+func respawn() -> void:
 	get_node("AnimationPlayer").stop()
 	scale = Vector2(1,1)
 	get_node("Star").position = Vector2(0,0)

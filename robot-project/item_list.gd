@@ -20,7 +20,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	get_node("ItemList").set_allow_rmb_select(true)
 	get_node("ItemList").set_allow_reselect(true)
-	pass
 
 
 #Button 1:

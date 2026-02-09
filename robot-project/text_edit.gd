@@ -65,7 +65,7 @@ func _process(delta: float) -> void:
 	run_line(code)
 
 
-func stop_running_code():
+func stop_running_code() -> void:
 	waiting = false
 	running_code = false
 	
@@ -82,7 +82,7 @@ func stop_running_code():
 	for_loop_variables.clear()
 
 
-func run_line(code):
+func run_line(code) -> void:
 	var code_split = code.split(" ", false)
 	
 	
@@ -107,7 +107,7 @@ func run_line(code):
 	run_base_functions(code)
 
 
-func start_for_loop(code_split, code):
+func start_for_loop(code_split: Array[String], code: String) -> void:
 	#print("For loop start!")
 	
 	#for loop already validated, so we know this works
@@ -142,7 +142,7 @@ func start_for_loop(code_split, code):
 	continue_for_loop()
 
 
-func continue_for_loop():
+func continue_for_loop() -> void:
 	#print("for looping!")
 	if for_loop_line >= len(for_loop_contents):
 		for_loop_line = 0
@@ -174,7 +174,7 @@ func continue_for_loop():
 	for_loop_line += 1
 
 
-func run_base_functions(code):
+func run_base_functions(code) -> void:
 	if not code in base_functions:
 		print("wrong!")
 		print(code)
@@ -188,7 +188,7 @@ func run_base_functions(code):
 	waiting = true
 
 
-func code_validator(code, code_split) -> Array:
+func code_validator(code: String, code_split: Array[String]) -> Array:
 	if code_split.is_empty():
 		return[true, "No code"]
 	
@@ -202,13 +202,13 @@ func code_validator(code, code_split) -> Array:
 	return base_func_validator(code)
 
 
-func base_func_validator(code) -> Array:
+func base_func_validator(code: String) -> Array:
 	if not code in base_functions:
 		return [false, "Unknown function: " + code]
 	return [true, code]
 
 
-func for_loop_validator(code_split) -> Array:
+func for_loop_validator(code_split: Array[String]) -> Array:
 	print("For loop start!")
 	if not len(code_split) == 4:
 		#print("Syntax error!")
@@ -243,7 +243,7 @@ func for_loop_validator(code_split) -> Array:
 	return [true, "success"]
 
 
-func _on_button_pressed():
+func _on_button_pressed() -> void:
 	codeLines.clear()
 	var x = 0
 	var for_loop_length = 0
@@ -269,7 +269,14 @@ func _on_button_pressed():
 
 
 func _on_lines_edited_from(from_line: int, to_line: int) -> void:
-	if to_line >= line_limit:
+	var valid_lines = 0
+	for i in range(text_edit.get_line_count()):
+		if text_edit.get_line(i).strip_edges().is_empty():
+			continue
+		valid_lines += 1
+	
+	
+	if valid_lines > line_limit:
 		text_edit.remove_line_at(to_line)
 		return
 	

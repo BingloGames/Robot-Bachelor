@@ -42,7 +42,7 @@ func _physics_process(delta: float) -> void:
 		check_tile()
 
 
-func respawn():
+func respawn() -> void:
 	scale = Vector2(1,1)
 	global_position = get_node("/root/Node2D/start point").global_position
 	next_tile = null
@@ -93,7 +93,7 @@ func walk_animation() -> void:
 			idle()
 
 
-func check_tile():
+func check_tile() -> void:
 	var current_tile = get_node("/root/Node2D/special").local_to_map(global_position)
 	var tile_data = get_node("/root/Node2D/special").get_cell_tile_data(current_tile)
 	
@@ -141,7 +141,7 @@ func check_end() -> void:
 	tween.tween_callback(Callable(Global, "next_level_player_1")).set_delay(0.2)
 
 
-func die():
+func die() -> void:
 	print("Lost! restarting...")
 	Global.restart_level()
 

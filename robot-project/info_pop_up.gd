@@ -35,6 +35,7 @@ func _on_Close_pressed() -> void:
 	get_node("RichTextLabel").hide()
 	get_node("Close").hide()
 	get_node("Open").show()
+	set_mouse_filter(MOUSE_FILTER_IGNORE)
 	pass # Replace with function body.
 
 
@@ -43,4 +44,5 @@ func _on_Open_pressed() -> void:
 	get_node("ColorRect").show()
 	get_node("RichTextLabel").show()
 	get_node("Close").show()
+	set_mouse_filter(MOUSE_FILTER_STOP)
 	pass # Replace with function body.

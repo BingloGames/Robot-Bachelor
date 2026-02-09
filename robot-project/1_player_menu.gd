@@ -52,4 +52,4 @@ func _on_level_pressed(level: String) -> void:
 	tween.tween_property(self,"modulate:a", 0, 0.5)
 	tween.tween_callback(Callable(get_tree(), "change_scene_to_file").bind(level_file_name)).set_delay(0.2)
 	
-	Global.current_level = level
+	Global.current_level = int(level)

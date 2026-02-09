@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://v8m66saeg0sy"]
+[gd_scene load_steps=9 format=4 uid="uid://v8m66saeg0sy"]
 
 [ext_resource type="TileSet" uid="uid://b86b5a6rn7qvr" path="res://TileSet.tres" id="1_wwdpc"]
 [ext_resource type="PackedScene" uid="uid://b7xm7lsovxbqr" path="res://text_edit.tscn" id="2_psxy2"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bkcxr5ltukhr1" path="res://robot.tscn" id="4_wwdpc"]
 [ext_resource type="PackedScene" uid="uid://b0ujd0xpga4ra" path="res://temp_end_particles.tscn" id="6_6faey"]
 [ext_resource type="PackedScene" uid="uid://dqdijlggb57o1" path="res://item_list.tscn" id="6_wwdpc"]
+[ext_resource type="PackedScene" uid="uid://bu5wqujjgco58" path="res://info_pop_up.tscn" id="7_h2i1x"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_6ebn4"]
 
@@ -56,3 +57,5 @@ modulate = Color(0, 0, 0, 0)
 position = Vector2(447.74997, 127.75)
 scale = Vector2(896.49994, 256.5)
 texture = SubResource("CanvasTexture_6ebn4")
+
+[node name="Info pop up" parent="." instance=ExtResource("7_h2i1x")]

@@ -1,1 +1,7 @@
-Text for level 5
+Lists are also used to store values, like Variables, but while you can only store one value in each Variable, a List can have more than one value. The values dont have to be the same type. For example:
+	List = [1, 2.5, "text"]   		is a valid list, with 3 values, one int, one float and one str. 
+To call the first value, you call the list and the index number. To call the first value of our list, we would do:
+	List[0]  this would give you the value 1 . 
+Remember that python always starts counting from 0, so the indexes for List would be: 0, 1, 2 .
+
+Find the list and use the correct index to answer the question and open the door.

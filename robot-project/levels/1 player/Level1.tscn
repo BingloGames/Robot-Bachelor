@@ -31,6 +31,10 @@ tile_set = ExtResource("1_lmyl5")
 tile_map_data = PackedByteArray("AAAHAAQAAQAJABUAAAACAAQAAQAJABIAAAAEAAQAAgAAAAAAAQAGAAQAAgAAAAAAAQAIAAQAAgAAAAAAAQA=")
 tile_set = ExtResource("1_lmyl5")
 
+[node name="buttons" type="Node2D" parent="."]
+
+[node name="doors" type="Node2D" parent="."]
+
 [node name="code" parent="." instance=ExtResource("2_dn5ey")]
 offset_left = 320.0
 offset_right = 512.0
@@ -63,7 +67,6 @@ hue_variation_max = 0.45
 [node name="Container" parent="." instance=ExtResource("6_lmyl5")]
 offset_left = 512.0
 offset_right = 896.0
-itemsList = null
 
 [node name="start point" type="Node2D" parent="."]
 position = Vector2(80, 144)

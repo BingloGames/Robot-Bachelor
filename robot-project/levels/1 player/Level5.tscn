@@ -51,6 +51,7 @@ position = Vector2(176, 208)
 [node name="Container" parent="." instance=ExtResource("6_knvoa")]
 offset_left = 512.0
 offset_right = 896.0
+items = 8
 
 [node name="start point" type="Node2D" parent="."]
 position = Vector2(48, 112)

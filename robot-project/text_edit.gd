@@ -246,6 +246,7 @@ func for_loop_validator(code_split) -> Array:
 func _on_button_pressed():
 	codeLines.clear()
 	var x = 0
+	var for_loop_length = 0
 	for i in range(text_edit.get_line_count()):
 		var ind = text_edit.get_indent_level(i)
 		var line = text_edit.get_line(i)
@@ -254,8 +255,10 @@ func _on_button_pressed():
 		
 		if ind == 0:
 			codeLines.append(line)
+			for_loop_length = 0
 		else:
-			var y = x-1
+			for_loop_length += 1
+			var y = x-for_loop_length
 			var prevLine = codeLines[y]
 			var lines = prevLine + line
 			codeLines.append(lines)
@@ -267,11 +270,29 @@ func _on_button_pressed():
 
 func _on_lines_edited_from(from_line: int, to_line: int) -> void:
 	if to_line >= line_limit:
-		#print("line limit!")
 		text_edit.remove_line_at(to_line)
+		return
 	
 	
 	get_node("Timer").start()
+	
+	
+	if not from_line+1 == to_line:
+		return
+	
+	
+	var old_line = text_edit.get_line(from_line)
+	var old_line_split = old_line.split(" ")
+	var for_loop_valid = for_loop_validator(old_line_split)
+	
+	
+	if for_loop_valid[0] or old_line.begins_with("\t"):
+		text_edit.set_line(to_line, "\t")
+		
+		
+		#set line only updates the text internally, so we need to wait until after the frame is done to update the caret
+		await get_tree().process_frame
+		text_edit.set_caret_column(len(text_edit.get_line(to_line)))
 
 
 func _on_timer_timeout() -> void:

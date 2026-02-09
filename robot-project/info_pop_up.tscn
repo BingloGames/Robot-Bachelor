@@ -28,6 +28,9 @@ offset_left = 16.0
 offset_top = 16.0
 offset_right = -15.104065
 offset_bottom = -16.0
+text = "def my_function():
+  print(\"Hello from a function\")
+def "
 
 [node name="Open" type="Button" parent="."]
 visible = false

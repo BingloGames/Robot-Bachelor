@@ -2,14 +2,14 @@ extends Control
 var itemsList = ["forward()", "backward()", "left()", "right()", "for i in range(n):" ,"X = ", "Y = ", "List = []"]
 @export var items = 2
 var function = ""
-var path = ""
-var language = ""
+
+@onready var path = Global.text_path
+@onready var language = Global.text_language
+
 var item = ""
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var path = Global.text_path
-	var language = Global.text_language
 	for i in range(items):
 		get_node("ItemList").add_item(itemsList[i])
 		var button = "Button" + str(i+1)

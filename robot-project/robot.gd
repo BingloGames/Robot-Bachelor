@@ -10,27 +10,6 @@ var walking_backwards = false
 var next_tile
 
 
-#func _process(delta: float) -> void:
-	#if Input.is_action_just_pressed("ui_up") and next_tile == null:
-		#print("pressed! up")
-		#forward()
-		#
-	#elif Input.is_action_just_pressed("ui_left") and next_tile == null:
-		#print("pressed! left")
-		#left()
-	#
-	#elif Input.is_action_just_pressed("ui_right") and next_tile == null:
-		#print("pressed! right")
-		#right()
-	#
-	#elif Input.is_action_just_pressed("ui_down") and next_tile == null:
-		#print("pressed! down")
-		#right()
-	#
-	#elif next_tile == null:
-		#idle()
-
-
 func _physics_process(delta: float) -> void:
 	if next_tile == null:
 		return

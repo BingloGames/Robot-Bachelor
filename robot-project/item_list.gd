@@ -14,7 +14,7 @@ func _ready() -> void:
 		get_node("ItemList").add_item(itemsList[i])
 		var button = "Button" + str(i+1)
 		get_node(button).show()
-	pass # Replace with function body.
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

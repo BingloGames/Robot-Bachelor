@@ -11,14 +11,28 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pchbq")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 320.0
+offset_right = 512.0
+offset_bottom = 256.0
+color = Color(0.1882353, 0.1882353, 0.1882353, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 192.0
+offset_right = 640.0
+offset_bottom = 256.0
+color = Color(0.1882353, 0.1882353, 0.1882353, 1)
+
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.9990001
 anchor_bottom = 1.0
-offset_left = 16.0
-offset_top = 16.0
-offset_right = -15.104065
+offset_left = 320.0
+offset_right = -383.10406
 offset_bottom = -64.0
 
 [node name="TextEdit" type="TextEdit" parent="."]
@@ -26,20 +40,20 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 16.0
+offset_left = 320.0
 offset_top = 200.0
-offset_right = -16.0
+offset_right = -336.0
 offset_bottom = -16.0
-placeholder_text = "Placeholder text"
+placeholder_text = "placeholder text"
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 808.0
+offset_left = 568.0
 offset_top = 200.0
-offset_right = -17.0
+offset_right = -257.0
 offset_bottom = -16.0
 text = "Confirm"
 

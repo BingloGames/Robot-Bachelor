@@ -1,4 +1,6 @@
 In this level you will learn about functions. A function is a number of lines of code that we give a name to so we can call it several times without having to write the lines of code every time. For example:
 	def Forward():
 		move robot forward one tile
-This is an example of the function forward, simplified. This is not the actual code inside the function forward, but this is how it works. If we call the function Forward(), it will run the code inside and move the robot forward one tile. To call the function Forward(), write "Forward()".
+This is an example of the function forward, simplified. This is not the actual code inside the function forward, but this is how it works. 
+If we call the function Forward(), it will run the code inside and move the robot forward one tile. 
+To call the function Forward(), write "Forward()".

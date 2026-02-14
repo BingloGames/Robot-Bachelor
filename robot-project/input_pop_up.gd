@@ -6,6 +6,8 @@ var current_level = ""
 var item = ""
 var file_path = ""
 
+@onready var itemsInItemList = get_node("/root/Node2D/Container").items
+
 @export var Answer = "answer ="
 var Counter = 0
 var left_counter = 0
@@ -54,7 +56,7 @@ func _on_button_pressed() -> void:
 				get_node("/root/Node2D/Container/ItemList").add_item("left()")
 				Counter += 1
 				left_counter += 1
-				var button = "/root/Node2D/Container/Button" + str(Counter+2)
+				var button = "/root/Node2D/Container/Button" + str(Counter+itemsInItemList)
 				get_node(button).show()
 				if Counter == 2:
 					get_node("/root/Node2D/Input pop up").hide()
@@ -68,7 +70,7 @@ func _on_button_pressed() -> void:
 				get_node("/root/Node2D/Container/ItemList").add_item("right()")
 				Counter += 1
 				right_counter += 1
-				var button = "/root/Node2D/Container/Button" + str(Counter+2)
+				var button = "/root/Node2D/Container/Button" + str(Counter+itemsInItemList)
 				get_node(button).show()
 				if Counter == 2:
 					get_node("/root/Node2D/Input pop up").hide()

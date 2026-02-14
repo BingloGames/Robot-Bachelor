@@ -177,12 +177,40 @@ func _on_item_clicked(index: int, at_position: Vector2, mouse_button_index: int)
 		return
 		
 	if current_line == line_limit:
-		var line = get_node("/root/Node2D/code/TextEdit").get_line(current_line-1)
+		var line = get_node("/root/Node2D/code/TextEdit").get_line(current_line-1).strip_edges()
 		if line == "":
-			get_node("/root/Node2D/code/TextEdit").text += function
+			get_node("/root/Node2D/code/TextEdit").text += item
 			
 	else:
-		get_node("/root/Node2D/code/TextEdit").text += function
+		var line = get_node("/root/Node2D/code/TextEdit").get_line(current_line-1).strip_edges()
+		if line == "":
+			get_node("/root/Node2D/code/TextEdit").text += function
 		
-	pass # Replace with function body.
-	# Example usage, assuming TextEdit node is named "MyTextEdit"
+	"""
+	This fix allows us to paste in other lines other than the last line, but we need to select the line after every paste,
+	which makes it clunky AF, there has to be a way to move the "caret" or the line that indicates where we currently are
+	but i cant seem to make it work, i may come back to it eventually.
+	
+	maybe an if current_line != last_line? 
+	
+	
+	var item = get_node("ItemList").get_item_text(index)
+	function = item + "\n"
+	var line_limit = get_node("/root/Node2D/code").line_limit
+	var current_line = get_node("/root/Node2D/code/TextEdit").get_caret_line()
+	var last_line = get_node("/root/Node2D/code/TextEdit").get_line_count()
+	if last_line > line_limit:
+		print("more code lines than line limit")
+		return
+		
+	if last_line == line_limit:
+		var line = get_node("/root/Node2D/code/TextEdit").get_line(current_line).strip_edges()
+		if line == "":
+			get_node("/root/Node2D/code/TextEdit").text += item
+			
+	else:
+		var line = get_node("/root/Node2D/code/TextEdit").get_line(current_line).strip_edges()
+		if line == "":
+			get_node("/root/Node2D/code/TextEdit").set_line(current_line, item)
+	"""
+	

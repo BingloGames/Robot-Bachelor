@@ -65,6 +65,7 @@ anchor_bottom = 0.0
 offset_right = 896.0
 offset_bottom = 256.0
 grow_vertical = 1
+Answer = "answer ="
 
 [node name="Info pop up" parent="." instance=ExtResource("7_h2i1x")]
 anchors_preset = 0

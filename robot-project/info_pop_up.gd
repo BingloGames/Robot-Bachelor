@@ -13,13 +13,11 @@ func _ready() -> void:
 	current_level = str(Global.current_level)
 	item = no_players + " player" + "/Level" + current_level
 	file_path = path + language + item + ".txt"
-	print (file_path)
 	if FileAccess.file_exists(file_path):
 		var file = FileAccess.open(file_path, FileAccess.READ)
 		if file: 
 			var content = file.get_as_text()
 			get_node("RichTextLabel").set_text(content)
-			print(content)
 		else: 
 			print("Error opening file: ", file)
 	pass # Replace with function body.

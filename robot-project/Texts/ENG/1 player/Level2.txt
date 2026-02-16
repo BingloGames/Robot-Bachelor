@@ -1,4 +1,1 @@
-Some times, you will have a function in another file that you will want to call. For this, we use "Import". 
-In the previous level you picked up the functions "Left()" and "Right()". 
-
-Try importing them with "Import Left() from Level 1" and "Import Right() from Level 2".
+Some times, you will have a function in another file that you will want to call. For this, we use "import". 

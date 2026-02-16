@@ -1,6 +1,8 @@
-While coding you will use variables quite a lot, a variable is a name we give to a value so we can use it in other parts of the code, like functions, we do this so we can call it over and over and, if we need to change the value, it will change in all apropiate places automatically. This is a variable: 	X = 1  This is another variable: Y = 2
-A variable can be a whole number, like 1. We call that an "int" or integrer.
-It can also be a number with decimals, like 1,5. We call that a "float".
-Lastly, it can be a text, when we want to make a variable a text, we need to set it in between quotes, like this:
-	X = "This is a text variable"	 We call those a "str" or string.
-To call a variable you just write the variable name, like this: X . We can add variables of the same tipe, for example: X + Y will give us 3. To change the value of a variable, you would do it like this: X = 3, or X = X + Y. 
+A variable is a name we give to a value so we can use it in other parts of the code, like functions.
+
+This is a variable:         X = 1  
+This is another variable:   Y = 2
+
+To call a variable you just write the variable name, like this: X. 
+
+To change the value of a variable, you would do it like this: X = 3, or X = X + Y. 

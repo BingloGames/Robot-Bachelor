@@ -69,6 +69,8 @@ func stop_running_code() -> void:
 	waiting = false
 	running_code = false
 	
+	get_node("Button").set_disabled(false)
+	
 	codeLines.clear()
 	
 	for_looping = false

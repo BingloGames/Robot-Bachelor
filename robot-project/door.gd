@@ -13,3 +13,9 @@ func close() -> void:
 
 func finished() -> void:
 	get_node("/root/Node2D/code").running_code = true
+
+
+func reset() -> void:
+	get_node("Sprite2D").frame = 0
+	get_node("CollisionShape2D").call_deferred("set_disabled", false)
+	

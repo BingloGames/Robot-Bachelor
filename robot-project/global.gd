@@ -28,6 +28,11 @@ func restart_level() -> void:
 	get_node("/root/Node2D/code").stop_running_code()
 	
 	
+	if get_node("/root/Node2D").has_node("doors"):
+		for door in get_node("/root/Node2D/doors").get_children():
+			door.reset()
+	
+	
 	if get_node("/root/Node2D").has_node("items"):
 		for item in get_node("/root/Node2D/items").get_children():
 			item.respawn()

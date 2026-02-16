@@ -38,6 +38,7 @@ func _show() -> void:
 	get_node("Input pop up").show()
 	set_mouse_filter(MOUSE_FILTER_STOP)
 
+
 func _on_button_pressed() -> void:
 	var line = get_node("TextEdit").get_line(0)
 	var line_array = line.strip_edges().to_lower().split(" ")
@@ -47,7 +48,8 @@ func _on_button_pressed() -> void:
 			get_node("/root/Node2D/code").running_code = false
 			get_node("Input pop up").hide()
 			set_mouse_filter(MOUSE_FILTER_IGNORE)
-
+	
+	
 	if line_array[0] == "import":
 		if line_array[1] == "left()":
 			if left_counter == 1:
@@ -56,7 +58,7 @@ func _on_button_pressed() -> void:
 				get_node("/root/Node2D/Container/ItemList").add_item("left()")
 				Counter += 1
 				left_counter += 1
-				var button = "/root/Node2D/Container/Button" + str(Counter+itemsInItemList)
+				var button = "/root/Node2D/Container/" + str(Counter+itemsInItemList)
 				get_node(button).show()
 				if Counter == 2:
 					get_node("/root/Node2D/Input pop up").hide()
@@ -70,7 +72,7 @@ func _on_button_pressed() -> void:
 				get_node("/root/Node2D/Container/ItemList").add_item("right()")
 				Counter += 1
 				right_counter += 1
-				var button = "/root/Node2D/Container/Button" + str(Counter+itemsInItemList)
+				var button = "/root/Node2D/Container/" + str(Counter+itemsInItemList)
 				get_node(button).show()
 				if Counter == 2:
 					get_node("/root/Node2D/Input pop up").hide()

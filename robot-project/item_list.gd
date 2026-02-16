@@ -12,19 +12,25 @@ var item = ""
 func _ready() -> void:
 	for i in range(items):
 		get_node("ItemList").add_item(itemsList[i])
-		var button = "Button" + str(i+1)
+		var button = str(i+1)
 		get_node(button).show()
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+	
+	
 	get_node("ItemList").set_allow_rmb_select(true)
 	get_node("ItemList").set_allow_reselect(true)
 
 
-#Button 1:
-func _on_button_1_mouse_entered() -> void:
-	item = get_node("ItemList").get_item_text(0)
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta: float) -> void:
+#	get_node("ItemList").set_allow_rmb_select(true)
+#	get_node("ItemList").set_allow_reselect(true)
+
+
+func _on_button_mouse_entered(source: Button) -> void:
+	var item_num = int(source.name)
+	item = get_node("ItemList").get_item_text(item_num)
+	
+	
 	var file_path = path + language + item + ".txt"
 	if FileAccess.file_exists(file_path):
 		var file = FileAccess.open(file_path, FileAccess.READ)
@@ -34,137 +40,11 @@ func _on_button_1_mouse_entered() -> void:
 		else: 
 			print("Error opening file: ", file)
 	get_node("Text").show()
-	pass # Replace with function body.
 
-func _on_button_1_mouse_exited() -> void:
+
+func _on_button_mouse_exited() -> void:
 	get_node("Text").hide()
-	pass # Replace with function body.
 
-#Button 2: 
-func _on_button_2_mouse_entered() -> void:
-	item = get_node("ItemList").get_item_text(1)
-	var file_path = path + language + item + ".txt"
-	if FileAccess.file_exists(file_path):
-		var file = FileAccess.open(file_path, FileAccess.READ)
-		if file: 
-			var content = file.get_as_text()
-			get_node("Text").set_text(content)
-		else: 
-			print("Error opening file: ", file)
-	get_node("Text").show()
-	pass # Replace with function body.
-
-func _on_button_2_mouse_exited() -> void:
-	get_node("Text").hide()
-	pass # Replace with function body.
-
-#Button 3:
-func _on_button_3_mouse_entered() -> void:
-	item = get_node("ItemList").get_item_text(2)
-	var file_path = path + language + item + ".txt"
-	if FileAccess.file_exists(file_path):
-		var file = FileAccess.open(file_path, FileAccess.READ)
-		if file: 
-			var content = file.get_as_text()
-			get_node("Text").set_text(content)
-		else: 
-			print("Error opening file: ", file)
-	get_node("Text").show()
-	pass # Replace with function body.
-
-func _on_button_3_mouse_exited() -> void:
-	get_node("Text").hide()
-	pass # Replace with function body.
-
-#Button 4:
-func _on_button_4_mouse_entered() -> void:
-	item = get_node("ItemList").get_item_text(3)
-	var file_path = path + language + item + ".txt"
-	if FileAccess.file_exists(file_path):
-		var file = FileAccess.open(file_path, FileAccess.READ)
-		if file: 
-			var content = file.get_as_text()
-			get_node("Text").set_text(content)
-		else: 
-			print("Error opening file: ", file)
-	get_node("Text").show()
-	pass # Replace with function body.
-
-func _on_button_4_mouse_exited() -> void:
-	get_node("Text").hide()
-	pass # Replace with function body.
-
-#Button 5:
-func _on_button_5_mouse_entered() -> void:
-	item = get_node("ItemList").get_item_text(4)
-	var file_path = path + language + item + ".txt"
-	if FileAccess.file_exists(file_path):
-		var file = FileAccess.open(file_path, FileAccess.READ)
-		if file: 
-			var content = file.get_as_text()
-			get_node("Text").set_text(content)
-		else: 
-			print("Error opening file: ", file)
-	get_node("Text").show()
-	pass # Replace with function body.
-
-func _on_button_5_mouse_exited() -> void:
-	get_node("Text").hide()
-	pass # Replace with function body.
-
-#Button 6:
-func _on_button_6_mouse_entered() -> void:
-	item = get_node("ItemList").get_item_text(5)
-	var file_path = path + language + item + ".txt"
-	if FileAccess.file_exists(file_path):
-		var file = FileAccess.open(file_path, FileAccess.READ)
-		if file: 
-			var content = file.get_as_text()
-			get_node("Text").set_text(content)
-		else: 
-			print("Error opening file: ", file)
-	get_node("Text").show()
-	pass # Replace with function body.
-
-func _on_button_6_mouse_exited() -> void:
-	get_node("Text").hide()
-	pass # Replace with function body.
-
-#Button 7:
-func _on_button_7_mouse_entered() -> void:
-	item = get_node("ItemList").get_item_text(6)
-	var file_path = path + language + item + ".txt"
-	if FileAccess.file_exists(file_path):
-		var file = FileAccess.open(file_path, FileAccess.READ)
-		if file: 
-			var content = file.get_as_text()
-			get_node("Text").set_text(content)
-		else: 
-			print("Error opening file: ", file)
-	get_node("Text").show()
-	pass # Replace with function body.
-
-func _on_button_7_mouse_exited() -> void:
-	get_node("Text").hide()
-	pass # Replace with function body.
-
-#Button 8:
-func _on_button_8_mouse_entered() -> void:
-	item = get_node("ItemList").get_item_text(7)
-	var file_path = path + language + item + ".txt"
-	if FileAccess.file_exists(file_path):
-		var file = FileAccess.open(file_path, FileAccess.READ)
-		if file: 
-			var content = file.get_as_text()
-			get_node("Text").set_text(content)
-		else: 
-			print("Error opening file: ", file)
-	get_node("Text").show()
-	pass # Replace with function body.
-
-func _on_button_8_mouse_exited() -> void:
-	get_node("Text").hide()
-	pass # Replace with function body.
 
 #Function so when we click on a function from the item list, it gets pasted in to the coding window:
 func _on_item_clicked(index: int, at_position: Vector2, mouse_button_index: int) -> void:

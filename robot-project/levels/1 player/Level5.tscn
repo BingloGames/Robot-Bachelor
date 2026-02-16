@@ -25,7 +25,7 @@ tile_map_data = PackedByteArray("AAAJAAcAAQACABcAAAAJAAYAAQACABYAAAAJAAUAAQACABY
 tile_set = ExtResource("1_tjh38")
 
 [node name="special" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAFAAYAAQAIABUAAAAIAAQAAQAIABcAAAABAAMAAQAIAAsAAAABAAYAAgAAAAAAAQAFAAIAAgAAAAAAAQAHAAUAAgAAAAAAAQABAAIAAQABABYAAAACAAIAAQABABYAAAACAAUAAQABABYAAAAEAAUAAQABABYAAAAGAAUAAQABABYAAAAHAAYAAQABABYAAAAIAAUAAQABABYAAAAHAAMAAQABABYAAAAGAAMAAQABABYAAAAIAAYAAQAEABYAAAAGAAYAAQAEABYAAAAEAAYAAQAEABYAAAAFAAQAAQAGABcAAAA=")
+tile_map_data = PackedByteArray("AAAFAAYAAQAIABUAAAAIAAQAAQAIABcAAAABAAMAAQAIAAsAAAABAAYAAgAAAAAAAQAFAAIAAgAAAAAAAQAHAAUAAgAAAAAAAQABAAIAAQABABYAAAACAAIAAQABABYAAAACAAUAAQABABYAAAAEAAUAAQABABYAAAAGAAUAAQABABYAAAAHAAYAAQABABYAAAAIAAUAAQABABYAAAAHAAMAAQABABYAAAAGAAMAAQABABYAAAAIAAYAAQAEABYAAAAGAAYAAQAEABYAAAAEAAYAAQAEABYAAAA=")
 tile_set = ExtResource("1_tjh38")
 
 [node name="code" parent="." instance=ExtResource("2_tjh38")]
@@ -34,6 +34,7 @@ offset_right = 512.0
 line_limit = 20
 
 [node name="star counter" parent="." instance=ExtResource("3_lhhoo")]
+anchors_preset = 15
 offset_left = 96.0
 offset_top = 200.0
 offset_right = 96.0
@@ -51,7 +52,7 @@ position = Vector2(48, 112)
 [node name="buttons" type="Node2D" parent="."]
 
 [node name="button" parent="buttons" instance=ExtResource("6_ngd16")]
-position = Vector2(175, 143)
+position = Vector2(176, 144)
 
 [node name="doors" type="Node2D" parent="."]
 
@@ -81,6 +82,7 @@ offset_right = 896.0
 offset_bottom = 256.0
 
 [node name="Info pop up" parent="." instance=ExtResource("8_5pfj7")]
+visible = false
 anchors_preset = 10
 anchor_bottom = 0.0
 offset_right = 896.0

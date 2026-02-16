@@ -1,5 +1,5 @@
 extends Control
-var itemsList = ["forward()", "backward()", "left()", "right()", "for i in range(n):" ,"X = ", "Y = ", "List = []"]
+var itemsList = ["forward()", "backward()", "left()", "right()", "for i in range(n)" ,"X = ", "Y = ", "List = []"]
 @export var items = 2
 var function = ""
 

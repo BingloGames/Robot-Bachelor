@@ -43,44 +43,55 @@ func showInput() -> void:
 func _on_button_pressed() -> void:
 	var line = get_node("TextEdit").get_line(0)
 	var line_array = line.strip_edges().to_lower().split(" ")
-	if line_array[0] == "answer": 
-		if line == Answer:
-			get_node("/root/Node2D/doors/door").open()
-			get_node("/root/Node2D/code").running_code = false
-			get_node("/root/Node2D/Input pop up").hide()
-			set_mouse_filter(MOUSE_FILTER_IGNORE)
+	
+	
+	if line_array[0] == "answer" and line == Answer: 
+		get_node("/root/Node2D/doors/door").open()
+		get_node("/root/Node2D/code").running_code = false
+		get_node("/root/Node2D/Input pop up").hide()
+		set_mouse_filter(MOUSE_FILTER_IGNORE)
 	
 	
 	if line_array[0] == "import":
-		if line_array[1] == "left()":
-			if left_counter == 1:
-				return
-			else:
-				get_node("/root/Node2D/Container/ItemList").add_item("left()")
-				Counter += 1
-				left_counter += 1
-				var button = "/root/Node2D/Container/" + str(Counter+itemsInItemList)
-				get_node(button).show()
-				if Counter == 2:
-					get_node("/root/Node2D/Input pop up").hide()
-					set_mouse_filter(MOUSE_FILTER_IGNORE)
-				else: 
-					return
-		if line_array[1] == "right()":
-			if right_counter == 1:
-				return
-			else:
-				get_node("/root/Node2D/Container/ItemList").add_item("right()")
-				Counter += 1
-				right_counter += 1
-				var button = "/root/Node2D/Container/" + str(Counter+itemsInItemList)
-				get_node(button).show()
-				if Counter == 2:
-					get_node("/root/Node2D/Input pop up").hide()
-					set_mouse_filter(MOUSE_FILTER_IGNORE)
-				else: 
-					return
-
-	else:
+		import_func(line_array)
 		return
-		# add code not valid error.
+	# add code not valid error.
+
+
+func import_func(line_array: Array) -> void:
+	if line_array[1] == "left()":
+		if left_counter == 1:
+			return
+		
+		
+		get_node("/root/Node2D/Container/ItemList").add_item("left()")
+		Counter += 1
+		left_counter += 1
+		var button = "/root/Node2D/Container/" + str(Counter+itemsInItemList-1)
+		get_node(button).show()
+		
+		
+		if not Counter == 2:
+			return
+		
+		
+		get_node("/root/Node2D/Input pop up").hide()
+		set_mouse_filter(MOUSE_FILTER_IGNORE)
+		
+		
+	elif line_array[1] == "right()":
+		if right_counter == 1:
+			return
+		
+		
+		get_node("/root/Node2D/Container/ItemList").add_item("right()")
+		Counter += 1
+		right_counter += 1
+		var button = "/root/Node2D/Container/" + str(Counter+itemsInItemList-1)
+		get_node(button).show()
+		
+		
+		if not Counter == 2:
+			return
+		get_node("/root/Node2D/Input pop up").hide()
+		set_mouse_filter(MOUSE_FILTER_IGNORE)

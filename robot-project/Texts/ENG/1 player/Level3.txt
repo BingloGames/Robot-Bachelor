@@ -1,6 +1,4 @@
-Sometimes, you will want to do the same action over and over, for example, walking forward 5 times. For this we use a For loop, like this:
-	For i in range(5):
-		Forward()
-In this case the For loop uses the variable i = 0, and in each loop it increases i by 1, until it reaches 4, from 0 to 4 we have 5 runs. Remember that python always starts at 0. The loop will run only the lines that are indented. 
-
-Try using For loops to reach the end using only 12 lines of code.
+Sometimes, you will want to do the same action over and over. For this we use a for loop, like this:
+	for i in range(5):
+		forward()
+Try using for loops to reach the end using only 12 lines of code.

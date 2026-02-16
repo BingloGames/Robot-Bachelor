@@ -244,6 +244,7 @@ func for_loop_validator(code_split: Array[String]) -> Array:
 
 
 func _on_button_pressed() -> void:
+	get_node("Button").set_disabled(true)
 	codeLines.clear()
 	var x = 0
 	var for_loop_length = 0

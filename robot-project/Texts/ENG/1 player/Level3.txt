@@ -1,5 +1,4 @@
-Sometimes, you will want to do the same action over and over, for example, walking forward 5 times. For this we use a For loop, like this:
+Sometimes, you will want to do the same action over and over. For this we use a for loop, like this:
 	for i in range(5):
 		forward()
-
-Try using For loops to reach the end using only 12 lines of code.
+Try using for loops to reach the end using only 12 lines of code.

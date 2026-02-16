@@ -17,14 +17,6 @@ offset_right = 896.0
 offset_bottom = 256.0
 color = Color(0.18717614, 0.18717614, 0.18717614, 1)
 
-[node name="Close" type="Button" parent="."]
-layout_mode = 0
-offset_left = 872.0
-offset_top = 8.0
-offset_right = 890.0
-offset_bottom = 39.0
-text = "X"
-
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 1
 anchors_preset = -1
@@ -35,6 +27,14 @@ offset_top = 16.0
 offset_right = -15.104065
 offset_bottom = -16.0
 text = "Default text."
+
+[node name="Close" type="Button" parent="."]
+layout_mode = 0
+offset_left = 872.0
+offset_top = 8.0
+offset_right = 890.0
+offset_bottom = 39.0
+text = "X"
 
 [node name="Open" type="Button" parent="."]
 visible = false

@@ -119,7 +119,7 @@ expand_icon = true
 [connection signal="mouse_entered" from="2" to="." method="_on_button_mouse_entered" flags=18]
 [connection signal="mouse_exited" from="2" to="." method="_on_button_mouse_exited"]
 [connection signal="mouse_entered" from="3" to="." method="_on_button_mouse_entered" flags=18]
-[connection signal="mouse_exited" from="3" to="." method="_on_button_mouse_exited" flags=18]
+[connection signal="mouse_exited" from="3" to="." method="_on_button_mouse_exited"]
 [connection signal="mouse_entered" from="4" to="." method="_on_button_mouse_entered" flags=18]
 [connection signal="mouse_exited" from="4" to="." method="_on_button_mouse_exited"]
 [connection signal="mouse_entered" from="5" to="." method="_on_button_mouse_entered" flags=18]

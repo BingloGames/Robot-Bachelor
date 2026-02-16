@@ -79,6 +79,7 @@ texture = SubResource("CanvasTexture_25xmc")
 visible = false
 offset_right = 896.0
 offset_bottom = 256.0
+Answer = "answer ="
 
 [node name="Info pop up" parent="." instance=ExtResource("8_5pfj7")]
 anchors_preset = 10

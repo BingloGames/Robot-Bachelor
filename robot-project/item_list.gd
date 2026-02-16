@@ -168,8 +168,8 @@ func _on_button_8_mouse_exited() -> void:
 
 #Function so when we click on a function from the item list, it gets pasted in to the coding window:
 func _on_item_clicked(index: int, at_position: Vector2, mouse_button_index: int) -> void:
-	var item = get_node("ItemList").get_item_text(index)
-	function = item + "\n"
+	var thing = get_node("ItemList").get_item_text(index)
+	function = thing + "\n"
 	var line_limit = get_node("/root/Node2D/code").line_limit
 	var current_line = get_node("/root/Node2D/code/TextEdit").get_line_count()
 	if current_line > line_limit:

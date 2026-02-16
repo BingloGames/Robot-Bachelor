@@ -34,8 +34,9 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-func _show() -> void:
-	get_node("Input pop up").show()
+	
+func showInput() -> void:
+	get_node("/root/Node2D/Input pop up").show()
 	set_mouse_filter(MOUSE_FILTER_STOP)
 
 func _on_button_pressed() -> void:
@@ -45,7 +46,7 @@ func _on_button_pressed() -> void:
 		if line == Answer:
 			get_node("/root/Node2D/doors/door").open()
 			get_node("/root/Node2D/code").running_code = false
-			get_node("Input pop up").hide()
+			get_node("/root/Node2D/Input pop up").hide()
 			set_mouse_filter(MOUSE_FILTER_IGNORE)
 
 	if line_array[0] == "import":

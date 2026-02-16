@@ -1,12 +1,14 @@
-[gd_scene load_steps=11 format=4 uid="uid://cj5x0a534yaa6"]
+[gd_scene load_steps=13 format=4 uid="uid://cj5x0a534yaa6"]
 
 [ext_resource type="TileSet" uid="uid://b86b5a6rn7qvr" path="res://TileSet.tres" id="1_tjh38"]
 [ext_resource type="PackedScene" uid="uid://b7xm7lsovxbqr" path="res://text_edit.tscn" id="2_tjh38"]
 [ext_resource type="PackedScene" uid="uid://bdbqr488vc61t" path="res://star counter.tscn" id="3_lhhoo"]
+[ext_resource type="PackedScene" uid="uid://dj8bvk78ajlmy" path="res://Item.tscn" id="4_i2b4m"]
 [ext_resource type="PackedScene" uid="uid://bkcxr5ltukhr1" path="res://robot.tscn" id="4_ufpxx"]
 [ext_resource type="PackedScene" uid="uid://ba7flvblhi3ln" path="res://blue_door_1.tscn" id="5_5pfj7"]
 [ext_resource type="PackedScene" uid="uid://dqdijlggb57o1" path="res://item_list.tscn" id="6_knvoa"]
 [ext_resource type="PackedScene" uid="uid://b0ujd0xpga4ra" path="res://temp_end_particles.tscn" id="6_lhhoo"]
+[ext_resource type="PackedScene" uid="uid://ct3ylbdix74av" path="res://blue button.tscn" id="6_ngd16"]
 [ext_resource type="PackedScene" uid="uid://bu5wqujjgco58" path="res://info_pop_up.tscn" id="8_5pfj7"]
 [ext_resource type="PackedScene" uid="uid://lggogupwduwp" path="res://input_pop_up.tscn" id="8_vpjvl"]
 
@@ -23,7 +25,7 @@ tile_map_data = PackedByteArray("AAAJAAcAAQACABcAAAAJAAYAAQACABYAAAAJAAUAAQACABY
 tile_set = ExtResource("1_tjh38")
 
 [node name="special" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAFAAYAAQAIABUAAAAIAAQAAQAHABcAAAABAAMAAQAIAAsAAAABAAYAAgAAAAAAAQAFAAIAAgAAAAAAAQAHAAUAAgAAAAAAAQABAAIAAQABABYAAAACAAIAAQABABYAAAACAAUAAQABABYAAAAEAAUAAQABABYAAAAGAAUAAQABABYAAAAHAAYAAQABABYAAAAIAAUAAQABABYAAAAHAAMAAQABABYAAAAGAAMAAQABABYAAAAIAAYAAQAEABYAAAAGAAYAAQAEABYAAAAEAAYAAQAEABYAAAA=")
+tile_map_data = PackedByteArray("AAAFAAYAAQAIABUAAAAIAAQAAQAIABcAAAABAAMAAQAIAAsAAAABAAYAAgAAAAAAAQAFAAIAAgAAAAAAAQAHAAUAAgAAAAAAAQABAAIAAQABABYAAAACAAIAAQABABYAAAACAAUAAQABABYAAAAEAAUAAQABABYAAAAGAAUAAQABABYAAAAHAAYAAQABABYAAAAIAAUAAQABABYAAAAHAAMAAQABABYAAAAGAAMAAQABABYAAAAIAAYAAQAEABYAAAAGAAYAAQAEABYAAAAEAAYAAQAEABYAAAAFAAQAAQAGABcAAAA=")
 tile_set = ExtResource("1_tjh38")
 
 [node name="code" parent="." instance=ExtResource("2_tjh38")]
@@ -37,10 +39,19 @@ offset_top = 200.0
 offset_right = 96.0
 offset_bottom = 200.0
 
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Item" parent="Node2D" instance=ExtResource("4_i2b4m")]
+position = Vector2(272, 144)
+Item = "List = [ ]"
+
 [node name="robot" parent="." instance=ExtResource("4_ufpxx")]
 position = Vector2(48, 112)
 
 [node name="buttons" type="Node2D" parent="."]
+
+[node name="button" parent="buttons" instance=ExtResource("6_ngd16")]
+position = Vector2(175, 143)
 
 [node name="doors" type="Node2D" parent="."]
 
@@ -53,7 +64,7 @@ position = Vector2(176, 208)
 [node name="Container" parent="." instance=ExtResource("6_knvoa")]
 offset_left = 512.0
 offset_right = 896.0
-items = 8
+items = 5
 
 [node name="start point" type="Node2D" parent="."]
 position = Vector2(48, 112)
@@ -70,7 +81,6 @@ offset_right = 896.0
 offset_bottom = 256.0
 
 [node name="Info pop up" parent="." instance=ExtResource("8_5pfj7")]
-visible = false
 anchors_preset = 10
 anchor_bottom = 0.0
 offset_right = 896.0

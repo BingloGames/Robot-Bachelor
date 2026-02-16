@@ -8,7 +8,8 @@ extends Area2D
 
 func _on_body_entered(body: Node2D) -> void:
 	if get_node("/root/Node2D/").has_node("Input pop up"):
-		get_node("/root/Node2D/Input pop up")._show()
+		get_node("/root/Node2D/Input pop up").showInput()
+		get_node("/root/Node2D/code").running_code = false
 	else:
 		get_node(door).open()
 		get_node("/root/Node2D/code").running_code = false

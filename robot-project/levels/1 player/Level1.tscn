@@ -34,6 +34,7 @@ tile_map_data = PackedByteArray("AAAHAAQAAQAIABUAAAACAAQAAQAJABIAAAAEAAQAAgAAAAA
 tile_set = ExtResource("1_lmyl5")
 
 [node name="items" type="Node2D" parent="."]
+position = Vector2(-32, 0)
 
 [node name="Item" parent="items" instance=ExtResource("7_qrxcu")]
 position = Vector2(144, 144)
@@ -89,7 +90,6 @@ scale = Vector2(896, 256)
 texture = SubResource("CanvasTexture_44r2x")
 
 [node name="Info pop up" parent="." instance=ExtResource("6_lrqwn")]
-visible = false
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0

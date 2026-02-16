@@ -34,6 +34,7 @@ offset_right = 512.0
 line_limit = 20
 
 [node name="star counter" parent="." instance=ExtResource("3_jfjt6")]
+anchors_preset = 15
 offset_left = 96.0
 offset_top = 200.0
 offset_right = 96.0
@@ -80,7 +81,6 @@ scale = Vector2(896.5001, 256.5)
 texture = SubResource("CanvasTexture_q4xh8")
 
 [node name="Input pop up" parent="." instance=ExtResource("9_4xlxe")]
-visible = false
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0

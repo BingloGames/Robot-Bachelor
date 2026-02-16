@@ -35,6 +35,7 @@ offset_right = 512.0
 line_limit = 20
 
 [node name="star counter" parent="." instance=ExtResource("2_q04gf")]
+anchors_preset = 15
 offset_left = 96.0
 offset_top = 192.0
 offset_right = 96.0

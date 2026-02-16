@@ -1,0 +1,5 @@
+In this level you will learn about functions. 
+
+A function is a number of lines of code that we give a name to so we can call it several times without having to write the lines of code every time. 
+
+To call a function write the name of the function followed by "()".

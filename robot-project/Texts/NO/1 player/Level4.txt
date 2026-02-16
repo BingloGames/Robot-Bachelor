@@ -1,0 +1,8 @@
+A variable is a name we give to a value so we can use it in other parts of the code, like functions.
+
+This is a variable:         X = 1  
+This is another variable:   Y = 2
+
+To call a variable you just write the variable name, like this: X. 
+
+To change the value of a variable, you would do it like this: X = 3, or X = X + Y. 

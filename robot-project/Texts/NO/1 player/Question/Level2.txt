@@ -1,0 +1,2 @@
+In the previous level you picked up the functions "left()" and "right()". 
+Try importing them with "import left() from Level 1" and "import right() from Level 2".

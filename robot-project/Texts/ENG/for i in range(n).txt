@@ -1,1 +1,3 @@
-Text for ForLoop
+for i in range(n) is a loop that runs n times. Change n for the number of times you want the code inside to run.
+
+WARNING: The code you want the loop to run several times has to be indented, to exit the loop, write non-indented code.

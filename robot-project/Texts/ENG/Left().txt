@@ -1,1 +1,3 @@
-Text for Left()
+left() is a function that, when you call it, it turns the direction of the robot left 90 degrees, and it moves the robot forward one tile. 
+
+WARNING: functions are case sensitive and need the pharentesis at the end to work.

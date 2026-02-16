@@ -1,2 +1,3 @@
-forward() is a function that, when you call it it moves the robot forward one tile. 
-Warnings: functions are case sensitive and need the pharentesis at the end to work.
+forward() is a function that, when you call it, it moves the robot forward one tile. 
+
+WARNING: functions are case sensitive and need the pharentesis at the end to work.

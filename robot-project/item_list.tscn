@@ -19,9 +19,11 @@ metadata/_edit_group_ = true
 
 [node name="Text" type="Label" parent="."]
 layout_mode = 0
-offset_left = 157.0
+offset_left = 152.0
 offset_right = 384.0
 offset_bottom = 256.0
+text = "Move mouse on top of ? to see information on the different options."
+autowrap_mode = 2
 
 [node name="0" type="Button" parent="."]
 visible = false

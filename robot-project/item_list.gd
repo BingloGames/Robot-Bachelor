@@ -12,7 +12,7 @@ var item = ""
 func _ready() -> void:
 	for i in range(items):
 		get_node("ItemList").add_item(itemsList[i])
-		var button = str(i+1)
+		var button = str(i)
 		get_node(button).show()
 	
 	

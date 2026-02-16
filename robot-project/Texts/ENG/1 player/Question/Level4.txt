@@ -1,1 +1,1 @@
-Change the variable "Asnwer" to the sum of the variables X and Y.
+Change the variable "answer" to the sum of the variables X and Y.

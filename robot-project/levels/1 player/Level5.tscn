@@ -34,7 +34,6 @@ offset_right = 512.0
 line_limit = 20
 
 [node name="star counter" parent="." instance=ExtResource("3_lhhoo")]
-anchors_preset = 15
 offset_left = 96.0
 offset_top = 200.0
 offset_right = 96.0
@@ -80,6 +79,7 @@ texture = SubResource("CanvasTexture_25xmc")
 visible = false
 offset_right = 896.0
 offset_bottom = 256.0
+Answer = "answer ="
 
 [node name="Info pop up" parent="." instance=ExtResource("8_5pfj7")]
 anchors_preset = 10

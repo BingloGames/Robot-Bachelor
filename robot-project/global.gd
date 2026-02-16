@@ -26,10 +26,15 @@ func restart_level() -> void:
 	get_node("/root/Node2D/star counter").restart_stars()
 	get_node("/root/Node2D/robot").respawn()
 	get_node("/root/Node2D/code").stop_running_code()
-	if get_node("/root/Node2D/").has_node("Item"):
-		get_node("/root/Node2D/Item").respawn()
-	if get_node("/root/Node2D/").has_node("Item2"):
-		get_node("/root/Node2D/Item2").respawn()
+	
+	
+	if get_node("/root/Node2D").has_node("items"):
+		for item in get_node("/root/Node2D/items").get_children():
+			item.respawn()
+	#if get_node("/root/Node2D/").has_node("Item"):
+		#get_node("/root/Node2D/Item").respawn()
+	#if get_node("/root/Node2D/").has_node("Item2"):
+		#get_node("/root/Node2D/Item2").respawn()
 
 
 func next_level_player_1() -> void:

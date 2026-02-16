@@ -18,8 +18,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	
 	get_node("/root/Node2D/Container/ItemList").add_item(Item)
 	itemsCounter += 1
-	var button = "/root/Node2D/Container/Button" + str(itemsCounter+itemsInItemList)
-	get_node(button).show()
+	var button = "/root/Node2D/Container/" + str(itemsCounter+itemsInItemList)
+	show()
 	
 	hide()
 	

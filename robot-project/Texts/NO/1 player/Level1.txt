@@ -1,5 +1,5 @@
-In this level you will learn about functions. 
+I dette levelet vil du lære om funksjoner. 
 
-A function is a number of lines of code that we give a name to so we can call it several times without having to write the lines of code every time. 
+En funksjon er linjer med kode som har blitt gitt et navn og kan bli kalt flere ganger uten å skrive de linjene med kode vær eneste gang.
 
-To call a function write the name of the function followed by "()".
+For å kalle en funksjon, skriv navnet på funksjonen og skriv "()" på slutten.

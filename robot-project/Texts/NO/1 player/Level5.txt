@@ -1,8 +1,7 @@
-Lists are used to store multiple values.
+Lister blir brukt til å lagre flere verdier.
 
-To call a specific variable from a list, you call the list and the index number. 
-To call the first value of our list, we would do:
-	List[0]  
-Remember that python always starts counting from 0.
+Python begynner telling med 0, så for å få den første verdien i en liste skriver du som dette:
 
-Find the list and use the correct index to answer the question and open the door.
+list[0]
+
+Finn listen og bruk den riktige indeksen til å svare på spørsmålet for å åpne døren.

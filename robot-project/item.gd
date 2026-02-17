@@ -1,26 +1,32 @@
 extends Node2D
-@export var Item = "Item"
+class_name Item
+
+
+@export var item_name = "Item"
 var itemCollected = false
-@onready var itemsInItemList = get_node("/root/Node2D/Container").items
-var itemsCounter = 0
+
+
+func _ready() -> void:
+	get_node("Label").text = item_name
+
 
 func respawn() -> void:
-	show()
+	get_node("collect anim").stop()
+	get_node("particles").hide()
+	get_node("Box").scale = Vector2(0.8, 0.8)
+	get_node("Label").modulate.a = 0
 	itemCollected = false
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if itemCollected:
 		return
 	
-	get_node("/root/Node2D/Container/ItemList").add_item(Item)
-	itemsCounter += 1
-	var button = "/root/Node2D/Container/" + str(itemsCounter+itemsInItemList)
-	get_node(button).show()
 	
-	hide()
-	
+	get_node("particles").show()
+	get_node("particles").emitting = true
+	get_node("collect anim").play("collect")
 	itemCollected = true
+	
+	
+	get_parent().new_item(self)

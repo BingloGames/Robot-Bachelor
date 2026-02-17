@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bdbqr488vc61t"]
 
-[ext_resource type="Script" uid="uid://dcjy1dg26gfdp" path="res://start_counter.gd" id="1_nb07x"]
+[ext_resource type="Script" uid="uid://dcjy1dg26gfdp" path="res://star_counter.gd" id="1_nb07x"]
 [ext_resource type="Texture2D" uid="uid://gruwufbivd2w" path="res://star empty.png" id="2_1pkc1"]
 
 [node name="star counter" type="Control"]

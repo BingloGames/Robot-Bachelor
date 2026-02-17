@@ -17,11 +17,15 @@ func restart_stars() -> void:
 	for star in stars_collected:
 		star.respawn()
 	
+	
 	for star_sprite_parent in get_node("HBoxContainer").get_children():
 		star_sprite_parent.get_child(0).texture = empty_star
+	
+	
+	stars_collected.clear()
 
 
-func new_star(star_node) -> void:
+func new_star(star_node: Star) -> void:
 	stars_collected.append(star_node)
 	star_count += 1
 	get_node("HBoxContainer/"+str(star_count)+"/Sprite2D").texture = full_star

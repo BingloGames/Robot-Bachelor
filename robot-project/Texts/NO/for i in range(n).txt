@@ -1,3 +1,8 @@
-for i in range(n) is a loop that runs n times. Change n for the number of times you want the code inside to run.
+for i in range(n) er en løkke som kjører n ganger. Bytt n med antall ganger du har lyst til å kjøre koden.
 
-WARNING: The code you want the loop to run several times has to be indented, to exit the loop, write non-indented code.
+
+for i in range(5):
+	forward()
+
+
+ADVARSEL: Koden du har lyst til å kjøre flere ganger må være inntrykket og for å ha kode som ikke er i løkken, skriver du en linje som ikke er inntrykket.

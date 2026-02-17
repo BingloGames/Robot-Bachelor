@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://cegta6et6tutj"]
+[gd_scene load_steps=10 format=4 uid="uid://cegta6et6tutj"]
 
 [ext_resource type="TileSet" uid="uid://b86b5a6rn7qvr" path="res://TileSet.tres" id="1_545p4"]
 [ext_resource type="PackedScene" uid="uid://bdbqr488vc61t" path="res://star counter.tscn" id="2_84iim"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://cc4r5wtmlaj02" path="res://blue_door_2.tscn" id="5_wmnt6"]
 [ext_resource type="PackedScene" uid="uid://ct3ylbdix74av" path="res://blue button.tscn" id="5_wxujf"]
 [ext_resource type="PackedScene" uid="uid://dqdijlggb57o1" path="res://item_list.tscn" id="6_545p4"]
-[ext_resource type="PackedScene" uid="uid://b0ujd0xpga4ra" path="res://temp_end_particles.tscn" id="6_h8oof"]
 [ext_resource type="PackedScene" uid="uid://bu5wqujjgco58" path="res://info_pop_up.tscn" id="9_wxujf"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_wmnt6"]
@@ -50,9 +49,6 @@ offset_bottom = 200.0
 
 [node name="robot" parent="." instance=ExtResource("4_545p4")]
 position = Vector2(48, 80)
-
-[node name="end_particles" parent="." instance=ExtResource("6_h8oof")]
-position = Vector2(272, 208)
 
 [node name="Container" parent="." instance=ExtResource("6_545p4")]
 offset_left = 512.0

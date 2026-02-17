@@ -1,8 +1,12 @@
-A variable is a name we give to a value so we can use it in other parts of the code, like functions.
+En variabel er et navn vi gir til en verdi som vi kan bruke i koden.
 
-This is a variable:         X = 1  
-This is another variable:   Y = 2
+Dette er en variabel: 	    x = 1
+Dette er en annen variabel: y = 2
 
-To call a variable you just write the variable name, like this: X. 
+For å endre verdien til en variabel skriver du som dette:
 
-To change the value of a variable, you would do it like this: X = 3, or X = X + Y. 
+x = 3
+
+eller
+
+x = x + y

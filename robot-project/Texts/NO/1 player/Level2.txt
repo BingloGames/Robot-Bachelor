@@ -1,1 +1,1 @@
-Some times, you will have a function in another file that you will want to call. For this, we use "import". 
+Noen ganger har du en funksjon i en annen fil som du vil bruke. For å gjøre det bruker vi "import".

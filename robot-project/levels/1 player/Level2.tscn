@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=4 uid="uid://v8m66saeg0sy"]
+[gd_scene load_steps=9 format=4 uid="uid://v8m66saeg0sy"]
 
 [ext_resource type="TileSet" uid="uid://b86b5a6rn7qvr" path="res://TileSet.tres" id="1_wwdpc"]
 [ext_resource type="PackedScene" uid="uid://b7xm7lsovxbqr" path="res://text_edit.tscn" id="2_psxy2"]
 [ext_resource type="PackedScene" uid="uid://bdbqr488vc61t" path="res://star counter.tscn" id="2_q04gf"]
 [ext_resource type="PackedScene" uid="uid://bkcxr5ltukhr1" path="res://robot.tscn" id="4_wwdpc"]
-[ext_resource type="PackedScene" uid="uid://b0ujd0xpga4ra" path="res://temp_end_particles.tscn" id="6_6faey"]
 [ext_resource type="PackedScene" uid="uid://dqdijlggb57o1" path="res://item_list.tscn" id="6_wwdpc"]
 [ext_resource type="PackedScene" uid="uid://lggogupwduwp" path="res://input_pop_up.tscn" id="7_gxplt"]
 [ext_resource type="PackedScene" uid="uid://bu5wqujjgco58" path="res://info_pop_up.tscn" id="7_h2i1x"]
@@ -25,17 +24,12 @@ tile_set = ExtResource("1_wwdpc")
 tile_map_data = PackedByteArray("AAAHAAQAAQAJABYAAAACAAMAAQAAAAwAAAADAAMAAQAGABUAAAADAAQAAQAGABYAAAAFAAMAAQAHABYAAAAHAAIAAQAHABUAAAAGAAIAAQAHABUAAAAEAAIAAQAHABUAAAAFAAIAAQAGABUAAAADAAIAAQAGABUAAAAFAAUAAQAHABUAADAEAAMAAgAAAAAAAQAGAAUAAgAAAAAAAQAHAAMAAgAAAAAAAQA=")
 tile_set = ExtResource("1_wwdpc")
 
-[node name="buttons" type="Node2D" parent="."]
-
-[node name="doors" type="Node2D" parent="."]
-
 [node name="code" parent="." instance=ExtResource("2_psxy2")]
 offset_left = 320.0
 offset_right = 512.0
 line_limit = 20
 
 [node name="star counter" parent="." instance=ExtResource("2_q04gf")]
-anchors_preset = 15
 offset_left = 96.0
 offset_top = 192.0
 offset_right = 96.0
@@ -43,9 +37,6 @@ offset_bottom = 192.0
 
 [node name="robot" parent="." instance=ExtResource("4_wwdpc")]
 position = Vector2(80, 112)
-
-[node name="end_particles" parent="." instance=ExtResource("6_6faey")]
-position = Vector2(240, 144)
 
 [node name="Container" parent="." instance=ExtResource("6_wwdpc")]
 offset_left = 512.0

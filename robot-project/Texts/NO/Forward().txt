@@ -1,3 +1,3 @@
-forward() beveger roboten fremover en flis (????)
+forward() beveger roboten fremover en flis
 
 ADVARSEL: Funksjoner skiller mellom store og små bokstaver og trenger parentes på slutten.

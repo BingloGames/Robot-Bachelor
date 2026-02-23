@@ -1,0 +1,68 @@
+[gd_scene load_steps=10 format=4 uid="uid://s113pxqg317h"]
+
+[ext_resource type="TileSet" uid="uid://b86b5a6rn7qvr" path="res://TileSet.tres" id="1_bwfy6"]
+[ext_resource type="PackedScene" uid="uid://dj8bvk78ajlmy" path="res://Item.tscn" id="2_mviwg"]
+[ext_resource type="PackedScene" uid="uid://ct3ylbdix74av" path="res://blue button.tscn" id="3_yonr7"]
+[ext_resource type="PackedScene" uid="uid://ba7flvblhi3ln" path="res://blue_door_1.tscn" id="4_elun1"]
+[ext_resource type="PackedScene" uid="uid://b7xm7lsovxbqr" path="res://text_edit.tscn" id="5_5ekr7"]
+[ext_resource type="PackedScene" uid="uid://bdbqr488vc61t" path="res://star counter.tscn" id="6_ca3q6"]
+[ext_resource type="PackedScene" uid="uid://b0ujd0xpga4ra" path="res://temp_end_particles.tscn" id="7_iag7v"]
+[ext_resource type="PackedScene" uid="uid://bu5wqujjgco58" path="res://info_pop_up.tscn" id="8_x24m1"]
+[ext_resource type="PackedScene" uid="uid://dqdijlggb57o1" path="res://item_list.tscn" id="9_kvj0t"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Ground" type="TileMapLayer" parent="."]
+position = Vector2(192, 4)
+tile_map_data = PackedByteArray("AAABAAEAAQAAAAIAAAABAAIAAQAEAAIAAAABAAMAAQAIAAIAAAABAAQAAQAIAAIAAAABAAUAAQAIAAIAAAABAAYAAQAIAAIAAAABAAcAAQAIAAQAAAADAAEAAQAAAAIAAAACAAIAAQAKAAEAAAADAAIAAQAHAAIAAAADAAMAAQALAAMAAAACAAMAAQAJAAMAAAACAAQAAQAJAAMAAAADAAQAAQALAAMAAAADAAUAAQALAAMAAAACAAUAAQAJAAMAAAACAAYAAQAJAAMAAAADAAYAAQALAAMAAAADAAcAAQALAAQAAAACAAcAAQAJAAQAAAADAAAAAQADAAEAAAACAAAAAQACAAQAAAABAAAAAQABAAEAAAAGAAcAAQAIAAkAAAAHAAcAAQAJAAkAAAAHAAYAAQAJAAgAAAAHAAUAAQAJAAgAAAAHAAQAAQAJAAgAAAAHAAIAAQAKAAYAAAAHAAAAAQACAAkAAAAGAAAAAQABAAYAAAAGAAEAAQAAAAcAAAAGAAIAAQAEAAcAAAAGAAQAAQAIAAcAAAAGAAUAAQAIAAcAAAAGAAYAAQAIAAcAAAAIAAcAAQALAAkAAAAIAAYAAQALAAgAAAAIAAUAAQALAAgAAAAIAAQAAQALAAgAAAAIAAMAAQALAAgAAAAIAAIAAQAHAAcAAAAIAAEAAQAAAAcAAAAIAAAAAQADAAYAAAAGAAMAAQAIAAcAAAAHAAMAAQAJAAgAAAA=")
+tile_set = ExtResource("1_bwfy6")
+
+[node name="Walls" type="TileMapLayer" parent="."]
+position = Vector2(192, 4)
+tile_map_data = PackedByteArray("AAAAAP//AQAAABUAAAAAAAAAAQAAABYAAAAAAAEAAQAAABYAAAAAAAIAAQAAABYAAAAAAAMAAQAAABYAAAAAAAQAAQAAABYAAAAAAAUAAQAAABYAAAAAAAYAAQAAABYAAAAAAAcAAQAAABYAAAAAAAgAAQAAABcAAAAEAP//AQACABUAAAAEAAAAAQACABYAAAAEAAEAAQACABYAAAAEAAIAAQACABYAAAAEAAMAAQACABYAAAAEAAQAAQACABYAAAAEAAUAAQACABYAAAAEAAYAAQACABYAAAAEAAcAAQACABYAAAAEAAgAAQACABcAAAAFAP//AQADABUAAAAFAAAAAQADABYAAAAFAAEAAQADABYAAAAFAAIAAQADABYAAAAFAAMAAQADABYAAAAFAAQAAQADABYAAAAFAAUAAQADABYAAAAFAAYAAQADABYAAAAFAAcAAQADABYAAAAFAAgAAQADABcAAAAJAP//AQAFABUAAAAJAAAAAQAFABYAAAAJAAEAAQAFABYAAAAJAAIAAQAFABYAAAAJAAMAAQAFABYAAAAJAAQAAQAFABYAAAAJAAUAAQAFABYAAAAJAAYAAQAFABYAAAAJAAcAAQAFABYAAAAJAAgAAQAFABcAAAAGAAgAAQAEABcAAAAHAAgAAQAEABcAAAAIAAgAAQAEABcAAAAGAP//AQAEABUAAAAHAP//AQAEABUAAAAIAP//AQAEABUAAAABAAgAAQABABcAAAACAAgAAQABABcAAAADAAgAAQABABcAAAABAP//AQABABUAAAACAP//AQABABUAAAADAP//AQABABUAAAA=")
+tile_set = ExtResource("1_bwfy6")
+
+[node name="Special" type="TileMapLayer" parent="."]
+position = Vector2(192, 4)
+tile_map_data = PackedByteArray("AAAHAAEAAQALABYAAAACAAEAAQAJABYAAAABAAIAAQAGABYAAAADAAIAAQAHABYAAAACAAQAAgAAAAAAAQACAAIAAgAAAAAAAQACAAAAAgAAAAAAAQAHAAcAAQAJABMAAAACAAcAAQAJAA4AAAACAAYAAgAAAAAAAQA=")
+tile_set = ExtResource("1_bwfy6")
+
+[node name="Items" type="Node2D" parent="."]
+position = Vector2(192, 4)
+
+[node name="Item" parent="Items" instance=ExtResource("2_mviwg")]
+position = Vector2(80, 176)
+
+[node name="Item2" parent="Items" instance=ExtResource("2_mviwg")]
+position = Vector2(80, 112)
+
+[node name="buttons" type="Node2D" parent="."]
+position = Vector2(431, 84)
+
+[node name="button" parent="buttons" instance=ExtResource("3_yonr7")]
+
+[node name="doors" type="Node2D" parent="."]
+position = Vector2(271, 84)
+
+[node name="door" parent="doors" instance=ExtResource("4_elun1")]
+
+[node name="code" parent="." instance=ExtResource("5_5ekr7")]
+
+[node name="star counter" parent="." instance=ExtResource("6_ca3q6")]
+offset_left = 205.0
+offset_top = 236.0
+offset_right = 205.0
+offset_bottom = 236.0
+
+[node name="end_particles" parent="." instance=ExtResource("7_iag7v")]
+position = Vector2(271, 52)
+
+[node name="end_particles2" parent="." instance=ExtResource("7_iag7v")]
+position = Vector2(432, 52)
+
+[node name="Info pop up" parent="." instance=ExtResource("8_x24m1")]
+visible = false
+
+[node name="Code" parent="." instance=ExtResource("9_kvj0t")]
+offset_left = 512.0
+offset_right = 896.0

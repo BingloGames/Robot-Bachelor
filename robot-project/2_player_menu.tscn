@@ -1,0 +1,155 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnpnybd5aqd05"]
+
+[ext_resource type="Script" uid="uid://dg4n465qf1tw3" path="res://2_player_menu.gd" id="1_eeufj"]
+
+[node name="2 player menu" type="Node2D"]
+script = ExtResource("1_eeufj")
+
+[node name="name selector" type="LineEdit" parent="."]
+offset_left = 320.0
+offset_top = 24.0
+offset_right = 512.0
+offset_bottom = 64.0
+placeholder_text = "Your Name"
+
+[node name="layer 1" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="join" type="Button" parent="layer 1"]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 104.0
+offset_right = 264.0
+offset_bottom = 152.0
+text = "Join"
+
+[node name="host" type="Button" parent="layer 1"]
+layout_mode = 0
+offset_left = 520.0
+offset_top = 112.0
+offset_right = 608.0
+offset_bottom = 144.0
+text = "Host"
+
+[node name="back" type="Button" parent="layer 1"]
+layout_mode = 0
+offset_left = 592.0
+offset_top = 40.0
+offset_right = 656.0
+offset_bottom = 72.0
+text = "Back"
+
+[node name="host game" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 368.0
+offset_top = 96.0
+offset_right = 432.0
+offset_bottom = 144.0
+
+[node name="Label" type="Label" parent="host game"]
+layout_mode = 0
+offset_left = -136.0
+offset_right = 145.0
+offset_bottom = 64.0
+text = "Fellow robot: 
+(Name of other player)"
+
+[node name="start" type="Button" parent="host game"]
+layout_mode = 0
+offset_top = 80.0
+offset_right = 64.0
+offset_bottom = 112.0
+disabled = true
+text = "Start"
+
+[node name="back" type="Button" parent="host game"]
+layout_mode = 0
+offset_left = 256.0
+offset_top = -24.0
+offset_right = 352.0
+offset_bottom = 16.0
+text = "Back"
+
+[node name="ip address" type="Label" parent="host game"]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 72.0
+offset_right = 320.0
+offset_bottom = 121.0
+text = "No valid IP addresses"
+
+[node name="join game" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 336.0
+offset_top = 104.0
+offset_right = 496.0
+offset_bottom = 192.0
+
+[node name="ip address" type="LineEdit" parent="join game"]
+layout_mode = 0
+offset_top = 24.0
+offset_right = 136.0
+offset_bottom = 55.0
+placeholder_text = "127.0.0.1"
+
+[node name="Label" type="Label" parent="join game"]
+layout_mode = 0
+offset_top = -8.0
+offset_right = 136.0
+offset_bottom = 15.0
+text = "IP address:"
+
+[node name="connect" type="Button" parent="join game"]
+layout_mode = 0
+offset_top = 88.0
+offset_right = 136.0
+offset_bottom = 127.0
+text = "connect"
+
+[node name="back" type="Button" parent="join game"]
+layout_mode = 0
+offset_left = 280.0
+offset_top = -40.0
+offset_right = 344.0
+offset_bottom = -8.0
+text = "Back"
+
+[node name="joiner connected" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="joiner connected"]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 96.0
+offset_right = 512.0
+offset_bottom = 145.0
+text = "Connected with:
+(host name)"
+
+[node name="cancel" type="Button" parent="joiner connected"]
+layout_mode = 0
+offset_left = 344.0
+offset_top = 192.0
+offset_right = 424.0
+offset_bottom = 232.0
+text = "Cancel"
+
+[connection signal="pressed" from="layer 1/join" to="." method="_on_join_pressed"]
+[connection signal="pressed" from="layer 1/host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="layer 1/back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="host game/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="host game/back" to="." method="_on_host_back_pressed"]
+[connection signal="pressed" from="join game/connect" to="." method="_on_connect_pressed"]
+[connection signal="pressed" from="join game/back" to="." method="_on_join_back_pressed"]
+[connection signal="pressed" from="joiner connected/cancel" to="." method="_on_cancel_pressed"]

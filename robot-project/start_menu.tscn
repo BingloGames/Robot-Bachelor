@@ -117,6 +117,7 @@ popup/item_1/id = 1
 popup/item_2/text = "Norsk"
 popup/item_2/id = 2
 
+[connection signal="pressed" from="players/2" to="." method="_on_players_pressed" binds= ["2"]]
 [connection signal="pressed" from="players/1" to="." method="_on_players_pressed" binds= ["1"]]
 [connection signal="pressed" from="start" to="." method="_on_start_pressed"]
 [connection signal="item_selected" from="language selector" to="." method="_on_language_selector_item_selected"]

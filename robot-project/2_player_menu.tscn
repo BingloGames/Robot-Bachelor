@@ -77,10 +77,10 @@ text = "Back"
 
 [node name="ip address" type="Label" parent="host game"]
 layout_mode = 0
-offset_left = 160.0
-offset_top = 72.0
-offset_right = 320.0
-offset_bottom = 121.0
+offset_left = 248.0
+offset_top = 16.0
+offset_right = 413.0
+offset_bottom = 65.0
 text = "No valid IP addresses"
 
 [node name="join game" type="Control" parent="."]
@@ -145,6 +145,7 @@ offset_right = 424.0
 offset_bottom = 232.0
 text = "Cancel"
 
+[connection signal="text_changed" from="name selector" to="." method="_on_name_changed"]
 [connection signal="pressed" from="layer 1/join" to="." method="_on_join_pressed"]
 [connection signal="pressed" from="layer 1/host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="layer 1/back" to="." method="_on_back_pressed"]

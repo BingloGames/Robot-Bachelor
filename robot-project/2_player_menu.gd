@@ -74,8 +74,10 @@ func move_to_selector():
 
 
 func _on_cancel_pressed() -> void:
-	pass
+	multiplayer.multiplayer_peer.disconnect_peer(multiplayer.get_unique_id())
 	#cancel connection
+	get_node("joiner connected").hide()
+	get_node("layer 1").show()
 
 
 func _on_join_back_pressed() -> void:

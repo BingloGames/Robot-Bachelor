@@ -36,6 +36,10 @@ func _ready() -> void:
 		filename = dir.get_next()
 	
 	
+	add_level_buttons(levels)
+
+
+func add_level_buttons(levels: Array) -> void:
 	for level in levels:
 		var button = Button.new()
 		button.connect("pressed", _on_level_pressed.bind(level))
@@ -44,7 +48,7 @@ func _ready() -> void:
 		get_node("levels").add_child(button)
 
 
-func _on_level_pressed(level: String) -> void:
+func change_level(level: String) -> void:
 	var level_file_name = levels_path+"/"+levels_file_start+level+path_end
 	
 	
@@ -53,3 +57,8 @@ func _on_level_pressed(level: String) -> void:
 	tween.tween_callback(Callable(get_tree(), "change_scene_to_file").bind(level_file_name)).set_delay(0.2)
 	
 	Global.current_level = int(level)
+
+
+func _on_level_pressed(level: String) -> void:
+	#multiplayer needs these two functions to be seperate
+	change_level(level)

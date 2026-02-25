@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=4 uid="uid://b1an2opk6jjl0"]
+[gd_scene load_steps=11 format=4 uid="uid://b1an2opk6jjl0"]
 
 [ext_resource type="TileSet" uid="uid://b86b5a6rn7qvr" path="res://TileSet.tres" id="1_tih6e"]
 [ext_resource type="PackedScene" uid="uid://dj8bvk78ajlmy" path="res://Item.tscn" id="2_rdv1c"]
+[ext_resource type="PackedScene" uid="uid://dt7xbpfyjhkkh" path="res://robot multiplayer.tscn" id="2_xap0c"]
 [ext_resource type="PackedScene" uid="uid://ct3ylbdix74av" path="res://blue button.tscn" id="3_xap0c"]
 [ext_resource type="PackedScene" uid="uid://ba7flvblhi3ln" path="res://blue_door_1.tscn" id="4_bcaga"]
 [ext_resource type="PackedScene" uid="uid://b7xm7lsovxbqr" path="res://text_edit.tscn" id="5_f18ai"]
@@ -23,6 +24,9 @@ tile_set = ExtResource("1_tih6e")
 [node name="Special" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAHAAEAAQALABYAAAACAAEAAQAJABYAAAABAAIAAQAGABYAAAADAAIAAQAHABYAAAACAAQAAgAAAAAAAQACAAIAAgAAAAAAAQACAAAAAgAAAAAAAQAHAAcAAQAJABMAAAACAAcAAQAJAA4AAAACAAYAAgAAAAAAAQA=")
 tile_set = ExtResource("1_tih6e")
+
+[node name="robot" parent="." instance=ExtResource("2_xap0c")]
+position = Vector2(80, 240)
 
 [node name="Items" type="Node2D" parent="."]
 

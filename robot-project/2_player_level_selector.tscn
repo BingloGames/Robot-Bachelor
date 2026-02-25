@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyscem32dosu5"]
+
+[ext_resource type="PackedScene" uid="uid://dfmxyqm6hvklo" path="res://1_player_menu.tscn" id="1_ugij8"]
+[ext_resource type="Script" uid="uid://bvqtrsxfdauhh" path="res://2_player_level_selector.gd" id="2_u6fpy"]
+
+[node name="2 player menu" instance=ExtResource("1_ugij8")]
+script = ExtResource("2_u6fpy")

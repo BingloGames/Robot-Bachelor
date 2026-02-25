@@ -63,9 +63,14 @@ func _on_connect_pressed() -> void:
 
 
 func _on_start_pressed() -> void:
-	if multiplayer.is_server():
-		pass
+	#if multiplayer.is_server():
+	move_to_selector.rpc()
 	# host goes to level selector
+
+
+@rpc("call_local", "reliable")
+func move_to_selector():
+	get_tree().change_scene_to_file("res://2_player_level_selector.tscn")
 
 
 func _on_cancel_pressed() -> void:

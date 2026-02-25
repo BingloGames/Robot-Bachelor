@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://50q4mg84a340"]
+
+[ext_resource type="Script" uid="uid://bfqnekbt7hskl" path="res://text_edit_multiplayer.gd" id="1_4xcph"]
+[ext_resource type="PackedScene" uid="uid://b7xm7lsovxbqr" path="res://text_edit.tscn" id="1_ynrjs"]
+
+[node name="code" instance=ExtResource("1_ynrjs")]
+script = ExtResource("1_4xcph")

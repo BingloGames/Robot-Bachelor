@@ -1,15 +1,15 @@
-[gd_scene load_steps=11 format=4 uid="uid://b1an2opk6jjl0"]
+[gd_scene load_steps=11 format=4 uid="uid://ddhrdw55u3oix"]
 
 [ext_resource type="TileSet" uid="uid://b86b5a6rn7qvr" path="res://TileSet.tres" id="1_tih6e"]
 [ext_resource type="PackedScene" uid="uid://dj8bvk78ajlmy" path="res://Item.tscn" id="2_rdv1c"]
-[ext_resource type="PackedScene" uid="uid://dt7xbpfyjhkkh" path="res://robot multiplayer.tscn" id="2_xap0c"]
+[ext_resource type="PackedScene" uid="uid://dj7f68aatv7qu" path="res://robot multiplayer.tscn" id="2_xap0c"]
 [ext_resource type="PackedScene" uid="uid://ct3ylbdix74av" path="res://blue button.tscn" id="3_xap0c"]
 [ext_resource type="PackedScene" uid="uid://ba7flvblhi3ln" path="res://blue_door_1.tscn" id="4_bcaga"]
-[ext_resource type="PackedScene" uid="uid://b7xm7lsovxbqr" path="res://text_edit.tscn" id="5_f18ai"]
 [ext_resource type="PackedScene" uid="uid://bdbqr488vc61t" path="res://star counter.tscn" id="6_ej0mn"]
 [ext_resource type="PackedScene" uid="uid://b0ujd0xpga4ra" path="res://temp_end_particles.tscn" id="7_h8d62"]
 [ext_resource type="PackedScene" uid="uid://bu5wqujjgco58" path="res://info_pop_up.tscn" id="8_t6xwf"]
 [ext_resource type="PackedScene" uid="uid://dqdijlggb57o1" path="res://item_list.tscn" id="9_w3jir"]
+[ext_resource type="PackedScene" uid="uid://50q4mg84a340" path="res://text_edit_multiplayer.tscn" id="10_rdv1c"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -25,8 +25,11 @@ tile_set = ExtResource("1_tih6e")
 tile_map_data = PackedByteArray("AAAHAAEAAQALABYAAAACAAEAAQAJABYAAAABAAIAAQAGABYAAAADAAIAAQAHABYAAAACAAQAAgAAAAAAAQACAAIAAgAAAAAAAQACAAAAAgAAAAAAAQAHAAcAAQAJABMAAAACAAcAAQAJAA4AAAACAAYAAgAAAAAAAQA=")
 tile_set = ExtResource("1_tih6e")
 
-[node name="robot" parent="." instance=ExtResource("2_xap0c")]
+[node name="robot1" parent="." instance=ExtResource("2_xap0c")]
 position = Vector2(80, 240)
+
+[node name="robot2" parent="." instance=ExtResource("2_xap0c")]
+position = Vector2(239, 240)
 
 [node name="Items" type="Node2D" parent="."]
 
@@ -46,10 +49,6 @@ position = Vector2(79, 80)
 
 [node name="door" parent="doors" instance=ExtResource("4_bcaga")]
 
-[node name="code" parent="." instance=ExtResource("5_f18ai")]
-offset_left = 320.0
-offset_right = 512.0
-
 [node name="star counter" parent="." instance=ExtResource("6_ej0mn")]
 offset_left = 13.0
 offset_top = 232.0
@@ -68,3 +67,7 @@ visible = false
 [node name="List" parent="." instance=ExtResource("9_w3jir")]
 offset_left = 512.0
 offset_right = 896.0
+
+[node name="code" parent="." instance=ExtResource("10_rdv1c")]
+offset_left = 320.0
+offset_right = 512.0

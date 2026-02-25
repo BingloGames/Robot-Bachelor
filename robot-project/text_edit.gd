@@ -7,7 +7,7 @@ var base_functions = ["forward()", "backward()", "left()", "right()"]
 var codeLines = []
 @export var line_limit: int = 5
 
-@onready var robot = get_node("/root/Node2D/robot")
+var robot = ""
 @onready var text_edit = get_node("TextEdit")
 var waiting = false
 
@@ -29,6 +29,7 @@ var for_loop_variables = {} #what about nested loops?
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	get_node("line limit").text += str(line_limit)
+	var robot = get_node("/root/Node2D/robot")
 	pass # Replace with function body.
 
 

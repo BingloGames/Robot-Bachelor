@@ -17,6 +17,10 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		return
 	
 	
+	if body is MultiplayerRobot:
+		pass
+		#add new star to all players
+	
 	get_node("/root/Node2D/star counter").new_star(self)
 	get_node("AnimationPlayer").play("collect")
 	collected = true

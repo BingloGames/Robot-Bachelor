@@ -1,66 +1,66 @@
 [gd_scene load_steps=10 format=4 uid="uid://b1an2opk6jjl0"]
 
-[ext_resource type="TileSet" uid="uid://b86b5a6rn7qvr" path="res://TileSet.tres" id="1_dnvwn"]
-[ext_resource type="PackedScene" uid="uid://dj8bvk78ajlmy" path="res://Item.tscn" id="2_spx47"]
-[ext_resource type="PackedScene" uid="uid://ct3ylbdix74av" path="res://blue button.tscn" id="3_b72s0"]
-[ext_resource type="PackedScene" uid="uid://ba7flvblhi3ln" path="res://blue_door_1.tscn" id="4_8bks3"]
-[ext_resource type="PackedScene" uid="uid://b7xm7lsovxbqr" path="res://text_edit.tscn" id="5_bwah5"]
-[ext_resource type="PackedScene" uid="uid://bdbqr488vc61t" path="res://star counter.tscn" id="6_vkcar"]
-[ext_resource type="PackedScene" uid="uid://b0ujd0xpga4ra" path="res://temp_end_particles.tscn" id="7_ig6xm"]
-[ext_resource type="PackedScene" uid="uid://bu5wqujjgco58" path="res://info_pop_up.tscn" id="8_d0hfr"]
-[ext_resource type="PackedScene" uid="uid://dqdijlggb57o1" path="res://item_list.tscn" id="9_yeh7a"]
+[ext_resource type="TileSet" uid="uid://b86b5a6rn7qvr" path="res://TileSet.tres" id="1_tih6e"]
+[ext_resource type="PackedScene" uid="uid://dj8bvk78ajlmy" path="res://Item.tscn" id="2_rdv1c"]
+[ext_resource type="PackedScene" uid="uid://ct3ylbdix74av" path="res://blue button.tscn" id="3_xap0c"]
+[ext_resource type="PackedScene" uid="uid://ba7flvblhi3ln" path="res://blue_door_1.tscn" id="4_bcaga"]
+[ext_resource type="PackedScene" uid="uid://b7xm7lsovxbqr" path="res://text_edit.tscn" id="5_f18ai"]
+[ext_resource type="PackedScene" uid="uid://bdbqr488vc61t" path="res://star counter.tscn" id="6_ej0mn"]
+[ext_resource type="PackedScene" uid="uid://b0ujd0xpga4ra" path="res://temp_end_particles.tscn" id="7_h8d62"]
+[ext_resource type="PackedScene" uid="uid://bu5wqujjgco58" path="res://info_pop_up.tscn" id="8_t6xwf"]
+[ext_resource type="PackedScene" uid="uid://dqdijlggb57o1" path="res://item_list.tscn" id="9_w3jir"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Ground" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAABAAEAAQAAAAIAAAABAAIAAQAEAAIAAAABAAMAAQAIAAIAAAABAAQAAQAIAAIAAAABAAUAAQAIAAIAAAABAAYAAQAIAAIAAAABAAcAAQAIAAQAAAADAAEAAQAAAAIAAAACAAIAAQAKAAEAAAADAAIAAQAHAAIAAAADAAMAAQALAAMAAAACAAMAAQAJAAMAAAACAAQAAQAJAAMAAAADAAQAAQALAAMAAAADAAUAAQALAAMAAAACAAUAAQAJAAMAAAACAAYAAQAJAAMAAAADAAYAAQALAAMAAAADAAcAAQALAAQAAAACAAcAAQAJAAQAAAADAAAAAQADAAEAAAACAAAAAQACAAQAAAABAAAAAQABAAEAAAAGAAcAAQAIAAkAAAAHAAcAAQAJAAkAAAAHAAYAAQAJAAgAAAAHAAUAAQAJAAgAAAAHAAQAAQAJAAgAAAAHAAIAAQAKAAYAAAAHAAAAAQACAAkAAAAGAAAAAQABAAYAAAAGAAEAAQAAAAcAAAAGAAIAAQAEAAcAAAAGAAQAAQAIAAcAAAAGAAUAAQAIAAcAAAAGAAYAAQAIAAcAAAAIAAcAAQALAAkAAAAIAAYAAQALAAgAAAAIAAUAAQALAAgAAAAIAAQAAQALAAgAAAAIAAMAAQALAAgAAAAIAAIAAQAHAAcAAAAIAAEAAQAAAAcAAAAIAAAAAQADAAYAAAAGAAMAAQAIAAcAAAAHAAMAAQAJAAgAAAA=")
-tile_set = ExtResource("1_dnvwn")
+tile_set = ExtResource("1_tih6e")
 
 [node name="Walls" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAAAP//AQAAABUAAAAAAAAAAQAAABYAAAAAAAEAAQAAABYAAAAAAAIAAQAAABYAAAAAAAMAAQAAABYAAAAAAAQAAQAAABYAAAAAAAUAAQAAABYAAAAAAAYAAQAAABYAAAAAAAcAAQAAABYAAAAAAAgAAQAAABcAAAAEAP//AQACABUAAAAEAAAAAQACABYAAAAEAAEAAQACABYAAAAEAAIAAQACABYAAAAEAAMAAQACABYAAAAEAAQAAQACABYAAAAEAAUAAQACABYAAAAEAAYAAQACABYAAAAEAAcAAQACABYAAAAEAAgAAQACABcAAAAFAP//AQADABUAAAAFAAAAAQADABYAAAAFAAEAAQADABYAAAAFAAIAAQADABYAAAAFAAMAAQADABYAAAAFAAQAAQADABYAAAAFAAUAAQADABYAAAAFAAYAAQADABYAAAAFAAcAAQADABYAAAAFAAgAAQADABcAAAAJAP//AQAFABUAAAAJAAAAAQAFABYAAAAJAAEAAQAFABYAAAAJAAIAAQAFABYAAAAJAAMAAQAFABYAAAAJAAQAAQAFABYAAAAJAAUAAQAFABYAAAAJAAYAAQAFABYAAAAJAAcAAQAFABYAAAAJAAgAAQAFABcAAAAGAAgAAQAEABcAAAAHAAgAAQAEABcAAAAIAAgAAQAEABcAAAAGAP//AQAEABUAAAAHAP//AQAEABUAAAAIAP//AQAEABUAAAABAAgAAQABABcAAAACAAgAAQABABcAAAADAAgAAQABABcAAAABAP//AQABABUAAAACAP//AQABABUAAAADAP//AQABABUAAAA=")
-tile_set = ExtResource("1_dnvwn")
+tile_set = ExtResource("1_tih6e")
 
 [node name="Special" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAHAAEAAQALABYAAAACAAEAAQAJABYAAAABAAIAAQAGABYAAAADAAIAAQAHABYAAAACAAQAAgAAAAAAAQACAAIAAgAAAAAAAQACAAAAAgAAAAAAAQAHAAcAAQAJABMAAAACAAcAAQAJAA4AAAACAAYAAgAAAAAAAQA=")
-tile_set = ExtResource("1_dnvwn")
+tile_set = ExtResource("1_tih6e")
 
 [node name="Items" type="Node2D" parent="."]
 
-[node name="Item" parent="Items" instance=ExtResource("2_spx47")]
+[node name="Item" parent="Items" instance=ExtResource("2_rdv1c")]
 position = Vector2(80, 176)
 
-[node name="Item2" parent="Items" instance=ExtResource("2_spx47")]
+[node name="Item2" parent="Items" instance=ExtResource("2_rdv1c")]
 position = Vector2(80, 112)
 
 [node name="buttons" type="Node2D" parent="."]
 position = Vector2(239, 80)
 
-[node name="button" parent="buttons" instance=ExtResource("3_b72s0")]
+[node name="button" parent="buttons" instance=ExtResource("3_xap0c")]
 
 [node name="doors" type="Node2D" parent="."]
 position = Vector2(79, 80)
 
-[node name="door" parent="doors" instance=ExtResource("4_8bks3")]
+[node name="door" parent="doors" instance=ExtResource("4_bcaga")]
 
-[node name="code" parent="." instance=ExtResource("5_bwah5")]
+[node name="code" parent="." instance=ExtResource("5_f18ai")]
 offset_left = 320.0
 offset_right = 512.0
 
-[node name="star counter" parent="." instance=ExtResource("6_vkcar")]
+[node name="star counter" parent="." instance=ExtResource("6_ej0mn")]
 offset_left = 13.0
 offset_top = 232.0
 offset_right = 13.0
 offset_bottom = 232.0
 
-[node name="end_particles" parent="." instance=ExtResource("7_ig6xm")]
+[node name="end_particles" parent="." instance=ExtResource("7_h8d62")]
 position = Vector2(79, 48)
 
-[node name="end_particles2" parent="." instance=ExtResource("7_ig6xm")]
+[node name="end_particles2" parent="." instance=ExtResource("7_h8d62")]
 position = Vector2(240, 48)
 
-[node name="Info pop up" parent="." instance=ExtResource("8_d0hfr")]
+[node name="Info pop up" parent="." instance=ExtResource("8_t6xwf")]
 visible = false
 
-[node name="List" parent="." instance=ExtResource("9_yeh7a")]
+[node name="List" parent="." instance=ExtResource("9_w3jir")]
 offset_left = 512.0
 offset_right = 896.0

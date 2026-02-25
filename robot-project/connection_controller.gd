@@ -26,6 +26,8 @@ func _connection_failed():
 
 func _player_connected(id):
 	register_player.rpc_id(id, player_name)
+	if get_node("/root").has_node("2 player menu"):
+		get_node("/root/2 player menu/host game/start").disabled = false
 	#allow the host to start the game
 
 

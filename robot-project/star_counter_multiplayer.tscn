@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://cx1504tg7girn"]
+
+[ext_resource type="PackedScene" uid="uid://bdbqr488vc61t" path="res://star counter.tscn" id="1_8ok8g"]
+[ext_resource type="Script" uid="uid://7ouitn5ju26" path="res://star_counter_multiplayer.gd" id="2_f5tca"]
+
+[node name="star counter" instance=ExtResource("1_8ok8g")]
+script = ExtResource("2_f5tca")

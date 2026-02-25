@@ -1,0 +1,2 @@
+extends Robot
+class_name MultiplayerRobot

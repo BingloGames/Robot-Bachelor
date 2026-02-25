@@ -63,7 +63,8 @@ func _on_connect_pressed() -> void:
 
 
 func _on_start_pressed() -> void:
-	pass
+	if multiplayer.is_server():
+		pass
 	# host goes to level selector
 
 

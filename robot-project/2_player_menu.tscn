@@ -12,6 +12,13 @@ offset_right = 512.0
 offset_bottom = 64.0
 placeholder_text = "Your Name"
 
+[node name="name error" type="Label" parent="."]
+offset_left = 328.0
+offset_top = 72.0
+offset_right = 512.0
+offset_bottom = 95.0
+text = "Need a name"
+
 [node name="layer 1" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0

@@ -35,15 +35,14 @@ offset_top = 192.0
 offset_right = 96.0
 offset_bottom = 192.0
 
-[node name="robot" parent="." instance=ExtResource("4_wwdpc")]
+[node name="robots" type="Node2D" parent="."]
+
+[node name="robot" parent="robots" instance=ExtResource("4_wwdpc")]
 position = Vector2(80, 112)
 
 [node name="Container" parent="." instance=ExtResource("6_wwdpc")]
 offset_left = 512.0
 offset_right = 896.0
-
-[node name="start point" type="Node2D" parent="."]
-position = Vector2(80, 112)
 
 [node name="black" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 0)

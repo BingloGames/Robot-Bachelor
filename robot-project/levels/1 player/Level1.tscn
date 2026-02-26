@@ -3,7 +3,7 @@
 [ext_resource type="TileSet" uid="uid://b86b5a6rn7qvr" path="res://TileSet.tres" id="1_lmyl5"]
 [ext_resource type="PackedScene" uid="uid://b7xm7lsovxbqr" path="res://text_edit.tscn" id="2_dn5ey"]
 [ext_resource type="PackedScene" uid="uid://bdbqr488vc61t" path="res://star counter.tscn" id="2_mc20k"]
-[ext_resource type="Script" path="res://items_counter.gd" id="2_vxtnj"]
+[ext_resource type="Script" uid="uid://bc27vibglbqta" path="res://items_counter.gd" id="2_vxtnj"]
 [ext_resource type="PackedScene" uid="uid://bkcxr5ltukhr1" path="res://robot.tscn" id="3_cove1"]
 [ext_resource type="PackedScene" uid="uid://dqdijlggb57o1" path="res://item_list.tscn" id="6_lmyl5"]
 [ext_resource type="PackedScene" uid="uid://bu5wqujjgco58" path="res://info_pop_up.tscn" id="6_lrqwn"]
@@ -38,6 +38,11 @@ item_name = "left()"
 position = Vector2(208, 144)
 item_name = "right()"
 
+[node name="robots" type="Node2D" parent="."]
+
+[node name="robot" parent="robots" instance=ExtResource("3_cove1")]
+position = Vector2(80, 144)
+
 [node name="code" parent="." instance=ExtResource("2_dn5ey")]
 offset_left = 320.0
 offset_right = 512.0
@@ -55,15 +60,9 @@ grow_horizontal = 1
 grow_vertical = 1
 metadata/_edit_group_ = true
 
-[node name="robot" parent="." instance=ExtResource("3_cove1")]
-position = Vector2(80, 144)
-
 [node name="Container" parent="." instance=ExtResource("6_lmyl5")]
 offset_left = 512.0
 offset_right = 896.0
-
-[node name="start point" type="Node2D" parent="."]
-position = Vector2(80, 144)
 
 [node name="black" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 0)

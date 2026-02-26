@@ -12,6 +12,7 @@ var inventory = []
 
 var stars = []
 var current_level = 0
+var robots = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -24,7 +25,8 @@ func save_stars(star_count: int) -> void:
 
 func restart_level() -> void:
 	get_node("/root/Node2D/star counter").restart_stars()
-	get_node("/root/Node2D/robot").respawn()
+	for robot in get_node("/root/Node2D/robots").get_children():
+		robot.respawn()
 	get_node("/root/Node2D/code").stop_running_code()
 	
 	

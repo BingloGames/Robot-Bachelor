@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b7xm7lsovxbqr" path="res://text_edit.tscn" id="2_tjh38"]
 [ext_resource type="PackedScene" uid="uid://bdbqr488vc61t" path="res://star counter.tscn" id="3_lhhoo"]
 [ext_resource type="PackedScene" uid="uid://dj8bvk78ajlmy" path="res://Item.tscn" id="4_i2b4m"]
-[ext_resource type="Script" path="res://items_counter.gd" id="4_ngd16"]
+[ext_resource type="Script" uid="uid://bc27vibglbqta" path="res://items_counter.gd" id="4_ngd16"]
 [ext_resource type="PackedScene" uid="uid://bkcxr5ltukhr1" path="res://robot.tscn" id="4_ufpxx"]
 [ext_resource type="PackedScene" uid="uid://ba7flvblhi3ln" path="res://blue_door_1.tscn" id="5_5pfj7"]
 [ext_resource type="PackedScene" uid="uid://dqdijlggb57o1" path="res://item_list.tscn" id="6_knvoa"]
@@ -56,16 +56,15 @@ position = Vector2(176, 144)
 [node name="door" parent="doors" instance=ExtResource("5_5pfj7")]
 position = Vector2(176, 176)
 
-[node name="robot" parent="." instance=ExtResource("4_ufpxx")]
+[node name="robots" type="Node2D" parent="."]
+
+[node name="robot" parent="robots" instance=ExtResource("4_ufpxx")]
 position = Vector2(48, 112)
 
 [node name="Container" parent="." instance=ExtResource("6_knvoa")]
 offset_left = 512.0
 offset_right = 896.0
 items = 5
-
-[node name="start point" type="Node2D" parent="."]
-position = Vector2(48, 112)
 
 [node name="black" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 0)

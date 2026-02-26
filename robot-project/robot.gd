@@ -8,6 +8,8 @@ var start_direction = Vector2i.RIGHT
 var direction = start_direction
 var walking_backwards = false
 
+@onready var start_point = global_position
+
 var next_tile
 
 func name(delta: float):
@@ -47,7 +49,7 @@ func _physics_process(delta: float) -> void:
 
 func respawn() -> void:
 	scale = Vector2(1,1)
-	global_position = get_node("/root/Node2D/start point").global_position
+	global_position = start_point
 	next_tile = null
 	walking_backwards = false
 	direction = start_direction

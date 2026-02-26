@@ -35,6 +35,8 @@ func restart_level() -> void:
 	
 	if get_node("/root/Node2D").has_node("items"):
 		get_node("/root/Node2D/items").reset_items()
+		
+	get_node("/root/Node2D/Container").restart()
 
 
 func next_level_player_1() -> void:

@@ -22,7 +22,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if itemCollected:
 		return
 	
-	
 	get_node("particles").show()
 	get_node("particles").emitting = true
 	get_node("collect anim").play("collect")

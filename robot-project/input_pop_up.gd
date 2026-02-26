@@ -8,7 +8,7 @@ var file_path = ""
 
 @onready var itemsInItemList = get_node("/root/Node2D/Container").items
 
-@export var Answer = "answer ="
+@export var Answer = ["answer ="]
 var Counter = 0
 var left_counter = 0
 var right_counter = 0
@@ -44,12 +44,19 @@ func _on_button_pressed() -> void:
 	var line = get_node("TextEdit").get_line(0)
 	var line_array = line.strip_edges().to_lower().split(" ")
 	
-	
-	if line_array[0] == "answer" and line == Answer: 
-		get_node("/root/Node2D/doors/door").open()
-		get_node("/root/Node2D/code").running_code = false
-		get_node("/root/Node2D/Input pop up").hide()
-		set_mouse_filter(MOUSE_FILTER_IGNORE)
+	if line_array[0] == "answer":
+		print("correct 1") 
+		for i in range(len(Answer)):
+			if line == Answer[i]:
+				print("correct 2")
+				get_node("/root/Node2D/doors/door").open()
+				get_node("/root/Node2D/code").running_code = false
+				get_node("/root/Node2D/Input pop up").hide()
+				set_mouse_filter(MOUSE_FILTER_IGNORE)
+				break
+			else:
+				print("correct 3")
+				return
 	
 	
 	if line_array[0] == "import":
@@ -63,13 +70,11 @@ func import_func(line_array: Array) -> void:
 		if left_counter == 1:
 			return
 		
-		
 		get_node("/root/Node2D/Container/ItemList").add_item("left()")
 		Counter += 1
 		left_counter += 1
 		var button = "/root/Node2D/Container/" + str(Counter+itemsInItemList-1)
 		get_node(button).show()
-		
 		
 		if not Counter == 2:
 			return

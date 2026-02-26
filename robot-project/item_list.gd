@@ -5,14 +5,14 @@ var function = ""
 
 @onready var path = Global.text_path
 @onready var language = Global.text_language
-
+var button = ""
 var item = ""
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for i in range(items):
 		get_node("ItemList").add_item(itemsList[i])
-		var button = str(i)
+		button = str(i)
 		get_node(button).show()
 	
 	
@@ -24,7 +24,12 @@ func _ready() -> void:
 #func _process(delta: float) -> void:
 #	get_node("ItemList").set_allow_rmb_select(true)
 #	get_node("ItemList").set_allow_reselect(true)
-
+func restart():
+	get_node("ItemList").clear()
+	for i in range(7):
+		button = str(i)
+		get_node(button).hide()
+	_ready()
 
 func _on_button_mouse_entered(source: Button) -> void:
 	var item_num = int(source.name)

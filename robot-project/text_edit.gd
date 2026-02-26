@@ -29,7 +29,7 @@ var for_loop_variables = {} #what about nested loops?
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	get_node("line limit").text += str(line_limit)
-	var robot = get_node("/root/Node2D/robot")
+	robot = get_node("/root/Node2D/robot")
 	pass # Replace with function body.
 
 

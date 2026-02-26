@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bdbqr488vc61t" path="res://star counter.tscn" id="3_jfjt6"]
 [ext_resource type="PackedScene" uid="uid://bkcxr5ltukhr1" path="res://robot.tscn" id="4_0vw6x"]
 [ext_resource type="PackedScene" uid="uid://dj8bvk78ajlmy" path="res://Item.tscn" id="4_1g20g"]
-[ext_resource type="Script" uid="uid://bc27vibglbqta" path="res://items_counter.gd" id="4_jf22w"]
+[ext_resource type="Script" path="res://items_counter.gd" id="4_jf22w"]
 [ext_resource type="PackedScene" uid="uid://ct3ylbdix74av" path="res://blue button.tscn" id="5_oj5ui"]
 [ext_resource type="PackedScene" uid="uid://cc4r5wtmlaj02" path="res://blue_door_2.tscn" id="5_qriun"]
 [ext_resource type="PackedScene" uid="uid://dqdijlggb57o1" path="res://item_list.tscn" id="6_cgold"]
@@ -44,9 +44,11 @@ script = ExtResource("4_jf22w")
 
 [node name="Item" parent="items" instance=ExtResource("4_1g20g")]
 position = Vector2(80, 208)
+item_name = "X = 6"
 
 [node name="Item2" parent="items" instance=ExtResource("4_1g20g")]
 position = Vector2(240, 208)
+item_name = "Y = 3"
 
 [node name="buttons" type="Node2D" parent="."]
 
@@ -84,7 +86,7 @@ offset_right = 896.0
 offset_bottom = 256.0
 grow_horizontal = 1
 grow_vertical = 1
-Answer = "answer ="
+Answer = ["answer = X+Y", "answer = 9", "aanswer =X+Y", "answer =9", "answer = X + Y"]
 
 [node name="Info pop up" parent="." instance=ExtResource("8_qriun")]
 offset_right = 896.0

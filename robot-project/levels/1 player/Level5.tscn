@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b7xm7lsovxbqr" path="res://text_edit.tscn" id="2_tjh38"]
 [ext_resource type="PackedScene" uid="uid://bdbqr488vc61t" path="res://star counter.tscn" id="3_lhhoo"]
 [ext_resource type="PackedScene" uid="uid://dj8bvk78ajlmy" path="res://Item.tscn" id="4_i2b4m"]
-[ext_resource type="Script" uid="uid://bc27vibglbqta" path="res://items_counter.gd" id="4_ngd16"]
+[ext_resource type="Script" path="res://items_counter.gd" id="4_ngd16"]
 [ext_resource type="PackedScene" uid="uid://bkcxr5ltukhr1" path="res://robot.tscn" id="4_ufpxx"]
 [ext_resource type="PackedScene" uid="uid://ba7flvblhi3ln" path="res://blue_door_1.tscn" id="5_5pfj7"]
 [ext_resource type="PackedScene" uid="uid://dqdijlggb57o1" path="res://item_list.tscn" id="6_knvoa"]
@@ -44,6 +44,7 @@ script = ExtResource("4_ngd16")
 
 [node name="Item" parent="items" instance=ExtResource("4_i2b4m")]
 position = Vector2(272, 144)
+item_name = "list = [2,3,6,4,1]"
 
 [node name="buttons" type="Node2D" parent="."]
 
@@ -76,7 +77,7 @@ texture = SubResource("CanvasTexture_25xmc")
 visible = false
 offset_right = 896.0
 offset_bottom = 256.0
-Answer = "answer ="
+Answer = ["answer = list[1]", "answer =list[1]"]
 
 [node name="Info pop up" parent="." instance=ExtResource("8_5pfj7")]
 anchors_preset = 10

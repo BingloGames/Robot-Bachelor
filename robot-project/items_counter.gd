@@ -12,8 +12,7 @@ func reset_items() -> void:
 	item_count = 0
 	for item in items_collected:
 		item.respawn()
-	
-	
+		
 	items_collected.clear()
 
 
@@ -23,5 +22,5 @@ func new_item(item: Item) -> void:
 	
 	
 	get_node("/root/Node2D/Container/ItemList").add_item(item.item_name)
-	var button = "/root/Node2D/Container/" + str(item_count+itemsInItemList)
+	var button = "/root/Node2D/Container/" + str(item_count+itemsInItemList-1)
 	get_node(button).show()

@@ -88,5 +88,6 @@ grow_vertical = 1
 Answer = ["answer = X+Y", "answer = 9", "aanswer =X+Y", "answer =9", "answer = X + Y"]
 
 [node name="Info pop up" parent="." instance=ExtResource("8_qriun")]
+visible = false
 offset_right = 896.0
 offset_bottom = 256.0

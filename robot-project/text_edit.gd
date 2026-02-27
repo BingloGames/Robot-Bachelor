@@ -7,7 +7,7 @@ var base_functions = ["forward()", "backward()", "left()", "right()"]
 var codeLines = []
 @export var line_limit: int = 5
 
-var robot = ""
+var robot = null
 @onready var text_edit = get_node("TextEdit")
 var waiting = false
 
@@ -30,7 +30,6 @@ var for_loop_variables = {} #what about nested loops?
 func _ready() -> void:
 	get_node("line limit").text += str(line_limit)
 	robot = get_node("/root/Node2D/robots/robot")
-	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -47,6 +46,10 @@ func _process(delta: float) -> void:
 		return
 	
 	
+	run_code()
+
+
+func run_code() -> void:
 	if for_looping:
 		#print("at start of continue for loop")
 		continue_for_loop()
@@ -247,7 +250,11 @@ func for_loop_validator(code_split: Array[String]) -> Array:
 
 
 func _on_button_pressed() -> void:
-	get_node("Button").set_disabled(true)
+	start_code()
+
+
+func start_code():
+	#get_node("Button").set_disabled(true)
 	codeLines.clear()
 	var x = 0
 	var for_loop_length = 0

@@ -124,9 +124,9 @@ func _on_name_changed(new_text: String) -> void:
 	
 	
 	get_node("name error").text = ""
+	print("new player name: ", new_text)
 	ConnectionController.player_name = new_text
 	
 	
 	if multiplayer.multiplayer_peer.get_connection_status() == MultiplayerPeer.CONNECTION_CONNECTED:
-		ConnectionController.player_name = new_text
 		ConnectionController.new_name.rpc(multiplayer.get_unique_id(), new_text)

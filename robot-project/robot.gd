@@ -12,9 +12,15 @@ var walking_backwards = false
 
 var next_tile
 
-func name(delta: float):
+
+func _physics_process(delta: float) -> void:
+	move(delta)
+
+
+func move(delta: float):
 	if next_tile == null:
 		return
+	
 	
 	
 	var halv_a_tile = get_node("/root/Node2D/special").tile_set.tile_size/2
@@ -39,12 +45,12 @@ func name(delta: float):
 			walking_backwards = false
 		
 		
+		print("robot moved and landed on tile!!!!")
+		
+		
 		next_tile = null
 		get_node("/root/Node2D/code").waiting = false
 		check_tile()
-
-func _physics_process(delta: float) -> void:
-	name(delta)
 
 
 func respawn() -> void:

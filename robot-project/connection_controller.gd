@@ -16,9 +16,6 @@ func _ready() -> void:
 	multiplayer.peer_connected.connect(_player_connected)
 	multiplayer.peer_disconnected.connect(_player_disconnected)
 	multiplayer.connection_failed.connect(_connection_failed)
-	
-	
-	players[0] = players
 
 
 func _connection_failed():
@@ -28,7 +25,7 @@ func _connection_failed():
 
 
 func _player_connected(id):
-	print("player connected")
+	print("player connected and player name is: ", player_name)
 	register_player.rpc_id(id, player_name)
 	if multiplayer.is_server():
 		if get_node("/root").has_node("2 player menu"):
@@ -68,19 +65,18 @@ func _player_disconnected(id):
 
 
 
-@rpc("any_peer")
+@rpc("any_peer", "reliable")
 func register_player(new_player_name):
 	var id = multiplayer.get_remote_sender_id()
 	players[id] = new_player_name
 	print("player with name: ", new_player_name, " added!")
-	#update visually that the player is added
 
 
 func host_game():
 	peer = ENetMultiplayerPeer.new()
 	peer.create_server(PORT, 2)
 	multiplayer.set_multiplayer_peer(peer)
-	player_name[1] = player_name
+	players[1] = player_name
 
 
 func join_game(ip_address, new_player_name):
@@ -88,6 +84,7 @@ func join_game(ip_address, new_player_name):
 	peer = ENetMultiplayerPeer.new()
 	peer.create_client(ip_address, PORT)
 	multiplayer.set_multiplayer_peer(peer)
+	players[multiplayer.get_unique_id()] = player_name
 
 
 @rpc("any_peer")
@@ -99,3 +96,15 @@ func close_game():
 	
 	
 	get_tree().change_scene_to_file("res://2_player_menu.tscn")
+
+
+@rpc("any_peer", "call_local")
+func get_robot_code(code_lines: Array):
+	#this code can be done better, right?
+	if multiplayer.is_server():
+		get_node("/root/Node2D/code").robot_code[get_node("/root/Node2D/robots/robot2")] = code_lines
+	else:
+		get_node("/root/Node2D/code").robot_code[get_node("/root/Node2D/robots/robot1")] = code_lines
+	
+	
+	print("all robot code: ", get_node("/root/Node2D/code").robot_code)

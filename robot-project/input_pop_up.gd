@@ -41,7 +41,7 @@ func showInput() -> void:
 
 
 func _on_button_pressed() -> void:
-	var line = get_node("TextEdit").get_line(0)
+	var line = get_node("LineEdit").text
 	var line_array = line.strip_edges().to_lower().split(" ")
 	
 	if line_array[0] == "answer":
@@ -75,6 +75,7 @@ func import_func(line_array: Array) -> void:
 		left_counter += 1
 		var button = "/root/Node2D/Container/" + str(Counter+itemsInItemList-1)
 		get_node(button).show()
+		get_node("LineEdit").clear()
 		
 		if not Counter == 2:
 			return
@@ -94,9 +95,11 @@ func import_func(line_array: Array) -> void:
 		right_counter += 1
 		var button = "/root/Node2D/Container/" + str(Counter+itemsInItemList-1)
 		get_node(button).show()
+		get_node("LineEdit").clear()
 		
 		
 		if not Counter == 2:
 			return
 		get_node("/root/Node2D/Input pop up").hide()
 		set_mouse_filter(MOUSE_FILTER_IGNORE)
+		

@@ -49,7 +49,7 @@ func move(delta: float):
 		
 		
 		next_tile = null
-		get_node("/root/Node2D/code").waiting = false
+		get_node("/root/Node2D/code").robot_changes_wait(self, false)
 		check_tile()
 
 
@@ -123,7 +123,7 @@ func check_tile() -> void:
 		"Hole":
 			print("hole!")
 			get_node("AnimationPlayer").play("fall in hole")
-			get_node("/root/Node2D/code").waiting = true
+			get_node("/root/Node2D/code").robot_changes_wait(self, true)
 
 
 func check_end() -> void:

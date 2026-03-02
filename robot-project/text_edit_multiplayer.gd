@@ -9,19 +9,51 @@ var robot_code = {}
 var robots_done = []
 
 
+#save for looping data in dictonary for each robot
+var robot_for_loop_data_default = {"for_looping" : false, "for_loop_count" : 0, 
+"for_loop_line" : 0, "foor_loop_contents" : [], "for_loop_max" : 0, "for_loop_string" : ""}
 var robot_for_loop_data = {}
+
+
+var robot_waiting_data_default = {"waiting" : false, "running_code" : false}
+var robot_waiting_data = {}
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if multiplayer.is_server():
-		robot = get_node("/root/Node2D/robots/robot1")
-	else:
-		robot = get_node("/root/Node2D/robots/robot2")
+		for robot in get_node("/root/Node2D/robots").get_children():
+			robot_for_loop_data[robot] = robot_for_loop_data_default.duplicate_deep()
+			robot_waiting_data[robot] = robot_waiting_data_default.duplicate()
 
 
 func _process(delta: float) -> void:
-	super._process(delta)
+	if multiplayer.is_server():
+		for temp_robot in robot_code.keys():
+			robot = temp_robot
+			
+			
+			#set the current for loop data to the one that is specific to the current robot
+			for for_loop_data in robot_for_loop_data[robot].keys():
+				set(for_loop_data, robot_for_loop_data[robot][for_loop_data])
+			
+			
+			for for_waiting_data in robot_waiting_data[robot].keys():
+				set(for_waiting_data, robot_waiting_data[robot][for_waiting_data])
+			
+			
+			codeLines = robot_code[robot]
+			
+			
+			super._process(delta)
+			
+			
+			for for_loop_data in robot_for_loop_data[robot].keys():
+				robot_for_loop_data[robot][for_loop_data] = get(for_loop_data)
+			
+			
+			for for_waiting_data in robot_waiting_data[robot].keys():
+				robot_waiting_data[robot][for_waiting_data] = get(for_waiting_data)
 
 
 func _on_button_pressed() -> void:
@@ -35,6 +67,11 @@ func _on_button_pressed() -> void:
 	#
 	#
 	ready_pressed.rpc(is_ready)
+
+
+func set_waiting(value):
+	super.set_waiting(value)
+	robot_waiting_data[robot]["waiting"] = value
 
 
 @rpc("any_peer", "call_local", "reliable")
@@ -66,9 +103,11 @@ func ready_pressed(peer_is_ready: bool):
 func start_code():
 	print("start code multiplayer! with id: ", multiplayer.get_unique_id())
 	super.start_code()
+	for temp_robot in robot_waiting_data.keys():
+		robot_waiting_data[temp_robot]["running_code"] = true
 	
 	
-	robot_code[robot] = codeLines
+	robot_code[get_node("/root/Node2D/robots/robot1")] = codeLines
 	
 	#this can be done better, right?
 	for player_id in ConnectionController.players.keys():

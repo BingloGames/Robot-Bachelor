@@ -9,7 +9,7 @@ var codeLines = []
 
 var robot = null
 @onready var text_edit = get_node("TextEdit")
-var waiting = false
+var waiting = false: set = set_waiting
 
 
 var running_code = false
@@ -45,6 +45,7 @@ func _process(delta: float) -> void:
 		running_code = false
 		return
 	
+	print("robot: ", robot.name, "'s turn")
 	
 	run_code()
 
@@ -277,6 +278,16 @@ func start_code():
 		x += 1
 	print(codeLines)
 	running_code = true
+
+
+func robot_changes_wait(temp_robot, new_wait):
+	#is this a good way to do it?
+	robot = temp_robot
+	waiting = new_wait
+
+
+func set_waiting(value):
+	waiting = value
 
 
 func _on_lines_edited_from(from_line: int, to_line: int) -> void:

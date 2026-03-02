@@ -56,7 +56,7 @@ func _on_button_pressed() -> void:
 				break
 			else:
 				print("correct 3")
-				return
+				continue
 	
 	
 	if line_array[0] == "import":

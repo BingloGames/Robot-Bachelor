@@ -6,10 +6,10 @@
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_8nd1j"]
 properties/0/path = NodePath(".:position")
 properties/0/spawn = true
-properties/0/replication_mode = 1
+properties/0/replication_mode = 2
 properties/1/path = NodePath("Sprite2D:frame")
 properties/1/spawn = true
-properties/1/replication_mode = 1
+properties/1/replication_mode = 2
 
 [node name="robot" instance=ExtResource("1_h0ats")]
 script = ExtResource("2_8nd1j")

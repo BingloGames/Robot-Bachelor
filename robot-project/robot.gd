@@ -22,7 +22,6 @@ func move(delta: float):
 		return
 	
 	
-	
 	var halv_a_tile = get_node("/root/Node2D/special").tile_set.tile_size/2
 	var current_tile = get_node("/root/Node2D/special").local_to_map(Vector2i(global_position)-(halv_a_tile*direction))
 	
@@ -45,7 +44,7 @@ func move(delta: float):
 			walking_backwards = false
 		
 		
-		print("robot moved and landed on tile!!!!")
+		#print("robot moved and landed on tile!!!!")
 		
 		
 		next_tile = null

@@ -27,6 +27,8 @@ func _connection_failed():
 func _player_connected(id):
 	print("player connected and player name is: ", player_name)
 	register_player.rpc_id(id, player_name)
+	
+	
 	if multiplayer.is_server():
 		if get_node("/root").has_node("2 player menu"):
 			get_node("/root/2 player menu/host game/start").disabled = false
@@ -49,7 +51,6 @@ func get_player_name(peer_name: String):
 	
 	
 	get_node(node_path).text = "Fellow robot: \n" + peer_name
-	print("A job well done!")
 
 
 @rpc("any_peer")
@@ -96,15 +97,3 @@ func close_game():
 	
 	
 	get_tree().change_scene_to_file("res://2_player_menu.tscn")
-
-
-@rpc("any_peer", "call_local")
-func get_robot_code(code_lines: Array):
-	#this code can be done better, right?
-	if multiplayer.is_server():
-		get_node("/root/Node2D/code").robot_code[get_node("/root/Node2D/robots/robot2")] = code_lines
-	else:
-		get_node("/root/Node2D/code").robot_code[get_node("/root/Node2D/robots/robot1")] = code_lines
-	
-	
-	print("all robot code: ", get_node("/root/Node2D/code").robot_code)

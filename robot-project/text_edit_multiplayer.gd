@@ -96,36 +96,65 @@ func ready_pressed(peer_is_ready: bool):
 		
 		if all_ready:
 			print("all ready!")
-			start_code.rpc()
+			robot_code[get_node("/root/Node2D/robots/robot1")] = codeLines
+			init_code_lines.rpc()
+			#start_code()
+			#start_code.rpc()
 
 
-@rpc("any_peer", "call_local", "reliable")
-func start_code():
-	for temp_robot in robot_code:
-		robot_code[temp_robot].clear()
-	
-	
-	print("start code multiplayer! with id: ", multiplayer.get_unique_id())
-	super.start_code()
-	for temp_robot in robot_waiting_data.keys():
-		robot_waiting_data[temp_robot]["running_code"] = true
-	
-	
-	robot_code[get_node("/root/Node2D/robots/robot1")] = codeLines
+@rpc("authority", "call_local", "reliable")
+func init_code_lines():
+	super.init_code_lines()
 	
 	
 	#this can be done better, right?
 	for player_id in ConnectionController.players.keys():
 		if player_id == multiplayer.get_unique_id():
 			continue
-		ConnectionController.get_robot_code.rpc_id(player_id, codeLines)
+		print("get code from id: ", player_id)
+		get_robot_code.rpc_id(player_id, codeLines)
+
+
+@rpc("any_peer", "call_local", "reliable")
+func get_robot_code(code_lines: Array):
+	#this code can be done better, right?
+	if multiplayer.is_server():
+		robot_code[get_node("/root/Node2D/robots/robot2")] = code_lines
+	else:
+		robot_code[get_node("/root/Node2D/robots/robot1")] = code_lines
+	
+	#the server got the code for both of the robots, we are ready to start
+	for temp_robot in robot_waiting_data.keys():
+		robot_waiting_data[temp_robot]["running_code"] = true
 	
 	
-	#after a failure, the players automaticly gets unready
+	running_code = true
 	
 	
-	print("robot codes: ", robot_code)
-	print("code lines: ", codeLines)
+	print("all robot code: ", robot_code)
+
+
+#@rpc("any_peer", "call_local", "reliable")
+#func start_code():
+	#for temp_robot in robot_code:
+		#robot_code[temp_robot].clear()
+	#
+	#
+	#
+	#print("start code multiplayer! with id: ", multiplayer.get_unique_id())
+	##for temp_robot in robot_waiting_data.keys():
+		##robot_waiting_data[temp_robot]["running_code"] = true
+	#
+	#
+	#robot_code[get_node("/root/Node2D/robots/robot1")] = codeLines
+	#
+	#
+	#
+	#
+	#
+	#
+	#print("robot codes: ", robot_code)
+	#print("code lines: ", codeLines)
 
 
 func stop_running_code() -> void:

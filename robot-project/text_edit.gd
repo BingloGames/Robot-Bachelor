@@ -254,8 +254,7 @@ func _on_button_pressed() -> void:
 	start_code()
 
 
-func start_code():
-	#get_node("Button").set_disabled(true)
+func init_code_lines():
 	codeLines.clear()
 	var x = 0
 	var for_loop_length = 0
@@ -277,6 +276,11 @@ func start_code():
 		
 		x += 1
 	print(codeLines)
+
+
+func start_code():
+	#get_node("Button").set_disabled(true)
+	init_code_lines()
 	running_code = true
 
 

@@ -22,9 +22,9 @@ var robot_waiting_data = {}
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if multiplayer.is_server():
-		for robot in get_node("/root/Node2D/robots").get_children():
-			robot_for_loop_data[robot] = robot_for_loop_data_default.duplicate_deep()
-			robot_waiting_data[robot] = robot_waiting_data_default.duplicate()
+		for temp_robot in get_node("/root/Node2D/robots").get_children():
+			robot_for_loop_data[temp_robot] = robot_for_loop_data_default.duplicate_deep()
+			robot_waiting_data[temp_robot] = robot_waiting_data_default.duplicate()
 
 
 func _process(delta: float) -> void:
@@ -101,6 +101,10 @@ func ready_pressed(peer_is_ready: bool):
 
 @rpc("any_peer", "call_local", "reliable")
 func start_code():
+	for temp_robot in robot_code:
+		robot_code[temp_robot].clear()
+	
+	
 	print("start code multiplayer! with id: ", multiplayer.get_unique_id())
 	super.start_code()
 	for temp_robot in robot_waiting_data.keys():
@@ -109,6 +113,7 @@ func start_code():
 	
 	robot_code[get_node("/root/Node2D/robots/robot1")] = codeLines
 	
+	
 	#this can be done better, right?
 	for player_id in ConnectionController.players.keys():
 		if player_id == multiplayer.get_unique_id():
@@ -116,12 +121,13 @@ func start_code():
 		ConnectionController.get_robot_code.rpc_id(player_id, codeLines)
 	
 	
-	#the client tries to move the robot instead of the server
-	#try to have the server move both of the robots?
+	#after a failure, the players automaticly gets unready
 	
 	
 	print("robot codes: ", robot_code)
-	
-	print("waiting: ", waiting)
-	print("running_code: ", running_code)
 	print("code lines: ", codeLines)
+
+
+func stop_running_code() -> void:
+	for temp_robot in robot_code.keys():
+		robot_changes_wait(temp_robot, false)

@@ -1,5 +1,5 @@
 extends Control
-var itemsList = ["forward()", "backward()", "left()", "right()", "for i in range(n)" ,"X = ", "Y = ", "List = []"]
+var itemsList = ["forward()", "backward()", "left()", "right()", "for i in range(n):" ,"X = ", "Y = ", "List = []"]
 @export var items = 2
 var function = ""
 
@@ -34,7 +34,7 @@ func restart():
 func _on_button_mouse_entered(source: Button) -> void:
 	var item_num = int(source.name)
 	item = get_node("ItemList").get_item_text(item_num)
-	
+	item = item.replace(":","")
 	
 	var file_path = path + language + item + ".txt"
 	if FileAccess.file_exists(file_path):

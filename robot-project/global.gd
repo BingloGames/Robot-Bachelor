@@ -14,9 +14,11 @@ var stars = []
 var current_level = 0
 var robots = []
 
+@onready var robot_turn = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
 
 func save_stars(star_count: int) -> void:
@@ -24,6 +26,10 @@ func save_stars(star_count: int) -> void:
 
 
 func restart_level() -> void:
+	robot_turn = get_node("/root/Node2D/code").turn
+	get_node("/root/Node2D/code/error message").set_text("Problem in line "+str(robot_turn))
+	get_node("/root/Node2D/code/TextEdit").set_line_background_color(robot_turn-1, Color(255,0,0))
+	
 	get_node("/root/Node2D/star counter").restart_stars()
 	for robot in get_node("/root/Node2D/robots").get_children():
 		robot.respawn()
@@ -36,11 +42,7 @@ func restart_level() -> void:
 	
 	
 	if get_node("/root/Node2D").has_node("items"):
-		if get_node("/root/Node2D/items").item_count == 2:
-			print("items already collected")
-		else:
-			print(get_node("/root/Node2D/items").item_count)
-			get_node("/root/Node2D/Container").restart()
+		get_node("/root/Node2D/Container").restart()
 		get_node("/root/Node2D/items").reset_items()
 
 

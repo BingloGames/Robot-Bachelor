@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://cj5x0a534yaa6"]
+[gd_scene load_steps=14 format=4 uid="uid://cj5x0a534yaa6"]
 
 [ext_resource type="TileSet" uid="uid://b86b5a6rn7qvr" path="res://TileSet.tres" id="1_tjh38"]
 [ext_resource type="PackedScene" uid="uid://b7xm7lsovxbqr" path="res://text_edit.tscn" id="2_tjh38"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://ct3ylbdix74av" path="res://blue button.tscn" id="6_ngd16"]
 [ext_resource type="PackedScene" uid="uid://bu5wqujjgco58" path="res://info_pop_up.tscn" id="8_5pfj7"]
 [ext_resource type="PackedScene" uid="uid://lggogupwduwp" path="res://input_pop_up.tscn" id="8_vpjvl"]
+[ext_resource type="PackedScene" uid="uid://bvmjp16iiq1f2" path="res://restart.tscn" id="12_ngd16"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_25xmc"]
 
@@ -84,3 +85,5 @@ anchor_bottom = 0.0
 offset_right = 896.0
 offset_bottom = 256.0
 grow_vertical = 1
+
+[node name="Restart" parent="." instance=ExtResource("12_ngd16")]

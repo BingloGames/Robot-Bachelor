@@ -10,7 +10,7 @@ var codeLines = []
 var robot = null
 @onready var text_edit = get_node("TextEdit")
 var waiting = false: set = set_waiting
-
+@onready var turn = 0
 
 var running_code = false
 
@@ -52,8 +52,11 @@ func _process(delta: float) -> void:
 
 func run_code() -> void:
 	if for_looping:
-		#print("at start of continue for loop")
-		continue_for_loop()
+		if len(for_loop_contents) == 0:
+			stop_running_code()
+			Global.restart_level()
+		else:
+			continue_for_loop()
 		
 		#still for looping?
 		if for_looping:
@@ -65,16 +68,19 @@ func run_code() -> void:
 		#else:
 			#print("for loop ended, so stopping")
 	
-	
+	turn +=1
 	var code = codeLines.pop_front()
 	run_line(code)
 
 
 func stop_running_code() -> void:
+	turn = 0
+	get_node("GoButton").show()
+	get_node("StopButton").hide()
 	waiting = false
 	running_code = false
 	
-	get_node("Button").set_disabled(false)
+	get_node("GoButton").set_disabled(false)
 	
 	codeLines.clear()
 	
@@ -146,7 +152,11 @@ func start_for_loop(code_split: Array[String], code: String) -> void:
 		
 		i += 1
 	#print("for loop contents: ", for_loop_contents)
-	continue_for_loop()
+	if len(for_loop_contents) == 0:
+		stop_running_code()
+		Global.restart_level()
+	else:
+		continue_for_loop()
 
 
 func continue_for_loop() -> void:
@@ -250,9 +260,9 @@ func for_loop_validator(code_split: Array[String]) -> Array:
 	return [true, "success"]
 
 
-func _on_button_pressed() -> void:
+func _on_go_button_pressed() -> void:
 	start_code()
-
+	
 
 func init_code_lines():
 	codeLines.clear()
@@ -280,6 +290,8 @@ func init_code_lines():
 
 func start_code():
 	#get_node("Button").set_disabled(true)
+	get_node("GoButton").hide()
+	get_node("StopButton").show()
 	init_code_lines()
 	running_code = true
 
@@ -365,3 +377,8 @@ func _on_timer_timeout() -> void:
 	
 	
 	get_node("error message").text = full_error
+
+
+func _on_stop_button_pressed() -> void:
+	stop_running_code()
+	Global.restart_level()

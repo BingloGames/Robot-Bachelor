@@ -31,7 +31,7 @@ func move(delta: float):
 	
 	
 	if collision:
-		print("Collided!")
+		print(name + " collided with: ", collision.get_collider().name, " at position: ", collision.get_position())
 		#play animation before running this code?
 		Global.restart_level()
 		return

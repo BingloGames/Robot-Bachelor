@@ -11,16 +11,16 @@ var items_collected = []
 func reset_items() -> void:
 	item_count = 0
 	for item in items_collected:
-		item.respawn()
+		get_node(item).respawn()
 		
 	items_collected.clear()
 
 
-func new_item(item: Item) -> void:
+func new_item(item_path: NodePath) -> void:
 	item_count += 1
-	items_collected.append(item)
+	items_collected.append(item_path)
 	
 	
-	get_node("/root/Node2D/Container/ItemList").add_item(item.item_name)
+	get_node("/root/Node2D/Container/ItemList").add_item(get_node(item_path).item_name)
 	var button = "/root/Node2D/Container/" + str(item_count+itemsInItemList-1)
 	get_node(button).show()

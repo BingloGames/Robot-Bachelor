@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://cb4vrqqmf63ik"]
+
+[ext_resource type="PackedScene" uid="uid://ct3ylbdix74av" path="res://button.tscn" id="1_sg4pg"]
+[ext_resource type="Script" uid="uid://c2wadjt527roa" path="res://button_multiplayer.gd" id="2_62wkt"]
+
+[node name="button" instance=ExtResource("1_sg4pg")]
+script = ExtResource("2_62wkt")

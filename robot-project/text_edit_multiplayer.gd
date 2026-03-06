@@ -48,6 +48,9 @@ func _process(delta: float) -> void:
 			super._process(delta)
 			
 			
+			robot_code[robot] = codeLines
+			
+			
 			for for_loop_data in robot_for_loop_data[robot].keys():
 				robot_for_loop_data[robot][for_loop_data] = get(for_loop_data)
 			
@@ -160,3 +163,7 @@ func get_robot_code(code_lines: Array):
 func stop_running_code() -> void:
 	for temp_robot in robot_code.keys():
 		robot_changes_wait(temp_robot, false)
+	
+	
+	for temp_robot in robot_for_loop_data.keys():
+		robot_for_loop_data[temp_robot] = robot_for_loop_data_default.duplicate_deep()

@@ -28,4 +28,4 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	itemCollected = true
 	
 	
-	get_parent().new_item(self)
+	get_parent().new_item(self.get_path())

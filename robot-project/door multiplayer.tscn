@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2nsbgpi61ctl"]
+
+[ext_resource type="PackedScene" uid="uid://ba7flvblhi3ln" path="res://blue_door_1.tscn" id="1_goxkn"]
+[ext_resource type="Script" uid="uid://bm71krwx2y2gh" path="res://door_multiplayer.gd" id="2_25qgc"]
+
+[node name="door" instance=ExtResource("1_goxkn")]
+script = ExtResource("2_25qgc")

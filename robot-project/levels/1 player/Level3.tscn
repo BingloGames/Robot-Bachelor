@@ -3,11 +3,11 @@
 [ext_resource type="TileSet" uid="uid://b86b5a6rn7qvr" path="res://TileSet.tres" id="1_545p4"]
 [ext_resource type="PackedScene" uid="uid://bdbqr488vc61t" path="res://star counter.tscn" id="2_84iim"]
 [ext_resource type="PackedScene" uid="uid://b7xm7lsovxbqr" path="res://text_edit.tscn" id="2_qlmxs"]
+[ext_resource type="PackedScene" uid="uid://ba7flvblhi3ln" path="res://door.tscn" id="3_wxujf"]
 [ext_resource type="PackedScene" uid="uid://bkcxr5ltukhr1" path="res://robot.tscn" id="4_545p4"]
-[ext_resource type="PackedScene" uid="uid://cc4r5wtmlaj02" path="res://blue_door_2.tscn" id="5_wmnt6"]
-[ext_resource type="PackedScene" uid="uid://ct3ylbdix74av" path="res://blue button.tscn" id="5_wxujf"]
+[ext_resource type="PackedScene" uid="uid://ct3ylbdix74av" path="res://button.tscn" id="5_wxujf"]
 [ext_resource type="PackedScene" uid="uid://dqdijlggb57o1" path="res://item_list.tscn" id="6_545p4"]
-[ext_resource type="PackedScene" uid="uid://bvmjp16iiq1f2" path="res://restart.tscn" id="9_r1ajk"]
+[ext_resource type="PackedScene" path="res://restart.tscn" id="9_r1ajk"]
 [ext_resource type="PackedScene" uid="uid://bu5wqujjgco58" path="res://info_pop_up.tscn" id="9_wxujf"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_wmnt6"]
@@ -30,12 +30,13 @@ tile_set = ExtResource("1_545p4")
 
 [node name="button" parent="buttons" instance=ExtResource("5_wxujf")]
 position = Vector2(208, 208)
-door = NodePath("../../doors/door")
 
 [node name="doors" type="Node2D" parent="."]
 
-[node name="door" parent="doors" instance=ExtResource("5_wmnt6")]
+[node name="door" parent="doors" instance=ExtResource("3_wxujf")]
 position = Vector2(240, 208)
+color = "blue"
+dir = "horisontal"
 
 [node name="code" parent="." instance=ExtResource("2_qlmxs")]
 offset_left = 320.0
@@ -65,6 +66,7 @@ scale = Vector2(896.50006, 256.50003)
 texture = SubResource("CanvasTexture_wmnt6")
 
 [node name="Info pop up" parent="." instance=ExtResource("9_wxujf")]
+visible = false
 offset_right = 894.0
 offset_bottom = 256.0
 

@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bd2tgyavymlfj"]
+[gd_scene load_steps=8 format=3 uid="uid://ba7flvblhi3ln"]
 
-[ext_resource type="Script" uid="uid://uegcnafddenv" path="res://door.gd" id="1_fd3b1"]
-[ext_resource type="Texture2D" uid="uid://dv05plo7oowcv" path="res://red door 1.png" id="1_jqqfo"]
-[ext_resource type="Animation" uid="uid://bis1ives8dt40" path="res://levels/open door anim.res" id="3_j245v"]
+[ext_resource type="Script" uid="uid://uegcnafddenv" path="res://door.gd" id="1_0phs7"]
+[ext_resource type="Texture2D" uid="uid://bltyxdt2ewqgv" path="res://blue door 1.png" id="2_50cdl"]
+[ext_resource type="Animation" uid="uid://bis1ives8dt40" path="res://open door anim.res" id="3_y5njw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_051jp"]
 size = Vector2(32, 16)
@@ -25,21 +25,32 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_goqka"]
 _data = {
 &"RESET": SubResource("Animation_g212j"),
-&"open door anim": ExtResource("3_j245v")
+&"open door anim": ExtResource("3_y5njw")
 }
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_5qsjy"]
+properties/0/path = NodePath("CollisionShape2D:disabled")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath("Sprite2D:frame")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
 [node name="door" type="StaticBody2D"]
-script = ExtResource("1_fd3b1")
+script = ExtResource("1_0phs7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_051jp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_jqqfo")
+texture = ExtResource("2_50cdl")
 hframes = 11
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_goqka")
 }
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_5qsjy")

@@ -6,12 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://dj8bvk78ajlmy" path="res://Item.tscn" id="4_i2b4m"]
 [ext_resource type="Script" uid="uid://bc27vibglbqta" path="res://items_counter.gd" id="4_ngd16"]
 [ext_resource type="PackedScene" uid="uid://bkcxr5ltukhr1" path="res://robot.tscn" id="4_ufpxx"]
-[ext_resource type="PackedScene" uid="uid://ba7flvblhi3ln" path="res://blue_door_1.tscn" id="5_5pfj7"]
+[ext_resource type="PackedScene" uid="uid://ba7flvblhi3ln" path="res://door.tscn" id="5_5pfj7"]
 [ext_resource type="PackedScene" uid="uid://dqdijlggb57o1" path="res://item_list.tscn" id="6_knvoa"]
-[ext_resource type="PackedScene" uid="uid://ct3ylbdix74av" path="res://blue button.tscn" id="6_ngd16"]
+[ext_resource type="PackedScene" uid="uid://ct3ylbdix74av" path="res://button.tscn" id="6_ngd16"]
 [ext_resource type="PackedScene" uid="uid://bu5wqujjgco58" path="res://info_pop_up.tscn" id="8_5pfj7"]
 [ext_resource type="PackedScene" uid="uid://lggogupwduwp" path="res://input_pop_up.tscn" id="8_vpjvl"]
-[ext_resource type="PackedScene" uid="uid://bvmjp16iiq1f2" path="res://restart.tscn" id="12_ngd16"]
+[ext_resource type="PackedScene" path="res://restart.tscn" id="12_ngd16"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_25xmc"]
 
@@ -56,6 +56,7 @@ position = Vector2(176, 144)
 
 [node name="door" parent="doors" instance=ExtResource("5_5pfj7")]
 position = Vector2(176, 176)
+color = "blue"
 
 [node name="robots" type="Node2D" parent="."]
 
@@ -80,6 +81,7 @@ offset_bottom = 256.0
 Answer = ["answer = list[1]", "answer =list[1]"]
 
 [node name="Info pop up" parent="." instance=ExtResource("8_5pfj7")]
+visible = false
 anchors_preset = 10
 anchor_bottom = 0.0
 offset_right = 896.0

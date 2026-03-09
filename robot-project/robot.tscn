@@ -367,3 +367,8 @@ libraries = {
 &"": SubResource("AnimationLibrary_hvhn1")
 }
 autoplay = "idle right"
+
+[node name="wait" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="wait" to="." method="_on_wait_timeout"]

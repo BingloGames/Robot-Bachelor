@@ -9,9 +9,12 @@ var robot_code = {}
 var robots_done = []
 
 
+var robot_current_line = {}
+
+
 #save for looping data in dictonary for each robot
 var robot_for_loop_data_default = {"for_looping" : false, "for_loop_count" : 0, 
-"for_loop_line" : 0, "foor_loop_contents" : [], "for_loop_max" : 0, "for_loop_string" : ""}
+"for_loop_line" : 0, "for_loop_contents" : [], "for_loop_max" : 0, "for_loop_string" : ""}
 var robot_for_loop_data = {}
 
 
@@ -25,6 +28,7 @@ func _ready() -> void:
 		for temp_robot in get_node("/root/Node2D/robots").get_children():
 			robot_for_loop_data[temp_robot] = robot_for_loop_data_default.duplicate_deep()
 			robot_waiting_data[temp_robot] = robot_waiting_data_default.duplicate()
+			robot_current_line[temp_robot] = 0
 
 
 func _process(delta: float) -> void:
@@ -43,12 +47,14 @@ func _process(delta: float) -> void:
 			
 			
 			codeLines = robot_code[robot]
+			turn = robot_current_line[robot]
 			
 			
 			super._process(delta)
 			
 			
 			robot_code[robot] = codeLines
+			robot_current_line[robot] = turn
 			
 			
 			for for_loop_data in robot_for_loop_data[robot].keys():
@@ -57,9 +63,12 @@ func _process(delta: float) -> void:
 			
 			for for_waiting_data in robot_waiting_data[robot].keys():
 				robot_waiting_data[robot][for_waiting_data] = get(for_waiting_data)
+			
+			
+			robot = null
 
 
-func _on_button_pressed() -> void:
+func _on_go_button_pressed() -> void:
 	is_ready = !is_ready
 	
 	
@@ -161,6 +170,7 @@ func get_robot_code(code_lines: Array):
 
 
 func stop_running_code() -> void:
+	turn = 0
 	for temp_robot in robot_code.keys():
 		robot_changes_wait(temp_robot, false)
 	

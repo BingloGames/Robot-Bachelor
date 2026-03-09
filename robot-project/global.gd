@@ -2,6 +2,8 @@ extends Node
 
 
 var levels_1_player_path = "res://levels/1 player"
+var levels_2_player_path = "res://levels/2 player"
+
 var levels_file_start = "Level"
 var path_end = ".tscn"
 
@@ -54,6 +56,19 @@ func next_level_player_1() -> void:
 	if not FileAccess.file_exists(level_file_name):
 		print("file not exist")
 		get_tree().change_scene_to_file("res://1_player_menu.tscn")
+	print("changing level")
+	
+	get_tree().change_scene_to_file(level_file_name)
+
+
+func next_level_player_2() -> void:
+	current_level = current_level+1
+	
+	
+	var level_file_name = levels_2_player_path+"/"+levels_file_start+str(current_level)+path_end
+	if not FileAccess.file_exists(level_file_name):
+		print("file not exist")
+		get_tree().change_scene_to_file("res://2_player_level_selector.tscn")
 	print("changing level")
 	
 	get_tree().change_scene_to_file(level_file_name)

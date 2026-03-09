@@ -183,3 +183,12 @@ func right() -> void:
 	direction = Vector2i(direction)
 	forward()
 	print("Right! direction: ", direction)
+
+
+func wait() -> void:
+	get_node("/root/Node2D/code").robot_changes_wait(self, true)
+	get_node("wait").start()
+
+
+func _on_wait_timeout() -> void:
+	get_node("/root/Node2D/code").robot_changes_wait(self, false)

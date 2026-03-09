@@ -21,4 +21,6 @@ func change_level(level: String) -> void:
 
 func _on_level_pressed(level: String) -> void:
 	#multiplayer needs these two functions to be seperate
+	if not multiplayer.is_server():
+		return
 	change_level.rpc(level)

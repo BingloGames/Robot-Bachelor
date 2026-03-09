@@ -1,7 +1,7 @@
 extends Control
 
 
-var base_functions = ["forward()", "backward()", "left()", "right()"]
+var base_functions = ["forward()", "backward()", "left()", "right()", "wait()"]
 
 
 var codeLines = []

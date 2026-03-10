@@ -59,40 +59,27 @@ func _on_item_clicked(index: int, at_position: Vector2, mouse_button_index: int)
 	var line_limit = get_node("/root/Node2D/code").line_limit-1
 	var current_line = text_edit.get_caret_line()
 	var last_line = text_edit.get_line_count()-1
-	print (current_line)
-	print(last_line)
-	print(line_limit)
+	var line_text = text_edit.get_line(current_line)
+	var check_empty = line_text.strip_edges()
 	
-	if current_line == last_line:
-		if last_line < line_limit:
-			text_edit.insert_text_at_caret(function, 0)
+	if check_empty == "":
+		if current_line < last_line:
+			text_edit.insert_text_at_caret(thing, 0)
 			text_edit.grab_focus()
-			print("current line is last line and smaller than line limit")
-		elif last_line == line_limit:
+			
+		elif current_line == last_line and last_line == line_limit:
 			text_edit.insert_text_at_caret(thing, 0)
 			text_edit.grab_focus()
 			print("current line is last line and in last possible line")
+			
+		elif current_line == last_line and last_line < line_limit:
+			text_edit.insert_text_at_caret(function, 0)
+			text_edit.grab_focus()
+			print("current line is last line and smaller than line limit")
+			
 		else: 
-			print ("No more lines")
-			#I should add an Error line here
-		#Add check empty here
-	
-	elif current_line < last_line:
-		var line_text = text_edit.get_line(current_line)
-		var check_empty = line_text.strip_edges()
-		var check_indent = text_edit.get_indent_level(current_line)
-		if check_empty == "":
-			if check_indent == 0:
-				text_edit.insert_text_at_caret(thing, 0)
-				text_edit.grab_focus()
-				print("current line is in the middle of the text and empty")
-			elif check_indent != 0:
-				text_edit.insert_text_at_caret("\t"+thing, 0)
-				text_edit.grab_focus()
-				print("curret line is in the middle of the text and indented")
-		elif check_empty != "":
-			print("There is text there already!")
-			#I should add an Error line here
+			print ("How did you get here?")
 			
 	else:
-		print("How did you get here??")
+		text_edit.grab_focus()
+		print("There is text there already!")

@@ -318,7 +318,6 @@ func _on_lines_edited_from(from_line: int, to_line: int) -> void:
 		text_edit.remove_line_at(to_line)
 		return
 	
-	
 	get_node("Timer").start()
 	
 	
@@ -366,6 +365,8 @@ func _on_timer_timeout() -> void:
 	
 	if errors_text.is_empty():
 		get_node("error message").text = ""
+		if get_node("TextEdit").get_line_count() == line_limit:
+			get_node("error message").text = "Warning: Last line"
 		return
 	
 	

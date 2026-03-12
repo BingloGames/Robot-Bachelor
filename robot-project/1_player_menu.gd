@@ -9,33 +9,21 @@ func _ready() -> void:
 	var levels = []
 	
 	
-	var dir = DirAccess.open(levels_path)
-	if dir == null:
-		print("?????")
-		return
+	var files = ResourceLoader.list_directory(levels_path)
 	
 	
-	dir.list_dir_begin()
-	var filename = dir.get_next()
-	
-	
-	while not filename.is_empty():
+	for filename in files:
 		if not (filename.begins_with(levels_file_start) and filename.ends_with(path_end)):
-			filename = dir.get_next()
 			continue
 		
 		#only get the level number
 		var level_num = filename.replace(levels_file_start, "").replace(path_end, "")
 		if not level_num.is_valid_int():
-			filename = dir.get_next()
 			print("????????")
 			continue
 		
 		
 		levels.append(level_num)
-		filename = dir.get_next()
-	
-	
 	add_level_buttons(levels)
 
 

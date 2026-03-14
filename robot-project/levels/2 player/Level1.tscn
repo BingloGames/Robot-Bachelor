@@ -42,6 +42,7 @@ color = "blue"
 [node name="button" parent="buttons" instance=ExtResource("7_bcaga")]
 position = Vector2(240, 80)
 door = NodePath("../../doors/door")
+needs_holding = true
 
 [node name="robots" type="Node2D" parent="."]
 

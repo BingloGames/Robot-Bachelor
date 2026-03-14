@@ -369,6 +369,7 @@ libraries = {
 autoplay = "idle right"
 
 [node name="wait" type="Timer" parent="."]
+wait_time = 0.32
 one_shot = true
 
 [connection signal="timeout" from="wait" to="." method="_on_wait_timeout"]

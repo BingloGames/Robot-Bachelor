@@ -4,7 +4,7 @@ class_name Robot
 
 var SPEED = 100
 
-var start_direction = Vector2i.RIGHT
+@export var start_direction: Vector2i = Vector2i.RIGHT
 var direction = start_direction
 var walking_backwards = false
 
@@ -187,7 +187,8 @@ func right() -> void:
 
 func wait() -> void:
 	get_node("/root/Node2D/code").robot_changes_wait(self, true)
-	get_node("wait").start()
+	#get_node("wait").set_wait_time()
+	get_node("wait").start(get_node("/root/Node2D/ground").tile_set.tile_size.x/SPEED)
 
 
 func _on_wait_timeout() -> void:

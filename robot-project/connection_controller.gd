@@ -62,6 +62,7 @@ func new_name(id: int, new_player_name: String):
 func _player_disconnected(id):
 	players.erase(id)
 	print("player disconnected with id: ", id)
+	close_game()
 	#if the game is ongoing, stop the game
 
 
@@ -88,7 +89,7 @@ func join_game(ip_address, new_player_name):
 	players[multiplayer.get_unique_id()] = player_name
 
 
-@rpc("any_peer")
+@rpc("any_peer", "call_local")
 func close_game():
 	multiplayer.multiplayer_peer.disconnect_peer(multiplayer.get_unique_id())
 	multiplayer.multiplayer_peer.close()

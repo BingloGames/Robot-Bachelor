@@ -22,8 +22,8 @@ ConnectionController="*res://connection_controller.gd"
 
 [display]
 
-window/size/viewport_width=896
-window/size/viewport_height=256
+window/size/viewport_width=960
+window/size/viewport_height=540
 window/stretch/mode="canvas_items"
 
 [rendering]

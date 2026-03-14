@@ -16,19 +16,21 @@
 metadata/_edit_vertical_guides_ = [0.0, 320.0]
 
 [node name="ground" type="TileMapLayer" parent="."]
+position = Vector2(32, 0)
 tile_map_data = PackedByteArray("AAABAAMAAQAIAAEAAAABAAQAAQAIAAIAAAABAAUAAQAIAAQAAAACAAMAAQAKAAEAAAACAAQAAQAJAAMAAAACAAUAAQAJAAQAAAADAAMAAQAKAAEAAAADAAQAAQAJAAMAAAADAAUAAQAJAAQAAAAEAAMAAQAKAAEAAAAEAAQAAQAJAAMAAAAEAAUAAQAJAAQAAAAFAAMAAQAKAAEAAAAFAAQAAQAJAAMAAAAFAAUAAQAJAAQAAAAGAAMAAQAKAAEAAAAGAAQAAQAJAAMAAAAGAAUAAQAJAAQAAAAHAAMAAQAKAAEAAAAHAAUAAQAJAAQAAAAIAAMAAQALAAEAAAAIAAQAAQALAAMAAAAIAAUAAQALAAQAAAAHAAQAAQAJAAMAAAA=")
 tile_set = ExtResource("1_lmyl5")
 
 [node name="walls" type="TileMapLayer" parent="."]
+position = Vector2(32, 0)
 tile_map_data = PackedByteArray("AAAJAAYAAQACABcAAAAJAAUAAQACABYAAAAJAAQAAQACABYAAAAJAAMAAQACABYAAAAJAAIAAQACABUAAAAIAAYAAQABABcAAAAIAAUAAQAIABcAAAAIAAQAAQAIABcAAAAIAAMAAQAIABcAAAAIAAIAAQABABUAAAAHAAYAAQABABcAAAAHAAUAAQAIABcAAAAHAAQAAQAIABcAAAAHAAMAAQAIABcAAAAHAAIAAQABABUAAAAGAAYAAQABABcAAAAGAAUAAQAIABcAAAAGAAQAAQAIABcAAAAGAAMAAQAIABcAAAAGAAIAAQABABUAAAAFAAYAAQABABcAAAAFAAUAAQAIABcAAAAFAAQAAQAIABcAAAAFAAMAAQAIABcAAAAFAAIAAQABABUAAAAEAAYAAQABABcAAAAEAAUAAQAIABcAAAAEAAQAAQAIABcAAAAEAAMAAQAIABcAAAAEAAIAAQABABUAAAADAAYAAQABABcAAAADAAUAAQAIABcAAAADAAQAAQAIABcAAAADAAMAAQAIABcAAAADAAIAAQABABUAAAACAAYAAQABABcAAAACAAUAAQAIABcAAAACAAQAAQAIABcAAAACAAMAAQAIABcAAAACAAIAAQABABUAAAABAAYAAQABABcAAAABAAUAAQAIABcAAAABAAQAAQAIABcAAAABAAMAAQAIABcAAAABAAIAAQABABUAAAAAAAYAAQAAABcAAAAAAAUAAQAAABYAAAAAAAQAAQAAABYAAAAAAAMAAQAAABYAAAAAAAIAAQAAABUAAAA=")
 tile_set = ExtResource("1_lmyl5")
 
 [node name="special" type="TileMapLayer" parent="."]
+position = Vector2(32, 0)
 tile_map_data = PackedByteArray("AAAHAAQAAQAIABUAAAACAAQAAQAJABIAAAAEAAQAAgAAAAAAAQAGAAQAAgAAAAAAAQAIAAQAAgAAAAAAAQA=")
 tile_set = ExtResource("1_lmyl5")
 
 [node name="items" type="Node2D" parent="."]
-position = Vector2(-32, 0)
 script = ExtResource("2_vxtnj")
 
 [node name="Item" parent="items" instance=ExtResource("7_qrxcu")]
@@ -40,13 +42,14 @@ position = Vector2(208, 144)
 item_name = "right()"
 
 [node name="robots" type="Node2D" parent="."]
+position = Vector2(32, 0)
 
 [node name="robot" parent="robots" instance=ExtResource("3_cove1")]
 position = Vector2(80, 144)
 
 [node name="code" parent="." instance=ExtResource("2_dn5ey")]
-offset_left = 320.0
-offset_right = 512.0
+offset_left = 384.0
+offset_right = 576.0
 line_limit = 10
 
 [node name="star counter" parent="." instance=ExtResource("2_mc20k")]
@@ -62,7 +65,7 @@ grow_vertical = 1
 metadata/_edit_group_ = true
 
 [node name="Container" parent="." instance=ExtResource("6_lmyl5")]
-offset_left = 512.0
+offset_left = 576.0
 offset_right = 896.0
 
 [node name="black" type="Sprite2D" parent="."]
@@ -72,6 +75,7 @@ scale = Vector2(896, 256)
 texture = SubResource("CanvasTexture_44r2x")
 
 [node name="Info pop up" parent="." instance=ExtResource("6_lrqwn")]
+visible = false
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -81,3 +85,5 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="Restart" parent="." instance=ExtResource("9_wcp0l")]
+offset_top = 288.0
+offset_bottom = 288.0

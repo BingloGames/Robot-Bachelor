@@ -20,24 +20,29 @@ script = ExtResource("1_xap0c")
 metadata/_edit_horizontal_guides_ = [0.0, 224.0]
 
 [node name="ground" type="TileMapLayer" parent="."]
+position = Vector2(0, 32)
 tile_map_data = PackedByteArray("AAABAAEAAQAAAAIAAAABAAIAAQAEAAIAAAABAAMAAQAIAAIAAAABAAQAAQAIAAIAAAABAAUAAQAIAAIAAAABAAYAAQAIAAIAAAABAAcAAQAIAAQAAAADAAEAAQAAAAIAAAACAAIAAQAKAAEAAAADAAIAAQAHAAIAAAADAAMAAQALAAMAAAACAAMAAQAJAAMAAAACAAQAAQAJAAMAAAADAAQAAQALAAMAAAADAAUAAQALAAMAAAACAAUAAQAJAAMAAAACAAYAAQAJAAMAAAADAAYAAQALAAMAAAADAAcAAQALAAQAAAACAAcAAQAJAAQAAAADAAAAAQADAAEAAAACAAAAAQACAAQAAAABAAAAAQABAAEAAAAGAAcAAQAIAAkAAAAHAAcAAQAJAAkAAAAHAAYAAQAJAAgAAAAHAAUAAQAJAAgAAAAHAAQAAQAJAAgAAAAHAAIAAQAKAAYAAAAHAAAAAQACAAkAAAAGAAAAAQABAAYAAAAGAAEAAQAAAAcAAAAGAAIAAQAEAAcAAAAGAAQAAQAIAAcAAAAGAAUAAQAIAAcAAAAGAAYAAQAIAAcAAAAIAAcAAQALAAkAAAAIAAYAAQALAAgAAAAIAAUAAQALAAgAAAAIAAQAAQALAAgAAAAIAAMAAQALAAgAAAAIAAIAAQAHAAcAAAAIAAEAAQAAAAcAAAAIAAAAAQADAAYAAAAGAAMAAQAIAAcAAAAHAAMAAQAJAAgAAAA=")
 tile_set = ExtResource("1_tih6e")
 
 [node name="walls" type="TileMapLayer" parent="."]
+position = Vector2(0, 32)
 tile_map_data = PackedByteArray("AAAAAP//AQAAABUAAAAAAAAAAQAAABYAAAAAAAEAAQAAABYAAAAAAAIAAQAAABYAAAAAAAMAAQAAABYAAAAAAAQAAQAAABYAAAAAAAUAAQAAABYAAAAAAAYAAQAAABYAAAAAAAcAAQAAABYAAAAAAAgAAQAAABcAAAAEAP//AQACABUAAAAEAAAAAQACABYAAAAEAAEAAQACABYAAAAEAAIAAQACABYAAAAEAAMAAQACABYAAAAEAAQAAQACABYAAAAEAAUAAQACABYAAAAEAAYAAQACABYAAAAEAAcAAQACABYAAAAEAAgAAQACABcAAAAFAP//AQADABUAAAAFAAAAAQADABYAAAAFAAEAAQADABYAAAAFAAIAAQADABYAAAAFAAMAAQADABYAAAAFAAQAAQADABYAAAAFAAUAAQADABYAAAAFAAYAAQADABYAAAAFAAcAAQADABYAAAAFAAgAAQADABcAAAAJAP//AQAFABUAAAAJAAAAAQAFABYAAAAJAAEAAQAFABYAAAAJAAIAAQAFABYAAAAJAAMAAQAFABYAAAAJAAQAAQAFABYAAAAJAAUAAQAFABYAAAAJAAYAAQAFABYAAAAJAAcAAQAFABYAAAAJAAgAAQAFABcAAAAGAAgAAQAEABcAAAAHAAgAAQAEABcAAAAIAAgAAQAEABcAAAAGAP//AQAEABUAAAAHAP//AQAEABUAAAAIAP//AQAEABUAAAABAAgAAQABABcAAAACAAgAAQABABcAAAADAAgAAQABABcAAAABAP//AQABABUAAAACAP//AQABABUAAAADAP//AQABABUAAAA=")
 tile_set = ExtResource("1_tih6e")
 
 [node name="special" type="TileMapLayer" parent="."]
+position = Vector2(0, 32)
 tile_map_data = PackedByteArray("AAAHAAEAAQALABYAAAACAAEAAQAJABYAAAABAAIAAQAGABYAAAADAAIAAQAHABYAAAACAAQAAgAAAAAAAQACAAAAAgAAAAAAAQAHAAcAAQAJABMAAAACAAYAAgAAAAAAAQACAAcAAQAJAA4AAAADAAcAAgAAAAAAAQA=")
 tile_set = ExtResource("1_tih6e")
 
 [node name="doors" type="Node2D" parent="."]
+position = Vector2(0, 32)
 
 [node name="door" parent="doors" instance=ExtResource("3_bcaga")]
 position = Vector2(80, 80)
 color = "blue"
 
 [node name="buttons" type="Node2D" parent="."]
+position = Vector2(0, 32)
 
 [node name="button" parent="buttons" instance=ExtResource("7_bcaga")]
 position = Vector2(240, 80)
@@ -45,6 +50,7 @@ door = NodePath("../../doors/door")
 needs_holding = true
 
 [node name="robots" type="Node2D" parent="."]
+position = Vector2(0, 32)
 
 [node name="robot1" parent="robots" instance=ExtResource("2_xap0c")]
 position = Vector2(80, 240)
@@ -53,6 +59,7 @@ position = Vector2(80, 240)
 position = Vector2(240, 240)
 
 [node name="Items" type="Node2D" parent="."]
+position = Vector2(0, 32)
 script = ExtResource("4_f18ai")
 
 [node name="Item" parent="Items" instance=ExtResource("2_rdv1c")]
@@ -62,21 +69,18 @@ position = Vector2(80, 176)
 position = Vector2(80, 112)
 
 [node name="end_particles" parent="." instance=ExtResource("7_h8d62")]
-position = Vector2(79, 48)
+position = Vector2(79, 80)
 
 [node name="end_particles2" parent="." instance=ExtResource("7_h8d62")]
-position = Vector2(240, 48)
-
-[node name="Info pop up" parent="." instance=ExtResource("8_t6xwf")]
-visible = false
+position = Vector2(240, 80)
 
 [node name="Container" parent="." instance=ExtResource("9_w3jir")]
-offset_left = 512.0
+offset_left = 576.0
 offset_right = 896.0
 
 [node name="code" parent="." instance=ExtResource("10_rdv1c")]
-offset_left = 320.0
-offset_right = 512.0
+offset_left = 384.0
+offset_right = 576.0
 line_limit = 100
 
 [node name="star counter" parent="." instance=ExtResource("11_xap0c")]
@@ -86,3 +90,6 @@ modulate = Color(0, 0, 0, 0)
 position = Vector2(447.74997, 127.75)
 scale = Vector2(896.49994, 256.5)
 texture = SubResource("CanvasTexture_bcaga")
+
+[node name="Info pop up" parent="." instance=ExtResource("8_t6xwf")]
+visible = false

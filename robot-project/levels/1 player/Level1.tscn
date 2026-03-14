@@ -51,7 +51,7 @@ position = Vector2(80, 144)
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_right = 960.0
+offset_right = 640.0
 offset_bottom = 544.0
 line_limit = 10
 

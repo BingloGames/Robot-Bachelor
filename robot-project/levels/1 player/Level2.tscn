@@ -26,7 +26,7 @@ tile_map_data = PackedByteArray("AAAHAAQAAQAJABYAAAACAAMAAQAAAAwAAAADAAMAAQAGABU
 tile_set = ExtResource("1_wwdpc")
 
 [node name="code" parent="." instance=ExtResource("2_psxy2")]
-offset_right = 960.0
+offset_right = 640.0
 offset_bottom = 544.0
 line_limit = 20
 
@@ -55,7 +55,8 @@ texture = SubResource("CanvasTexture_6ebn4")
 [node name="Input pop up" parent="." instance=ExtResource("7_gxplt")]
 anchors_preset = 10
 anchor_bottom = 0.0
-offset_right = 960.0
+offset_left = 448.0
+offset_right = 744.0
 offset_bottom = 544.0
 grow_vertical = 1
 

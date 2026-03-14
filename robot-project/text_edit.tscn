@@ -6,6 +6,7 @@
 layout_mode = 3
 anchor_right = 1.0
 anchor_bottom = 1.0070001
+offset_right = -320.0
 offset_bottom = 0.2199707
 script = ExtResource("1_gem3i")
 metadata/_edit_vertical_guides_ = [-320.0]
@@ -16,7 +17,6 @@ anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 0.9850001
 offset_left = 448.0
-offset_right = -320.0
 offset_bottom = -23.840027
 gutters_draw_line_numbers = true
 
@@ -27,7 +27,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 560.0
 offset_top = 512.0
-offset_right = -320.0
 text = "GO!"
 
 [node name="StopButton" type="Button" parent="."]
@@ -38,7 +37,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 560.0
 offset_top = 512.0
-offset_right = -320.0
 text = "Stop"
 
 [node name="line limit" type="Label" parent="."]
@@ -48,7 +46,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 448.0
 offset_top = 512.0
-offset_right = -400.0
+offset_right = -80.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Line Limit: "
 vertical_alignment = 1
 
@@ -60,8 +60,12 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -576.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -192.0
 offset_bottom = -480.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Error:"
 
 [connection signal="lines_edited_from" from="TextEdit" to="." method="_on_lines_edited_from"]

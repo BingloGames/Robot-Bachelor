@@ -39,7 +39,7 @@ color = "blue"
 dir = "horisontal"
 
 [node name="code" parent="." instance=ExtResource("2_qlmxs")]
-offset_right = 960.0
+offset_right = 640.0
 offset_bottom = 544.0
 line_limit = 12
 

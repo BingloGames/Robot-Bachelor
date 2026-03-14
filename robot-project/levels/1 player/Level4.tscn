@@ -30,7 +30,7 @@ tile_map_data = PackedByteArray("AAAIAAQAAQAJABYAAAABAAIAAQABAAsAAAAIAAMAAQAGABY
 tile_set = ExtResource("1_0vw6x")
 
 [node name="code" parent="." instance=ExtResource("2_sbb5h")]
-offset_right = 960.0
+offset_right = 640.0
 offset_bottom = 544.0
 line_limit = 20
 
@@ -85,7 +85,8 @@ visible = false
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_right = 960.0
+offset_left = 448.0
+offset_right = 744.0
 offset_bottom = 544.0
 grow_horizontal = 1
 grow_vertical = 1

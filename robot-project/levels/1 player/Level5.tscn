@@ -30,7 +30,7 @@ tile_map_data = PackedByteArray("AAAFAAYAAQAIABUAAAAIAAQAAQAIABcAAAABAAMAAQAIAAs
 tile_set = ExtResource("1_tjh38")
 
 [node name="code" parent="." instance=ExtResource("2_tjh38")]
-offset_right = 960.0
+offset_right = 640.0
 offset_bottom = 544.0
 line_limit = 20
 
@@ -77,7 +77,8 @@ texture = SubResource("CanvasTexture_25xmc")
 
 [node name="Input pop up" parent="." instance=ExtResource("8_vpjvl")]
 visible = false
-offset_right = 960.0
+offset_left = 448.0
+offset_right = 744.0
 offset_bottom = 536.0
 Answer = ["answer = list[1]", "answer =list[1]"]
 

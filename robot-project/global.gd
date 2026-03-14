@@ -28,9 +28,7 @@ func save_stars(star_count: int) -> void:
 
 
 func restart_level() -> void:
-	robot_turn = get_node("/root/Node2D/code").turn
-	get_node("/root/Node2D/code/error message").set_text("Problem in line "+str(robot_turn))
-	get_node("/root/Node2D/code/TextEdit").set_line_background_color(robot_turn-1, Color(255,0,0))
+	get_node("/root/Node2D/code").problem_warning()
 	
 	get_node("/root/Node2D/star counter").restart_stars()
 	for robot in get_node("/root/Node2D/robots").get_children():

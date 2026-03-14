@@ -65,7 +65,7 @@ func _process(delta: float) -> void:
 				robot_waiting_data[robot][for_waiting_data] = get(for_waiting_data)
 			
 			
-			robot = null
+			#robot = null
 
 
 func _on_go_button_pressed() -> void:
@@ -112,6 +112,11 @@ func ready_pressed(peer_is_ready: bool):
 			init_code_lines.rpc()
 			#start_code()
 			#start_code.rpc()
+
+
+@rpc("call_local")
+func reset_ready():
+	ready_players.clear()
 
 
 @rpc("authority", "call_local", "reliable")
@@ -169,11 +174,36 @@ func get_robot_code(code_lines: Array):
 	#print("code lines: ", codeLines)
 
 
+func problem_warning() -> void:
+	for temp_robot in robot_current_line:
+		print("checking if ", temp_robot.name, " died")
+		if not temp_robot.died:
+			continue
+		
+		
+		print(temp_robot.name, " died!")
+		
+		
+		var temp_turn = robot_current_line[temp_robot]
+		if temp_robot.name == "robot1":
+			problem_warning_multiplayer(temp_turn)
+			continue
+		
+		
+		problem_warning_multiplayer.rpc(temp_turn)
+
+
+@rpc
+func problem_warning_multiplayer(robot_turn: int) -> void:
+	turn = robot_turn
+	super.problem_warning()
+
+
 func stop_running_code() -> void:
 	turn = 0
 	for temp_robot in robot_code.keys():
-		robot_changes_wait(temp_robot, false)
-	
-	
-	for temp_robot in robot_for_loop_data.keys():
+		robot_waiting_data[temp_robot] = robot_waiting_data_default.duplicate()
 		robot_for_loop_data[temp_robot] = robot_for_loop_data_default.duplicate_deep()
+		robot_current_line[temp_robot] = 0
+		robot_code[temp_robot].clear()
+	

@@ -7,9 +7,10 @@ var SPEED = 100
 @export var start_direction: Vector2i = Vector2i.RIGHT
 var direction = start_direction
 var walking_backwards = false
+var died = false
+
 
 @onready var start_point = global_position
-
 var next_tile
 
 
@@ -33,7 +34,7 @@ func move(delta: float):
 	if collision:
 		print(name + " collided with: ", collision.get_collider().name, " at position: ", collision.get_position())
 		#play animation before running this code?
-		Global.restart_level()
+		die()
 		return
 	
 	
@@ -53,12 +54,13 @@ func move(delta: float):
 
 
 func respawn() -> void:
+	print("respawning!")
 	scale = Vector2(1,1)
 	global_position = start_point
 	next_tile = null
 	walking_backwards = false
 	direction = start_direction
-	
+	died = false
 	idle()
 
 
@@ -152,6 +154,7 @@ func check_end() -> void:
 
 func die() -> void:
 	print("Lost! restarting...")
+	died = true
 	Global.restart_level()
 
 

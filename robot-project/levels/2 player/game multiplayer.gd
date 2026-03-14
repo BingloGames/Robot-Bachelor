@@ -4,7 +4,7 @@ extends Node2D
 var robots_finished = []
 
 
-@rpc("any_peer", "call_local", "reliable")
+#@rpc("any_peer", "call_local", "reliable")
 func robot_finished(robot_path: NodePath):
 	if robot_path in robots_finished:
 		return
@@ -49,7 +49,7 @@ func check_both_robot_end():
 		robots_succeded.append(robot)
 	
 	
-	if len(robots_succeded) == len(robots_finished):
+	if len(robots_succeded) == 2:
 		success.rpc()
 		return
 	

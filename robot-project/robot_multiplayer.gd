@@ -23,8 +23,8 @@ func respawn() -> void:
 	super.respawn()
 	get_node("/root/Node2D/code").robot_waiting_data[self]["running_code"] = false
 	get_node("/root/Node2D/code").is_ready = false
-	get_node("/root/Node2D/code").ready_pressed.rpc(false)
+	get_node("/root/Node2D/code").reset_ready.rpc()
 
 
 func check_end() -> void:
-	get_node("/root/Node2D").robot_finished.rpc(self.get_path())
+	get_node("/root/Node2D").robot_finished(self.get_path())

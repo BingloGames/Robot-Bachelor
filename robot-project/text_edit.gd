@@ -41,6 +41,7 @@ func _process(delta: float) -> void:
 		return
 	
 	if codeLines.is_empty():
+		print("code is empty for: ", robot.name)
 		robot.check_end()
 		running_code = false
 		return
@@ -70,14 +71,17 @@ func run_code() -> void:
 	
 	turn +=1
 	var code = codeLines.pop_front()
+	print(robot.name, " code after this: ", codeLines)
 	run_line(code)
-	
+
+
 func problem_warning() -> void:
 	if turn == 0:
 		get_node("error message").set_text("Code stopped")
 	else:
 		get_node("error message").set_text("Problem in line "+str(turn))
 		get_node("TextEdit").set_line_background_color(turn-1, Color(255,0,0))
+
 
 func stop_running_code() -> void:
 	turn = 0

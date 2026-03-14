@@ -28,12 +28,15 @@ func save_stars(star_count: int) -> void:
 
 
 func restart_level() -> void:
+	print("resetting level!")
+	get_node("/root/Node2D").robots_finished.clear()
 	get_node("/root/Node2D/code").problem_warning()
+	get_node("/root/Node2D/code").stop_running_code()
+	
 	
 	get_node("/root/Node2D/star counter").restart_stars()
 	for robot in get_node("/root/Node2D/robots").get_children():
 		robot.respawn()
-	get_node("/root/Node2D/code").stop_running_code()
 	
 	
 	if get_node("/root/Node2D").has_node("doors"):

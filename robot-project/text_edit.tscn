@@ -4,42 +4,51 @@
 
 [node name="code" type="Control"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 192.0
-offset_bottom = 544.0
+anchor_right = 1.0
+anchor_bottom = 1.0070001
+offset_bottom = 0.2199707
 script = ExtResource("1_gem3i")
 metadata/_edit_vertical_guides_ = [-320.0]
 
 [node name="TextEdit" type="CodeEdit" parent="."]
-layout_mode = 0
-offset_right = 192.0
-offset_bottom = 512.0
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.9850001
+offset_left = 448.0
+offset_right = -320.0
+offset_bottom = -23.840027
 gutters_draw_line_numbers = true
 
 [node name="GoButton" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 1.021
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 112.0
+offset_left = 560.0
 offset_top = 512.0
-offset_right = -4.032013
+offset_right = -320.0
 text = "GO!"
 
 [node name="StopButton" type="Button" parent="."]
 visible = false
-layout_mode = 0
-offset_left = 112.0
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 560.0
 offset_top = 512.0
-offset_right = 192.0
-offset_bottom = 544.0
+offset_right = -320.0
 text = "Stop"
 
 [node name="line limit" type="Label" parent="."]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 448.0
 offset_top = 512.0
-offset_right = 112.0
-offset_bottom = 544.0
+offset_right = -400.0
 text = "Line Limit: "
 vertical_alignment = 1
 
@@ -47,9 +56,12 @@ vertical_alignment = 1
 one_shot = true
 
 [node name="error message" type="Label" parent="."]
-layout_mode = 0
-offset_left = -320.0
-offset_bottom = 64.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -576.0
+offset_bottom = -480.0
 text = "Error:"
 
 [connection signal="lines_edited_from" from="TextEdit" to="." method="_on_lines_edited_from"]

@@ -7,14 +7,14 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = 288.0
+offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_i6fiq")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_right = 896.0
+offset_right = 960.0
 offset_bottom = 544.0
 color = Color(0.18717614, 0.18717614, 0.18717614, 1)
 
@@ -31,18 +31,18 @@ text = "Default text."
 
 [node name="Close" type="Button" parent="."]
 layout_mode = 0
-offset_left = 872.0
+offset_left = 933.0
 offset_top = 8.0
-offset_right = 890.0
+offset_right = 951.0
 offset_bottom = 39.0
 text = "X"
 
 [node name="Open" type="Button" parent="."]
 visible = false
 layout_mode = 0
-offset_left = 872.0
+offset_left = 934.0
 offset_top = 8.0
-offset_right = 888.0
+offset_right = 950.0
 offset_bottom = 39.0
 text = "?"
 

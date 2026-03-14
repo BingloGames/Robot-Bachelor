@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://ct3ylbdix74av" path="res://button.tscn" id="6_ngd16"]
 [ext_resource type="PackedScene" uid="uid://bu5wqujjgco58" path="res://info_pop_up.tscn" id="8_5pfj7"]
 [ext_resource type="PackedScene" uid="uid://lggogupwduwp" path="res://input_pop_up.tscn" id="8_vpjvl"]
-[ext_resource type="PackedScene" path="res://restart.tscn" id="12_ngd16"]
+[ext_resource type="PackedScene" uid="uid://bvmjp16iiq1f2" path="res://restart.tscn" id="12_ngd16"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_25xmc"]
 
@@ -30,8 +30,8 @@ tile_map_data = PackedByteArray("AAAFAAYAAQAIABUAAAAIAAQAAQAIABcAAAABAAMAAQAIAAs
 tile_set = ExtResource("1_tjh38")
 
 [node name="code" parent="." instance=ExtResource("2_tjh38")]
-offset_left = 320.0
-offset_right = 512.0
+offset_right = 960.0
+offset_bottom = 544.0
 line_limit = 20
 
 [node name="star counter" parent="." instance=ExtResource("3_lhhoo")]
@@ -64,28 +64,32 @@ color = "blue"
 position = Vector2(48, 112)
 
 [node name="Container" parent="." instance=ExtResource("6_knvoa")]
-offset_left = 512.0
-offset_right = 896.0
+offset_left = 640.0
+offset_right = 960.0
+offset_bottom = 544.0
 items = 5
 
 [node name="black" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 0)
-position = Vector2(447.75, 127.75)
-scale = Vector2(896.5, 256.5)
+position = Vector2(479.75, 271.75)
+scale = Vector2(960.5, 544.5)
 texture = SubResource("CanvasTexture_25xmc")
 
 [node name="Input pop up" parent="." instance=ExtResource("8_vpjvl")]
 visible = false
-offset_right = 896.0
-offset_bottom = 256.0
+offset_right = 960.0
+offset_bottom = 536.0
 Answer = ["answer = list[1]", "answer =list[1]"]
 
 [node name="Info pop up" parent="." instance=ExtResource("8_5pfj7")]
-visible = false
 anchors_preset = 10
 anchor_bottom = 0.0
-offset_right = 896.0
-offset_bottom = 256.0
+offset_right = 960.0
+offset_bottom = 544.0
 grow_vertical = 1
 
 [node name="Restart" parent="." instance=ExtResource("12_ngd16")]
+offset_left = 64.0
+offset_top = 288.0
+offset_right = 64.0
+offset_bottom = 288.0

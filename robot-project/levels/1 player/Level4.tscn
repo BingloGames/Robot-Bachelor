@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dqdijlggb57o1" path="res://item_list.tscn" id="6_cgold"]
 [ext_resource type="PackedScene" uid="uid://bu5wqujjgco58" path="res://info_pop_up.tscn" id="8_qriun"]
 [ext_resource type="PackedScene" uid="uid://lggogupwduwp" path="res://input_pop_up.tscn" id="9_4xlxe"]
-[ext_resource type="PackedScene" path="res://restart.tscn" id="12_jf22w"]
+[ext_resource type="PackedScene" uid="uid://bvmjp16iiq1f2" path="res://restart.tscn" id="12_jf22w"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_q4xh8"]
 
@@ -30,8 +30,8 @@ tile_map_data = PackedByteArray("AAAIAAQAAQAJABYAAAABAAIAAQABAAsAAAAIAAMAAQAGABY
 tile_set = ExtResource("1_0vw6x")
 
 [node name="code" parent="." instance=ExtResource("2_sbb5h")]
-offset_left = 320.0
-offset_right = 512.0
+offset_right = 960.0
+offset_bottom = 544.0
 line_limit = 20
 
 [node name="star counter" parent="." instance=ExtResource("3_jfjt6")]
@@ -69,14 +69,15 @@ dir = "horisontal"
 position = Vector2(48, 80)
 
 [node name="Container" parent="." instance=ExtResource("6_cgold")]
-offset_left = 512.0
-offset_right = 896.0
+offset_left = 640.0
+offset_right = 960.0
+offset_bottom = 544.0
 items = 5
 
 [node name="black" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 0)
-position = Vector2(447.75003, 127.75)
-scale = Vector2(896.5001, 256.5)
+position = Vector2(479.75003, 271.75)
+scale = Vector2(960.5001, 544.5)
 texture = SubResource("CanvasTexture_q4xh8")
 
 [node name="Input pop up" parent="." instance=ExtResource("9_4xlxe")]
@@ -84,15 +85,18 @@ visible = false
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_right = 896.0
-offset_bottom = 256.0
+offset_right = 960.0
+offset_bottom = 544.0
 grow_horizontal = 1
 grow_vertical = 1
 Answer = ["answer = X+Y", "answer = 9", "answer =X+Y", "answer =9", "answer = X + Y"]
 
 [node name="Info pop up" parent="." instance=ExtResource("8_qriun")]
-visible = false
-offset_right = 896.0
-offset_bottom = 256.0
+offset_right = 960.0
+offset_bottom = 544.0
 
 [node name="Restart" parent="." instance=ExtResource("12_jf22w")]
+offset_left = 64.0
+offset_top = 288.0
+offset_right = 64.0
+offset_bottom = 288.0

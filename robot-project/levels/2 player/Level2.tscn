@@ -65,13 +65,13 @@ position = Vector2(240, 272)
 position = Vector2(112, 176)
 
 [node name="Container" parent="." instance=ExtResource("6_4kyq2")]
-offset_left = 576.0
-offset_right = 896.0
+offset_left = 640.0
+offset_right = 960.0
+offset_bottom = 544.0
 
 [node name="code" parent="." instance=ExtResource("7_xum4v")]
-offset_left = 384.0
-offset_right = 576.0
-offset_bottom = 256.0
+offset_right = 960.0
+offset_bottom = 544.0
 
 [node name="star counter" parent="." instance=ExtResource("8_p51fe")]
 visible = false
@@ -81,4 +81,5 @@ offset_right = 88.0
 offset_bottom = -24.0
 
 [node name="Info pop up" parent="." instance=ExtResource("9_bfn2g")]
-visible = false
+offset_right = 960.0
+offset_bottom = 544.0

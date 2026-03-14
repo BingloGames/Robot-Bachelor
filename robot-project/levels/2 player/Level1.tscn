@@ -75,12 +75,13 @@ position = Vector2(79, 80)
 position = Vector2(240, 80)
 
 [node name="Container" parent="." instance=ExtResource("9_w3jir")]
-offset_left = 576.0
-offset_right = 896.0
+offset_left = 640.0
+offset_right = 960.0
+offset_bottom = 544.0
 
 [node name="code" parent="." instance=ExtResource("10_rdv1c")]
-offset_left = 384.0
-offset_right = 576.0
+offset_right = 960.0
+offset_bottom = 544.0
 line_limit = 100
 
 [node name="star counter" parent="." instance=ExtResource("11_xap0c")]
@@ -92,4 +93,5 @@ scale = Vector2(896.49994, 256.5)
 texture = SubResource("CanvasTexture_bcaga")
 
 [node name="Info pop up" parent="." instance=ExtResource("8_t6xwf")]
-visible = false
+offset_right = 960.0
+offset_bottom = 544.0

@@ -13,17 +13,17 @@ script = ExtResource("1_pchbq")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = 320.0
-offset_right = 512.0
-offset_bottom = 256.0
+offset_left = 448.0
+offset_right = 640.0
+offset_bottom = 536.0
 color = Color(0.1882353, 0.1882353, 0.1882353, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = 320.0
-offset_top = 192.0
-offset_right = 640.0
-offset_bottom = 256.0
+offset_left = 448.0
+offset_top = 480.0
+offset_right = 744.0
+offset_bottom = 544.0
 color = Color(0.1882353, 0.1882353, 0.1882353, 1)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
@@ -31,26 +31,26 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.9990001
 anchor_bottom = 1.0
-offset_left = 320.0
-offset_right = -383.10406
-offset_bottom = -64.0
+offset_left = 448.0
+offset_right = -319.04004
+offset_bottom = -4.0
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 568.0
-offset_top = 200.0
-offset_right = -257.0
-offset_bottom = -16.0
+offset_left = 648.0
+offset_top = 488.0
+offset_right = -224.0
+offset_bottom = -4.0
 text = "Confirm"
 
 [node name="LineEdit" type="LineEdit" parent="."]
 layout_mode = 0
-offset_left = 320.0
-offset_top = 200.0
-offset_right = 568.0
-offset_bottom = 240.0
+offset_left = 456.0
+offset_top = 488.0
+offset_right = 648.0
+offset_bottom = 536.0
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

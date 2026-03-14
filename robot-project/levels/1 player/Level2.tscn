@@ -26,8 +26,8 @@ tile_map_data = PackedByteArray("AAAHAAQAAQAJABYAAAACAAMAAQAAAAwAAAADAAMAAQAGABU
 tile_set = ExtResource("1_wwdpc")
 
 [node name="code" parent="." instance=ExtResource("2_psxy2")]
-offset_left = 320.0
-offset_right = 512.0
+offset_right = 960.0
+offset_bottom = 544.0
 line_limit = 20
 
 [node name="star counter" parent="." instance=ExtResource("2_q04gf")]
@@ -42,30 +42,34 @@ offset_bottom = 192.0
 position = Vector2(80, 112)
 
 [node name="Container" parent="." instance=ExtResource("6_wwdpc")]
-offset_left = 512.0
-offset_right = 896.0
+offset_left = 640.0
+offset_right = 960.0
+offset_bottom = 544.0
 
 [node name="black" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 0)
-position = Vector2(447.74997, 127.75)
-scale = Vector2(896.49994, 256.5)
+position = Vector2(479.75, 271.75)
+scale = Vector2(960.5, 544.5)
 texture = SubResource("CanvasTexture_6ebn4")
 
 [node name="Input pop up" parent="." instance=ExtResource("7_gxplt")]
 anchors_preset = 10
 anchor_bottom = 0.0
-offset_right = 896.0
-offset_bottom = 256.0
+offset_right = 960.0
+offset_bottom = 544.0
 grow_vertical = 1
 
 [node name="Info pop up" parent="." instance=ExtResource("7_h2i1x")]
-visible = false
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_right = 898.0
-offset_bottom = 256.0
+offset_right = 960.0
+offset_bottom = 544.0
 grow_horizontal = 1
 grow_vertical = 1
 
 [node name="Restart" parent="." instance=ExtResource("8_gxplt")]
+offset_left = 64.0
+offset_top = 288.0
+offset_right = 64.0
+offset_bottom = 288.0

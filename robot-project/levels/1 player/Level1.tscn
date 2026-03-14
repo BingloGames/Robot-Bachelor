@@ -48,8 +48,11 @@ position = Vector2(32, 0)
 position = Vector2(80, 144)
 
 [node name="code" parent="." instance=ExtResource("2_dn5ey")]
-offset_left = 384.0
-offset_right = 576.0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 960.0
+offset_bottom = 544.0
 line_limit = 10
 
 [node name="star counter" parent="." instance=ExtResource("2_mc20k")]
@@ -65,25 +68,27 @@ grow_vertical = 1
 metadata/_edit_group_ = true
 
 [node name="Container" parent="." instance=ExtResource("6_lmyl5")]
-offset_left = 576.0
-offset_right = 896.0
+offset_left = 640.0
+offset_right = 960.0
+offset_bottom = 544.0
 
 [node name="black" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 0)
-position = Vector2(448, 128)
-scale = Vector2(896, 256)
+position = Vector2(480.00003, 272)
+scale = Vector2(960.00006, 544)
 texture = SubResource("CanvasTexture_44r2x")
 
 [node name="Info pop up" parent="." instance=ExtResource("6_lrqwn")]
-visible = false
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_right = 896.0
-offset_bottom = 256.0
+offset_right = 960.0
+offset_bottom = 544.0
 grow_horizontal = 1
 grow_vertical = 1
 
 [node name="Restart" parent="." instance=ExtResource("9_wcp0l")]
-offset_top = 288.0
-offset_bottom = 288.0
+offset_left = 62.0
+offset_top = 286.0
+offset_right = 62.0
+offset_bottom = 286.0

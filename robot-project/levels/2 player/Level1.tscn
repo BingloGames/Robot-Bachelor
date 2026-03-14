@@ -80,7 +80,7 @@ offset_right = 960.0
 offset_bottom = 544.0
 
 [node name="code" parent="." instance=ExtResource("10_rdv1c")]
-offset_right = 960.0
+offset_right = 640.0
 offset_bottom = 544.0
 line_limit = 100
 

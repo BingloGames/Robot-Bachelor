@@ -70,11 +70,10 @@ offset_right = 960.0
 offset_bottom = 544.0
 
 [node name="code" parent="." instance=ExtResource("7_xum4v")]
-offset_right = 960.0
+offset_right = 640.0
 offset_bottom = 544.0
 
 [node name="star counter" parent="." instance=ExtResource("8_p51fe")]
-visible = false
 offset_left = 88.0
 offset_top = -24.0
 offset_right = 88.0

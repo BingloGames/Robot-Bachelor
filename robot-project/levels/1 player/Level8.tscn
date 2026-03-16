@@ -1,0 +1,80 @@
+[gd_scene load_steps=10 format=4 uid="uid://efyf3836snmm"]
+
+[ext_resource type="TileSet" uid="uid://b86b5a6rn7qvr" path="res://TileSet.tres" id="1_jyhc1"]
+[ext_resource type="Script" uid="uid://bc27vibglbqta" path="res://items_counter.gd" id="2_mwyan"]
+[ext_resource type="PackedScene" uid="uid://bkcxr5ltukhr1" path="res://robot.tscn" id="3_ol5y0"]
+[ext_resource type="PackedScene" uid="uid://b7xm7lsovxbqr" path="res://text_edit.tscn" id="4_swovm"]
+[ext_resource type="PackedScene" uid="uid://bdbqr488vc61t" path="res://star counter.tscn" id="5_qjj1m"]
+[ext_resource type="PackedScene" uid="uid://dqdijlggb57o1" path="res://item_list.tscn" id="6_8bnoc"]
+[ext_resource type="PackedScene" uid="uid://bu5wqujjgco58" path="res://info_pop_up.tscn" id="7_pgv5o"]
+[ext_resource type="PackedScene" uid="uid://bvmjp16iiq1f2" path="res://restart.tscn" id="8_0ruo0"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_44r2x"]
+
+[node name="Node2D" type="Node2D"]
+metadata/_edit_vertical_guides_ = [0.0, 320.0]
+
+[node name="ground" type="TileMapLayer" parent="."]
+tile_set = ExtResource("1_jyhc1")
+
+[node name="walls" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAADAAMAAQAIABcAAAADAAQAAQAIABcAAAADAAUAAQAIABcAAAAEAAMAAQAIABcAAAAEAAQAAQAIABcAAAAEAAUAAQAIABcAAAAFAAMAAQAIABcAAAAFAAQAAQAIABcAAAAFAAUAAQAIABcAAAAGAAMAAQAIABcAAAAGAAQAAQAIABcAAAAGAAUAAQAIABcAAAAHAAMAAQAIABcAAAAHAAQAAQAIABcAAAAHAAUAAQAIABcAAAAIAAMAAQAIABcAAAAIAAQAAQAIABcAAAAIAAUAAQAIABcAAAAJAAMAAQAIABcAAAAJAAQAAQAIABcAAAAJAAUAAQAIABcAAAAKAAMAAQAIABcAAAAKAAQAAQAIABcAAAA=")
+tile_set = ExtResource("1_jyhc1")
+
+[node name="special" type="TileMapLayer" parent="."]
+tile_set = ExtResource("1_jyhc1")
+
+[node name="items" type="Node2D" parent="."]
+script = ExtResource("2_mwyan")
+
+[node name="robots" type="Node2D" parent="."]
+
+[node name="robot" parent="robots" instance=ExtResource("3_ol5y0")]
+position = Vector2(144, 144)
+
+[node name="code" parent="." instance=ExtResource("4_swovm")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 640.0
+offset_bottom = 536.0
+line_limit = 10
+
+[node name="star counter" parent="." instance=ExtResource("5_qjj1m")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 152.0
+offset_top = 208.0
+offset_right = 152.0
+offset_bottom = 208.0
+grow_horizontal = 1
+grow_vertical = 1
+metadata/_edit_group_ = true
+
+[node name="Container" parent="." instance=ExtResource("6_8bnoc")]
+offset_left = 640.0
+offset_right = 960.0
+offset_bottom = 536.0
+
+[node name="black" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0)
+position = Vector2(480.00003, 272)
+scale = Vector2(960.00006, 544)
+texture = SubResource("CanvasTexture_44r2x")
+
+[node name="Info pop up" parent="." instance=ExtResource("7_pgv5o")]
+visible = false
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 960.0
+offset_bottom = 544.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Restart" parent="." instance=ExtResource("8_0ruo0")]
+offset_left = 888.0
+offset_top = 504.0
+offset_right = 952.0
+offset_bottom = 536.0

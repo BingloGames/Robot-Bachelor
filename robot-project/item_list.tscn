@@ -8,7 +8,7 @@ layout_mode = 3
 anchor_right = 0.333
 anchor_bottom = 1.0070001
 offset_right = 0.32000732
-offset_bottom = 0.2199707
+offset_bottom = -7.7800293
 script = ExtResource("1_ujeow")
 
 [node name="ItemList" type="ItemList" parent="."]
@@ -29,6 +29,8 @@ anchor_bottom = 1.0
 offset_left = 160.0
 offset_right = -8.0
 offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Move mouse on top of ? to see information on the different options."
 autowrap_mode = 2
 

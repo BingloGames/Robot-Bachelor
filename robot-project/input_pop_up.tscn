@@ -4,10 +4,9 @@
 
 [node name="Input pop up" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -664.0
+anchor_right = 0.3
+anchor_bottom = 0.99300003
+offset_bottom = -0.22003174
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pchbq")
@@ -21,8 +20,8 @@ color = Color(0.1882353, 0.1882353, 0.1882353, 1)
 [node name="ColorRect2" type="ColorRect" parent="."]
 layout_mode = 0
 offset_top = 480.0
-offset_right = 296.0
-offset_bottom = 544.0
+offset_right = 288.0
+offset_bottom = 536.0
 color = Color(0.1882353, 0.1882353, 0.1882353, 1)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
@@ -30,7 +29,7 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.9990001
 anchor_bottom = 1.0
-offset_right = -767.04004
+offset_right = -103.70401
 offset_bottom = -4.0
 
 [node name="Button" type="Button" parent="."]
@@ -38,17 +37,17 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 200.0
+offset_left = 192.0
 offset_top = 488.0
 offset_right = -8.0
-offset_bottom = -4.0
+offset_bottom = -8.0
 text = "Confirm"
 
 [node name="LineEdit" type="LineEdit" parent="."]
 layout_mode = 0
 offset_left = 8.0
 offset_top = 488.0
-offset_right = 200.0
-offset_bottom = 536.0
+offset_right = 184.0
+offset_bottom = 528.0
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

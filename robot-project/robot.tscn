@@ -366,7 +366,6 @@ frame = 3
 libraries = {
 &"": SubResource("AnimationLibrary_hvhn1")
 }
-autoplay = "idle right"
 
 [node name="wait" type="Timer" parent="."]
 wait_time = 0.32

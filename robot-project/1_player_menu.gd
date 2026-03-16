@@ -38,11 +38,13 @@ func add_level_buttons(levels: Array) -> void:
 
 func change_level(level: String) -> void:
 	var level_file_name = levels_path+"/"+levels_file_start+level+path_end
+	var level_scene = load(level_file_name)
 	
 	
 	var tween = get_tree().create_tween()
 	tween.tween_property(self,"modulate:a", 0, 0.5)
-	tween.tween_callback(Callable(get_tree(), "change_scene_to_file").bind(level_file_name)).set_delay(0.2)
+	tween.tween_callback(Callable(get_tree(), "change_scene_to_packed").bind(level_scene)).set_delay(0.2)
+	
 	
 	Global.current_level = int(level)
 

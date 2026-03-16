@@ -14,6 +14,9 @@ properties/1/replication_mode = 2
 [node name="robot" instance=ExtResource("1_h0ats")]
 script = ExtResource("2_8nd1j")
 
+[node name="AnimationPlayer" parent="." index="2"]
+autoplay = ""
+
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." index="3"]
 replication_config = SubResource("SceneReplicationConfig_8nd1j")
 

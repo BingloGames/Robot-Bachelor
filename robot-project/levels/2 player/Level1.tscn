@@ -48,9 +48,11 @@ needs_holding = true
 
 [node name="robot1" parent="robots" instance=ExtResource("2_xap0c")]
 position = Vector2(144, 336)
+start_direction = Vector2i(0, -1)
 
 [node name="robot2" parent="robots" instance=ExtResource("2_xap0c")]
 position = Vector2(336, 336)
+start_direction = Vector2i(0, -1)
 
 [node name="Items" type="Node2D" parent="."]
 script = ExtResource("4_f18ai")

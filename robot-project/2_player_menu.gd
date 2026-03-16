@@ -39,6 +39,10 @@ func _on_connect_pressed() -> void:
 	var ip_address = get_node("join game/ip address").text
 	
 	
+	if ip_address == "":
+		ip_address = "127.0.0.1"
+	
+	
 	if not ip_address.is_valid_ip_address():
 		print("invalid ip address")
 		# do so the player sees error

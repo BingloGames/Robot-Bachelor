@@ -14,6 +14,12 @@ var died = false
 var next_tile
 
 
+func _ready() -> void:
+	#using this instead of autoplay is to stop visual glitches for multiplayer
+	direction = start_direction
+	idle()
+
+
 func _physics_process(delta: float) -> void:
 	move(delta)
 

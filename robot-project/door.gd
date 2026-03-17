@@ -25,6 +25,7 @@ func _ready() -> void:
 
 
 func open() -> void:
+	print("door opening")
 	get_node("CollisionShape2D").call_deferred("set_disabled", true)
 	get_node("AnimationPlayer").play("open door anim")
 

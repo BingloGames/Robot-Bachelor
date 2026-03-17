@@ -13,6 +13,9 @@ var Counter = 0
 var left_counter = 0
 var right_counter = 0
 
+
+var door = null
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:	
 	set_mouse_filter(MOUSE_FILTER_IGNORE)
@@ -49,11 +52,8 @@ func _on_button_pressed() -> void:
 		for i in range(len(Answer)):
 			if line == Answer[i]:
 				print("correct 2")
-				get_node("/root/Node2D/doors/door").open()
-				get_node("/root/Node2D/code").running_code = false
-				get_node("/root/Node2D/Input pop up").hide()
-				set_mouse_filter(MOUSE_FILTER_IGNORE)
-				break
+				correct_answer()
+				return
 			else:
 				print("correct 3")
 				continue
@@ -63,6 +63,13 @@ func _on_button_pressed() -> void:
 		import_func(line_array)
 		return
 	# add code not valid error.
+
+
+func correct_answer():
+	door.open()
+	get_node("/root/Node2D/code").running_code = false
+	get_node("/root/Node2D/Input pop up").hide()
+	set_mouse_filter(MOUSE_FILTER_IGNORE)
 
 
 func import_func(line_array: Array) -> void:

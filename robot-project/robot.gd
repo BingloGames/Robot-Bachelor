@@ -62,6 +62,7 @@ func move(delta: float):
 func respawn() -> void:
 	print("respawning!")
 	scale = Vector2(1,1)
+	rotation_degrees = 0
 	global_position = start_point
 	next_tile = null
 	walking_backwards = false

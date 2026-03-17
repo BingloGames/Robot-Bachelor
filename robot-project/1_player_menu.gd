@@ -23,12 +23,19 @@ func _ready() -> void:
 			continue
 		
 		
-		levels.append(level_num)
+		#turns into an int for sorting
+		levels.append(int(level_num))
+	
+	
+	levels.sort()
+	
+	
 	add_level_buttons(levels)
 
 
 func add_level_buttons(levels: Array) -> void:
 	for level in levels:
+		level = str(level)
 		var button = Button.new()
 		button.connect("pressed", _on_level_pressed.bind(level))
 		button.text = level

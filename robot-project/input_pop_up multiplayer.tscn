@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://bt3h0x7bjh20x"]
+
+[ext_resource type="PackedScene" uid="uid://lggogupwduwp" path="res://input_pop_up.tscn" id="1_l5xl2"]
+[ext_resource type="Script" uid="uid://drnfvm3kh1rq1" path="res://input_pop_up_multiplayer.gd" id="2_buhcb"]
+
+[node name="Input pop up" instance=ExtResource("1_l5xl2")]
+script = ExtResource("2_buhcb")

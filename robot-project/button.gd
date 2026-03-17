@@ -18,6 +18,7 @@ func _on_body_entered(body: Node2D) -> void:
 
 func activate():
 	if get_node("/root/Node2D/").has_node("Input pop up"):
+		get_node("/root/Node2D/Input pop up").door = get_node(door)
 		get_node("/root/Node2D/Input pop up").showInput()
 	else:
 		get_node(door).open()

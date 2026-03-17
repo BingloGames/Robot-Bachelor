@@ -10,6 +10,10 @@ func activate():
 @rpc("call_local")
 func activate_multiplayer():
 	super.activate()
+	
+	
+	for temp_robot in get_node("/root/Node2D/code").robot_waiting_data.keys():
+		get_node("/root/Node2D/code").robot_waiting_data[temp_robot]["running_code"] = false
 
 
 func deactivate():

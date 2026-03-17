@@ -25,6 +25,11 @@ tile_set = ExtResource("1_wwdpc")
 tile_map_data = PackedByteArray("AAAFAAUAAQAGABUAAAAGAAUAAgAAAAAAAQAHAAQAAQAGABUAAAAEAAUAAQAAAAwAAAAFAAQAAQAGABUAAAAFAAYAAQAGABYAAAAGAAQAAQAHABUAAAAHAAUAAQAHABYAAAAHAAcAAQAHABUAADAIAAQAAQAHABUAAAAIAAcAAgAAAAAAAQAJAAQAAQAHABUAAAAJAAUAAgAAAAAAAQAJAAYAAQAJABYAAAA=")
 tile_set = ExtResource("1_wwdpc")
 
+[node name="robots" type="Node2D" parent="."]
+
+[node name="robot" parent="robots" instance=ExtResource("4_wwdpc")]
+position = Vector2(144, 176)
+
 [node name="code" parent="." instance=ExtResource("2_psxy2")]
 offset_right = 640.0
 offset_bottom = 536.0
@@ -36,21 +41,10 @@ offset_top = 312.0
 offset_right = 160.0
 offset_bottom = 312.0
 
-[node name="robots" type="Node2D" parent="."]
-
-[node name="robot" parent="robots" instance=ExtResource("4_wwdpc")]
-position = Vector2(144, 176)
-
 [node name="Container" parent="." instance=ExtResource("6_wwdpc")]
 offset_left = 640.0
 offset_right = 960.0
 offset_bottom = 536.0
-
-[node name="black" type="Sprite2D" parent="."]
-modulate = Color(0, 0, 0, 0)
-position = Vector2(479.75, 271.75)
-scale = Vector2(960.5, 544.5)
-texture = SubResource("CanvasTexture_6ebn4")
 
 [node name="Input pop up" parent="." instance=ExtResource("7_gxplt")]
 anchors_preset = 10
@@ -75,3 +69,9 @@ offset_left = 888.0
 offset_top = 504.0
 offset_right = 952.0
 offset_bottom = 536.0
+
+[node name="black" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0)
+position = Vector2(479.75, 271.75)
+scale = Vector2(960.5, 544.5)
+texture = SubResource("CanvasTexture_6ebn4")

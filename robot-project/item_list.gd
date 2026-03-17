@@ -1,14 +1,14 @@
 extends Control
 var itemsList = ["forward()", "backward()", "left()", "right()", "for i in range(n):" ,"X = ", "Y = ", "List = []"]
 @export var items = 2
-var function = ""
+
 
 @onready var path = Global.text_path
 @onready var language = Global.text_language
 var button = ""
 var item = ""
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
 	for i in range(items):
 		get_node("ItemList").add_item(itemsList[i])
@@ -20,10 +20,6 @@ func _ready() -> void:
 	get_node("ItemList").set_allow_reselect(true)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-#	get_node("ItemList").set_allow_rmb_select(true)
-#	get_node("ItemList").set_allow_reselect(true)
 func restart():
 	get_node("ItemList").clear()
 	for i in range(7):
@@ -52,7 +48,7 @@ func _on_button_mouse_exited() -> void:
 
 
 #Function so when we click on a function from the item list, it gets pasted in to the coding window:
-func _on_item_clicked(index: int, at_position: Vector2, mouse_button_index: int) -> void:
+func _on_item_clicked(index: int, _at_position: Vector2, _mouse_button_index: int) -> void:
 	var thing = get_node("ItemList").get_item_text(index)
 	var function = thing + "\n"
 	var text_edit = get_node("/root/Node2D/code/TextEdit")
@@ -62,24 +58,30 @@ func _on_item_clicked(index: int, at_position: Vector2, mouse_button_index: int)
 	var line_text = text_edit.get_line(current_line)
 	var check_empty = line_text.strip_edges()
 	
+	
 	if check_empty == "":
 		if current_line < last_line:
 			text_edit.insert_text_at_caret(thing, 0)
 			text_edit.grab_focus()
+			
 			
 		elif current_line == last_line and last_line == line_limit:
 			text_edit.insert_text_at_caret(thing, 0)
 			text_edit.grab_focus()
 			print("current line is last line and in last possible line")
 			
+			
 		elif current_line == last_line and last_line < line_limit:
 			text_edit.insert_text_at_caret(function, 0)
 			text_edit.grab_focus()
 			print("current line is last line and smaller than line limit")
 			
+			
 		else: 
 			print ("How did you get here?")
 			
+			
 	else:
+		function = "\n" + function
+		text_edit.insert_text_at_caret(function, 0)
 		text_edit.grab_focus()
-		print("There is text there already!")

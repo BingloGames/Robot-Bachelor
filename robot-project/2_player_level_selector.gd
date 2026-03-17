@@ -8,9 +8,12 @@ func _init() -> void:
 func add_level_buttons(levels: Array) -> void:
 	for level in levels:
 		level = str(level)
+		
+		
 		var button = Button.new()
 		button.connect("pressed", _on_level_pressed.bind(level))
 		button.text = level
+		
 		
 		get_node("levels").add_child(button, true)
 
@@ -21,7 +24,6 @@ func change_level(level: String) -> void:
 
 
 func _on_level_pressed(level: String) -> void:
-	#multiplayer needs these two functions to be seperate
 	if not multiplayer.is_server():
 		return
 	change_level.rpc(level)

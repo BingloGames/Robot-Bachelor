@@ -4,14 +4,13 @@ var levels_path = "res://levels/1 player"
 var levels_file_start = "Level"
 var path_end = ".tscn"
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
+	Global.num_players = "1"
 	var levels = []
 	
 	
 	var files = ResourceLoader.list_directory(levels_path)
-	
-	
 	for filename in files:
 		if not (filename.begins_with(levels_file_start) and filename.ends_with(path_end)):
 			continue
@@ -25,8 +24,6 @@ func _ready() -> void:
 		
 		#turns into an int for sorting
 		levels.append(int(level_num))
-	
-	
 	levels.sort()
 	
 	
@@ -36,9 +33,12 @@ func _ready() -> void:
 func add_level_buttons(levels: Array) -> void:
 	for level in levels:
 		level = str(level)
+		
+		
 		var button = Button.new()
 		button.connect("pressed", _on_level_pressed.bind(level))
 		button.text = level
+		
 		
 		get_node("levels").add_child(button)
 

@@ -22,7 +22,6 @@ var robot_waiting_data_default = {"waiting" : false, "running_code" : false}
 var robot_waiting_data = {}
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if multiplayer.is_server():
 		for temp_robot in get_node("/root/Node2D/robots").get_children():
@@ -63,21 +62,10 @@ func _process(delta: float) -> void:
 			
 			for for_waiting_data in robot_waiting_data[robot].keys():
 				robot_waiting_data[robot][for_waiting_data] = get(for_waiting_data)
-			
-			
-			#robot = null
 
 
 func _on_go_button_pressed() -> void:
 	is_ready = !is_ready
-	
-	
-	#if is_ready:
-		#ready_players.append(multiplayer.get_unique_id())
-	#else:
-		#ready_players.erase(multiplayer.get_unique_id())
-	#
-	#
 	ready_pressed.rpc(is_ready)
 
 
@@ -110,8 +98,6 @@ func ready_pressed(peer_is_ready: bool):
 			print("all ready!")
 			robot_code[get_node("/root/Node2D/robots/robot1")] = codeLines
 			init_code_lines.rpc()
-			#start_code()
-			#start_code.rpc()
 
 
 @rpc("call_local")
@@ -140,38 +126,13 @@ func get_robot_code(code_lines: Array):
 	else:
 		robot_code[get_node("/root/Node2D/robots/robot1")] = code_lines
 	
+	
 	#the server got the code for both of the robots, we are ready to start
 	for temp_robot in robot_waiting_data.keys():
 		robot_waiting_data[temp_robot]["running_code"] = true
 	
 	
 	running_code = true
-	
-	
-	print("all robot code: ", robot_code)
-
-
-#@rpc("any_peer", "call_local", "reliable")
-#func start_code():
-	#for temp_robot in robot_code:
-		#robot_code[temp_robot].clear()
-	#
-	#
-	#
-	#print("start code multiplayer! with id: ", multiplayer.get_unique_id())
-	##for temp_robot in robot_waiting_data.keys():
-		##robot_waiting_data[temp_robot]["running_code"] = true
-	#
-	#
-	#robot_code[get_node("/root/Node2D/robots/robot1")] = codeLines
-	#
-	#
-	#
-	#
-	#
-	#
-	#print("robot codes: ", robot_code)
-	#print("code lines: ", codeLines)
 
 
 func problem_warning() -> void:

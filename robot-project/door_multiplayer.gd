@@ -1,6 +1,14 @@
 extends "res://door.gd"
 
 
+func _ready() -> void:
+	super._ready()
+	
+	await get_tree().process_frame
+	await get_tree().process_frame
+	get_node("MultiplayerSynchronizer").set_visibility_public(true)
+
+
 func open():
 	if not multiplayer.is_server():
 		return

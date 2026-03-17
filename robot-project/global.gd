@@ -4,23 +4,53 @@ extends Node
 var levels_1_player_path = "res://levels/1 player"
 var levels_2_player_path = "res://levels/2 player"
 
+
 var levels_file_start = "Level"
 var path_end = ".tscn"
+
 
 var text_path = "res://Texts"
 var text_language = "/ENG/"
 
+
 var inventory = []
+
 
 var stars = []
 var current_level = 0
-var robots = []
+var num_players = "1"
+
 
 @onready var robot_turn = 0
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass
+
+func get_info_text():
+	var level_dir = num_players + " player" + "/Level" + str(current_level)
+	var file_path = text_path + text_language + level_dir + ".txt"
+	
+	
+	print("trying to get info from file: ", file_path)
+	
+	
+	if FileAccess.file_exists(file_path):
+		var file = FileAccess.open(file_path, FileAccess.READ)
+		if file: 
+			return file.get_as_text()
+		else: 
+			print("Error opening file: ", file)
+
+
+func get_question_text():
+	var question_level_dir = num_players + " player" + "/Question" + "/Level" + str(current_level)
+	var file_path = text_path + text_language + question_level_dir + ".txt"
+	
+	
+	if FileAccess.file_exists(file_path):
+		var file = FileAccess.open(file_path, FileAccess.READ)
+		if file: 
+			return file.get_as_text()
+		else: 
+			print("Error opening file: ", file)
 
 
 func save_stars(star_count: int) -> void:

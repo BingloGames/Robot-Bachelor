@@ -4,6 +4,8 @@ class_name MultiplayerRobot
 
 func _ready() -> void:
 	super._ready()
+	
+	
 	print("Direction: ", direction)
 	#this can be done better, right?
 	for player in ConnectionController.players.keys():
@@ -18,6 +20,11 @@ func _ready() -> void:
 	
 	if not multiplayer.is_server():
 		get_node("AnimationPlayer").stop()
+	
+	
+	await get_tree().process_frame
+	await get_tree().process_frame
+	get_node("MultiplayerSynchronizer").set_visibility_public(true)
 
 
 func _physics_process(delta: float) -> void:

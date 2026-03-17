@@ -26,14 +26,13 @@ var for_loop_string = "" #every line in the for loop start with this. What about
 var variables = {} #variable_name : variable_value
 var for_loop_variables = {} #what about nested loops?
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
 	get_node("line limit").text += str(line_limit)
 	robot = get_node("/root/Node2D/robots/robot")
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if waiting:
 		return
 	if not running_code:
@@ -41,12 +40,10 @@ func _process(delta: float) -> void:
 		return
 	
 	if codeLines.is_empty():
-		print("code is empty for: ", robot.name)
 		robot.check_end()
 		running_code = false
 		return
 	
-	print("robot: ", robot.name, "'s turn")
 	
 	run_code()
 
@@ -61,15 +58,12 @@ func run_code() -> void:
 		
 		#still for looping?
 		if for_looping:
-			#print("still for looping, so exiting")
 			return
 		if len(codeLines) == 0:
-			#print("ended with a loop. exiting")
 			return
-		#else:
-			#print("for loop ended, so stopping")
 	
-	turn +=1
+	
+	turn += 1
 	var code = codeLines.pop_front()
 	print(robot.name, " code after this: ", codeLines)
 	run_line(code)
@@ -89,10 +83,11 @@ func stop_running_code() -> void:
 	get_node("StopButton").hide()
 	waiting = false
 	running_code = false
+	codeLines.clear()
+	
 	
 	get_node("GoButton").set_disabled(false)
 	
-	codeLines.clear()
 	
 	for_looping = false
 	for_loop_count = 0
@@ -131,8 +126,6 @@ func run_line(code) -> void:
 
 
 func start_for_loop(code_split: Array[String], code: String) -> void:
-	#print("For loop start!")
-	
 	#for loop already validated, so we know this works
 	var range_split = code_split[3].split("(", false) #should have range_split[0] = "range", range_split[1] = "n):"
 	var after_range_split = range_split[1].split(")", false) # should have after_range_split[0] = "n", after_range_split[1] = ":"
@@ -161,7 +154,8 @@ func start_for_loop(code_split: Array[String], code: String) -> void:
 		
 		
 		i += 1
-	#print("for loop contents: ", for_loop_contents)
+	
+	
 	if len(for_loop_contents) == 0:
 		stop_running_code()
 		Global.restart_level()
@@ -170,19 +164,17 @@ func start_for_loop(code_split: Array[String], code: String) -> void:
 
 
 func continue_for_loop() -> void:
-	#print("for looping!")
 	if for_loop_line >= len(for_loop_contents):
 		for_loop_line = 0
 		for_loop_count += 1
 		
 		
 		if for_loop_count >= for_loop_max: #verify if correct?
-			#print("for loop end!")
 			
 			#remove the codeLines in the for loop that just ended
 			for i in range(len(for_loop_contents)):
 				codeLines.pop_front()
-			#print("codeLines: ", codeLines)
+			
 			
 			#reset for loop variables
 			for_looping = false
@@ -194,9 +186,7 @@ func continue_for_loop() -> void:
 			return
 	
 	
-	#print("run line in for loop")
 	var code_line = for_loop_contents[for_loop_line]
-	#print("code line: ", code_line)
 	run_line(code_line)
 	for_loop_line += 1
 
@@ -238,34 +228,26 @@ func base_func_validator(code: String) -> Array:
 func for_loop_validator(code_split: Array[String]) -> Array:
 	print("For loop start!")
 	if not len(code_split) == 4:
-		#print("Syntax error!")
 		return [false, "Syntax error!"]
 	
 	
 	if code_split[1] in variables.keys():
-		#print("Error! Variable: ",str(code_split[1]) ,"in for loop already exist")
 		return [false, "Error! Variable: " + str(code_split[1]) + "in for loop already exist"]
 	
 	
 	if not code_split[2] == "in":
-		#print("Syntax error! (no 'in' or 'in' at wrong place)")
 		return [false, "Syntax error! (no 'in' or 'in' at wrong place)"]
 	
 	
 	if code_split[3].begins_with("range(") and code_split[3].ends_with("):"):
-		#print("For looping in range!")
-		
 		var range_split = code_split[3].split("(", false) #should have range_split[0] = "range", range_split[1] = "n):"
 		var after_range_split = range_split[1].split(")", false) # should have after_range_split[0] = "n", after_range_split[1] = ":"
 		
 		
 		if not after_range_split[0].is_valid_int():
-			#print("Syntax error! (error inside range())")
 			return [false, "Syntax error! (error inside range())"]
 			
 	else:
-		#print("Invalid syntax with range. May still be valid, but no support yet") #for example "for item in list:"
-		#print("code split[3]: ", code_split[3])
 		return [false, "Invalid syntax with range!"]
 	return [true, "success"]
 
@@ -295,11 +277,9 @@ func init_code_lines():
 			codeLines.append(lines)
 		
 		x += 1
-	print(codeLines)
 
 
 func start_code():
-	#get_node("Button").set_disabled(true)
 	get_node("GoButton").hide()
 	get_node("StopButton").show()
 	init_code_lines()

@@ -4,49 +4,52 @@
 
 [node name="2 player menu" type="Node2D"]
 script = ExtResource("1_eeufj")
+metadata/_edit_vertical_guides_ = [480.0]
 
 [node name="name selector" type="LineEdit" parent="."]
-offset_left = 320.0
+offset_left = 384.0
 offset_top = 24.0
-offset_right = 512.0
+offset_right = 576.0
 offset_bottom = 64.0
 placeholder_text = "Your Name"
 
 [node name="name error" type="Label" parent="."]
-offset_left = 328.0
+offset_left = 392.0
 offset_top = 72.0
-offset_right = 512.0
+offset_right = 568.0
 offset_bottom = 95.0
 text = "Need a name"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="layer 1" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 64.0
+offset_bottom = 64.0
 
 [node name="join" type="Button" parent="layer 1"]
 layout_mode = 0
-offset_left = 192.0
-offset_top = 104.0
-offset_right = 264.0
-offset_bottom = 152.0
+offset_left = 320.0
+offset_top = 128.0
+offset_right = 392.0
+offset_bottom = 176.0
 text = "Join"
 
 [node name="host" type="Button" parent="layer 1"]
 layout_mode = 0
-offset_left = 520.0
-offset_top = 112.0
-offset_right = 608.0
-offset_bottom = 144.0
+offset_left = 568.0
+offset_top = 128.0
+offset_right = 640.0
+offset_bottom = 176.0
 text = "Host"
 
 [node name="back" type="Button" parent="layer 1"]
 layout_mode = 0
-offset_left = 592.0
-offset_top = 40.0
-offset_right = 656.0
-offset_bottom = 72.0
+offset_left = 704.0
+offset_top = 64.0
+offset_right = 768.0
+offset_bottom = 96.0
 text = "Back"
 
 [node name="host game" type="Control" parent="."]
@@ -94,39 +97,48 @@ text = "No valid IP addresses"
 visible = false
 layout_mode = 3
 anchors_preset = 0
-offset_left = 336.0
-offset_top = 104.0
-offset_right = 496.0
-offset_bottom = 192.0
+offset_left = 400.0
+offset_top = 136.0
+offset_right = 560.0
+offset_bottom = 224.0
 
 [node name="ip address" type="LineEdit" parent="join game"]
 layout_mode = 0
+offset_left = 8.0
 offset_top = 24.0
-offset_right = 136.0
+offset_right = 152.0
 offset_bottom = 55.0
 placeholder_text = "127.0.0.1"
 
 [node name="Label" type="Label" parent="join game"]
 layout_mode = 0
+offset_left = 8.0
 offset_top = -8.0
-offset_right = 136.0
+offset_right = 152.0
 offset_bottom = 15.0
 text = "IP address:"
 
 [node name="connect" type="Button" parent="join game"]
 layout_mode = 0
-offset_top = 88.0
-offset_right = 136.0
-offset_bottom = 127.0
+offset_left = 8.0
+offset_top = 184.0
+offset_right = 152.0
+offset_bottom = 223.0
 text = "connect"
 
 [node name="back" type="Button" parent="join game"]
 layout_mode = 0
-offset_left = 280.0
-offset_top = -40.0
-offset_right = 344.0
-offset_bottom = -8.0
+offset_left = 304.0
+offset_top = -72.0
+offset_right = 368.0
+offset_bottom = -40.0
 text = "Back"
+
+[node name="error" type="Label" parent="join game"]
+layout_mode = 0
+offset_top = 96.0
+offset_right = 160.0
+offset_bottom = 144.0
 
 [node name="joiner connected" type="Control" parent="."]
 visible = false
@@ -137,19 +149,19 @@ offset_bottom = 40.0
 
 [node name="Label" type="Label" parent="joiner connected"]
 layout_mode = 0
-offset_left = 320.0
-offset_top = 96.0
-offset_right = 512.0
-offset_bottom = 145.0
+offset_left = 352.0
+offset_top = 184.0
+offset_right = 608.0
+offset_bottom = 233.0
 text = "Connected with:
 (host name)"
 
 [node name="cancel" type="Button" parent="joiner connected"]
 layout_mode = 0
-offset_left = 344.0
-offset_top = 192.0
-offset_right = 424.0
-offset_bottom = 232.0
+offset_left = 440.0
+offset_top = 352.0
+offset_right = 520.0
+offset_bottom = 392.0
 text = "Cancel"
 
 [connection signal="text_changed" from="name selector" to="." method="_on_name_changed"]

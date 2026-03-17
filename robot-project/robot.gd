@@ -16,6 +16,7 @@ var next_tile
 
 func _ready() -> void:
 	#using this instead of autoplay is to stop visual glitches for multiplayer
+	#and to make sure that the correct idle animation plays if start direction is not default
 	direction = start_direction
 	idle()
 
@@ -33,7 +34,6 @@ func move(delta: float):
 	var current_tile = get_node("/root/Node2D/special").local_to_map(Vector2i(global_position)-(halv_a_tile*direction))
 	
 	
-	#set_velocity((direction)*SPEED)
 	var collision = move_and_collide(direction*SPEED*delta)
 	
 	
@@ -51,16 +51,12 @@ func move(delta: float):
 			walking_backwards = false
 		
 		
-		#print("robot moved and landed on tile!!!!")
-		
-		
 		next_tile = null
 		get_node("/root/Node2D/code").robot_changes_wait(self, false)
 		check_tile()
 
 
 func respawn() -> void:
-	print("respawning!")
 	scale = Vector2(1,1)
 	rotation_degrees = 0
 	global_position = start_point
@@ -126,7 +122,6 @@ func check_tile() -> void:
 	
 	
 	var custom_data = tile_data.get_custom_data("Property")
-	print("custom data: ", custom_data)
 	match custom_data:
 		"Hole":
 			print("hole!")
@@ -140,13 +135,11 @@ func check_end() -> void:
 	
 	
 	if tile_data == null:
-		#loses and restarts
 		die()
 		return
 	
 	
 	if not tile_data.get_custom_data("Property") == "End":
-		#loses and restarts
 		die()
 		return
 	
@@ -160,7 +153,6 @@ func check_end() -> void:
 
 
 func die() -> void:
-	print("Lost! restarting...")
 	died = true
 	Global.restart_level()
 
@@ -168,6 +160,7 @@ func die() -> void:
 func forward() -> void:
 	var current_tile = get_node("/root/Node2D/special").local_to_map(global_position)
 	next_tile = current_tile + direction
+	
 	
 	walk_animation()
 
@@ -185,19 +178,16 @@ func left() -> void:
 	direction = Vector2(direction).rotated(-PI/2)
 	direction = Vector2i(direction)
 	forward()
-	print("Left! direction: ", direction)
 
 
 func right() -> void:
 	direction = Vector2(direction).rotated(PI/2)
 	direction = Vector2i(direction)
 	forward()
-	print("Right! direction: ", direction)
 
 
 func wait() -> void:
 	get_node("/root/Node2D/code").robot_changes_wait(self, true)
-	#get_node("wait").set_wait_time()
 	get_node("wait").start(get_node("/root/Node2D/ground").tile_set.tile_size.x/SPEED)
 
 

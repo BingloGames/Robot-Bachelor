@@ -7,10 +7,6 @@ var empty_star = preload("res://star empty.png")
 
 var stars_collected = []
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
 
 func restart_stars() -> void:
 	star_count = 0

@@ -4,7 +4,6 @@ extends Node2D
 var robots_finished = []
 
 
-#@rpc("any_peer", "call_local", "reliable")
 func robot_finished(robot_path: NodePath):
 	if robot_path in robots_finished:
 		return
@@ -20,8 +19,6 @@ func robot_finished(robot_path: NodePath):
 	
 	if len(robots_finished) == 2:
 		check_both_robot_end()
-		#check both robots to see if they both ended on correct tile
-		pass
 
 
 func check_both_robot_end():
@@ -35,13 +32,11 @@ func check_both_robot_end():
 		
 		
 		if tile_data == null:
-			#loses and restarts
 			robot.die()
 			continue
 		
 		
 		if not tile_data.get_custom_data("Property") == "End":
-			#loses and restarts
 			robot.die()
 			continue
 		

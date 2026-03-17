@@ -5,13 +5,15 @@ const PORT = 3032
 
 
 var peer = null
+
+
 var player_name = "Robot"
-
-
 var players = {}
 
+#change if text file for language support
+var failed_connection_text = "Failed to connect"
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
 	multiplayer.peer_connected.connect(_player_connected)
 	multiplayer.peer_disconnected.connect(_player_disconnected)
@@ -21,7 +23,7 @@ func _ready() -> void:
 func _connection_failed():
 	print("failed connection")
 	multiplayer.multiplayer_peer = null
-	#tell the player that the connection failed
+	get_node("/root/2 player menu/join game/error").set_text(failed_connection_text)
 
 
 func _player_connected(id):
@@ -63,8 +65,6 @@ func _player_disconnected(id):
 	players.erase(id)
 	print("player disconnected with id: ", id)
 	close_game()
-	#if the game is ongoing, stop the game
-
 
 
 @rpc("any_peer", "reliable")
@@ -91,10 +91,8 @@ func join_game(ip_address, new_player_name):
 
 @rpc("any_peer", "call_local")
 func close_game():
-	multiplayer.multiplayer_peer.disconnect_peer(multiplayer.get_unique_id())
-	multiplayer.multiplayer_peer.close()
-	multiplayer.multiplayer_peer = null
 	players.erase(multiplayer.get_unique_id())
+	multiplayer.multiplayer_peer.close()
 	
 	
 	get_tree().change_scene_to_file("res://2_player_menu.tscn")

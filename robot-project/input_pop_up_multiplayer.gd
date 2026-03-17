@@ -4,7 +4,6 @@ extends "res://input_pop_up.gd"
 var player_correct_answer = []
 
 
-
 func correct_answer():
 	robot_answer_correct.rpc()
 
@@ -21,7 +20,3 @@ func robot_answer_correct():
 	if len(player_correct_answer) == 2:
 		print("correct answer from both multiplayer")
 		super.correct_answer()
-		
-		
-		#for temp_robot in get_node("/root/Node2D/code").robot_waiting_data.keys():
-			#get_node("/root/Node2D/code").robot_waiting_data[temp_robot]["running_code"] = true

@@ -1,24 +1,25 @@
 extends Node2D
 
 
-# Called when the node enters the scene tree for the first time.
+#change with text file for language support
+var invalid_ip_text = "Invalid IP address"
+
+
 func _ready() -> void:
-	pass # Replace with function body.
+	Global.num_players = "2"
 
 
 func _on_host_pressed() -> void:
 	get_node("host game").show()
 	get_node("layer 1").hide()
 	
+	
 	var interfaces = IP.get_local_interfaces()
-	
-	
 	for interface in interfaces:
 		if not (interface["friendly"] == "Wi-Fi" or interface["friendly"] == "Ethernet"):
 			continue
 		
 		
-		#print("address: ", interface["addresses"])
 		var temp_text = "Your IP addresses: \n"
 		for address in interface["addresses"]:
 			temp_text += address + "\n"
@@ -45,7 +46,7 @@ func _on_connect_pressed() -> void:
 	
 	if not ip_address.is_valid_ip_address():
 		print("invalid ip address")
-		# do so the player sees error
+		get_node("join game/error").set_text(invalid_ip_text)
 		return
 	
 	
@@ -53,9 +54,7 @@ func _on_connect_pressed() -> void:
 
 
 func _on_start_pressed() -> void:
-	#if multiplayer.is_server():
 	move_to_selector.rpc()
-	# host goes to level selector
 
 
 @rpc("call_local", "reliable")
@@ -112,7 +111,6 @@ func _on_back_pressed() -> void:
 
 func verify_name(player_name: String) -> Array:
 	if player_name == "":
-		print("you need a name")
 		return [false, "You need a name"]
 	return [true]
 

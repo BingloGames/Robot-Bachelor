@@ -15,9 +15,9 @@ var next_tile
 
 
 func _ready() -> void:
+	direction = start_direction
 	#using this instead of autoplay is to stop visual glitches for multiplayer
 	#and to make sure that the correct idle animation plays if start direction is not default
-	direction = start_direction
 	idle()
 
 
@@ -127,6 +127,10 @@ func check_tile() -> void:
 			print("hole!")
 			get_node("AnimationPlayer").play("fall in hole")
 			get_node("/root/Node2D/code").robot_changes_wait(self, true)
+		"Conveyer belt":
+			#the robot moves
+			pass
+		
 
 
 func check_end() -> void:

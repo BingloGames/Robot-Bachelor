@@ -21,7 +21,7 @@ var current_level = 0
 var num_players = "1"
 
 
-@onready var robot_turn = 0
+var robot_turn = 0
 
 
 func get_info_text():

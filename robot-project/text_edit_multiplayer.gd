@@ -83,6 +83,7 @@ func ready_pressed(peer_is_ready: bool):
 	
 	
 	ready_players.append(multiplayer.get_remote_sender_id())
+	print("new ready players: ", ready_players)
 	if multiplayer.is_server():
 		var all_ready = true
 		
@@ -102,6 +103,7 @@ func ready_pressed(peer_is_ready: bool):
 
 @rpc("call_local")
 func reset_ready():
+	is_ready = false
 	ready_players.clear()
 
 
@@ -168,3 +170,7 @@ func stop_running_code() -> void:
 		robot_current_line[temp_robot] = 0
 		robot_code[temp_robot].clear()
 	
+	
+	reset_ready.rpc()
+	
+	print("new ready players: ", ready_players)

@@ -6,7 +6,6 @@ func _ready() -> void:
 	super._ready()
 	
 	
-	print("Direction: ", direction)
 	#this can be done better, right?
 	for player in ConnectionController.players.keys():
 		var player_name = ConnectionController.players[player]
@@ -22,9 +21,7 @@ func _ready() -> void:
 		get_node("AnimationPlayer").stop()
 	
 	
-	await get_tree().process_frame
-	await get_tree().process_frame
-	get_node("MultiplayerSynchronizer").set_visibility_public(true)
+	start_sync.rpc()
 
 
 func _physics_process(delta: float) -> void:
@@ -32,11 +29,9 @@ func _physics_process(delta: float) -> void:
 		move(delta)
 
 
-func respawn() -> void:
-	super.respawn()
-	get_node("/root/Node2D/code").robot_waiting_data[self]["running_code"] = false
-	get_node("/root/Node2D/code").is_ready = false
-	get_node("/root/Node2D/code").reset_ready.rpc()
+@rpc("any_peer", "call_local")
+func start_sync():
+	get_node("MultiplayerSynchronizer").set_visibility_public(true)
 
 
 func check_end() -> void:

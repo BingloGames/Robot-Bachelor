@@ -19,6 +19,7 @@ func _on_body_entered(body: Node2D) -> void:
 
 
 func activate():
+	print("activate button singleplayer")
 	if question:
 		for door in doors:
 			get_node("/root/Node2D/Input pop up").doors.append(get_node(door))
@@ -28,7 +29,7 @@ func activate():
 			get_node(door).open()
 	
 	
-	get_node("/root/Node2D/code").running_code = false
+	#get_node("/root/Node2D/code").running_code = false
 
 
 func _on_body_exited(body: Node2D) -> void:
@@ -44,4 +45,4 @@ func deactivate():
 		get_node(door).close()
 	
 	
-	get_node("/root/Node2D/code").running_code = false
+	#get_node("/root/Node2D/code").running_code = false

@@ -14,6 +14,9 @@ var players = {}
 var failed_connection_text = "Failed to connect"
 
 
+var players_ready_to_sync = []
+
+
 func _ready() -> void:
 	multiplayer.peer_connected.connect(_player_connected)
 	multiplayer.peer_disconnected.connect(_player_disconnected)
@@ -96,3 +99,29 @@ func close_game():
 	
 	
 	get_tree().change_scene_to_file("res://2_player_menu.tscn")
+
+
+@rpc("any_peer", "call_local")
+func peer_ready_sync():
+	print("peer is ready to start synching")
+	var peer_ready = multiplayer.get_remote_sender_id()
+	if peer_ready in players_ready_to_sync:
+		return
+	
+	
+	players_ready_to_sync.append(peer_ready)
+	
+	
+	if multiplayer.is_server():
+		start_sync.rpc()
+
+
+@rpc("call_local")
+func start_sync():
+	print("try to start the game")
+	if len(players_ready_to_sync) == 2:
+		for sync in get_tree().get_nodes_in_group("synchronizers"):
+			sync.set_visibility_public(true)
+		
+		
+		players_ready_to_sync.clear()

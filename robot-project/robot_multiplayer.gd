@@ -19,9 +19,6 @@ func _ready() -> void:
 	
 	if not multiplayer.is_server():
 		get_node("AnimationPlayer").stop()
-	
-	
-	start_sync.rpc()
 
 
 func _physics_process(delta: float) -> void:
@@ -29,10 +26,9 @@ func _physics_process(delta: float) -> void:
 		move(delta)
 
 
-@rpc("any_peer", "call_local")
-func start_sync():
-	get_node("MultiplayerSynchronizer").set_visibility_public(true)
-
-
 func check_end() -> void:
 	get_node("/root/Node2D").robot_finished(self.get_path())
+
+
+func highlight_name():
+	get_node("name").add_theme_constant_override("outline_size", 3)

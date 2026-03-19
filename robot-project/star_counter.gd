@@ -10,8 +10,9 @@ var stars_collected = []
 
 func restart_stars() -> void:
 	star_count = 0
-	for star_path in stars_collected:
-		get_node(star_path).respawn()
+	for star_index in stars_collected:
+		var star = get_node("/root/Node2D/special").get_child(star_index)
+		star.respawn()
 	
 	
 	for star_sprite_parent in get_node("HBoxContainer").get_children():
@@ -21,8 +22,8 @@ func restart_stars() -> void:
 	stars_collected.clear()
 
 
-func new_star(star_node_path) -> void:
-	stars_collected.append(star_node_path)
+func new_star(star_index) -> void:
+	stars_collected.append(star_index)
 	star_count += 1
 	get_node("HBoxContainer/"+str(star_count)+"/Sprite2D").texture = full_star
 

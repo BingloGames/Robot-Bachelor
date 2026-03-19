@@ -6,5 +6,5 @@
 [node name="door" instance=ExtResource("1_goxkn")]
 script = ExtResource("2_25qgc")
 
-[node name="MultiplayerSynchronizer" parent="." index="3"]
+[node name="MultiplayerSynchronizer" parent="." index="3" groups=["synchronizers"]]
 public_visibility = false

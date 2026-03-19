@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://btxhgyfclw3em"]
+
+[ext_resource type="Script" uid="uid://crbkwbr33t4bo" path="res://level_button.gd" id="1_0rhvs"]
+[ext_resource type="Texture2D" uid="uid://gruwufbivd2w" path="res://star empty.png" id="2_oq3ji"]
+
+[node name="CenterContainer" type="CenterContainer"]
+custom_minimum_size = Vector2(128, 128)
+anchors_preset = -1
+anchor_left = -0.075
+anchor_right = 0.133
+anchor_bottom = 0.23700002
+offset_left = -32.0
+offset_right = -23.68
+offset_bottom = 0.019989014
+script = ExtResource("1_0rhvs")
+metadata/_edit_vertical_guides_ = [-72.0, -112.0]
+
+[node name="level" type="Button" parent="."]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+text = "1"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="level"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.37500003
+anchor_top = 1.297
+anchor_right = 1.3750001
+anchor_bottom = 1.7500001
+offset_top = -0.008003235
+
+[node name="Sprite2D" type="Sprite2D" parent="level/HBoxContainer"]
+position = Vector2(20, 12.429993)
+texture = ExtResource("2_oq3ji")
+
+[node name="Sprite2D2" type="Sprite2D" parent="level/HBoxContainer"]
+position = Vector2(56, 12.429993)
+texture = ExtResource("2_oq3ji")
+
+[node name="Sprite2D3" type="Sprite2D" parent="level/HBoxContainer"]
+position = Vector2(92, 12.429993)
+texture = ExtResource("2_oq3ji")
+
+[connection signal="pressed" from="level" to="." method="_on_level_pressed"]

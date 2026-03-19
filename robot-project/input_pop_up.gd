@@ -27,6 +27,7 @@ func _ready() -> void:
 
 
 func show_input() -> void:
+	get_node("/root/Node2D/code").running_code = false
 	show()
 	set_mouse_filter(MOUSE_FILTER_STOP)
 
@@ -61,7 +62,7 @@ func correct_answer():
 		door.open()
 	
 	
-	get_node("/root/Node2D/code").running_code = false
+	#get_node("/root/Node2D/code").running_code = false
 	hide()
 	set_mouse_filter(MOUSE_FILTER_IGNORE)
 

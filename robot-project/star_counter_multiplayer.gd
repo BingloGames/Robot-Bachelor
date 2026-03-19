@@ -2,15 +2,15 @@ extends "res://star_counter.gd"
 
 
 
-func new_star(star_node_path) -> void:
+func new_star(star_index) -> void:
 	if multiplayer.is_server():
-		new_star_multiplayer.rpc(star_node_path)
+		new_star_multiplayer.rpc(star_index)
 
 
 @rpc("call_local", "reliable")
-func new_star_multiplayer(star_node_path):
+func new_star_multiplayer(star_index):
 	print("multiplayer new star!")
-	super.new_star(star_node_path)
+	super.new_star(star_index)
 
 
 func restart_stars() -> void:

@@ -63,34 +63,35 @@ offset_bottom = 144.0
 
 [node name="Label" type="Label" parent="host game"]
 layout_mode = 0
-offset_left = -136.0
-offset_right = 145.0
-offset_bottom = 64.0
+offset_top = 80.0
+offset_right = 224.0
+offset_bottom = 160.0
 text = "Fellow robot: 
 (Name of other player)"
 
 [node name="start" type="Button" parent="host game"]
 layout_mode = 0
-offset_top = 80.0
-offset_right = 64.0
-offset_bottom = 112.0
+offset_left = 80.0
+offset_top = 208.0
+offset_right = 144.0
+offset_bottom = 240.0
 disabled = true
 text = "Start"
 
 [node name="back" type="Button" parent="host game"]
 layout_mode = 0
-offset_left = 256.0
-offset_top = -24.0
-offset_right = 352.0
-offset_bottom = 16.0
+offset_left = 336.0
+offset_top = -32.0
+offset_right = 400.0
+offset_bottom = -1.0
 text = "Back"
 
 [node name="ip address" type="Label" parent="host game"]
 layout_mode = 0
-offset_left = 248.0
-offset_top = 16.0
-offset_right = 413.0
-offset_bottom = 65.0
+offset_left = 272.0
+offset_top = 96.0
+offset_right = 440.0
+offset_bottom = 145.0
 text = "No valid IP addresses"
 
 [node name="join game" type="Control" parent="."]

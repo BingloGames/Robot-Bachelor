@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://sn21t2j2ypdb"]
+[gd_scene load_steps=14 format=4 uid="uid://sn21t2j2ypdb"]
 
 [ext_resource type="TileSet" uid="uid://b86b5a6rn7qvr" path="res://TileSet.tres" id="1_8syn4"]
 [ext_resource type="Script" uid="uid://dblchqpqwm05w" path="res://levels/2 player/game multiplayer.gd" id="1_72kc1"]
@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://cx1504tg7girn" path="res://star_counter_multiplayer.tscn" id="8_dr0je"]
 [ext_resource type="PackedScene" uid="uid://bu5wqujjgco58" path="res://info_pop_up.tscn" id="9_hvgfx"]
 [ext_resource type="PackedScene" uid="uid://bt3h0x7bjh20x" path="res://input_pop_up multiplayer.tscn" id="12_72kc1"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_mth2d"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_72kc1")
@@ -86,8 +88,15 @@ visible = false
 offset_left = 432.0
 offset_right = 432.0
 offset_bottom = 0.0
+answers = Array[String](["answer="])
 
 [node name="Info pop up" parent="." instance=ExtResource("9_hvgfx")]
 visible = false
 offset_right = 960.0
 offset_bottom = 544.0
+
+[node name="black" type="Sprite2D" parent="."]
+self_modulate = Color(0, 0, 0, 0)
+position = Vector2(479.75, 271.75)
+scale = Vector2(960.5, 544.5)
+texture = SubResource("CanvasTexture_mth2d")

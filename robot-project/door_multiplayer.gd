@@ -1,14 +1,6 @@
 extends "res://door.gd"
 
 
-func _ready() -> void:
-	super._ready()
-	
-	await get_tree().process_frame
-	await get_tree().process_frame
-	get_node("MultiplayerSynchronizer").set_visibility_public(true)
-
-
 func open():
 	if not multiplayer.is_server():
 		return
@@ -17,6 +9,10 @@ func open():
 
 @rpc("call_local")
 func open_multiplayer():
+	for robot in get_node("/root/Node2D/code").robot_waiting_data.keys():
+		get_node("/root/Node2D/code").robot_waiting_data[robot]["running_code"] = false
+	
+	
 	super.open()
 
 
@@ -28,6 +24,10 @@ func close():
 
 @rpc("call_local")
 func close_multiplayer():
+	for robot in get_node("/root/Node2D/code").robot_waiting_data.keys():
+		get_node("/root/Node2D/code").robot_waiting_data[robot]["running_code"] = false
+	
+	
 	super.close()
 
 
@@ -38,7 +38,7 @@ func finished():
 	
 	super.finished()
 	
-	
+	print("door finished opening")
 	for robot in get_node("/root/Node2D/code").robot_waiting_data.keys():
 		get_node("/root/Node2D/code").robot_waiting_data[robot]["running_code"] = true
 

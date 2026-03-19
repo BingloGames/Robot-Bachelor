@@ -4,6 +4,16 @@ extends Node2D
 var robots_finished = []
 
 
+func _ready() -> void:
+	if multiplayer.is_server():
+		get_node("robots/robot1").highlight_name()
+	else:
+		get_node("robots/robot2").highlight_name()
+	
+	
+	ConnectionController.peer_ready_sync.rpc()
+
+
 func robot_finished(robot_path: NodePath):
 	if robot_path in robots_finished:
 		return
@@ -56,6 +66,10 @@ func check_both_robot_end():
 func success():
 	print("success!")
 	get_node("/root/Node2D/star counter").save_stars()
+	
+	
+	for sync in get_tree().get_nodes_in_group("synchronizers"):
+		sync.set_visibility_public(false)
 	
 	
 	var tween = get_tree().create_tween()

@@ -20,17 +20,18 @@ properties/3/replication_mode = 2
 [node name="robot" instance=ExtResource("1_h0ats")]
 script = ExtResource("2_8nd1j")
 
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." index="3"]
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." index="3" groups=["synchronizers"]]
 replication_config = SubResource("SceneReplicationConfig_8nd1j")
 public_visibility = false
 
 [node name="name" type="Label" parent="." index="5"]
-offset_left = -32.0
+offset_left = -40.0
 offset_top = -32.0
-offset_right = 32.0
+offset_right = 40.0
 offset_bottom = -15.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 10
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
 text = "Nme of ome"
 horizontal_alignment = 1
 vertical_alignment = 1

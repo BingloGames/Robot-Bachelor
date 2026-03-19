@@ -19,6 +19,9 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		return
 	
 	
-	get_node("/root/Node2D/star counter").new_star(self.get_path())
+	var index = get_index()
+	
+	
+	get_node("/root/Node2D/star counter").new_star(index)
 	get_node("AnimationPlayer").play("collect")
 	collected = true

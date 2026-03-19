@@ -55,6 +55,7 @@ func run_code() -> void:
 			Global.restart_level()
 		else:
 			continue_for_loop()
+			
 		
 		#still for looping?
 		if for_looping:
@@ -131,7 +132,6 @@ func start_for_loop(code_split: Array[String], code: String) -> void:
 	var after_range_split = range_split[1].split(")", false) # should have after_range_split[0] = "n", after_range_split[1] = ":"
 	for_loop_max = after_range_split[0].to_int()
 	
-	
 	for_loop_variables[code_split[1]] = 0 #usually i = 0
 	for_loop_string = code
 	for_looping = true
@@ -154,7 +154,7 @@ func start_for_loop(code_split: Array[String], code: String) -> void:
 		
 		
 		i += 1
-	
+	turn += len(for_loop_contents)
 	
 	if len(for_loop_contents) == 0:
 		stop_running_code()

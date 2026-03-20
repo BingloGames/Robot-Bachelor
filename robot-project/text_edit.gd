@@ -39,7 +39,7 @@ func _process(_delta: float) -> void:
 		robot.idle()
 		return
 	
-	if codeLines.is_empty():
+	if codeLines.is_empty() and not for_looping:
 		robot.check_end()
 		running_code = false
 		return
@@ -119,6 +119,7 @@ func run_line(code) -> void:
 		if for_looping:
 			#print("starting a for loop inside a for loop. What to do if nested loop?")
 			return
+		
 		start_for_loop(code_split, code)
 		return
 	
@@ -136,25 +137,29 @@ func start_for_loop(code_split: Array[String], code: String) -> void:
 	for_loop_string = code
 	for_looping = true
 	
+	
+	for_loop_contents = codeLines.pop_front()
+	
 	#get every line in the for loop and add it to for_loop_contents
-	var i = 0
-	while true:
-		var check_line = codeLines.get(i)
-		
-		#check_line does not exist
-		if not check_line:
-			break
-		#check_line is not in the for loop
-		if not check_line.begins_with(for_loop_string):
-			break
-		
-		check_line = check_line.replace(for_loop_string, "")
-		check_line = check_line.dedent()
-		for_loop_contents.append(check_line)
-		
-		
-		i += 1
+	#var i = 0
+	#while true:
+		#var check_line = codeLines.get(i)
+		#
+		##check_line does not exist
+		#if not check_line:
+			#break
+		##check_line is not in the for loop
+		#if not check_line.begins_with(for_loop_string):
+			#break
+		#
+		#check_line = check_line.replace(for_loop_string, "")
+		#check_line = check_line.dedent()
+		#for_loop_contents.append(check_line)
+		#
+		#
+		#i += 1
 	turn += len(for_loop_contents)
+	
 	
 	if len(for_loop_contents) == 0:
 		stop_running_code()
@@ -172,8 +177,9 @@ func continue_for_loop() -> void:
 		if for_loop_count >= for_loop_max: #verify if correct?
 			
 			#remove the codeLines in the for loop that just ended
-			for i in range(len(for_loop_contents)):
-				codeLines.pop_front()
+			#for i in range(len(for_loop_contents)):
+				#pass
+				#codeLines.pop_front()
 			
 			
 			#reset for loop variables
@@ -186,7 +192,7 @@ func continue_for_loop() -> void:
 			return
 	
 	
-	var code_line = for_loop_contents[for_loop_line]
+	var code_line = for_loop_contents[for_loop_line].strip_edges()
 	run_line(code_line)
 	for_loop_line += 1
 
@@ -258,25 +264,40 @@ func _on_go_button_pressed() -> void:
 
 func init_code_lines():
 	codeLines.clear()
-	var x = 0
-	var for_loop_length = 0
+	#var x = 0
+	#var for_loop_length = 0
+	var for_loop_content = []
+	
+	
 	for i in range(text_edit.get_line_count()):
 		var ind = text_edit.get_indent_level(i)
 		var line = text_edit.get_line(i)
+		
+		
 		if line.is_empty():
 			continue
 		
-		if ind == 0:
-			codeLines.append(line)
-			for_loop_length = 0
-		else:
-			for_loop_length += 1
-			var y = x-for_loop_length
-			var prevLine = codeLines[y]
-			var lines = prevLine + line
-			codeLines.append(lines)
 		
-		x += 1
+		if ind == 0:
+			if len(for_loop_content) > 0:
+				codeLines.append(for_loop_content.duplicate())
+				for_loop_content.clear()
+			codeLines.append(line)
+			
+			#for_loop_length = 0
+		else:
+			for_loop_content.append(line)
+			#for_loop_length += 1
+			#var y = x-for_loop_length
+			#var prevLine = codeLines[y]
+			#var lines = prevLine + line
+			#codeLines.append(lines)
+		
+		#x += 1
+	
+	if len(for_loop_content) > 0:
+		codeLines.append(for_loop_content)
+	print("code lines: ", codeLines)
 
 
 func start_code():

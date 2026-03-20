@@ -111,7 +111,19 @@ func walk_animation() -> void:
 func check_tile() -> void:
 	var current_tile = get_node("/root/Node2D/special").local_to_map(global_position)
 	var tile_data = get_node("/root/Node2D/special").get_cell_tile_data(current_tile)
-	
+	var dir = get_node("/root/Node2D/ConveyorBelt").get_cell_tile_data(current_tile).get_custom_data("dir")
+	var turn = get_node("/root/Node2D/ConveyorBelt").get_cell_tile_data(current_tile).get_custom_data("Turn")
+	var speed = get_node("/root/Node2D/ConveyorBelt").get_cell_tile_data(current_tile).get_custom_data("Speed")
+
+	match turn:
+		"left":
+			direction = Vector2(direction).rotated(-PI/2)
+			direction = Vector2i(direction)
+		"right":
+			direction = Vector2(direction).rotated(PI/2)
+			direction = Vector2i(direction)
+		_:
+			next_tile = current_tile + (dir*speed)
 	
 	if tile_data == null:
 		return
@@ -127,10 +139,6 @@ func check_tile() -> void:
 			print("hole!")
 			get_node("AnimationPlayer").play("fall in hole")
 			get_node("/root/Node2D/code").robot_changes_wait(self, true)
-		"Conveyer belt":
-			#the robot moves
-			pass
-		
 
 
 func check_end() -> void:

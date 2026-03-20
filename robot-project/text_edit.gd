@@ -64,7 +64,7 @@ func run_code() -> void:
 			return
 	
 	
-	turn += 1
+	
 	var code = codeLines.pop_front()
 	print(robot.name, " code after this: ", codeLines)
 	run_line(code)
@@ -123,12 +123,13 @@ func run_line(code) -> void:
 		start_for_loop(code_split, code)
 		return
 	
-	
+	turn += 1
 	run_base_functions(code)
 
 
 func start_for_loop(code_split: Array[String], code: String) -> void:
 	#for loop already validated, so we know this works
+	turn += 1
 	var range_split = code_split[3].split("(", false) #should have range_split[0] = "range", range_split[1] = "n):"
 	var after_range_split = range_split[1].split(")", false) # should have after_range_split[0] = "n", after_range_split[1] = ":"
 	for_loop_max = after_range_split[0].to_int()
@@ -175,7 +176,7 @@ func continue_for_loop() -> void:
 		
 		
 		if for_loop_count >= for_loop_max: #verify if correct?
-			
+			turn -= len(for_loop_contents)
 			#remove the codeLines in the for loop that just ended
 			#for i in range(len(for_loop_contents)):
 				#pass

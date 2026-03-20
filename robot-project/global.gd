@@ -16,7 +16,7 @@ var text_language = "/ENG/"
 var inventory = []
 
 
-var stars = []
+var stars = {}
 var current_level = 0
 var num_players = "1"
 
@@ -54,7 +54,14 @@ func get_question_text():
 
 
 func save_stars(star_count: int) -> void:
-	stars.insert(current_level-1, star_count)
+	#if player already has completed level, 
+	#and they got more stars last time, don't do anything
+	if stars.has(current_level):
+		if stars[current_level] > star_count:
+			return
+	
+	
+	stars[current_level] = star_count
 
 
 func restart_level() -> void:

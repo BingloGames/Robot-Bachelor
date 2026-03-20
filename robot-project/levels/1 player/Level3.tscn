@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bkcxr5ltukhr1" path="res://robot.tscn" id="4_545p4"]
 [ext_resource type="PackedScene" uid="uid://ct3ylbdix74av" path="res://button.tscn" id="5_wxujf"]
 [ext_resource type="PackedScene" uid="uid://dqdijlggb57o1" path="res://item_list.tscn" id="6_545p4"]
-[ext_resource type="PackedScene" uid="uid://bvmjp16iiq1f2" path="res://restart.tscn" id="9_r1ajk"]
+[ext_resource type="PackedScene" uid="uid://di21tnjo7imbw" path="res://back.tscn" id="9_r1ajk"]
 [ext_resource type="PackedScene" uid="uid://bu5wqujjgco58" path="res://info_pop_up.tscn" id="9_wxujf"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_wmnt6"]
@@ -59,7 +59,7 @@ offset_bottom = 272.0
 offset_left = 640.0
 offset_right = 960.0
 offset_bottom = 536.0
-items = 5
+items = 6
 
 [node name="Info pop up" parent="." instance=ExtResource("9_wxujf")]
 visible = false

@@ -35,3 +35,7 @@ func _on_level_pressed(level: String) -> void:
 	if not multiplayer.is_server():
 		return
 	change_level.rpc(level)
+
+
+func back():
+	ConnectionController.close_game.rpc()

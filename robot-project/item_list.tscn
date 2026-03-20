@@ -122,12 +122,23 @@ icon = ExtResource("2_um5md")
 icon_alignment = 1
 expand_icon = true
 
+[node name="8" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 128.0
+offset_top = 220.0
+offset_right = 153.0
+offset_bottom = 247.0
+icon = ExtResource("2_um5md")
+icon_alignment = 1
+expand_icon = true
+
 [connection signal="item_clicked" from="ItemList" to="." method="_on_item_clicked"]
 [connection signal="mouse_entered" from="0" to="." method="_on_button_mouse_entered" flags=18]
 [connection signal="mouse_exited" from="0" to="." method="_on_button_mouse_exited"]
 [connection signal="mouse_entered" from="1" to="." method="_on_button_mouse_entered" flags=18]
 [connection signal="mouse_exited" from="1" to="." method="_on_button_mouse_exited"]
-[connection signal="mouse_entered" from="2" to="." method="_on_button_mouse_entered" flags=18]
+[connection signal="mouse_entered" from="2" to="." method="_on_button_mouse_entered"]
 [connection signal="mouse_exited" from="2" to="." method="_on_button_mouse_exited"]
 [connection signal="mouse_entered" from="3" to="." method="_on_button_mouse_entered" flags=18]
 [connection signal="mouse_exited" from="3" to="." method="_on_button_mouse_exited"]
@@ -139,3 +150,5 @@ expand_icon = true
 [connection signal="mouse_exited" from="6" to="." method="_on_button_mouse_exited"]
 [connection signal="mouse_entered" from="7" to="." method="_on_button_mouse_entered" flags=18]
 [connection signal="mouse_exited" from="7" to="." method="_on_button_mouse_exited"]
+[connection signal="mouse_entered" from="8" to="." method="_on_button_mouse_entered" flags=18]
+[connection signal="mouse_exited" from="8" to="." method="_on_button_mouse_exited"]

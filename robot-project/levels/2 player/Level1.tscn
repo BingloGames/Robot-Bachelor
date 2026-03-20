@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://ddhrdw55u3oix"]
+[gd_scene load_steps=14 format=4 uid="uid://ddhrdw55u3oix"]
 
 [ext_resource type="TileSet" uid="uid://b86b5a6rn7qvr" path="res://TileSet.tres" id="1_tih6e"]
 [ext_resource type="Script" uid="uid://dblchqpqwm05w" path="res://levels/2 player/game multiplayer.gd" id="1_xap0c"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dqdijlggb57o1" path="res://item_list.tscn" id="9_w3jir"]
 [ext_resource type="PackedScene" uid="uid://50q4mg84a340" path="res://text_edit_multiplayer.tscn" id="10_rdv1c"]
 [ext_resource type="PackedScene" uid="uid://cx1504tg7girn" path="res://star_counter_multiplayer.tscn" id="11_xap0c"]
+[ext_resource type="PackedScene" uid="uid://cxeawjf1ifbsm" path="res://back_multiplayer.tscn" id="12_bcaga"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_bcaga"]
 
@@ -79,13 +80,19 @@ offset_right = 176.0
 offset_bottom = 368.0
 metadata/_edit_use_anchors_ = true
 
+[node name="Info pop up" parent="." instance=ExtResource("8_t6xwf")]
+visible = false
+offset_right = 960.0
+offset_bottom = 544.0
+
+[node name="back" parent="." instance=ExtResource("12_bcaga")]
+offset_left = 888.0
+offset_top = 504.0
+offset_right = 953.0
+offset_bottom = 535.0
+
 [node name="black" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 0)
 position = Vector2(479.75, 271.75)
 scale = Vector2(960.5, 544.5)
 texture = SubResource("CanvasTexture_bcaga")
-
-[node name="Info pop up" parent="." instance=ExtResource("8_t6xwf")]
-visible = false
-offset_right = 960.0
-offset_bottom = 544.0

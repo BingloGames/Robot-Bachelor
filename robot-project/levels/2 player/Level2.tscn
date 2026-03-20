@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://d00cpc4dybyl7"]
+[gd_scene load_steps=12 format=4 uid="uid://d00cpc4dybyl7"]
 
 [ext_resource type="TileSet" uid="uid://b86b5a6rn7qvr" path="res://TileSet.tres" id="1_65udd"]
 [ext_resource type="Script" uid="uid://dblchqpqwm05w" path="res://levels/2 player/game multiplayer.gd" id="1_b4bn5"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://50q4mg84a340" path="res://text_edit_multiplayer.tscn" id="7_xum4v"]
 [ext_resource type="PackedScene" uid="uid://cx1504tg7girn" path="res://star_counter_multiplayer.tscn" id="8_p51fe"]
 [ext_resource type="PackedScene" uid="uid://bu5wqujjgco58" path="res://info_pop_up.tscn" id="9_bfn2g"]
+[ext_resource type="PackedScene" uid="uid://cxeawjf1ifbsm" path="res://back_multiplayer.tscn" id="10_b4bn5"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_65udd"]
 
@@ -88,6 +89,12 @@ offset_bottom = 440.0
 visible = false
 offset_right = 960.0
 offset_bottom = 544.0
+
+[node name="back" parent="." instance=ExtResource("10_b4bn5")]
+offset_left = 888.0
+offset_top = 504.0
+offset_right = 953.0
+offset_bottom = 535.0
 
 [node name="black" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 0)

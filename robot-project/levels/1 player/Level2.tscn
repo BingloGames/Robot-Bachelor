@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dqdijlggb57o1" path="res://item_list.tscn" id="6_wwdpc"]
 [ext_resource type="PackedScene" uid="uid://lggogupwduwp" path="res://input_pop_up.tscn" id="7_gxplt"]
 [ext_resource type="PackedScene" uid="uid://bu5wqujjgco58" path="res://info_pop_up.tscn" id="7_h2i1x"]
-[ext_resource type="PackedScene" uid="uid://bvmjp16iiq1f2" path="res://restart.tscn" id="8_gxplt"]
+[ext_resource type="PackedScene" uid="uid://di21tnjo7imbw" path="res://back.tscn" id="8_gxplt"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_6ebn4"]
 
@@ -45,6 +45,7 @@ offset_bottom = 312.0
 offset_left = 640.0
 offset_right = 960.0
 offset_bottom = 536.0
+items = 3
 
 [node name="Input pop up" parent="." instance=ExtResource("7_gxplt")]
 anchors_preset = 10

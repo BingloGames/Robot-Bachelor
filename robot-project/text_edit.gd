@@ -265,8 +265,6 @@ func _on_go_button_pressed() -> void:
 
 func init_code_lines():
 	codeLines.clear()
-	#var x = 0
-	#var for_loop_length = 0
 	var for_loop_content = []
 	
 	
@@ -283,18 +281,12 @@ func init_code_lines():
 			if len(for_loop_content) > 0:
 				codeLines.append(for_loop_content.duplicate())
 				for_loop_content.clear()
-			codeLines.append(line)
 			
-			#for_loop_length = 0
+			
+			codeLines.append(line)
 		else:
 			for_loop_content.append(line)
-			#for_loop_length += 1
-			#var y = x-for_loop_length
-			#var prevLine = codeLines[y]
-			#var lines = prevLine + line
-			#codeLines.append(lines)
-		
-		#x += 1
+	
 	
 	if len(for_loop_content) > 0:
 		codeLines.append(for_loop_content)

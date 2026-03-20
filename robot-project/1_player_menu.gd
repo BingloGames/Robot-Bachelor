@@ -35,15 +35,17 @@ func _ready() -> void:
 
 func add_level_buttons(levels: Array) -> void:
 	for level in levels:
-		level = str(level)
-		
-		
 		var button = level_buttons.instantiate()
+		button.level = level
+		
+		
+		if Global.stars.has(level):
+			button.add_stars(Global.stars[level])
+		
+		
+		level = str(level)
 		button.level_file_name = levels_path+"/"+levels_file_start+level+path_end
-		button.level = int(level)
 		button.get_child(0).text = level
-		
-		
 		get_node("levels").add_child(button)
 
 
@@ -57,3 +59,11 @@ func change_level(level_file_name: String, level: int) -> void:
 	
 	
 	Global.current_level = level
+
+
+func _on_back_pressed() -> void:
+	back()
+
+
+func back():
+	get_tree().change_scene_to_file("res://start_menu.tscn")

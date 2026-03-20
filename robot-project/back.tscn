@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://di21tnjo7imbw"]
+
+[ext_resource type="Script" uid="uid://217cu5cnfljx" path="res://restart.gd" id="1_k56u2"]
+
+[node name="back" type="Button"]
+offset_right = 65.0
+offset_bottom = 31.0
+text = "Back"
+script = ExtResource("1_k56u2")
+
+[connection signal="pressed" from="." to="." method="_on_back_pressed"]

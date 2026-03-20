@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxeawjf1ifbsm"]
+
+[ext_resource type="PackedScene" uid="uid://di21tnjo7imbw" path="res://back.tscn" id="1_2mj0w"]
+[ext_resource type="Script" uid="uid://bu64rls2uvgib" path="res://back_multiplayer.gd" id="2_r5lnd"]
+
+[node name="back" instance=ExtResource("1_2mj0w")]
+script = ExtResource("2_r5lnd")

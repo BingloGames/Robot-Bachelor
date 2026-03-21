@@ -54,6 +54,7 @@ func move(delta: float):
 		next_tile = null
 		get_node("/root/Node2D/code").robot_changes_wait(self, false)
 		check_tile()
+		
 
 
 func respawn() -> void:
@@ -111,19 +112,34 @@ func walk_animation() -> void:
 func check_tile() -> void:
 	var current_tile = get_node("/root/Node2D/special").local_to_map(global_position)
 	var tile_data = get_node("/root/Node2D/special").get_cell_tile_data(current_tile)
-	var dir = get_node("/root/Node2D/ConveyorBelt").get_cell_tile_data(current_tile).get_custom_data("dir")
-	var turn = get_node("/root/Node2D/ConveyorBelt").get_cell_tile_data(current_tile).get_custom_data("Turn")
-	var speed = get_node("/root/Node2D/ConveyorBelt").get_cell_tile_data(current_tile).get_custom_data("Speed")
+	var cb_data = get_node("/root/Node2D/ConveyorBelt").get_cell_tile_data(current_tile)
 
+	#if cb_data != null:
+	var dir = cb_data.get_custom_data("dir")
+	print(dir)
+	var turn = cb_data.get_custom_data("Turn")
+	var speed = cb_data.get_custom_data("Speed")
+	
 	match turn:
 		"left":
+			get_node("/root/Node2D/code").running_code = false
 			direction = Vector2(direction).rotated(-PI/2)
 			direction = Vector2i(direction)
+			direction = Vector2i(direction)
+			next_tile = current_tile + (dir)
+			idle()
 		"right":
+			get_node("/root/Node2D/code").running_code = false
 			direction = Vector2(direction).rotated(PI/2)
 			direction = Vector2i(direction)
+			next_tile = current_tile + (dir)
+			idle()
 		_:
-			next_tile = current_tile + (dir*speed)
+			get_node("/root/Node2D/code").running_code = false
+			next_tile = current_tile + (dir)
+			idle()
+			
+	
 	
 	if tile_data == null:
 		return

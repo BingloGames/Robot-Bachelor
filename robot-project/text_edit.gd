@@ -43,8 +43,7 @@ func _process(_delta: float) -> void:
 		robot.check_end()
 		running_code = false
 		return
-	
-	
+
 	run_code()
 
 
@@ -125,6 +124,7 @@ func run_line(code) -> void:
 	
 	turn += 1
 	run_base_functions(code)
+
 
 
 func start_for_loop(code_split: Array[String], code: String) -> void:

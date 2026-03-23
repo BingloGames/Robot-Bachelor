@@ -1,8 +1,8 @@
-[gd_scene load_steps=12 format=4 uid="uid://cxgnrq4qpy8ff"]
+[gd_scene load_steps=12 format=4 uid="uid://dwutkom3yxux6"]
 
 [ext_resource type="TileSet" uid="uid://b86b5a6rn7qvr" path="res://TileSet.tres" id="1_k5lcs"]
 [ext_resource type="Script" uid="uid://bc27vibglbqta" path="res://items_counter.gd" id="2_nolvd"]
-[ext_resource type="TileSet" uid="uid://ciffobf74yjdl" path="res://coveyorBelts.tres" id="2_yv7ft"]
+[ext_resource type="TileSet" uid="uid://cd2adi2gk1aay" path="res://coveyorBelts.tres" id="2_yv7ft"]
 [ext_resource type="PackedScene" uid="uid://dj8bvk78ajlmy" path="res://Item.tscn" id="3_yv7ft"]
 [ext_resource type="PackedScene" uid="uid://bkcxr5ltukhr1" path="res://robot.tscn" id="4_hqmr3"]
 [ext_resource type="PackedScene" uid="uid://b7xm7lsovxbqr" path="res://text_edit.tscn" id="5_x3eu1"]

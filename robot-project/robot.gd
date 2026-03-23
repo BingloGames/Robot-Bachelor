@@ -14,6 +14,11 @@ var died = false
 var next_tile
 
 
+var conveyoring = false # are you on a conveyor belt?
+var conveyor_speed = 0 # how fast is the conveyor belt?
+var conveyor_duration = 0 # how long have the robot been on the conveyor?
+
+
 func _ready() -> void:
 	direction = start_direction
 	#using this instead of autoplay is to stop visual glitches for multiplayer
@@ -111,34 +116,10 @@ func walk_animation() -> void:
 
 func check_tile() -> void:
 	var current_tile = get_node("/root/Node2D/special").local_to_map(global_position)
-	var tile_data = get_node("/root/Node2D/special").get_cell_tile_data(current_tile)
-	var cb_data = get_node("/root/Node2D/ConveyorBelt").get_cell_tile_data(current_tile)
-
-	#if cb_data != null:
-	var dir = cb_data.get_custom_data("dir")
-	print(dir)
-	var turn = cb_data.get_custom_data("Turn")
-	var speed = cb_data.get_custom_data("Speed")
 	
-	match turn:
-		"left":
-			get_node("/root/Node2D/code").running_code = false
-			direction = Vector2(direction).rotated(-PI/2)
-			direction = Vector2i(direction)
-			direction = Vector2i(direction)
-			next_tile = current_tile + (dir)
-			idle()
-		"right":
-			get_node("/root/Node2D/code").running_code = false
-			direction = Vector2(direction).rotated(PI/2)
-			direction = Vector2i(direction)
-			next_tile = current_tile + (dir)
-			idle()
-		_:
-			get_node("/root/Node2D/code").running_code = false
-			next_tile = current_tile + (dir)
-			idle()
-			
+	
+	check_conveyor(current_tile)
+	var tile_data = get_node("/root/Node2D/special").get_cell_tile_data(current_tile)
 	
 	
 	if tile_data == null:
@@ -155,6 +136,55 @@ func check_tile() -> void:
 			print("hole!")
 			get_node("AnimationPlayer").play("fall in hole")
 			get_node("/root/Node2D/code").robot_changes_wait(self, true)
+
+
+func check_conveyor(current_tile: Vector2i):
+	var cb_data = get_node("/root/Node2D/ConveyorBelt").get_cell_tile_data(current_tile)
+	if cb_data == null:
+		conveyoring = false
+		conveyor_speed = 0
+		conveyor_duration = 0
+		get_node("/root/Node2D/code").running_code = true
+		return
+	
+	
+	if not conveyoring:
+		conveyoring = true
+		conveyor_speed = cb_data.get_custom_data("Speed")
+	else:
+		if conveyor_duration >= conveyor_speed:
+			#temporarily stop the conveyor belt for the robot to run a line of code
+			conveyoring = false
+			conveyor_duration = 0
+			get_node("/root/Node2D/code").running_code = true
+			return
+	
+	
+	var dir = cb_data.get_custom_data("dir")
+	#print(dir)
+	var turn = cb_data.get_custom_data("Turn")
+	
+	
+	match turn:
+		"left":
+			get_node("/root/Node2D/code").running_code = false
+			direction = Vector2(direction).rotated(-PI/2)
+			direction = Vector2i(direction)
+			next_tile = current_tile + (dir)
+			#idle()
+		"right":
+			get_node("/root/Node2D/code").running_code = false
+			direction = Vector2(direction).rotated(PI/2)
+			direction = Vector2i(direction)
+			next_tile = current_tile + (dir)
+			#idle()
+		_:
+			get_node("/root/Node2D/code").running_code = false
+			next_tile = current_tile + (dir)
+			#idle()
+	
+	
+	conveyor_duration += 1
 
 
 func check_end() -> void:

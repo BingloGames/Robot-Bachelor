@@ -79,7 +79,7 @@ offset_bottom = 544.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="Restart" parent="." instance=ExtResource("9_wcp0l")]
+[node name="back" parent="." instance=ExtResource("9_wcp0l")]
 offset_left = 888.0
 offset_top = 504.0
 offset_right = 952.0

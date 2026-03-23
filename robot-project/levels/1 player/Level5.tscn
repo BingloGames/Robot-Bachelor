@@ -85,7 +85,7 @@ offset_right = 960.0
 offset_bottom = 544.0
 grow_vertical = 1
 
-[node name="Restart" parent="." instance=ExtResource("12_ngd16")]
+[node name="back" parent="." instance=ExtResource("12_ngd16")]
 offset_left = 888.0
 offset_top = 504.0
 offset_right = 952.0

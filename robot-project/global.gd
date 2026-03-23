@@ -64,6 +64,7 @@ func save_stars(star_count: int) -> void:
 	stars[current_level] = star_count
 
 
+
 func restart_level() -> void:
 	print("resetting level!")
 	if get_node("/root/Node2D").get("robots_finished"):

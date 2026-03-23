@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://dwutkom3yxux6"]
+[gd_scene load_steps=12 format=4 uid="uid://cxgnrq4qpy8ff"]
 
 [ext_resource type="TileSet" uid="uid://b86b5a6rn7qvr" path="res://TileSet.tres" id="1_k5lcs"]
 [ext_resource type="Script" uid="uid://bc27vibglbqta" path="res://items_counter.gd" id="2_nolvd"]
@@ -29,7 +29,7 @@ tile_map_data = PackedByteArray("AAAIAAQAAgAAAAAAAQAJAAQAAQAIABUAAAAEAAQAAQAJABI
 tile_set = ExtResource("1_k5lcs")
 
 [node name="ConveyorBelt" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAFAAQAAwABAAAAAAAGAAQAAwABAAAAAAAHAAQAAwABAAAAAAAIAAQAAwABAAAAAAA=")
+tile_map_data = PackedByteArray("AAAFAAQAAwAGAAIAAAAGAAQAAwAHAAIAAAAHAAQAAwAFAAIAAAAIAAQAAwAGAAIAAAAGAAMAAwADAAIAAAAHAAMAAwAEAAIAAAA=")
 tile_set = ExtResource("2_yv7ft")
 
 [node name="items" type="Node2D" parent="."]

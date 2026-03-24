@@ -26,6 +26,14 @@ func _physics_process(delta: float) -> void:
 		move(delta)
 
 
+func continue_conveyor(current_tile: Vector2i, cb_data: TileData):
+	super.continue_conveyor(current_tile, cb_data)
+	
+	
+	for robot in get_node("/root/Node2D/code").robot_waiting_data:
+		get_node("/root/Node2D/code").robot_waiting_data[robot]["running_code"] = get_node("/root/Node2D/code").running_code
+
+
 func check_end() -> void:
 	get_node("/root/Node2D").robot_finished(self.get_path())
 

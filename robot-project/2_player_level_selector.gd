@@ -5,18 +5,29 @@ func _init() -> void:
 	levels_path = "res://levels/2 player"
 
 
-func add_level_buttons(levels: Array) -> void:
-	for level in levels:
-		level = str(level)
-		
-		
-		var button = level_buttons.instantiate()
-		button.level_file_name = levels_path+"/"+levels_file_start+level+path_end
-		button.level = int(level)
-		button.get_child(0).text = level
-		
-		
-		get_node("levels").add_child(button, true)
+func _ready() -> void:
+	Global.load_stars()
+	add_buttons_from_files()
+
+
+#func add_level_buttons(levels: Array) -> void:
+	#for level in levels:
+		#level = str(level)
+		#
+		#
+		#var button = level_buttons.instantiate()
+		#
+		#
+		#if Global.stars[Global.num_players].has(level):
+			#button.add_stars(Global.stars[Global.num_players][level])
+		#
+		#
+		#button.level_file_name = levels_path+"/"+levels_file_start+level+path_end
+		#button.level = int(level)
+		#button.get_child(0).text = level
+		#
+		#
+		#get_node("levels").add_child(button, true)
 
 
 

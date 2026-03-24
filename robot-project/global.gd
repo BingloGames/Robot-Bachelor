@@ -17,7 +17,7 @@ var inventory = []
 
 
 var stars = {}
-var current_level = 0
+var current_level = "0"
 var num_players = "1"
 
 
@@ -25,7 +25,7 @@ var robot_turn = 0
 
 
 func get_info_text():
-	var level_dir = num_players + " player" + "/Level" + str(current_level)
+	var level_dir = num_players + " player" + "/Level" + current_level
 	var file_path = text_path + text_language + level_dir + ".txt"
 	
 	
@@ -41,7 +41,7 @@ func get_info_text():
 
 
 func get_question_text():
-	var question_level_dir = num_players + " player" + "/Question" + "/Level" + str(current_level)
+	var question_level_dir = num_players + " player" + "/Question" + "/Level" + current_level
 	var file_path = text_path + text_language + question_level_dir + ".txt"
 	
 	
@@ -56,12 +56,48 @@ func get_question_text():
 func save_stars(star_count: int) -> void:
 	#if player already has completed level, 
 	#and they got more stars last time, don't do anything
-	if stars.has(current_level):
-		if stars[current_level] > star_count:
+	if not stars.has(num_players):
+		stars[num_players] = {}
+	
+	
+	if stars[num_players].has(current_level):
+		if stars[num_players][current_level] > star_count:
+			print("not more stars")
 			return
 	
 	
-	stars[current_level] = star_count
+	print("save new stars: ", star_count)
+	stars[num_players][current_level] = star_count
+	
+	
+	var save_game = FileAccess.open("user://savegame.save", FileAccess.WRITE)
+	save_game.store_line(JSON.stringify(stars))
+	save_game.close()
+
+
+func load_stars():
+	if not FileAccess.file_exists("user://savegame.save"):
+		return
+	
+	
+	var save_file = FileAccess.open("user://savegame.save", FileAccess.READ)
+	var stars_json = save_file.get_line()
+	
+	
+	var json = JSON.new()
+	
+	
+	var parsed_stars = json.parse(stars_json)
+	if not parsed_stars == OK:
+		print("something went wrong when loading save file")
+		return
+	
+	
+	stars = json.data
+	for players in stars:
+		for level in stars[players]:
+			stars[players][level] = int(stars[players][level])
+	print("loaded stars: ", stars)
 
 
 
@@ -91,10 +127,10 @@ func restart_level() -> void:
 
 
 func next_level_player_1() -> void:
-	current_level = current_level+1
+	current_level = str(int(current_level)+1)
 	
 	
-	var level_file_name = levels_1_player_path+"/"+levels_file_start+str(current_level)+path_end
+	var level_file_name = levels_1_player_path+"/"+levels_file_start+current_level+path_end
 	if not FileAccess.file_exists(level_file_name):
 		print("file not exist")
 		get_tree().change_scene_to_file("res://1_player_menu.tscn")
@@ -104,10 +140,10 @@ func next_level_player_1() -> void:
 
 
 func next_level_player_2() -> void:
-	current_level = current_level+1
+	current_level = str(int(current_level)+1)
 	
 	
-	var level_file_name = levels_2_player_path+"/"+levels_file_start+str(current_level)+path_end
+	var level_file_name = levels_2_player_path+"/"+levels_file_start+current_level+path_end
 	if not FileAccess.file_exists(level_file_name):
 		print("file not exist")
 		get_tree().change_scene_to_file("res://2_player_level_selector.tscn")

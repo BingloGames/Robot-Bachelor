@@ -10,6 +10,13 @@ var level_buttons = preload("res://level button.tscn")
 
 func _ready() -> void:
 	Global.num_players = "1"
+	Global.load_stars()
+	
+	
+	add_buttons_from_files()
+
+
+func add_buttons_from_files():
 	var levels = []
 	
 	
@@ -37,16 +44,16 @@ func add_level_buttons(levels: Array) -> void:
 	for level in levels:
 		var button = level_buttons.instantiate()
 		button.level = level
-		
-		
-		if Global.stars.has(level):
-			button.add_stars(Global.stars[level])
-		
-		
 		level = str(level)
+		
+		
+		if Global.stars[Global.num_players].has(level):
+			button.add_stars(Global.stars[Global.num_players][level])
+		
+		
 		button.level_file_name = levels_path+"/"+levels_file_start+level+path_end
 		button.get_child(0).text = level
-		get_node("levels").add_child(button)
+		get_node("levels").add_child(button, true)
 
 
 func change_level(level_file_name: String, level: int) -> void:
@@ -58,7 +65,7 @@ func change_level(level_file_name: String, level: int) -> void:
 	tween.tween_callback(Callable(get_tree(), "change_scene_to_packed").bind(level_scene)).set_delay(0.2)
 	
 	
-	Global.current_level = level
+	Global.current_level = str(level)
 
 
 func _on_back_pressed() -> void:

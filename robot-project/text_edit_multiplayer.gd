@@ -97,14 +97,25 @@ func ready_pressed(peer_is_ready: bool):
 		
 		if all_ready:
 			print("all ready!")
-			robot_code[get_node("/root/Node2D/robots/robot1")] = codeLines
-			init_code_lines.rpc()
+			start_code()
+			
 
 
 @rpc("call_local")
 func reset_ready():
 	is_ready = false
 	ready_players.clear()
+
+
+func start_code():
+	get_node("GoButton").hide()
+	get_node("StopButton").show()
+	robot_code[get_node("/root/Node2D/robots/robot1")] = codeLines
+	init_code_lines.rpc()
+	
+	
+	for laser in get_node("/root/Node2D/lasers").get_children():
+		laser.start()
 
 
 @rpc("authority", "call_local", "reliable")

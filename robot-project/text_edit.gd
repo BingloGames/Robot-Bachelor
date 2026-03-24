@@ -298,6 +298,10 @@ func start_code():
 	get_node("StopButton").show()
 	init_code_lines()
 	running_code = true
+	
+	
+	for laser in get_node("/root/Node2D/lasers").get_children():
+		laser.start()
 
 
 func robot_changes_wait(temp_robot, new_wait):

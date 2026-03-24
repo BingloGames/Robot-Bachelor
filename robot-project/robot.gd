@@ -196,9 +196,6 @@ func stop_conveyor():
 	get_node("/root/Node2D/code").running_code = true
 
 
-
-
-
 func check_end() -> void:
 	var current_tile = get_node("/root/Node2D/special").local_to_map(global_position)
 	var tile_data = get_node("/root/Node2D/special").get_cell_tile_data(current_tile)

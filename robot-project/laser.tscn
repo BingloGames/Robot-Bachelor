@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1ckbdo8lkn4r"]
+
+[ext_resource type="Script" uid="uid://ci7751rvqweax" path="res://laser.gd" id="1_6vqwg"]
+[ext_resource type="Texture2D" uid="uid://bx7dk01g4cy4l" path="res://lasers.png" id="2_g6b45"]
+
+[node name="laser" type="Node2D"]
+script = ExtResource("1_6vqwg")
+metadata/_edit_group_ = true
+
+[node name="sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_g6b45")
+region_enabled = true
+region_rect = Rect2(96, 32, 32, 32)
+
+[node name="raycast" type="RayCast2D" parent="."]
+position = Vector2(-11, 0)
+target_position = Vector2(1000, 0)
+
+[node name="line" type="Line2D" parent="."]
+points = PackedVector2Array(-11, 0, 33, 0)
+width = 3.0
+default_color = Color(1, 0, 0, 1)
+
+[node name="particles" type="CPUParticles2D" parent="."]
+amount = 12
+lifetime = 0.2
+emission_shape = 3
+emission_rect_extents = Vector2(0, 2)
+direction = Vector2(-1, 0)
+spread = 67.5
+gravity = Vector2(0, 0)
+initial_velocity_min = 25.0
+initial_velocity_max = 25.0
+scale_amount_min = 1.2
+scale_amount_max = 1.2
+color = Color(1, 0, 0, 1)
+
+[node name="timer" type="Timer" parent="."]
+wait_time = 0.64
+
+[connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]

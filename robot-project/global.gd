@@ -121,6 +121,11 @@ func restart_level() -> void:
 			door.reset()
 	
 	
+	if get_node("/root/Node2D").has_node("lasers"):
+		for laser in get_node("/root/Node2D/lasers").get_children():
+			laser.reset()
+	
+	
 	if get_node("/root/Node2D").has_node("items"):
 		get_node("/root/Node2D/Container").restart()
 		get_node("/root/Node2D/items").reset_items()

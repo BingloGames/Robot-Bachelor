@@ -43,10 +43,6 @@ func success_question():
 	super.correct_answer()
 	
 	
-	#for robot in get_node("/root/Node2D/code").robot_waiting_data:
-		#get_node("/root/Node2D/code").robot_waiting_data[robot]["running_code"] = false
-	
-	
 	player_correct_answer.clear()
 	players_answered.clear()
 

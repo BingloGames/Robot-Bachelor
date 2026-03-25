@@ -5,9 +5,13 @@ extends StaticBody2D
 @export_enum("vertical", "horisontal") var dir: String = "vertical"
 
 
+@onready var sprite_node = get_node("Sprite2D")
+@onready var collision_shape_node = get_node("CollisionShape2D")
+@onready var anim_player_node = get_node("AnimationPlayer")
+
+
 func _ready() -> void:
 	var sprite = null
-	
 	if color == "red":
 		sprite = "red door "
 	else:
@@ -20,20 +24,20 @@ func _ready() -> void:
 		sprite += "2"
 	
 	
-	get_node("Sprite2D").texture = load("res://"+sprite+".png")
+	sprite_node.texture = load("res://"+sprite+".png")
 
 
 
 func open() -> void:
 	print("door opening")
-	get_node("CollisionShape2D").call_deferred("set_disabled", true)
-	get_node("AnimationPlayer").play("open door anim")
+	collision_shape_node.call_deferred("set_disabled", true)
+	anim_player_node.play("open door anim")
 	get_node("/root/Node2D/code").running_code = false
 
 
 func close() -> void:
-	get_node("CollisionShape2D").call_deferred("set_disabled", false)
-	get_node("AnimationPlayer").play("close door anim")
+	collision_shape_node.call_deferred("set_disabled", false)
+	anim_player_node.play("close door anim")
 	get_node("/root/Node2D/code").running_code = false
 
 
@@ -42,6 +46,6 @@ func finished() -> void:
 
 
 func reset() -> void:
-	get_node("Sprite2D").frame = 0
-	get_node("CollisionShape2D").call_deferred("set_disabled", false)
+	sprite_node.frame = 0
+	collision_shape_node.call_deferred("set_disabled", false)
 	

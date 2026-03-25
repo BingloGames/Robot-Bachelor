@@ -4,6 +4,8 @@ var levels_path = "res://levels/1 player"
 var levels_file_start = "Level"
 var path_end = ".tscn"
 
+var start_menu_file = "res://start_menu.tscn"
+
 
 var level_buttons = preload("res://level button.tscn")
 
@@ -73,4 +75,4 @@ func _on_back_pressed() -> void:
 
 
 func back():
-	get_tree().change_scene_to_file("res://start_menu.tscn")
+	get_tree().change_scene_to_file(start_menu_file)

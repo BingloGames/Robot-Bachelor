@@ -300,8 +300,9 @@ func start_code():
 	running_code = true
 	
 	
-	for laser in get_node("/root/Node2D/lasers").get_children():
-		laser.start()
+	if get_node("/root/Node2D").has_node("lasers"):
+		for laser in get_node("/root/Node2D/lasers").get_children():
+			laser.start()
 
 
 func robot_changes_wait(temp_robot, new_wait):

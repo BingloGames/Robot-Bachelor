@@ -4,6 +4,9 @@ extends Control
 @onready var itemsInItemList = get_node("/root/Node2D/Container").items
 
 
+@onready var line_edit_node = get_node("LineEdit")
+
+
 @export var answers: Array[String] = ["answer ="]
 var Counter = 0
 var left_counter = 0
@@ -33,7 +36,7 @@ func show_input() -> void:
 
 
 func _on_button_pressed() -> void:
-	var line = get_node("LineEdit").text
+	var line = line_edit_node.text
 	var line_array = line.strip_edges().to_lower().split(" ")
 	
 	
@@ -84,7 +87,7 @@ func import_func(line_array: Array) -> void:
 		left_counter += 1
 		var button = "/root/Node2D/Container/" + str(Counter+itemsInItemList-1)
 		get_node(button).show()
-		get_node("LineEdit").clear()
+		line_edit_node.clear()
 		
 		if not Counter == 2:
 			return
@@ -104,7 +107,7 @@ func import_func(line_array: Array) -> void:
 		right_counter += 1
 		var button = "/root/Node2D/Container/" + str(Counter+itemsInItemList-1)
 		get_node(button).show()
-		get_node("LineEdit").clear()
+		line_edit_node.clear()
 		
 		
 		if not Counter == 2:

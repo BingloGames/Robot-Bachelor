@@ -1,6 +1,11 @@
 extends Node2D
 
 
+@onready var special_tilemap_node = get_node("special")
+@onready var star_counter_node = get_node("star counter")
+@onready var black_fade_node = get_node("black")
+
+
 var robots_finished = []
 
 
@@ -37,8 +42,8 @@ func check_both_robot_end():
 	
 	for robot_path in robots_finished:
 		var robot = get_node(robot_path)
-		var current_tile = get_node("/root/Node2D/special").local_to_map(robot.global_position)
-		var tile_data = get_node("/root/Node2D/special").get_cell_tile_data(current_tile)
+		var current_tile = special_tilemap_node.local_to_map(robot.global_position)
+		var tile_data = special_tilemap_node.get_cell_tile_data(current_tile)
 		
 		
 		if tile_data == null:
@@ -65,7 +70,7 @@ func check_both_robot_end():
 @rpc("authority", "call_local", "reliable")
 func success():
 	print("success!")
-	get_node("/root/Node2D/star counter").save_stars()
+	star_counter_node.save_stars()
 	
 	
 	for sync in get_tree().get_nodes_in_group("synchronizers"):
@@ -73,5 +78,5 @@ func success():
 	
 	
 	var tween = get_tree().create_tween()
-	tween.tween_property(get_node("/root/Node2D/black"),"modulate:a", 1, 0.5)
+	tween.tween_property(black_fade_node,"modulate:a", 1, 0.5)
 	tween.tween_callback(Callable(Global, "next_level_player_2")).set_delay(0.2)

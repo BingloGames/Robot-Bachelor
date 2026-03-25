@@ -27,9 +27,6 @@ func activate():
 	else:
 		for door in doors:
 			get_node(door).open()
-	
-	
-	#get_node("/root/Node2D/code").running_code = false
 
 
 func _on_body_exited(body: Node2D) -> void:
@@ -43,6 +40,3 @@ func deactivate():
 		return
 	for door in doors:
 		get_node(door).close()
-	
-	
-	#get_node("/root/Node2D/code").running_code = false

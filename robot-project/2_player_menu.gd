@@ -1,8 +1,23 @@
 extends Node2D
 
 
+@onready var host_or_join_node = get_node("host or join")
+@onready var host_node = get_node("host game")
+@onready var join_node = get_node("join game")
+@onready var join_connected = get_node("joiner connected")
+@onready var name_error_node = get_node("name error")
+
+
+var start_menu_file = "res://start_menu.tscn"
+var level_selector = "res://2_player_level_selector.tscn"
+
+
 #change with text file for language support
 var invalid_ip_text = "Invalid IP address"
+var IP_addresses_text = "Your IP addresses"
+var not_connected_text = "No connected robots"
+var other_player_connected_text = "Fellow robot"
+var need_name_error_text = "You need a name"
 
 
 func _ready() -> void:
@@ -10,8 +25,8 @@ func _ready() -> void:
 
 
 func _on_host_pressed() -> void:
-	get_node("host game").show()
-	get_node("layer 1").hide()
+	host_node.show()
+	host_or_join_node.hide()
 	
 	
 	var interfaces = IP.get_local_interfaces()
@@ -20,24 +35,22 @@ func _on_host_pressed() -> void:
 			continue
 		
 		
-		var temp_text = "Your IP addresses: \n"
+		var temp_text = IP_addresses_text + ": \n"
 		for address in interface["addresses"]:
 			temp_text += address + "\n"
 		
 		
-		get_node("host game/ip address").text = temp_text
-	
-	
+		host_node.get_node("ip address").text = temp_text
 	ConnectionController.host_game()
 
 
 func _on_join_pressed() -> void:
-	get_node("layer 1").hide()
-	get_node("join game").show()
+	host_or_join_node.hide()
+	join_node.show()
 
 
 func _on_connect_pressed() -> void:
-	var ip_address = get_node("join game/ip address").text
+	var ip_address = join_node.get_node("ip address").text
 	
 	
 	if ip_address == "":
@@ -46,7 +59,7 @@ func _on_connect_pressed() -> void:
 	
 	if not ip_address.is_valid_ip_address():
 		print("invalid ip address")
-		get_node("join game/error").set_text(invalid_ip_text)
+		join_node.get_node("error").set_text(invalid_ip_text)
 		return
 	
 	
@@ -59,16 +72,16 @@ func _on_start_pressed() -> void:
 
 @rpc("call_local", "reliable")
 func move_to_selector():
-	get_tree().change_scene_to_file("res://2_player_level_selector.tscn")
+	get_tree().change_scene_to_file(level_selector)
 
 
 @rpc("any_peer", "reliable")
 func disconnect_peer(id: int):
 	multiplayer.multiplayer_peer.disconnect_peer(id)
-	get_node("host game/start").disabled = true
+	host_node.get_node("start").disabled = true
 	
 	
-	get_node("host game/Label").text = "No connected robots"
+	host_node.get_node("Label").text = not_connected_text
 
 
 func show_names(new_name):
@@ -81,37 +94,37 @@ func show_names(new_name):
 		node_path = "joiner connected/Label"
 	
 	
-	get_node(node_path).text = "Fellow robot: \n" + new_name
+	get_node(node_path).text = other_player_connected_text + ": \n" + new_name
 
 
 func _on_cancel_pressed() -> void:
 	disconnect_peer.rpc_id(1, multiplayer.get_unique_id())
 	
 	
-	get_node("joiner connected").hide()
-	get_node("layer 1").show()
+	join_connected.hide()
+	host_or_join_node.show()
 
 
 func _on_join_back_pressed() -> void:
-	get_node("join game").hide()
-	get_node("layer 1").show()
+	join_node.hide()
+	host_or_join_node.show()
 
 
 func _on_host_back_pressed() -> void:
-	get_node("host game").hide()
-	get_node("layer 1").show()
+	host_node.hide()
+	host_or_join_node.show()
 	
 	
 	ConnectionController.close_game.rpc()
 
 
 func _on_back_pressed() -> void:
-	get_tree().change_scene_to_file("res://start_menu.tscn")
+	get_tree().change_scene_to_file(start_menu_file)
 
 
 func verify_name(player_name: String) -> Array:
 	if player_name == "":
-		return [false, "You need a name"]
+		return [false, need_name_error_text]
 	return [true]
 
 
@@ -121,11 +134,11 @@ func _on_name_changed(new_text: String) -> void:
 	
 	
 	if not name_valid:
-		get_node("name error").text = name_ok[1]
+		name_error_node.text = name_ok[1]
 		return
 	
 	
-	get_node("name error").text = ""
+	name_error_node.text = ""
 	print("new player name: ", new_text)
 	ConnectionController.player_name = new_text
 	

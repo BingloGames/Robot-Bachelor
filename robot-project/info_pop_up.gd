@@ -1,6 +1,12 @@
 extends Control
 
 
+@onready var color_rect_node = get_node("ColorRect")
+@onready var text_node = get_node("RichTextLabel")
+@onready var close_node = get_node("Close")
+@onready var open_node = get_node("Open")
+
+
 func _ready() -> void:
 	var text = Global.get_info_text()
 	if text == null:
@@ -8,20 +14,20 @@ func _ready() -> void:
 		return
 	
 	
-	get_node("RichTextLabel").set_text(text)
+	text_node.set_text(text)
 
 
 func _on_Close_pressed() -> void:
-	get_node("ColorRect").hide()
-	get_node("RichTextLabel").hide()
-	get_node("Close").hide()
-	get_node("Open").show()
+	color_rect_node.hide()
+	text_node.hide()
+	close_node.hide()
+	open_node.show()
 	set_mouse_filter(MOUSE_FILTER_IGNORE)
 
 
 func _on_Open_pressed() -> void:
-	get_node("ColorRect").show()
-	get_node("RichTextLabel").show()
-	get_node("Close").show()
-	get_node("Open").hide()
+	color_rect_node.show()
+	text_node.show()
+	close_node.show()
+	open_node.hide()
 	set_mouse_filter(MOUSE_FILTER_STOP)

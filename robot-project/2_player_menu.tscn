@@ -22,13 +22,13 @@ text = "Need a name"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="layer 1" type="Control" parent="."]
+[node name="host or join" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 64.0
 offset_bottom = 64.0
 
-[node name="join" type="Button" parent="layer 1"]
+[node name="join" type="Button" parent="host or join"]
 layout_mode = 0
 offset_left = 320.0
 offset_top = 128.0
@@ -36,7 +36,7 @@ offset_right = 392.0
 offset_bottom = 176.0
 text = "Join"
 
-[node name="host" type="Button" parent="layer 1"]
+[node name="host" type="Button" parent="host or join"]
 layout_mode = 0
 offset_left = 568.0
 offset_top = 128.0
@@ -44,7 +44,7 @@ offset_right = 640.0
 offset_bottom = 176.0
 text = "Host"
 
-[node name="back" type="Button" parent="layer 1"]
+[node name="back" type="Button" parent="host or join"]
 layout_mode = 0
 offset_left = 704.0
 offset_top = 64.0
@@ -166,9 +166,9 @@ offset_bottom = 392.0
 text = "Cancel"
 
 [connection signal="text_changed" from="name selector" to="." method="_on_name_changed"]
-[connection signal="pressed" from="layer 1/join" to="." method="_on_join_pressed"]
-[connection signal="pressed" from="layer 1/host" to="." method="_on_host_pressed"]
-[connection signal="pressed" from="layer 1/back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="host or join/join" to="." method="_on_join_pressed"]
+[connection signal="pressed" from="host or join/host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="host or join/back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="host game/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="host game/back" to="." method="_on_host_back_pressed"]
 [connection signal="pressed" from="join game/connect" to="." method="_on_connect_pressed"]

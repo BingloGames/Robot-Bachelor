@@ -10,27 +10,6 @@ func _ready() -> void:
 	add_buttons_from_files()
 
 
-#func add_level_buttons(levels: Array) -> void:
-	#for level in levels:
-		#level = str(level)
-		#
-		#
-		#var button = level_buttons.instantiate()
-		#
-		#
-		#if Global.stars[Global.num_players].has(level):
-			#button.add_stars(Global.stars[Global.num_players][level])
-		#
-		#
-		#button.level_file_name = levels_path+"/"+levels_file_start+level+path_end
-		#button.level = int(level)
-		#button.get_child(0).text = level
-		#
-		#
-		#get_node("levels").add_child(button, true)
-
-
-
 func change_level(level_file_name: String, level: int) -> void:
 	if not multiplayer.is_server():
 		return

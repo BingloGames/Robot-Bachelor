@@ -46,16 +46,17 @@ func _player_connected(id):
 
 @rpc("any_peer", "reliable")
 func get_player_name(peer_name: String):
-	var node_path = ""
-	
-	
-	if multiplayer.is_server():
-		node_path = "/root/2 player menu/host game/Label"
-	else:
-		node_path = "/root/2 player menu/joiner connected/Label"
-	
-	
-	get_node(node_path).text = "Fellow robot: \n" + peer_name
+	#var node_path = ""
+	#
+	#
+	#if multiplayer.is_server():
+		#node_path = "/root/2 player menu/host game/Label"
+	#else:
+		#node_path = "/root/2 player menu/joiner connected/Label"
+	#
+	#
+	#get_node(node_path).text = "Fellow robot: \n" + peer_name
+	get_node("/root/2 player menu").show_names(peer_name)
 
 
 @rpc("any_peer")

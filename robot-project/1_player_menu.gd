@@ -49,8 +49,9 @@ func add_level_buttons(levels: Array) -> void:
 		level = str(level)
 		
 		
-		if Global.stars[Global.num_players].has(level):
-			button.add_stars(Global.stars[Global.num_players][level])
+		if Global.stars.has(Global.num_players):
+			if Global.stars[Global.num_players].has(level):
+				button.add_stars(Global.stars[Global.num_players][level])
 		
 		
 		button.level_file_name = levels_path+"/"+levels_file_start+level+path_end

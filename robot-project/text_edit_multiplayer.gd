@@ -69,13 +69,15 @@ func _on_go_button_pressed() -> void:
 	ready_pressed.rpc(is_ready)
 
 
-func set_waiting(value):
+func set_waiting(value: bool) -> void:
 	super.set_waiting(value)
+	if robot == null:
+		return
 	robot_waiting_data[robot]["waiting"] = value
 
 
 @rpc("any_peer", "call_local", "reliable")
-func ready_pressed(peer_is_ready: bool):
+func ready_pressed(peer_is_ready: bool) -> void:
 	print("ready pressed with id: ", multiplayer.get_remote_sender_id())
 	if not peer_is_ready:
 		ready_players.erase(multiplayer.get_remote_sender_id())
@@ -102,14 +104,14 @@ func ready_pressed(peer_is_ready: bool):
 
 
 @rpc("call_local")
-func reset_ready():
+func reset_ready() -> void:
 	is_ready = false
 	ready_players.clear()
 
 
-func start_code():
-	get_node("GoButton").hide()
-	get_node("StopButton").show()
+func start_code() -> void:
+	go_button.hide()
+	stop_button.show()
 	robot_code[get_node("/root/Node2D/robots/robot1")] = codeLines
 	init_code_lines.rpc()
 	
@@ -119,7 +121,7 @@ func start_code():
 
 
 @rpc("authority", "call_local", "reliable")
-func init_code_lines():
+func init_code_lines() -> void:
 	super.init_code_lines()
 	
 	
@@ -132,7 +134,7 @@ func init_code_lines():
 
 
 @rpc("any_peer", "call_local", "reliable")
-func get_robot_code(code_lines: Array):
+func get_robot_code(code_lines: Array) -> void:
 	#this code can be done better, right?
 	if multiplayer.is_server():
 		robot_code[get_node("/root/Node2D/robots/robot2")] = code_lines
@@ -174,12 +176,14 @@ func problem_warning_multiplayer(robot_turn: int) -> void:
 
 
 func stop_running_code() -> void:
-	turn = 0
 	for temp_robot in robot_code.keys():
 		robot_waiting_data[temp_robot] = robot_waiting_data_default.duplicate()
 		robot_for_loop_data[temp_robot] = robot_for_loop_data_default.duplicate_deep()
 		robot_current_line[temp_robot] = 0
 		robot_code[temp_robot].clear()
+	
+	
+	super.stop_running_code()
 	
 	
 	reset_ready.rpc()

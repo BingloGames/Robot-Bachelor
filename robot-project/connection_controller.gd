@@ -2,6 +2,7 @@ extends Node
 
 
 const PORT = 3032
+const NUM_PLAYERS = 2
 
 
 var peer = null
@@ -9,12 +10,14 @@ var peer = null
 
 var player_name = "Robot"
 var players = {}
+var players_ready_to_sync = []
+
 
 #change if text file for language support
 var failed_connection_text = "Failed to connect"
 
 
-var players_ready_to_sync = []
+var multiplayer_start_menu_file = "res://2_player_menu.tscn"
 
 
 func _ready() -> void:
@@ -23,13 +26,13 @@ func _ready() -> void:
 	multiplayer.connection_failed.connect(_connection_failed)
 
 
-func _connection_failed():
+func _connection_failed() -> void:
 	print("failed connection")
 	multiplayer.multiplayer_peer = null
 	get_node("/root/2 player menu/join game/error").set_text(failed_connection_text)
 
 
-func _player_connected(id):
+func _player_connected(id: int) -> void:
 	print("player connected and player name is: ", player_name)
 	register_player.rpc_id(id, player_name)
 	
@@ -45,47 +48,37 @@ func _player_connected(id):
 
 
 @rpc("any_peer", "reliable")
-func get_player_name(peer_name: String):
-	#var node_path = ""
-	#
-	#
-	#if multiplayer.is_server():
-		#node_path = "/root/2 player menu/host game/Label"
-	#else:
-		#node_path = "/root/2 player menu/joiner connected/Label"
-	#
-	#
-	#get_node(node_path).text = "Fellow robot: \n" + peer_name
+func get_player_name(peer_name: String) -> void:
 	get_node("/root/2 player menu").show_names(peer_name)
 
 
 @rpc("any_peer")
-func new_name(id: int, new_player_name: String):
+func new_name(id: int, new_player_name: String) -> void:
 	players[id] = new_player_name
 	get_node("/root/2 player menu").show_names(new_player_name)
 
 
-func _player_disconnected(id):
+func _player_disconnected(id: int) -> void:
 	players.erase(id)
 	print("player disconnected with id: ", id)
 	close_game()
 
 
 @rpc("any_peer", "reliable")
-func register_player(new_player_name):
+func register_player(new_player_name: String) -> void:
 	var id = multiplayer.get_remote_sender_id()
 	players[id] = new_player_name
 	print("player with name: ", new_player_name, " added!")
 
 
-func host_game():
+func host_game() -> void:
 	peer = ENetMultiplayerPeer.new()
-	peer.create_server(PORT, 2)
+	peer.create_server(PORT, NUM_PLAYERS)
 	multiplayer.set_multiplayer_peer(peer)
 	players[1] = player_name
 
 
-func join_game(ip_address, new_player_name):
+func join_game(ip_address: String, new_player_name: String) -> void:
 	player_name = new_player_name
 	peer = ENetMultiplayerPeer.new()
 	peer.create_client(ip_address, PORT)
@@ -94,16 +87,16 @@ func join_game(ip_address, new_player_name):
 
 
 @rpc("any_peer", "call_local")
-func close_game():
+func close_game() -> void:
 	players.erase(multiplayer.get_unique_id())
 	multiplayer.multiplayer_peer.close()
 	
 	
-	get_tree().change_scene_to_file("res://2_player_menu.tscn")
+	get_tree().change_scene_to_file(multiplayer_start_menu_file)
 
 
 @rpc("any_peer", "call_local")
-func peer_ready_sync():
+func peer_ready_sync() -> void:
 	print("peer is ready to start synching")
 	var peer_ready = multiplayer.get_remote_sender_id()
 	if peer_ready in players_ready_to_sync:
@@ -118,9 +111,9 @@ func peer_ready_sync():
 
 
 @rpc("call_local")
-func start_sync():
+func start_sync() -> void:
 	print("try to start the game")
-	if len(players_ready_to_sync) == 2:
+	if len(players_ready_to_sync) == NUM_PLAYERS:
 		for sync in get_tree().get_nodes_in_group("synchronizers"):
 			sync.set_visibility_public(true)
 		

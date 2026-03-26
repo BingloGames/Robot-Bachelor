@@ -4,6 +4,7 @@ var levels_path = "res://levels/1 player"
 var levels_file_start = "Level"
 var path_end = ".tscn"
 
+
 var start_menu_file = "res://start_menu.tscn"
 
 
@@ -18,7 +19,7 @@ func _ready() -> void:
 	add_buttons_from_files()
 
 
-func add_buttons_from_files():
+func add_buttons_from_files() -> void:
 	var levels = []
 	
 	
@@ -75,5 +76,5 @@ func _on_back_pressed() -> void:
 	back()
 
 
-func back():
+func back() -> void:
 	get_tree().change_scene_to_file(start_menu_file)

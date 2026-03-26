@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cudrg5ejo7f0b"]
+[gd_scene load_steps=6 format=3 uid="uid://cudrg5ejo7f0b"]
 
 [ext_resource type="Script" uid="uid://dnhekth7y3w6j" path="res://start_menu.gd" id="1_jwbto"]
+[ext_resource type="PackedScene" uid="uid://50q4mg84a340" path="res://text_edit_multiplayer.tscn" id="2_ia0g5"]
 
 [sub_resource type="Animation" id="Animation_ia0g5"]
 length = 0.001
@@ -116,6 +117,12 @@ popup/item_1/text = "Español"
 popup/item_1/id = 1
 popup/item_2/text = "Norsk"
 popup/item_2/id = 2
+
+[node name="code" parent="." instance=ExtResource("2_ia0g5")]
+offset_top = -24.0
+offset_right = 640.0
+offset_bottom = 512.0
+line_limit = 100
 
 [connection signal="pressed" from="players/2" to="." method="_on_players_pressed" binds= ["2"]]
 [connection signal="pressed" from="players/1" to="." method="_on_players_pressed" binds= ["1"]]

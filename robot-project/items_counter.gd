@@ -2,7 +2,8 @@ extends Node2D
 
 
 var item_count = 0
-@onready var itemsInItemList = get_node("/root/Node2D/Container").items
+@onready var item_list_node = get_node("/root/Node2D/Container")
+@onready var itemsInItemList = item_list_node.items#does this work?
 
 
 var items_collected = []
@@ -21,6 +22,6 @@ func new_item(item_path: NodePath) -> void:
 	items_collected.append(item_path)
 	
 	
-	get_node("/root/Node2D/Container/ItemList").add_item(get_node(item_path).item_name)
-	var button = "/root/Node2D/Container/" + str(item_count+itemsInItemList-1)
-	get_node(button).show()
+	item_list_node.get_node("ItemList").add_item(get_node(item_path).item_name)
+	var button = str(item_count+itemsInItemList-1)
+	item_list_node.get_node(button).show()

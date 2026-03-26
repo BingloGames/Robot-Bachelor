@@ -2,19 +2,25 @@ extends Node2D
 class_name Item
 
 
+@onready var anim_player = get_node("collect anim")
+@onready var particles = get_node("particles")
+@onready var sprite = get_node("Box")
+@onready var label = get_node("Label")
+
+
 @export var item_name = "Item"
 var item_collected = false
 
 
 func _ready() -> void:
-	get_node("Label").text = item_name
+	label.text = item_name
 
 
 func respawn() -> void:
-	get_node("collect anim").stop()
-	get_node("particles").hide()
-	get_node("Box").scale = Vector2(0.8, 0.8)
-	get_node("Label").modulate.a = 0
+	anim_player.stop()
+	particles.hide()
+	sprite.scale = Vector2(0.8, 0.8)
+	label.modulate.a = 0
 	item_collected = false
 
 
@@ -24,9 +30,9 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if item_collected:
 		return
 	
-	get_node("particles").show()
-	get_node("particles").emitting = true
-	get_node("collect anim").play("collect")
+	particles.show()
+	particles.emitting = true
+	anim_player.play("collect")
 	item_collected = true
 	
 	

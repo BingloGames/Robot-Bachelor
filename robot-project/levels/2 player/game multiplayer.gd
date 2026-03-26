@@ -19,7 +19,7 @@ func _ready() -> void:
 	ConnectionController.peer_ready_sync.rpc()
 
 
-func robot_finished(robot_path: NodePath):
+func robot_finished(robot_path: NodePath) -> void:
 	if robot_path in robots_finished:
 		return
 	
@@ -36,7 +36,7 @@ func robot_finished(robot_path: NodePath):
 		check_both_robot_end()
 
 
-func check_both_robot_end():
+func check_both_robot_end() -> void:
 	var robots_succeded = []
 	
 	
@@ -68,7 +68,7 @@ func check_both_robot_end():
 
 
 @rpc("authority", "call_local", "reliable")
-func success():
+func success() -> void:
 	print("success!")
 	star_counter_node.save_stars()
 	

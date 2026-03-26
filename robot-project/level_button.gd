@@ -1,6 +1,9 @@
 extends CenterContainer
 
 
+@onready var container = get_node("level/HBoxContainer")
+
+
 var full_star = preload("res://star full.png")
 
 
@@ -15,4 +18,4 @@ func _on_level_pressed() -> void:
 
 func add_stars(num_stars: int):
 	for i in range(num_stars):
-		get_node("level/HBoxContainer").get_child(i).texture = full_star
+		container.get_child(i).texture = full_star

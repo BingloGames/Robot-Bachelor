@@ -1,13 +1,18 @@
 extends Node2D
 
 
+@onready var anim_player = get_node("AnimationPlayer")
+@onready var start_button = get_node("start")
+@onready var language_selector = get_node("language selector")
+
+
 var level_selectors_file_template = "res://{0}_player_menu.tscn"
 
 
 func _on_start_pressed() -> void:
-	get_node("AnimationPlayer").play("start")
-	get_node("start").set_disabled(true)
-	get_node("players/1").set_disabled(false)
+	anim_player.play("start")
+	start_button.set_disabled(true)
+	get_node("players/1").set_disabled(false)#does this do anything?
 	get_node("players/2").set_disabled(false)
 
 
@@ -21,7 +26,7 @@ func _on_players_pressed(num_players: String) -> void:
 
 
 func _on_language_selector_item_selected(index: int) -> void:
-	var language = get_node("language selector").get_item_text(index)
+	var language = language_selector.get_item_text(index)
 	
 	
 	match language:

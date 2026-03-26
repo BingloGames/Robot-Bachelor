@@ -8,7 +8,7 @@ func new_item(item_path: NodePath) -> void:
 
 
 @rpc("call_local")
-func new_item_multiplayer(item_path: NodePath):
+func new_item_multiplayer(item_path: NodePath) -> void:
 	super.new_item(item_path)
 
 
@@ -19,5 +19,5 @@ func reset_items() -> void:
 
 
 @rpc("call_local")
-func reset_items_multiplayer():
+func reset_items_multiplayer() -> void:
 	super.reset_items()

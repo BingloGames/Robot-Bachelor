@@ -26,31 +26,41 @@ func _process(_delta: float) -> void:
 	
 	
 	if raycast.is_colliding():
-		var raycast_collider = raycast.get_collider()
-		var raycast_point = raycast.get_collision_point()
-		particles.global_position = raycast_point
-		line.points[1] = (raycast_point - position).rotated(-rotation)
-		
-		
-		if raycast_collider is Robot:
-			raycast_collider.die()
+		check_collision()
 
 
-func start():
+func check_collision() -> void:
+	var raycast_point = raycast.get_collision_point()
+	visual_change(raycast_point)
+	check_raycast_collider()
+
+
+func visual_change(collision_point: Vector2) -> void:
+	particles.global_position = collision_point
+	line.points[1] = (collision_point - position).rotated(-rotation)
+
+
+func check_raycast_collider() -> void:
+	var raycast_collider = raycast.get_collider()
+	if raycast_collider is Robot:
+		raycast_collider.die()
+
+
+func start() -> void:
 	timer.start(laser_time_interval)
-func reset():
+func reset() -> void:
 	timer.stop()
 	turn_on()
 
 
-func turn_off():
+func turn_off() -> void:
 	active = false
 	line.hide()
 	raycast.set_enabled(false)
 	particles.emitting = false
 
 
-func turn_on():
+func turn_on() -> void:
 	active = true
 	line.show()
 	raycast.set_enabled(true)
@@ -58,7 +68,6 @@ func turn_on():
 
 
 func _on_timer_timeout() -> void:
-	print("timer timeout: ", laser_time_interval)
 	if active:
 		turn_off()
 		return

@@ -76,7 +76,7 @@ func move_to_selector():
 
 
 @rpc("any_peer", "reliable")
-func disconnect_peer(id: int):
+func disconnect_peer(id: int) -> void:
 	multiplayer.multiplayer_peer.disconnect_peer(id)
 	host_node.get_node("start").disabled = true
 	
@@ -84,7 +84,7 @@ func disconnect_peer(id: int):
 	host_node.get_node("Label").text = not_connected_text
 
 
-func show_names(new_name):
+func show_names(new_name: String) -> void:
 	var node_path = ""
 	
 	

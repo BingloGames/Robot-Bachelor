@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://l7xyld7tae6d"]
+
+[ext_resource type="PackedScene" uid="uid://d1ckbdo8lkn4r" path="res://laser.tscn" id="1_diws2"]
+[ext_resource type="Script" uid="uid://c75n4jn50yuv0" path="res://laser_multiplayer.gd" id="2_ve7ol"]
+
+[node name="laser" instance=ExtResource("1_diws2")]
+script = ExtResource("2_ve7ol")

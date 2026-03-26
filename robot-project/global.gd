@@ -13,6 +13,13 @@ var text_path = "res://Texts"
 var text_language = "/ENG/"
 
 
+var save_file_text = "user://stars.save"
+
+
+var single_player_menu = "res://1_player_menu.tscn"
+var multiplayer_level_selector = "res://2_player_level_selector.tscn"
+
+
 var inventory = []
 
 
@@ -24,7 +31,7 @@ var num_players = "1"
 var robot_turn = 0
 
 
-func get_info_text():
+func get_info_text() -> String:
 	var level_dir = num_players + " player" + "/Level" + current_level
 	var file_path = text_path + text_language + level_dir + ".txt"
 	
@@ -38,9 +45,10 @@ func get_info_text():
 			return file.get_as_text()
 		else: 
 			print("Error opening file: ", file)
+	return ""
 
 
-func get_question_text():
+func get_question_text() -> String:
 	var question_level_dir = num_players + " player" + "/Question" + "/Level" + current_level
 	var file_path = text_path + text_language + question_level_dir + ".txt"
 	
@@ -51,6 +59,7 @@ func get_question_text():
 			return file.get_as_text()
 		else: 
 			print("Error opening file: ", file)
+	return ""
 
 
 func save_stars(star_count: int) -> void:
@@ -70,17 +79,17 @@ func save_stars(star_count: int) -> void:
 	stars[num_players][current_level] = star_count
 	
 	
-	var save_game = FileAccess.open("user://savegame.save", FileAccess.WRITE)
+	var save_game = FileAccess.open(save_file_text, FileAccess.WRITE)
 	save_game.store_line(JSON.stringify(stars))
 	save_game.close()
 
 
-func load_stars():
-	if not FileAccess.file_exists("user://savegame.save"):
+func load_stars() -> void:
+	if not FileAccess.file_exists(save_file_text):
 		return
 	
 	
-	var save_file = FileAccess.open("user://savegame.save", FileAccess.READ)
+	var save_file = FileAccess.open(save_file_text, FileAccess.READ)
 	var stars_json = save_file.get_line()
 	
 	
@@ -131,15 +140,23 @@ func restart_level() -> void:
 		get_node("/root/Node2D/items").reset_items()
 
 
+func complete_level_player_1() -> void:
+	get_node("/root/Node2D/star counter").save_stars()
+	
+	
+	var tween = get_tree().create_tween()
+	tween.tween_property(get_node("/root/Node2D/black"),"modulate:a", 1, 0.5)
+	tween.tween_callback(Callable(Global, "next_level_player_1")).set_delay(0.2)
+
+
 func next_level_player_1() -> void:
 	current_level = str(int(current_level)+1)
 	
 	
 	var level_file_name = levels_1_player_path+"/"+levels_file_start+current_level+path_end
 	if not FileAccess.file_exists(level_file_name):
-		print("file not exist")
-		get_tree().change_scene_to_file("res://1_player_menu.tscn")
-	print("changing level")
+		get_tree().change_scene_to_file(single_player_menu)
+	
 	
 	get_tree().change_scene_to_file(level_file_name)
 
@@ -150,8 +167,7 @@ func next_level_player_2() -> void:
 	
 	var level_file_name = levels_2_player_path+"/"+levels_file_start+current_level+path_end
 	if not FileAccess.file_exists(level_file_name):
-		print("file not exist")
-		get_tree().change_scene_to_file("res://2_player_level_selector.tscn")
-	print("changing level")
+		get_tree().change_scene_to_file(multiplayer_level_selector)
+	
 	
 	get_tree().change_scene_to_file(level_file_name)

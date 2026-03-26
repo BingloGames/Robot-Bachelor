@@ -5,6 +5,8 @@ extends Control
 
 
 @onready var line_edit_node = get_node("LineEdit")
+@onready var code_node = get_node("/root/Node2D/code")
+@onready var item_list_node = get_node("/root/Node2D/Container")
 
 
 @export var answers: Array[String] = ["answer ="]
@@ -21,16 +23,16 @@ func _ready() -> void:
 	
 	
 	var text = Global.get_question_text()
-	if text == null:
+	if text == "":
 		print("error in getting text")
-		return
+		return 
 	
 	
 	get_node("RichTextLabel").set_text(text)
 
 
 func show_input() -> void:
-	get_node("/root/Node2D/code").running_code = false
+	code_node.running_code = false
 	show()
 	set_mouse_filter(MOUSE_FILTER_STOP)
 
@@ -60,7 +62,7 @@ func _on_button_pressed() -> void:
 	wrong_answer()
 
 
-func correct_answer():
+func correct_answer() -> void:
 	for door in doors:
 		door.open()
 	
@@ -70,7 +72,7 @@ func correct_answer():
 	set_mouse_filter(MOUSE_FILTER_IGNORE)
 
 
-func wrong_answer():
+func wrong_answer() -> void:
 	get_node("/root/Node2D/code").running_code = true
 	hide()
 	set_mouse_filter(MOUSE_FILTER_IGNORE)
@@ -82,11 +84,11 @@ func import_func(line_array: Array) -> void:
 		if left_counter == 1:
 			return
 		
-		get_node("/root/Node2D/Container/ItemList").add_item("left()")
+		item_list_node.get_node("ItemList").add_item("left()")
 		Counter += 1
 		left_counter += 1
-		var button = "/root/Node2D/Container/" + str(Counter+itemsInItemList-1)
-		get_node(button).show()
+		var button = str(Counter+itemsInItemList-1)
+		item_list_node.get_node(button).show()
 		line_edit_node.clear()
 		
 		if not Counter == 2:
@@ -102,11 +104,11 @@ func import_func(line_array: Array) -> void:
 			return
 		
 		
-		get_node("/root/Node2D/Container/ItemList").add_item("right()")
+		item_list_node.get_node("ItemList").add_item("right()")
 		Counter += 1
 		right_counter += 1
-		var button = "/root/Node2D/Container/" + str(Counter+itemsInItemList-1)
-		get_node(button).show()
+		var button = str(Counter+itemsInItemList-1)
+		item_list_node.get_node(button).show()
 		line_edit_node.clear()
 		
 		

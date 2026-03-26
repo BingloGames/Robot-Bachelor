@@ -1,24 +1,24 @@
 extends "res://button.gd"
 
 
-func activate():
+func activate() -> void:
 	if not multiplayer.is_server():
 		return
 	activate_multiplayer.rpc()
 
 
 @rpc("call_local")
-func activate_multiplayer():
+func activate_multiplayer() -> void:
 	print("activate button multiplayer")
 	super.activate()
 
 
-func deactivate():
+func deactivate() -> void:
 	if not multiplayer.is_server():
 		return
 	deactivate_multiplayer.rpc()
 
 
 @rpc("call_local")
-func deactivate_multiplayer():
+func deactivate_multiplayer() -> void:
 	super.deactivate()

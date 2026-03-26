@@ -2,7 +2,17 @@ extends CharacterBody2D
 class_name Robot
 
 
-var SPEED = 100
+const SPEED = 100
+
+
+@onready var special_tilemap = get_node("/root/Node2D/special")
+@onready var conveyor_belt_tilemap = get_node_or_null("/root/Node2D/ConveyorBelt")
+@onready var code_node = get_node("/root/Node2D/code")
+#@onready var star_counter = get_node("/root/Node2D/star counter")
+@onready var anim_player = get_node("AnimationPlayer")
+@onready var wait_timer = get_node("wait")
+
+
 
 @export var start_direction: Vector2i = Vector2i.RIGHT
 var direction = start_direction
@@ -10,7 +20,7 @@ var walking_backwards = false
 var died = false
 
 
-@onready var start_point = global_position
+@onready var start_point = global_position#does this need to be @onready?
 var next_tile
 
 
@@ -30,13 +40,13 @@ func _physics_process(delta: float) -> void:
 	move(delta)
 
 
-func move(delta: float):
+func move(delta: float) -> void:
 	if next_tile == null:
 		return
 	
 	
-	var halv_a_tile = get_node("/root/Node2D/special").tile_set.tile_size/2
-	var current_tile = get_node("/root/Node2D/special").local_to_map(Vector2i(global_position)-(halv_a_tile*direction))
+	var halv_a_tile = special_tilemap.tile_set.tile_size/2
+	var current_tile = special_tilemap.local_to_map(Vector2i(global_position)-(halv_a_tile*direction))
 	
 	
 	var collision = move_and_collide(direction*SPEED*delta)
@@ -50,14 +60,14 @@ func move(delta: float):
 	
 	
 	if current_tile == next_tile:
-		position = get_node("/root/Node2D/special").map_to_local(next_tile)
+		position = special_tilemap.map_to_local(next_tile)
 		if walking_backwards:
 			direction *= -1
 			walking_backwards = false
 		
 		
 		next_tile = null
-		get_node("/root/Node2D/code").robot_changes_wait(self, false)
+		code_node.robot_changes_wait(self, false)#this feel awkward. change?
 		check_tile()
 		
 
@@ -70,13 +80,20 @@ func respawn() -> void:
 	walking_backwards = false
 	direction = start_direction
 	died = false
+	
+	
+	conveyoring = false
+	conveyor_speed = 0
+	conveyor_duration = 0
+	
+	
 	idle()
 
 
 func play_animation(animation: String) -> void:
-	if get_node("AnimationPlayer").get_current_animation() == animation:
+	if anim_player.get_current_animation() == animation:
 		return
-	get_node("AnimationPlayer").play(animation)
+	anim_player.play(animation)
 
 
 func idle() -> void:
@@ -115,11 +132,11 @@ func walk_animation() -> void:
 
 
 func check_tile() -> void:
-	var current_tile = get_node("/root/Node2D/special").local_to_map(global_position)
+	var current_tile = special_tilemap.local_to_map(global_position)
 	
 	
 	check_conveyor(current_tile)
-	var tile_data = get_node("/root/Node2D/special").get_cell_tile_data(current_tile)
+	var tile_data = special_tilemap.get_cell_tile_data(current_tile)
 	
 	
 	if tile_data == null:
@@ -134,17 +151,16 @@ func check_tile() -> void:
 	match custom_data:
 		"Hole":
 			print("hole!")
-			get_node("AnimationPlayer").play("fall in hole")
-			get_node("/root/Node2D/code").robot_changes_wait(self, true)
+			anim_player.play("fall in hole")
+			code_node.robot_changes_wait(self, true)
 
 
-func check_conveyor(current_tile: Vector2i):
-	var conveyor_belt_node = get_node_or_null("/root/Node2D/ConveyorBelt")
-	if conveyor_belt_node == null:
+func check_conveyor(current_tile: Vector2i) -> void:
+	if conveyor_belt_tilemap == null:
 		return
 	
 	
-	var cb_data = conveyor_belt_node.get_cell_tile_data(current_tile)
+	var cb_data = conveyor_belt_tilemap.get_cell_tile_data(current_tile)
 	if cb_data == null:
 		stop_conveyor()
 		return
@@ -163,11 +179,11 @@ func check_conveyor(current_tile: Vector2i):
 	continue_conveyor(current_tile, cb_data)
 
 
-func continue_conveyor(current_tile: Vector2i, cb_data: TileData):
+func continue_conveyor(current_tile: Vector2i, cb_data: TileData) -> void:
 	var dir = cb_data.get_custom_data("dir")
 	#print(dir)
 	var turn = cb_data.get_custom_data("Turn")
-	get_node("/root/Node2D/code").running_code = false
+	code_node.running_code = false
 	
 	
 	match turn:
@@ -189,16 +205,16 @@ func continue_conveyor(current_tile: Vector2i, cb_data: TileData):
 	conveyor_duration += 1
 
 
-func stop_conveyor():
+func stop_conveyor() -> void:
 	conveyoring = false
 	conveyor_speed = 0
 	conveyor_duration = 0
-	get_node("/root/Node2D/code").running_code = true
+	code_node.running_code = true
 
 
 func check_end() -> void:
-	var current_tile = get_node("/root/Node2D/special").local_to_map(global_position)
-	var tile_data = get_node("/root/Node2D/special").get_cell_tile_data(current_tile)
+	var current_tile = special_tilemap.local_to_map(global_position)
+	var tile_data = special_tilemap.get_cell_tile_data(current_tile)
 	
 	
 	if tile_data == null:
@@ -211,12 +227,7 @@ func check_end() -> void:
 		return
 	
 	
-	get_node("/root/Node2D/star counter").save_stars()
-	
-	
-	var tween = get_tree().create_tween()
-	tween.tween_property(get_node("/root/Node2D/black"),"modulate:a", 1, 0.5)
-	tween.tween_callback(Callable(Global, "next_level_player_1")).set_delay(0.2)
+	Global.complete_level_player_1()
 
 
 func die() -> void:
@@ -225,7 +236,7 @@ func die() -> void:
 
 
 func forward() -> void:
-	var current_tile = get_node("/root/Node2D/special").local_to_map(global_position)
+	var current_tile = special_tilemap.local_to_map(global_position)
 	next_tile = current_tile + direction
 	
 	
@@ -254,9 +265,9 @@ func right() -> void:
 
 
 func wait() -> void:
-	get_node("/root/Node2D/code").robot_changes_wait(self, true)
-	get_node("wait").start(get_node("/root/Node2D/ground").tile_set.tile_size.x/SPEED)
+	code_node.robot_changes_wait(self, true)
+	wait_timer.start(special_tilemap.tile_set.tile_size.x/SPEED)
 
 
 func _on_wait_timeout() -> void:
-	get_node("/root/Node2D/code").robot_changes_wait(self, false)
+	code_node.robot_changes_wait(self, false)

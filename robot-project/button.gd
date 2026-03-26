@@ -7,7 +7,7 @@ extends Area2D
 @export var question = false
 
 
-func _ready():
+func _ready() -> void:
 	var sprite = "res://"+color+" button.png"
 	get_node("Sprite2D").texture = load(sprite)
 
@@ -18,7 +18,7 @@ func _on_body_entered(body: Node2D) -> void:
 	activate()
 
 
-func activate():
+func activate() -> void:
 	print("activate button singleplayer")
 	if question:
 		for door in doors:
@@ -35,7 +35,7 @@ func _on_body_exited(body: Node2D) -> void:
 	deactivate()
 
 
-func deactivate():
+func deactivate() -> void:
 	if not needs_holding:
 		return
 	for door in doors:

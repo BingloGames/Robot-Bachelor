@@ -9,7 +9,7 @@ extends Control
 
 func _ready() -> void:
 	var text = Global.get_info_text()
-	if text == null:
+	if text == "":
 		print("error in getting text")
 		return
 	

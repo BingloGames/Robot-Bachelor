@@ -8,7 +8,7 @@ func new_star(star_index) -> void:
 
 
 @rpc("call_local", "reliable")
-func new_star_multiplayer(star_index):
+func new_star_multiplayer(star_index: int) -> void:
 	print("multiplayer new star!")
 	super.new_star(star_index)
 
@@ -18,5 +18,5 @@ func restart_stars() -> void:
 
 
 @rpc("call_local", "reliable")
-func restart_stars_multiplayer():
+func restart_stars_multiplayer() -> void:
 	super.restart_stars()

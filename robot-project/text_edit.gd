@@ -1,6 +1,27 @@
 extends Control
 
 
+@onready var text_edit = get_node("TextEdit")
+@onready var go_button = get_node("GoButton")
+@onready var stop_button = get_node("StopButton")
+@onready var error_node = get_node("error message")
+
+
+#update with language
+var last_line_error = "Warning: Last line"
+var code_stopped_text = "Code stopped"
+var line_problem_text = "Problem at line: "
+var no_code_error = "No code"
+var nested_loop_error = "Nested loop"
+var unknown_func_error = "Unknown function: "
+var syntax_error = "Syntax error"
+var for_loop_var_exists_error_1 = "Variable: "
+var for_loop_var_exists_error_2 = " in for loop already exist"
+var for_loop_in_error = "Syntax error (no 'in' or 'in' at wrong place)"
+var inside_range_error = "Syntax error! (error inside range())"
+var range_error = "Invalid syntax with range!"
+
+
 var base_functions = ["forward()", "backward()", "left()", "right()", "wait()"]
 
 
@@ -8,7 +29,6 @@ var codeLines = []
 @export var line_limit: int = 5
 
 var robot = null
-@onready var text_edit = get_node("TextEdit")
 var waiting = false: set = set_waiting
 @onready var turn = 0
 
@@ -71,22 +91,22 @@ func run_code() -> void:
 
 func problem_warning() -> void:
 	if turn == 0:
-		get_node("error message").set_text("Code stopped")
+		error_node.set_text(code_stopped_text)
 	else:
-		get_node("error message").set_text("Problem in line "+str(turn))
-		get_node("TextEdit").set_line_background_color(turn-1, Color(255,0,0))
+		error_node.set_text(line_problem_text+str(turn))
+		text_edit.set_line_background_color(turn-1, Color(255,0,0))
 
 
 func stop_running_code() -> void:
 	turn = 0
-	get_node("GoButton").show()
-	get_node("StopButton").hide()
+	go_button.show()
+	stop_button.hide()
 	waiting = false
 	running_code = false
 	codeLines.clear()
 	
 	
-	get_node("GoButton").set_disabled(false)
+	go_button.set_disabled(false)
 	
 	
 	for_looping = false
@@ -96,11 +116,12 @@ func stop_running_code() -> void:
 	for_loop_max = 0
 	for_loop_string = ""
 	
+	
 	variables.clear()
 	for_loop_variables.clear()
 
 
-func run_line(code) -> void:
+func run_line(code: String) -> void:
 	var code_split = code.split(" ", false)
 	
 	
@@ -109,7 +130,7 @@ func run_line(code) -> void:
 	var error_message = validation_array[1]
 	
 	
-	if not validation or error_message == "No code":
+	if not validation or error_message == no_code_error:
 		print("Error: ", error_message)
 		return
 	
@@ -163,7 +184,7 @@ func start_for_loop(code_split: Array[String], code: String) -> void:
 	
 	
 	if len(for_loop_contents) == 0:
-		stop_running_code()
+		#stop_running_code()
 		Global.restart_level()
 	else:
 		continue_for_loop()
@@ -198,7 +219,7 @@ func continue_for_loop() -> void:
 	for_loop_line += 1
 
 
-func run_base_functions(code) -> void:
+func run_base_functions(code: String) -> void:
 	if not code in base_functions:
 		print("wrong!")
 		print(code)
@@ -214,12 +235,12 @@ func run_base_functions(code) -> void:
 
 func code_validator(code: String, code_split: Array[String]) -> Array:
 	if code_split.is_empty():
-		return[true, "No code"]
+		return[true, no_code_error]
 	
 	if code_split[0] == "for":
 		if for_looping:
 			#print("starting a for loop inside a for loop. What to do if nested loop?")
-			return [false, "Nested loop"]
+			return [false, nested_loop_error]
 		
 		
 		return for_loop_validator(code_split)
@@ -228,22 +249,22 @@ func code_validator(code: String, code_split: Array[String]) -> Array:
 
 func base_func_validator(code: String) -> Array:
 	if not code in base_functions:
-		return [false, "Unknown function: " + code]
+		return [false, unknown_func_error + code]
 	return [true, code]
 
 
 func for_loop_validator(code_split: Array[String]) -> Array:
 	print("For loop start!")
 	if not len(code_split) == 4:
-		return [false, "Syntax error!"]
+		return [false, syntax_error]
 	
 	
 	if code_split[1] in variables.keys():
-		return [false, "Error! Variable: " + str(code_split[1]) + "in for loop already exist"]
+		return [false, for_loop_var_exists_error_1 + str(code_split[1]) + for_loop_var_exists_error_2]
 	
 	
 	if not code_split[2] == "in":
-		return [false, "Syntax error! (no 'in' or 'in' at wrong place)"]
+		return [false, for_loop_in_error]
 	
 	
 	if code_split[3].begins_with("range(") and code_split[3].ends_with("):"):
@@ -252,10 +273,10 @@ func for_loop_validator(code_split: Array[String]) -> Array:
 		
 		
 		if not after_range_split[0].is_valid_int():
-			return [false, "Syntax error! (error inside range())"]
+			return [false, inside_range_error]
 			
 	else:
-		return [false, "Invalid syntax with range!"]
+		return [false, range_error]
 	return [true, "success"]
 
 
@@ -263,7 +284,7 @@ func _on_go_button_pressed() -> void:
 	start_code()
 	
 
-func init_code_lines():
+func init_code_lines() -> void:
 	codeLines.clear()
 	var for_loop_content = []
 	
@@ -293,9 +314,9 @@ func init_code_lines():
 	print("code lines: ", codeLines)
 
 
-func start_code():
-	get_node("GoButton").hide()
-	get_node("StopButton").show()
+func start_code() -> void:
+	go_button.hide()
+	stop_button.show()
 	init_code_lines()
 	running_code = true
 	
@@ -305,13 +326,13 @@ func start_code():
 			laser.start()
 
 
-func robot_changes_wait(temp_robot, new_wait):
+func robot_changes_wait(temp_robot: Robot, new_wait: bool) -> void:
 	#is this a good way to do it?
 	robot = temp_robot
 	waiting = new_wait
 
 
-func set_waiting(value):
+func set_waiting(value: bool) -> void:
 	waiting = value
 
 
@@ -351,8 +372,8 @@ func _on_lines_edited_from(from_line: int, to_line: int) -> void:
 func _on_timer_timeout() -> void:
 	var errors_text = []
 	
-	for i in range(get_node("TextEdit").get_line_count()):
-		var line = get_node("TextEdit").get_line(i)
+	for i in range(text_edit.get_line_count()):
+		var line = text_edit.get_line(i)
 		
 		
 		line = line.strip_edges()
@@ -364,18 +385,18 @@ func _on_timer_timeout() -> void:
 		var error_message = validation_array[1]
 		
 		if validation:
-			get_node("TextEdit").set_line_background_color(i, Color(0, 0, 0, 0))
+			text_edit.set_line_background_color(i, Color(0, 0, 0, 0))
 			continue
 		
-		get_node("TextEdit").set_line_background_color(i, Color(255,0,0))
+		text_edit.set_line_background_color(i, Color(255,0,0))
 		errors_text.append(error_message)
 		print("Error: ", error_message)
 	
 	
 	if errors_text.is_empty():
-		get_node("error message").text = ""
-		if get_node("TextEdit").get_line_count() == line_limit:
-			get_node("error message").text = "Warning: Last line"
+		error_node.text = ""
+		if text_edit.get_line_count() == line_limit:
+			error_node.text = last_line_error
 		return
 	
 	
@@ -386,9 +407,9 @@ func _on_timer_timeout() -> void:
 		full_error += error
 	
 	
-	get_node("error message").text = full_error
+	error_node.text = full_error
 
 
 func _on_stop_button_pressed() -> void:
-	stop_running_code()
+	#stop_running_code()
 	Global.restart_level()

@@ -2,6 +2,9 @@ extends Robot
 class_name MultiplayerRobot
 
 
+@onready var name_node = get_node("name")
+
+
 func _ready() -> void:
 	super._ready()
 	
@@ -12,13 +15,13 @@ func _ready() -> void:
 		
 		
 		if name == "robot1" and player == 1:
-			get_node("name").text = player_name
+			name_node.text = player_name
 		elif name == "robot2" and not player == 1:
-			get_node("name").text = player_name
+			name_node.text = player_name
 	
 	
 	if not multiplayer.is_server():
-		get_node("AnimationPlayer").stop()
+		anim_player.stop()
 
 
 func _physics_process(delta: float) -> void:
@@ -26,17 +29,30 @@ func _physics_process(delta: float) -> void:
 		move(delta)
 
 
-func continue_conveyor(current_tile: Vector2i, cb_data: TileData):
+func continue_conveyor(current_tile: Vector2i, cb_data: TileData) -> void:
 	super.continue_conveyor(current_tile, cb_data)
 	
 	
-	for robot in get_node("/root/Node2D/code").robot_waiting_data:
-		get_node("/root/Node2D/code").robot_waiting_data[robot]["running_code"] = get_node("/root/Node2D/code").running_code
+	for robot in code_node.robot_waiting_data:
+		code_node.robot_waiting_data[robot]["running_code"] = code_node.running_code
+
+
+func stop_conveyor() -> void:
+	super.stop_conveyor()
+	
+	
+	for robot in code_node.robot_waiting_data:
+		code_node.robot_waiting_data[robot]["running_code"] = code_node.running_code
+
+
+func die() -> void:
+	if multiplayer.is_server():
+		super.die()
 
 
 func check_end() -> void:
 	get_node("/root/Node2D").robot_finished(self.get_path())
 
 
-func highlight_name():
-	get_node("name").add_theme_constant_override("outline_size", 3)
+func highlight_name() -> void:
+	name_node.add_theme_constant_override("outline_size", 3)

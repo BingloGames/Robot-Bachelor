@@ -17,7 +17,7 @@ func change_level(level_file_name: String, level: int) -> void:
 
 
 @rpc("call_local","reliable")
-func change_level_multiplayer(level_file_name: String, level: int):
+func change_level_multiplayer(level_file_name: String, level: int) -> void:
 	super.change_level(level_file_name, level)
 
 
@@ -27,5 +27,5 @@ func _on_level_pressed(level: String) -> void:
 	change_level.rpc(level)
 
 
-func back():
+func back() -> void:
 	ConnectionController.close_game.rpc()

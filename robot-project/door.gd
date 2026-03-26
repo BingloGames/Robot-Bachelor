@@ -10,6 +10,9 @@ extends StaticBody2D
 @onready var anim_player_node = get_node("AnimationPlayer")
 
 
+@onready var code_node = get_node("/root/Node2D/code")
+
+
 func _ready() -> void:
 	var sprite = null
 	if color == "red":
@@ -32,17 +35,17 @@ func open() -> void:
 	print("door opening")
 	collision_shape_node.call_deferred("set_disabled", true)
 	anim_player_node.play("open door anim")
-	get_node("/root/Node2D/code").running_code = false
+	code_node.running_code = false
 
 
 func close() -> void:
 	collision_shape_node.call_deferred("set_disabled", false)
 	anim_player_node.play("close door anim")
-	get_node("/root/Node2D/code").running_code = false
+	code_node.running_code = false
 
 
 func finished() -> void:
-	get_node("/root/Node2D/code").running_code = true
+	code_node.running_code = true
 
 
 func reset() -> void:

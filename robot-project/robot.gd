@@ -271,3 +271,4 @@ func wait() -> void:
 
 func _on_wait_timeout() -> void:
 	code_node.robot_changes_wait(self, false)
+	check_tile()

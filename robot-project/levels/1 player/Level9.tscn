@@ -1,13 +1,15 @@
-[gd_scene load_steps=10 format=4 uid="uid://b3gyg6mvv02tc"]
+[gd_scene load_steps=12 format=4 uid="uid://b3gyg6mvv02tc"]
 
 [ext_resource type="TileSet" uid="uid://b86b5a6rn7qvr" path="res://TileSet.tres" id="1_5ix73"]
+[ext_resource type="TileSet" uid="uid://cd2adi2gk1aay" path="res://coveyorBelts.tres" id="2_ci3mk"]
 [ext_resource type="Script" uid="uid://bc27vibglbqta" path="res://items_counter.gd" id="2_fdr1j"]
 [ext_resource type="PackedScene" uid="uid://bkcxr5ltukhr1" path="res://robot.tscn" id="3_ci3mk"]
+[ext_resource type="PackedScene" uid="uid://d1ckbdo8lkn4r" path="res://laser.tscn" id="3_y55w6"]
 [ext_resource type="PackedScene" uid="uid://b7xm7lsovxbqr" path="res://text_edit.tscn" id="4_y55w6"]
 [ext_resource type="PackedScene" uid="uid://bdbqr488vc61t" path="res://star counter.tscn" id="5_4iebt"]
 [ext_resource type="PackedScene" uid="uid://dqdijlggb57o1" path="res://item_list.tscn" id="6_3wshf"]
 [ext_resource type="PackedScene" uid="uid://bu5wqujjgco58" path="res://info_pop_up.tscn" id="7_ds4wx"]
-[ext_resource type="PackedScene" uid="uid://bvmjp16iiq1f2" path="res://back.tscn" id="8_5leri"]
+[ext_resource type="PackedScene" uid="uid://di21tnjo7imbw" path="res://back.tscn" id="8_5leri"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_44r2x"]
 
@@ -15,14 +17,34 @@
 metadata/_edit_vertical_guides_ = [0.0, 320.0]
 
 [node name="ground" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAADAAMAAQAIAAEAAAAEAAMAAQAKAAEAAAAFAAMAAQAKAAEAAAAGAAMAAQAKAAEAAAAHAAMAAQAKAAEAAAAIAAMAAQAKAAEAAAAJAAMAAQAKAAEAAAAKAAMAAQALAAEAAAAKAAQAAQALAAMAAAAKAAUAAQALAAMAAAAKAAYAAQALAAMAAAAKAAcAAQALAAMAAAAKAAgAAQALAAMAAAAKAAkAAQALAAMAAAAKAAoAAQALAAQAAAAJAAoAAQAJAAQAAAAIAAoAAQAJAAQAAAAHAAoAAQAJAAQAAAAGAAoAAQAJAAQAAAAFAAoAAQAJAAQAAAAEAAoAAQAJAAQAAAADAAoAAQAIAAQAAAADAAkAAQAIAAIAAAADAAgAAQAIAAIAAAADAAcAAQAIAAIAAAADAAYAAQAIAAIAAAADAAUAAQAIAAIAAAADAAQAAQAIAAIAAAAEAAQAAQAJAAMAAAAFAAQAAQAJAAMAAAAGAAQAAQAJAAMAAAAHAAQAAQAJAAMAAAAIAAQAAQAJAAMAAAAJAAQAAQAJAAMAAAAJAAUAAQAJAAMAAAAIAAUAAQAJAAMAAAAHAAUAAQAJAAMAAAAGAAUAAQAJAAMAAAAFAAUAAQAJAAMAAAAEAAUAAQAJAAMAAAAHAAYAAQAJAAMAAAAIAAYAAQAJAAMAAAAJAAYAAQAJAAMAAAAGAAYAAQAJAAMAAAAFAAYAAQAJAAMAAAAEAAYAAQAJAAMAAAAEAAcAAQAJAAMAAAAFAAcAAQAJAAMAAAAGAAcAAQAJAAMAAAAHAAcAAQAJAAMAAAAIAAcAAQAJAAMAAAAJAAcAAQAJAAMAAAAIAAgAAQAJAAMAAAAHAAgAAQAJAAMAAAAGAAgAAQAJAAMAAAAFAAgAAQAJAAMAAAAEAAgAAQAJAAMAAAAEAAkAAQAJAAMAAAAFAAkAAQAJAAMAAAAGAAkAAQAJAAMAAAAJAAgAAQAJAAMAAAAJAAkAAQAJAAMAAAAIAAkAAQAJAAMAAAAHAAkAAQAJAAMAAAA=")
 tile_set = ExtResource("1_5ix73")
 
 [node name="walls" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAADAAMAAQAIABcAAAADAAQAAQAIABcAAAADAAUAAQAIABcAAAAEAAMAAQAIABcAAAAEAAQAAQAIABcAAAAEAAUAAQAIABcAAAAFAAMAAQAIABcAAAAFAAQAAQAIABcAAAAFAAUAAQAIABcAAAAGAAMAAQAIABcAAAAGAAQAAQAIABcAAAAGAAUAAQAIABcAAAAHAAMAAQAIABcAAAAHAAQAAQAIABcAAAAHAAUAAQAIABcAAAAIAAMAAQAIABcAAAAIAAQAAQAIABcAAAAIAAUAAQAIABcAAAAJAAMAAQAIABcAAAAJAAQAAQAIABcAAAAJAAUAAQAIABcAAAAKAAMAAQAIABcAAAAKAAQAAQAIABcAAAA=")
+tile_map_data = PackedByteArray("AAALAAIAAQACABUAAAAKAAIAAQABABUAAAAJAAIAAQABABUAAAAIAAIAAQABABUAAAAHAAIAAQABABUAAAAGAAIAAQABABUAAAAFAAIAAQABABUAAAAEAAIAAQABABUAAAADAAIAAQABABUAAAACAAIAAQAAABUAAAACAAsAAQAAABcAAAACAAoAAQAAABYAAAACAAkAAQAAABYAAAACAAgAAQAAABYAAAACAAcAAQAAABYAAAACAAYAAQAAABYAAAACAAUAAQAAABYAAAACAAQAAQAAABYAAAACAAMAAQAAABYAAAALAAsAAQACABcAAAALAAoAAQACABYAAAALAAkAAQACABYAAAALAAgAAQACABYAAAALAAcAAQACABYAAAALAAYAAQACABYAAAALAAUAAQACABYAAAALAAQAAQACABYAAAALAAMAAQACABYAAAAKAAsAAQABABcAAAAJAAsAAQABABcAAAAIAAsAAQABABcAAAAHAAsAAQABABcAAAAGAAsAAQABABcAAAAFAAsAAQABABcAAAAEAAsAAQABABcAAAADAAsAAQABABcAAAA=")
 tile_set = ExtResource("1_5ix73")
 
+[node name="ConveyorBelt" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAJAAkAAwAEAAEAAAAIAAkAAwABAAAAAAAHAAkAAwABAAAAAAAGAAkAAwABAAAAAAAFAAkAAwABAAAAAAAEAAkAAwABAAEAAAAJAAQAAwAEAAAAAAAJAAUAAwAAAAEAAAAJAAYAAwAAAAEAAAAJAAcAAwAAAAEAAAAJAAgAAwAAAAEAAAAEAAQAAwADAAAAAAAFAAQAAwABAAAAAAAGAAQAAwABAAAAAAAHAAQAAwABAAIAAAAIAAQAAwABAAAAAAAEAAgAAwACAAEAAAAEAAcAAwACAAEAAAAEAAYAAwACAAEAAAAEAAUAAwACAAEAAAA=")
+tile_set = ExtResource("2_ci3mk")
+
 [node name="special" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAEAAYAAgAAAAAAAQAIAAUAAgAAAAAAAQAJAAgAAgAAAAAAAQADAAUAAQAJABUAAAAIAAYAAQAGABYAAAAFAAgAAQAHABYAAAADAAYAAQABABYAAAAFAAUAAQABABYAAAAFAAYAAQAEABYAAAADAAcAAQAEABYAAAA=")
 tile_set = ExtResource("1_5ix73")
+
+[node name="lasers" type="Node2D" parent="."]
+
+[node name="laser" parent="lasers" instance=ExtResource("3_y55w6")]
+position = Vector2(176, 336)
+rotation = -1.5707964
+
+[node name="laser2" parent="lasers" instance=ExtResource("3_y55w6")]
+position = Vector2(336, 240)
+rotation = 3.1415927
+
+[node name="laser3" parent="lasers" instance=ExtResource("3_y55w6")]
+position = Vector2(272, 112)
+rotation = 1.5707964
 
 [node name="items" type="Node2D" parent="."]
 script = ExtResource("2_fdr1j")
@@ -30,7 +52,7 @@ script = ExtResource("2_fdr1j")
 [node name="robots" type="Node2D" parent="."]
 
 [node name="robot" parent="robots" instance=ExtResource("3_ci3mk")]
-position = Vector2(144, 144)
+position = Vector2(112, 272)
 
 [node name="code" parent="." instance=ExtResource("4_y55w6")]
 anchors_preset = 0
@@ -45,9 +67,9 @@ anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 152.0
-offset_top = 208.0
+offset_top = 336.0
 offset_right = 152.0
-offset_bottom = 208.0
+offset_bottom = 336.0
 grow_horizontal = 1
 grow_vertical = 1
 metadata/_edit_group_ = true
@@ -58,7 +80,6 @@ offset_right = 960.0
 offset_bottom = 536.0
 
 [node name="Info pop up" parent="." instance=ExtResource("7_ds4wx")]
-visible = false
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0

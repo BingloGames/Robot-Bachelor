@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://bc27vibglbqta" path="res://items_counter.gd" id="5_sydfi"]
 [ext_resource type="PackedScene" uid="uid://50q4mg84a340" path="res://text_edit_multiplayer.tscn" id="7_i45n4"]
 [ext_resource type="PackedScene" uid="uid://cx1504tg7girn" path="res://star_counter_multiplayer.tscn" id="8_jgqeb"]
-[ext_resource type="PackedScene" uid="uid://b6xvm46atvf7i" path="res://item_list_multiplayer.tscn" id="8_pgpff"]
+[ext_resource type="PackedScene" path="res://item_list_multiplayer.tscn" id="8_pgpff"]
 [ext_resource type="PackedScene" uid="uid://bu5wqujjgco58" path="res://info_pop_up.tscn" id="9_yywvu"]
 [ext_resource type="PackedScene" uid="uid://bt3h0x7bjh20x" path="res://input_pop_up multiplayer.tscn" id="11_3valm"]
 [ext_resource type="PackedScene" uid="uid://cxeawjf1ifbsm" path="res://back_multiplayer.tscn" id="13_pgpff"]
@@ -77,6 +77,7 @@ offset_right = 736.0
 offset_bottom = 536.11
 
 [node name="Info pop up" parent="." instance=ExtResource("9_yywvu")]
+visible = false
 offset_right = 960.0
 offset_bottom = 544.0
 

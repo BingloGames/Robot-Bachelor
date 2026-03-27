@@ -19,6 +19,10 @@ var item = ""
 
 
 func _ready() -> void:
+	create_buttons()
+	
+
+func create_buttons() -> void:
 	for i in range(items):
 		list_node.add_item(itemsList[i])
 		button = str(i)
@@ -27,14 +31,13 @@ func _ready() -> void:
 	
 	list_node.set_allow_rmb_select(true)
 	list_node.set_allow_reselect(true)
-
-
+	
 func restart() -> void:
 	list_node.clear()
 	for i in range(7):
 		button = str(i)
 		get_node(button).hide()
-	_ready()
+	create_buttons()
 
 
 func _on_button_mouse_entered(source: Button) -> void:

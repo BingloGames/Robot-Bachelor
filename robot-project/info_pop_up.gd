@@ -14,7 +14,7 @@ func _ready() -> void:
 		return
 	
 	
-	text_node.set_text(text)
+	get_node("RichTextLabel").set_text(text)
 
 
 func _on_Close_pressed() -> void:

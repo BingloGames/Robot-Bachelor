@@ -115,9 +115,9 @@ func start_code() -> void:
 	robot_code[get_node("/root/Node2D/robots/robot1")] = codeLines
 	init_code_lines.rpc()
 	
-	
-	for laser in get_node("/root/Node2D/lasers").get_children():
-		laser.start()
+	if get_node("/root/Node2D").has_noce("lasers"):
+		for laser in get_node("/root/Node2D/lasers").get_children():
+			laser.start()
 
 
 @rpc("authority", "call_local", "reliable")

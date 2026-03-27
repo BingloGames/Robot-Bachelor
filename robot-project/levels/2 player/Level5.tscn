@@ -61,7 +61,6 @@ offset_right = 960.0
 offset_bottom = 536.0
 
 [node name="code" parent="." instance=ExtResource("7_i45n4")]
-visible = false
 offset_right = 640.0
 offset_bottom = 536.0
 
@@ -72,11 +71,12 @@ offset_right = 192.0
 offset_bottom = 440.0
 
 [node name="Input pop up" parent="." instance=ExtResource("11_3valm")]
-offset_top = -0.11001587
-offset_bottom = -0.11001587
+visible = false
+offset_left = 448.0
+offset_right = 736.0
+offset_bottom = 536.11
 
 [node name="Info pop up" parent="." instance=ExtResource("9_yywvu")]
-visible = false
 offset_right = 960.0
 offset_bottom = 544.0
 

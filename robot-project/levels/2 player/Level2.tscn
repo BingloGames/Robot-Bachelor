@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://d2nsbgpi61ctl" path="res://door multiplayer.tscn" id="2_b4bn5"]
 [ext_resource type="PackedScene" uid="uid://cb4vrqqmf63ik" path="res://button_multiplayer.tscn" id="4_7rhgu"]
 [ext_resource type="PackedScene" uid="uid://dj7f68aatv7qu" path="res://robot multiplayer.tscn" id="5_cwrci"]
-[ext_resource type="PackedScene" uid="uid://dqdijlggb57o1" path="res://item_list.tscn" id="6_4kyq2"]
+[ext_resource type="PackedScene" uid="uid://b6xvm46atvf7i" path="res://item_list_multiplayer.tscn" id="6_b4bn5"]
 [ext_resource type="PackedScene" uid="uid://50q4mg84a340" path="res://text_edit_multiplayer.tscn" id="7_xum4v"]
 [ext_resource type="PackedScene" uid="uid://cx1504tg7girn" path="res://star_counter_multiplayer.tscn" id="8_p51fe"]
 [ext_resource type="PackedScene" uid="uid://bu5wqujjgco58" path="res://info_pop_up.tscn" id="9_bfn2g"]
@@ -69,9 +69,9 @@ start_direction = Vector2i(0, -1)
 position = Vector2(208, 304)
 start_direction = Vector2i(0, -1)
 
-[node name="Container" parent="." instance=ExtResource("6_4kyq2")]
+[node name="Container" parent="." instance=ExtResource("6_b4bn5")]
 offset_left = 640.0
-offset_right = 960.0
+offset_right = 960.32
 offset_bottom = 536.0
 
 [node name="code" parent="." instance=ExtResource("7_xum4v")]

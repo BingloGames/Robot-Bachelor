@@ -5,10 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://d2nsbgpi61ctl" path="res://door multiplayer.tscn" id="2_1dbpk"]
 [ext_resource type="PackedScene" uid="uid://cb4vrqqmf63ik" path="res://button_multiplayer.tscn" id="4_mth2d"]
 [ext_resource type="PackedScene" uid="uid://dj7f68aatv7qu" path="res://robot multiplayer.tscn" id="5_72kc1"]
-[ext_resource type="PackedScene" uid="uid://dqdijlggb57o1" path="res://item_list.tscn" id="6_cmyku"]
 [ext_resource type="PackedScene" uid="uid://dj8bvk78ajlmy" path="res://Item.tscn" id="6_iadhh"]
 [ext_resource type="Script" uid="uid://bi4dvyn34dlfm" path="res://items_counter_multiplayer.gd" id="6_mth2d"]
 [ext_resource type="PackedScene" uid="uid://50q4mg84a340" path="res://text_edit_multiplayer.tscn" id="7_mk5yf"]
+[ext_resource type="PackedScene" uid="uid://b6xvm46atvf7i" path="res://item_list_multiplayer.tscn" id="8_72kc1"]
 [ext_resource type="PackedScene" uid="uid://cx1504tg7girn" path="res://star_counter_multiplayer.tscn" id="8_dr0je"]
 [ext_resource type="PackedScene" uid="uid://bu5wqujjgco58" path="res://info_pop_up.tscn" id="9_hvgfx"]
 [ext_resource type="PackedScene" uid="uid://bt3h0x7bjh20x" path="res://input_pop_up multiplayer.tscn" id="12_72kc1"]
@@ -68,13 +68,12 @@ position = Vector2(208, 432)
 [node name="Item2" parent="items" instance=ExtResource("6_iadhh")]
 position = Vector2(176, 176)
 
-[node name="Container" parent="." instance=ExtResource("6_cmyku")]
+[node name="Container" parent="." instance=ExtResource("8_72kc1")]
 offset_left = 640.0
-offset_right = 960.0
+offset_right = 960.32
 offset_bottom = 536.0
 
 [node name="code" parent="." instance=ExtResource("7_mk5yf")]
-visible = false
 offset_right = 640.0
 offset_bottom = 536.0
 line_limit = 100
@@ -93,7 +92,6 @@ offset_bottom = 0.0
 answers = Array[String](["answer="])
 
 [node name="Info pop up" parent="." instance=ExtResource("9_hvgfx")]
-visible = false
 offset_right = 960.0
 offset_bottom = 544.0
 

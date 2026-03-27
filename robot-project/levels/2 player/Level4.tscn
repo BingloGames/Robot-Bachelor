@@ -56,7 +56,7 @@ position = Vector2(112, 336)
 start_direction = Vector2i(0, -1)
 
 [node name="robot2" parent="robots" instance=ExtResource("5_72kc1")]
-position = Vector2(304, 240)
+position = Vector2(304, 208)
 start_direction = Vector2i(0, -1)
 
 [node name="items" type="Node2D" parent="."]
@@ -74,6 +74,7 @@ offset_right = 960.0
 offset_bottom = 536.0
 
 [node name="code" parent="." instance=ExtResource("7_mk5yf")]
+visible = false
 offset_right = 640.0
 offset_bottom = 536.0
 line_limit = 100

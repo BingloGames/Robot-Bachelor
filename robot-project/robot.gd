@@ -15,7 +15,8 @@ const SPEED = 100
 
 
 @export var start_direction: Vector2i = Vector2i.RIGHT
-var direction = start_direction
+var robot_direction = start_direction
+var movement_direction = robot_direction
 var walking_backwards = false
 var died = false
 
@@ -30,7 +31,7 @@ var conveyor_duration = 0 # how long have the robot been on the conveyor?
 
 
 func _ready() -> void:
-	direction = start_direction
+	robot_direction = start_direction
 	#using this instead of autoplay is to stop visual glitches for multiplayer
 	#and to make sure that the correct idle animation plays if start direction is not default
 	idle()
@@ -46,10 +47,10 @@ func move(delta: float) -> void:
 	
 	
 	var halv_a_tile = special_tilemap.tile_set.tile_size/2
-	var current_tile = special_tilemap.local_to_map(Vector2i(global_position)-(halv_a_tile*direction))
+	var current_tile = special_tilemap.local_to_map(Vector2i(global_position)-(halv_a_tile*movement_direction))
 	
 	
-	var collision = move_and_collide(direction*SPEED*delta)
+	var collision = move_and_collide(movement_direction*SPEED*delta)
 	
 	
 	if collision:
@@ -61,9 +62,9 @@ func move(delta: float) -> void:
 	
 	if current_tile == next_tile:
 		position = special_tilemap.map_to_local(next_tile)
-		if walking_backwards:
-			direction *= -1
-			walking_backwards = false
+		#if walking_backwards:
+			#direction *= -1
+			#walking_backwards = false
 		
 		
 		next_tile = null
@@ -78,7 +79,8 @@ func respawn() -> void:
 	global_position = start_point
 	next_tile = null
 	walking_backwards = false
-	direction = start_direction
+	robot_direction = start_direction
+	movement_direction = robot_direction
 	died = false
 	
 	
@@ -97,7 +99,7 @@ func play_animation(animation: String) -> void:
 
 
 func idle() -> void:
-	match direction:
+	match robot_direction:
 		Vector2i.LEFT:
 			play_animation("idle left")
 		Vector2i.RIGHT:
@@ -111,11 +113,11 @@ func idle() -> void:
 
 
 func walk_animation() -> void:
-	var walking_direction = direction
+	var walking_direction = robot_direction
 	
 	
-	if walking_backwards:
-		walking_direction *= -1
+	#if walking_backwards:
+		#walking_direction *= -1
 	
 	
 	match walking_direction:
@@ -132,7 +134,9 @@ func walk_animation() -> void:
 
 
 func check_tile() -> void:
+	print("checking tile")
 	var current_tile = special_tilemap.local_to_map(global_position)
+	print("current tile: ", current_tile)
 	
 	
 	check_conveyor(current_tile)
@@ -186,15 +190,18 @@ func continue_conveyor(current_tile: Vector2i, cb_data: TileData) -> void:
 	code_node.running_code = false
 	
 	
+	movement_direction = dir
+	
+	
 	match turn:
 		"left":
-			direction = Vector2(direction).rotated(-PI/2)
-			direction = Vector2i(direction)
+			robot_direction = Vector2(robot_direction).rotated(-PI/2)
+			robot_direction = Vector2i(robot_direction)
 			next_tile = current_tile + (dir)
 			#idle()
 		"right":
-			direction = Vector2(direction).rotated(PI/2)
-			direction = Vector2i(direction)
+			robot_direction = Vector2(robot_direction).rotated(PI/2)
+			robot_direction = Vector2i(robot_direction)
 			next_tile = current_tile + (dir)
 			#idle()
 		_:
@@ -206,6 +213,7 @@ func continue_conveyor(current_tile: Vector2i, cb_data: TileData) -> void:
 
 
 func stop_conveyor() -> void:
+	print("stop conveyoring")
 	conveyoring = false
 	conveyor_speed = 0
 	conveyor_duration = 0
@@ -237,14 +245,14 @@ func die() -> void:
 
 func forward() -> void:
 	var current_tile = special_tilemap.local_to_map(global_position)
-	next_tile = current_tile + direction
+	next_tile = current_tile + movement_direction
 	
 	
 	walk_animation()
 
 
 func backward() -> void:
-	direction *= -1
+	movement_direction = robot_direction * -1
 	walking_backwards = true
 	forward()
 	
@@ -253,14 +261,20 @@ func backward() -> void:
 
 
 func left() -> void:
-	direction = Vector2(direction).rotated(-PI/2)
-	direction = Vector2i(direction)
+	robot_direction = Vector2(robot_direction).rotated(-PI/2)
+	robot_direction = Vector2i(robot_direction)
+	movement_direction = robot_direction
+	
+	
 	forward()
 
 
 func right() -> void:
-	direction = Vector2(direction).rotated(PI/2)
-	direction = Vector2i(direction)
+	robot_direction = Vector2(robot_direction).rotated(PI/2)
+	robot_direction = Vector2i(robot_direction)
+	movement_direction = robot_direction
+	
+	
 	forward()
 
 

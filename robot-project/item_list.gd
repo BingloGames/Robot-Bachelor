@@ -5,8 +5,8 @@ var itemsList = ["forward()", "backward()", "wait()", "left()", "right()", "for 
 @export var items = 2
 
 
-@onready var path = Global.text_path# does this need to be @onready?
-@onready var language = Global.text_language
+var path = Global.text_path
+var language = Global.text_language
 
 
 @onready var list_node = get_node("ItemList")

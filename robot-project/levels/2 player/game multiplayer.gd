@@ -48,12 +48,12 @@ func check_both_robot_end() -> void:
 		
 		if tile_data == null:
 			robot.die()
-			continue
+			return
 		
 		
 		if not tile_data.get_custom_data("Property") == "End":
 			robot.die()
-			continue
+			return
 		
 		
 		robots_succeded.append(robot)

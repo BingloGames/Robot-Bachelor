@@ -1,0 +1,81 @@
+[gd_scene load_steps=13 format=3 uid="uid://l3qw0qu7nayk"]
+
+[ext_resource type="Script" uid="uid://dblchqpqwm05w" path="res://levels/2 player/game multiplayer.gd" id="1_1lja1"]
+[ext_resource type="Script" uid="uid://bi4dvyn34dlfm" path="res://items_counter_multiplayer.gd" id="2_8riqo"]
+[ext_resource type="TileSet" uid="uid://b86b5a6rn7qvr" path="res://TileSet.tres" id="2_xsnl2"]
+[ext_resource type="TileSet" uid="uid://cd2adi2gk1aay" path="res://coveyorBelts.tres" id="3_bbrjg"]
+[ext_resource type="PackedScene" uid="uid://b6xvm46atvf7i" path="res://item_list_multiplayer.tscn" id="3_xsnl2"]
+[ext_resource type="PackedScene" uid="uid://50q4mg84a340" path="res://text_edit_multiplayer.tscn" id="4_bbrjg"]
+[ext_resource type="PackedScene" uid="uid://cx1504tg7girn" path="res://star_counter_multiplayer.tscn" id="5_5mrgi"]
+[ext_resource type="PackedScene" uid="uid://dj7f68aatv7qu" path="res://robot multiplayer.tscn" id="5_bbrjg"]
+[ext_resource type="PackedScene" uid="uid://bt3h0x7bjh20x" path="res://input_pop_up multiplayer.tscn" id="6_e6qma"]
+[ext_resource type="PackedScene" uid="uid://bu5wqujjgco58" path="res://info_pop_up.tscn" id="7_bslcv"]
+[ext_resource type="PackedScene" uid="uid://cxeawjf1ifbsm" path="res://back_multiplayer.tscn" id="8_sfcki"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_nrbll"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_1lja1")
+
+[node name="ground" type="TileMapLayer" parent="."]
+tile_set = ExtResource("2_xsnl2")
+
+[node name="walls" type="TileMapLayer" parent="."]
+tile_set = ExtResource("2_xsnl2")
+
+[node name="ConveyorBelt" type="TileMapLayer" parent="."]
+tile_set = ExtResource("3_bbrjg")
+
+[node name="special" type="TileMapLayer" parent="."]
+tile_set = ExtResource("2_xsnl2")
+
+[node name="doors" type="Node2D" parent="."]
+
+[node name="buttons" type="Node2D" parent="."]
+
+[node name="lasers" type="Node2D" parent="."]
+
+[node name="items" type="Node2D" parent="."]
+script = ExtResource("2_8riqo")
+
+[node name="robots" type="Node2D" parent="."]
+
+[node name="robot1" parent="robots" instance=ExtResource("5_bbrjg")]
+
+[node name="robot2" parent="robots" instance=ExtResource("5_bbrjg")]
+
+[node name="Container" parent="." instance=ExtResource("3_xsnl2")]
+offset_left = 640.0
+offset_right = 960.0
+offset_bottom = 544.0
+
+[node name="code" parent="." instance=ExtResource("4_bbrjg")]
+offset_right = 640.0
+offset_bottom = 536.0
+
+[node name="star counter" parent="." instance=ExtResource("5_5mrgi")]
+offset_left = 152.0
+offset_top = 488.0
+offset_right = 152.0
+offset_bottom = 488.0
+
+[node name="Input pop up" parent="." instance=ExtResource("6_e6qma")]
+visible = false
+offset_left = 448.0
+offset_right = 448.0
+offset_bottom = 0.0
+
+[node name="Info pop up" parent="." instance=ExtResource("7_bslcv")]
+visible = false
+
+[node name="back" parent="." instance=ExtResource("8_sfcki")]
+offset_left = 880.0
+offset_top = 504.0
+offset_right = 945.0
+offset_bottom = 535.0
+
+[node name="black" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0)
+position = Vector2(479.74997, 271.74997)
+scale = Vector2(960.49994, 544.49994)
+texture = SubResource("CanvasTexture_nrbll")

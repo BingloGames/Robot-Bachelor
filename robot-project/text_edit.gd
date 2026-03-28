@@ -59,11 +59,14 @@ func _process(_delta: float) -> void:
 		robot.idle()
 		return
 	
+	
 	if codeLines.is_empty() and not for_looping:
+		print("code lines is empty and not for looping")
 		robot.check_end()
 		running_code = false
 		return
-
+	
+	
 	run_code()
 
 
@@ -85,7 +88,7 @@ func run_code() -> void:
 	
 	
 	var code = codeLines.pop_front()
-	print(robot.name, " code after this: ", codeLines)
+	#print(robot.name, " code after this: ", codeLines)
 	run_line(code)
 
 

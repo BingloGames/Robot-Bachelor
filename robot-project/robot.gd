@@ -3,6 +3,7 @@ class_name Robot
 
 
 const SPEED = 100
+var movement_speed = SPEED
 
 
 @onready var special_tilemap = get_node("/root/Node2D/special")
@@ -32,6 +33,7 @@ var conveyor_duration = 0 # how long have the robot been on the conveyor?
 
 func _ready() -> void:
 	robot_direction = start_direction
+	movement_direction = robot_direction
 	#using this instead of autoplay is to stop visual glitches for multiplayer
 	#and to make sure that the correct idle animation plays if start direction is not default
 	idle()
@@ -42,7 +44,7 @@ func _physics_process(delta: float) -> void:
 
 
 func move(delta: float) -> void:
-	if next_tile == null:
+	if next_tile == null or died:
 		return
 	
 	
@@ -50,7 +52,7 @@ func move(delta: float) -> void:
 	var current_tile = special_tilemap.local_to_map(Vector2i(global_position)-(halv_a_tile*movement_direction))
 	
 	
-	var collision = move_and_collide(movement_direction*SPEED*delta)
+	var collision = move_and_collide(movement_direction*movement_speed*delta)
 	
 	
 	if collision:
@@ -74,9 +76,10 @@ func move(delta: float) -> void:
 
 
 func respawn() -> void:
+	print("respawning robot: ", name)
 	scale = Vector2(1,1)
 	rotation_degrees = 0
-	global_position = start_point
+	set_position(start_point)
 	next_tile = null
 	walking_backwards = false
 	robot_direction = start_direction
@@ -84,11 +87,10 @@ func respawn() -> void:
 	died = false
 	
 	
-	conveyoring = false
-	conveyor_speed = 0
-	conveyor_duration = 0
+	print(name, "'s position is: ", position)
 	
 	
+	stop_conveyor()
 	idle()
 
 
@@ -134,9 +136,7 @@ func walk_animation() -> void:
 
 
 func check_tile() -> void:
-	print("checking tile")
 	var current_tile = special_tilemap.local_to_map(global_position)
-	print("current tile: ", current_tile)
 	
 	
 	check_conveyor(current_tile)
@@ -167,17 +167,20 @@ func check_conveyor(current_tile: Vector2i) -> void:
 	var cb_data = conveyor_belt_tilemap.get_cell_tile_data(current_tile)
 	if cb_data == null:
 		stop_conveyor()
+		code_node.running_code = true
 		return
 	
 	
 	if not conveyoring:
 		conveyoring = true
 		conveyor_speed = cb_data.get_custom_data("Speed")
+		movement_speed *= conveyor_speed
 	else:
 		if conveyor_duration >= conveyor_speed:
 			movement_direction = robot_direction
 			#temporarily stop the conveyor belt for the robot to run a line of code
 			stop_conveyor()
+			code_node.running_code = true
 			return
 	
 	
@@ -215,10 +218,11 @@ func continue_conveyor(current_tile: Vector2i, cb_data: TileData) -> void:
 
 func stop_conveyor() -> void:
 	print("stop conveyoring")
+	movement_speed = SPEED
 	conveyoring = false
 	conveyor_speed = 0
 	conveyor_duration = 0
-	code_node.running_code = true
+	#code_node.running_code = true
 
 
 func check_end() -> void:

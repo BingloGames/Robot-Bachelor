@@ -100,7 +100,6 @@ func ready_pressed(peer_is_ready: bool) -> void:
 		if all_ready:
 			print("all ready!")
 			start_code()
-			
 
 
 @rpc("call_local")
@@ -144,6 +143,7 @@ func get_robot_code(code_lines: Array) -> void:
 	
 	
 	#the server got the code for both of the robots, we are ready to start
+	print("gets code from other peer")
 	for temp_robot in robot_waiting_data.keys():
 		robot_waiting_data[temp_robot]["running_code"] = true
 	
@@ -153,16 +153,16 @@ func get_robot_code(code_lines: Array) -> void:
 
 func problem_warning() -> void:
 	for temp_robot in robot_current_line:
-		print("checking if ", temp_robot.name, " died")
+		#print("checking if ", temp_robot.name, " died")
 		if not temp_robot.died:
 			continue
 		
 		
-		print(temp_robot.name, " died!")
+		#print(temp_robot.name, " died!")
 		
 		
 		var temp_turn = robot_current_line[temp_robot]
-		if temp_robot.name == "robot1":
+		if temp_robot.name == "robot1":#???
 			problem_warning_multiplayer(temp_turn)
 			continue
 		
@@ -181,7 +181,7 @@ func stop_running_code() -> void:
 		robot_waiting_data[temp_robot] = robot_waiting_data_default.duplicate()
 		robot_for_loop_data[temp_robot] = robot_for_loop_data_default.duplicate_deep()
 		robot_current_line[temp_robot] = 0
-		robot_code[temp_robot].clear()
+		robot_code.clear()
 	
 	
 	super.stop_running_code()

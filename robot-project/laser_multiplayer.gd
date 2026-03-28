@@ -1,9 +1,17 @@
 extends "res://laser.gd"
 
 
-func _process(_delta: float) -> void:
+
+
+
+func _physics_process(_delta: float) -> void:
 	if multiplayer.is_server():
-		super._process(_delta)
+		super._physics_process(_delta)
+
+
+func ready_timer() -> void:
+	if multiplayer.is_server():
+		super.ready_timer()
 
 
 func check_collision() -> void:
@@ -14,23 +22,28 @@ func check_collision() -> void:
 
 @rpc("call_local")
 func visual_change(collision_point: Vector2) -> void:
-	#print("visual change!")
 	super.visual_change(collision_point)
 
 
 func turn_off() -> void:
-	turn_off_multiplayer.rpc()
-
-
+	if multiplayer.is_server():
+		turn_off_multiplayer.rpc()
 @rpc("call_local")
 func turn_off_multiplayer() -> void:
 	super.turn_off()
 
 
 func turn_on() -> void:
-	turn_on_multiplayer.rpc()
-
-
+	if multiplayer.is_server():
+		turn_on_multiplayer.rpc()
 @rpc("call_local")
 func turn_on_multiplayer() -> void:
 	super.turn_on()
+
+
+func reset() -> void:
+	if multiplayer.is_server():
+		restart_multiplayer.rpc()
+@rpc("call_local")
+func restart_multiplayer() -> void:
+	super.reset()

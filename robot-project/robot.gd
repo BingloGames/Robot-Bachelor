@@ -175,6 +175,7 @@ func check_conveyor(current_tile: Vector2i) -> void:
 		conveyor_speed = cb_data.get_custom_data("Speed")
 	else:
 		if conveyor_duration >= conveyor_speed:
+			movement_direction = robot_direction
 			#temporarily stop the conveyor belt for the robot to run a line of code
 			stop_conveyor()
 			return

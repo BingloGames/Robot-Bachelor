@@ -33,16 +33,24 @@ func continue_conveyor(current_tile: Vector2i, cb_data: TileData) -> void:
 	super.continue_conveyor(current_tile, cb_data)
 	
 	
-	for robot in code_node.robot_waiting_data:
-		code_node.robot_waiting_data[robot]["running_code"] = code_node.running_code
+	#for robot in code_node.robot_waiting_data:
+	code_node.robot_waiting_data[self]["running_code"] = false
 
 
 func stop_conveyor() -> void:
 	super.stop_conveyor()
 	
 	
-	for robot in code_node.robot_waiting_data:
-		code_node.robot_waiting_data[robot]["running_code"] = code_node.running_code
+	#for robot in code_node.robot_waiting_data:
+	code_node.robot_waiting_data[self]["running_code"] = true
+
+
+func respawn() -> void:
+	super.respawn()
+	
+	
+	#for robot in code_node.robot_waiting_data:
+	code_node.robot_waiting_data[self]["running_code"] = false
 
 
 func die() -> void:

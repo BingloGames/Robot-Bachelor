@@ -16,6 +16,7 @@ var right_counter = 0
 
 
 var doors = []
+var robot_next_tile_temp = {}
 
 
 func _ready() -> void:
@@ -32,7 +33,10 @@ func _ready() -> void:
 
 
 func show_input() -> void:
-	code_node.running_code = false
+	get_tree().paused = true
+	
+	
+	#code_node.running_code = false
 	show()
 	set_mouse_filter(MOUSE_FILTER_STOP)
 
@@ -63,19 +67,24 @@ func _on_button_pressed() -> void:
 
 
 func correct_answer() -> void:
+	hide_input()
+	
+	
 	for door in doors:
 		door.open()
-	
-	
-	#get_node("/root/Node2D/code").running_code = false
-	hide()
-	set_mouse_filter(MOUSE_FILTER_IGNORE)
 
 
 func wrong_answer() -> void:
 	get_node("/root/Node2D/code").running_code = true
+	hide_input()
+
+
+func hide_input():
 	hide()
 	set_mouse_filter(MOUSE_FILTER_IGNORE)
+	
+	
+	get_tree().paused = false
 
 
 func import_func(line_array: Array) -> void:

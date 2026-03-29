@@ -5,3 +5,4 @@
 
 [node name="Input pop up" instance=ExtResource("1_l5xl2")]
 script = ExtResource("2_buhcb")
+answers = Array[String](["answer="])

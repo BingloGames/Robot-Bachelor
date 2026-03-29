@@ -49,6 +49,7 @@ func ready_timer() -> void:
 
 
 func check_collision() -> void:
+	raycast.force_raycast_update()
 	var raycast_point = raycast.get_collision_point()
 	visual_change(raycast_point)
 	check_raycast_collider()
@@ -69,6 +70,8 @@ func check_raycast_collider() -> void:
 		if name == "laser2":
 			print("peer laser killed robot")
 			print("hey")
+		
+		
 		raycast_collider.die()
 
 

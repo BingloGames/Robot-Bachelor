@@ -36,6 +36,7 @@ scale_amount_max = 1.2
 color = Color(1, 0, 0, 1)
 
 [node name="timer" type="Timer" parent="."]
+process_callback = 0
 wait_time = 0.64
 one_shot = true
 

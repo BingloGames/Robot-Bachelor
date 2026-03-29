@@ -10,4 +10,5 @@ func _on_back_pressed() -> void:
 
 
 func back() -> void:
+	get_tree().paused = false
 	get_tree().change_scene_to_file(single_player_menu)

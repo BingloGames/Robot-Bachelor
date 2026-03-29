@@ -73,7 +73,7 @@ func _process(_delta: float) -> void:
 func run_code() -> void:
 	if for_looping:
 		if len(for_loop_contents) == 0:
-			stop_running_code()
+			#stop_running_code()
 			Global.restart_level()
 		else:
 			continue_for_loop()
@@ -88,7 +88,7 @@ func run_code() -> void:
 	
 	
 	var code = codeLines.pop_front()
-	#print(robot.name, " code after this: ", codeLines)
+	print(robot.name, " code after this: ", codeLines)
 	run_line(code)
 
 
@@ -233,6 +233,8 @@ func run_base_functions(code: String) -> void:
 	
 	
 	robot.call(code)
+	print("next tile: ", robot.next_tile)
+	print("robot_dir: ", robot.robot_direction)
 	waiting = true
 
 

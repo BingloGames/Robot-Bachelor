@@ -52,6 +52,12 @@ func _process(delta: float) -> void:
 			super._process(delta)
 			
 			
+			#incase the game ends in the middle of the process
+			#for example if there are no code lines left and a robot dies
+			if robot_code.is_empty():
+				break
+			
+			
 			robot_code[robot] = codeLines
 			robot_current_line[robot] = turn
 			
@@ -181,7 +187,7 @@ func stop_running_code() -> void:
 		robot_waiting_data[temp_robot] = robot_waiting_data_default.duplicate()
 		robot_for_loop_data[temp_robot] = robot_for_loop_data_default.duplicate_deep()
 		robot_current_line[temp_robot] = 0
-		robot_code.clear()
+	robot_code.clear()
 	
 	
 	super.stop_running_code()

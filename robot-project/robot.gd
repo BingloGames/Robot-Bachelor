@@ -48,25 +48,27 @@ func move(delta: float) -> void:
 		return
 	
 	
-	var halv_a_tile = special_tilemap.tile_set.tile_size/2
-	var current_tile = special_tilemap.local_to_map(Vector2i(global_position)-(halv_a_tile*movement_direction))
-	
-	
 	var collision = move_and_collide(movement_direction*movement_speed*delta)
 	
 	
 	if collision:
 		print(name + " collided with: ", collision.get_collider().name, " at position: ", collision.get_position())
 		#play animation before running this code?
+		print("conveyoring: ", conveyoring)
 		die()
 		return
 	
 	
+	var halv_a_tile = special_tilemap.tile_set.tile_size/2
+	var current_tile = special_tilemap.local_to_map(Vector2i(global_position)-(halv_a_tile*movement_direction))
+	
+	
 	if current_tile == next_tile:
 		position = special_tilemap.map_to_local(next_tile)
-		#if walking_backwards:
+		if walking_backwards:
+			movement_direction *= -1
 			#direction *= -1
-			#walking_backwards = false
+			walking_backwards = false
 		
 		
 		next_tile = null
@@ -91,6 +93,7 @@ func respawn() -> void:
 	
 	
 	stop_conveyor()
+	code_node.running_code = false
 	idle()
 
 
@@ -166,12 +169,22 @@ func check_conveyor(current_tile: Vector2i) -> void:
 	
 	var cb_data = conveyor_belt_tilemap.get_cell_tile_data(current_tile)
 	if cb_data == null:
+		print("no conveyor belt data: ", name)
 		stop_conveyor()
-		code_node.running_code = true
 		return
 	
 	
+	if not cb_data.has_custom_data("dir"):
+		print("conveyor belt tile does not have dir for robot: ", name)
+		stop_conveyor()
+		return
+	
+	
+	print("conveyoring_tile: ", current_tile)
+	
+	
 	if not conveyoring:
+		print("start conveyoring: ", name)
 		conveyoring = true
 		conveyor_speed = cb_data.get_custom_data("Speed")
 		movement_speed *= conveyor_speed
@@ -180,7 +193,6 @@ func check_conveyor(current_tile: Vector2i) -> void:
 			movement_direction = robot_direction
 			#temporarily stop the conveyor belt for the robot to run a line of code
 			stop_conveyor()
-			code_node.running_code = true
 			return
 	
 	
@@ -188,6 +200,7 @@ func check_conveyor(current_tile: Vector2i) -> void:
 
 
 func continue_conveyor(current_tile: Vector2i, cb_data: TileData) -> void:
+	print("continue conveyoring: ", name)
 	var dir = cb_data.get_custom_data("dir")
 	#print(dir)
 	var turn = cb_data.get_custom_data("Turn")
@@ -212,17 +225,17 @@ func continue_conveyor(current_tile: Vector2i, cb_data: TileData) -> void:
 			next_tile = current_tile + (dir)
 			#idle()
 	
-	
+	print("conveyor belt next tile: ", next_tile)
 	conveyor_duration += 1
 
 
 func stop_conveyor() -> void:
-	print("stop conveyoring")
+	print("stop conveyoring: ", name)
 	movement_speed = SPEED
 	conveyoring = false
 	conveyor_speed = 0
 	conveyor_duration = 0
-	#code_node.running_code = true
+	code_node.running_code = true
 
 
 func check_end() -> void:

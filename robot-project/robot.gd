@@ -117,6 +117,7 @@ func play_directional_animation(anim_start: String, direction: Vector2i = robot_
 		Vector2i.DOWN:
 			anim += "down"
 		_:
+			anim += "left"
 			print("????????????????")
 	
 	

@@ -15,6 +15,7 @@ region_rect = Rect2(96, 32, 32, 32)
 [node name="raycast" type="RayCast2D" parent="."]
 position = Vector2(-11, 0)
 target_position = Vector2(1000, 0)
+hit_from_inside = true
 
 [node name="line" type="Line2D" parent="."]
 points = PackedVector2Array(-11, 0, 33, 0)

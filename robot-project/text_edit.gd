@@ -183,7 +183,8 @@ func start_for_loop(code_split: Array[String], code: String) -> void:
 		#
 		#
 		#i += 1
-	turn += len(for_loop_contents)
+	if len(for_loop_contents) > 0:
+		turn += len(for_loop_contents)
 	
 	
 	if len(for_loop_contents) == 0:

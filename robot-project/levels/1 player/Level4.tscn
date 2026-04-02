@@ -89,7 +89,6 @@ grow_vertical = 1
 answers = Array[String](["9", "x+y"])
 
 [node name="Info pop up" parent="." instance=ExtResource("8_qriun")]
-visible = false
 offset_right = 960.0
 offset_bottom = 544.0
 

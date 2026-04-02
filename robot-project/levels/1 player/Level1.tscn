@@ -70,7 +70,6 @@ offset_bottom = 536.0
 items = 3
 
 [node name="Info pop up" parent="." instance=ExtResource("6_lrqwn")]
-visible = false
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0

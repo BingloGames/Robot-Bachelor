@@ -1,1 +1,1 @@
-Text for X =
+X es una variable, son distinguibles de las funciones por la falta de parentesis al final. Una variable guarda un valor dentro para su uso repetitivo. 

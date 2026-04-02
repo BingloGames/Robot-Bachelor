@@ -55,7 +55,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 offset_right = 640.0
 offset_bottom = 536.0
-line_limit = 10
+line_limit = 99
 
 [node name="star counter" parent="." instance=ExtResource("5_qjj1m")]
 anchors_preset = 0
@@ -75,6 +75,7 @@ offset_right = 960.0
 offset_bottom = 536.0
 
 [node name="Info pop up" parent="." instance=ExtResource("7_pgv5o")]
+visible = false
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0

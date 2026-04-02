@@ -1,3 +1,3 @@
-left() is a function that, when you call it, it turns the direction of the robot left 90 degrees, and it moves the robot forward one tile. 
+left() gira el robot hacia la izquierda 90 grados, y mueve el robot hacia delante un espacio.
 
-WARNING: functions are case sensitive and need the pharentesis at the end to work.
+AVISO: las funciones distinguen mayusculas y minusculas, y necesitan el parentesis al final para que funcionen.

@@ -1,1 +1,1 @@
-Text for List
+list = [] es una lista, al igual que las variables, guarda valores para su uso, pero en vez de solo uno, puede contener varios valores, en un orden determinado.

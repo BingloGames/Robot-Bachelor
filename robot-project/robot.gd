@@ -103,42 +103,43 @@ func play_animation(animation: String) -> void:
 	anim_player.play(animation)
 
 
-func idle() -> void:
-	match robot_direction:
+func play_directional_animation(anim_start: String, direction: Vector2i = robot_direction) -> void:
+	var anim = anim_start + " "
+	
+	
+	match direction:
 		Vector2i.LEFT:
-			play_animation("idle left")
+			anim += "left"
 		Vector2i.RIGHT:
-			play_animation("idle right")
+			anim += "right"
 		Vector2i.UP:
-			play_animation("idle up")
+			anim += "up"
 		Vector2i.DOWN:
-			play_animation("idle down")
+			anim += "down"
 		_:
 			print("????????????????")
+	
+	
+	play_animation(anim)
+
+
+func idle() -> void:
+	if died:
+		return
+	play_directional_animation("idle")
 
 
 func walk_animation() -> void:
-	var walking_direction = robot_direction
-	
-	
 	#if walking_backwards:
 		#walking_direction *= -1
-	
-	
-	match walking_direction:
-		Vector2i.LEFT:
-			play_animation("walk left")
-		Vector2i.RIGHT:
-			play_animation("walk right")
-		Vector2i.UP:
-			play_animation("walk up")
-		Vector2i.DOWN:
-			play_animation("walk down")
-		_:
-			idle()
+	play_directional_animation("walk")
 
 
 func check_tile() -> void:
+	if died:
+		return
+	
+	
 	var current_tile = special_tilemap.local_to_map(global_position)
 	
 	
@@ -258,6 +259,10 @@ func check_end() -> void:
 
 func die() -> void:
 	died = true
+	play_directional_animation("die", movement_direction)
+
+
+func robot_finished_dying():
 	Global.restart_level()
 
 

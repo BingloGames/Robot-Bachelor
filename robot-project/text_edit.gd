@@ -298,6 +298,7 @@ func init_code_lines() -> void:
 	codeLines.clear()
 	var for_loop_content = []
 	var previous_line = "previous line"
+	var previous_ind = false
 	
 	for i in range(text_edit.get_line_count()):
 		var ind = text_edit.get_indent_level(i)
@@ -309,6 +310,7 @@ func init_code_lines() -> void:
 		
 		
 		if ind == 0:
+			previous_ind = false
 			if len(for_loop_content) > 0:
 				codeLines.append(for_loop_content.duplicate())
 				for_loop_content.clear()
@@ -317,7 +319,10 @@ func init_code_lines() -> void:
 			codeLines.append(line)
 			
 		else:
+			previous_ind = true
 			if previous_line.split(" ", false)[0] == "for":
+				for_loop_content.append(line)
+			elif previous_ind == true:
 				for_loop_content.append(line)
 			else:
 				line = line.strip_edges()
@@ -328,6 +333,7 @@ func init_code_lines() -> void:
 				codeLines.append(line)
 		
 		previous_line = line
+
 	
 	
 	if len(for_loop_content) > 0:

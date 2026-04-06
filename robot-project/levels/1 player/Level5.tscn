@@ -69,7 +69,7 @@ line_limit = 20
 offset_left = 640.0
 offset_right = 960.0
 offset_bottom = 536.0
-items = 6
+items = 5
 
 [node name="Input pop up" parent="." instance=ExtResource("8_vpjvl")]
 visible = false

@@ -67,10 +67,14 @@ color = "red"
 
 [node name="laser" parent="lasers" instance=ExtResource("7_gq1rj")]
 position = Vector2(112, 208)
+laser_on_turns_interval = 1
+laser_off_turns_interval = 4
 
 [node name="laser2" parent="lasers" instance=ExtResource("7_gq1rj")]
 position = Vector2(208, 112)
 rotation = 1.5707964
+laser_on_turns_interval = 1
+laser_off_turns_interval = 4
 
 [node name="laser3" parent="lasers" instance=ExtResource("7_gq1rj")]
 position = Vector2(304, 336)
@@ -79,14 +83,21 @@ rotation = -1.5707964
 [node name="laser4" parent="lasers" instance=ExtResource("7_gq1rj")]
 position = Vector2(304, 112)
 rotation = 1.5707964
+laser_on_turns_interval = 4
+laser_off_turns_interval = 4
 
 [node name="laser5" parent="lasers" instance=ExtResource("7_gq1rj")]
 position = Vector2(336, 176)
 rotation = -1.5707964
+start_active = false
+laser_on_turns_interval = 4
+laser_off_turns_interval = 4
 
 [node name="laser6" parent="lasers" instance=ExtResource("7_gq1rj")]
 position = Vector2(368, 112)
 rotation = 1.5707964
+laser_on_turns_interval = 4
+laser_off_turns_interval = 4
 
 [node name="robots" type="Node2D" parent="."]
 
@@ -117,6 +128,7 @@ metadata/_edit_group_ = true
 offset_left = 640.0
 offset_right = 960.0
 offset_bottom = 536.0
+items = 6
 
 [node name="Info pop up" parent="." instance=ExtResource("7_2hmoo")]
 visible = false

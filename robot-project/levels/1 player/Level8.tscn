@@ -35,10 +35,13 @@ script = ExtResource("2_mwyan")
 [node name="laser" parent="lasers" instance=ExtResource("3_mwyan")]
 position = Vector2(272, 112)
 rotation = 1.5707964
+laser_off_turns_interval = 4
 
 [node name="laser2" parent="lasers" instance=ExtResource("3_mwyan")]
 position = Vector2(176, 336)
 rotation = -1.5707964
+laser_on_turns_interval = 1
+laser_off_turns_interval = 3
 
 [node name="laser3" parent="lasers" instance=ExtResource("3_mwyan")]
 position = Vector2(336, 208)
@@ -73,6 +76,7 @@ metadata/_edit_group_ = true
 offset_left = 640.0
 offset_right = 960.0
 offset_bottom = 536.0
+items = 6
 
 [node name="Info pop up" parent="." instance=ExtResource("7_pgv5o")]
 visible = false

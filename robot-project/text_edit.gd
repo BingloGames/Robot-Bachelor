@@ -164,7 +164,7 @@ func start_for_loop(code_split: Array[String], code: String) -> void:
 	
 	
 	for_loop_contents = codeLines.pop_front()
-	
+	print(len(for_loop_contents))
 	#get every line in the for loop and add it to for_loop_contents
 	#var i = 0
 	#while true:
@@ -183,14 +183,15 @@ func start_for_loop(code_split: Array[String], code: String) -> void:
 		#
 		#
 		#i += 1
-	if len(for_loop_contents) > 0:
-		turn += len(for_loop_contents)
+
 	
 	
 	if len(for_loop_contents) == 0:
 		#stop_running_code()
 		Global.restart_level()
 	else:
+		print(len(for_loop_contents))
+		turn -= len(for_loop_contents)
 		continue_for_loop()
 
 
@@ -199,9 +200,7 @@ func continue_for_loop() -> void:
 		for_loop_line = 0
 		for_loop_count += 1
 		
-		
 		if for_loop_count >= for_loop_max: #verify if correct?
-			turn -= len(for_loop_contents)
 			#remove the codeLines in the for loop that just ended
 			#for i in range(len(for_loop_contents)):
 				#pass

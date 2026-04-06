@@ -260,6 +260,7 @@ func base_func_validator(code: String) -> Array:
 
 func for_loop_validator(code_split: Array[String]) -> Array:
 	print("For loop start!")
+	print(code_split)
 	if not len(code_split) == 4:
 		return [false, syntax_error]
 	
@@ -273,6 +274,7 @@ func for_loop_validator(code_split: Array[String]) -> Array:
 	
 	
 	if code_split[3].begins_with("range(") and code_split[3].ends_with("):"):
+	#if code_split[3].begins_with("range("):
 		var range_split = code_split[3].split("(", false) #should have range_split[0] = "range", range_split[1] = "n):"
 		var after_range_split = range_split[1].split(")", false) # should have after_range_split[0] = "n", after_range_split[1] = ":"
 		
@@ -280,7 +282,9 @@ func for_loop_validator(code_split: Array[String]) -> Array:
 		if not after_range_split[0].is_valid_int():
 			return [false, inside_range_error]
 			
+			
 	else:
+		get_node("/root/Node2D/code/GoButton").disabled = true
 		return [false, range_error]
 	return [true, "success"]
 
@@ -292,7 +296,7 @@ func _on_go_button_pressed() -> void:
 func init_code_lines() -> void:
 	codeLines.clear()
 	var for_loop_content = []
-	
+	var previous_line = "previous line"
 	
 	for i in range(text_edit.get_line_count()):
 		var ind = text_edit.get_indent_level(i)
@@ -310,8 +314,19 @@ func init_code_lines() -> void:
 			
 			
 			codeLines.append(line)
+			
 		else:
-			for_loop_content.append(line)
+			if previous_line.split(" ", false)[0] == "for":
+				for_loop_content.append(line)
+			else:
+				line = line.strip_edges()
+				if len(for_loop_content) > 0:
+					codeLines.append(for_loop_content.duplicate())
+					for_loop_content.clear()
+				
+				codeLines.append(line)
+		
+		previous_line = line
 	
 	
 	if len(for_loop_content) > 0:
@@ -363,6 +378,8 @@ func _on_lines_edited_from(from_line: int, to_line: int) -> void:
 	var old_line = text_edit.get_line(from_line)
 	var old_line_split = old_line.split(" ")
 	var for_loop_valid = for_loop_validator(old_line_split)
+	if for_loop_valid[0] == true:
+		get_node("/root/Node2D/code/GoButton").disabled = false
 	
 	
 	if for_loop_valid[0] or old_line.begins_with("\t"):

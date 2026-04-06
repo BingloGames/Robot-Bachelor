@@ -140,21 +140,16 @@ func check_tile() -> void:
 	if died:
 		return
 	
-	
 	var current_tile = special_tilemap.local_to_map(global_position)
-	
 	
 	check_conveyor(current_tile)
 	var tile_data = special_tilemap.get_cell_tile_data(current_tile)
 	
-	
 	if tile_data == null:
 		return
 	
-	
 	if not tile_data.has_custom_data("Property"):
 		return
-	
 	
 	var custom_data = tile_data.get_custom_data("Property")
 	match custom_data:

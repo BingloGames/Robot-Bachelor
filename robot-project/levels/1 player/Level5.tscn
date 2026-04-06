@@ -79,6 +79,7 @@ offset_bottom = 536.0
 answers = Array[String](["list[1]"])
 
 [node name="Info pop up" parent="." instance=ExtResource("8_5pfj7")]
+visible = false
 anchors_preset = 10
 anchor_bottom = 0.0
 offset_right = 960.0

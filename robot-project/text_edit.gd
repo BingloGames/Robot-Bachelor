@@ -146,7 +146,7 @@ func run_line(code: String) -> void:
 		start_for_loop(code_split, code)
 		return
 	
-	turn += 1
+	
 	run_base_functions(code)
 
 
@@ -191,7 +191,7 @@ func start_for_loop(code_split: Array[String], code: String) -> void:
 		Global.restart_level()
 	else:
 		print(len(for_loop_contents))
-		turn -= len(for_loop_contents)
+		#turn -= len(for_loop_contents)
 		continue_for_loop()
 
 
@@ -200,11 +200,9 @@ func continue_for_loop() -> void:
 		for_loop_line = 0
 		for_loop_count += 1
 		
+		
 		if for_loop_count >= for_loop_max: #verify if correct?
 			#remove the codeLines in the for loop that just ended
-			#for i in range(len(for_loop_contents)):
-				#pass
-				#codeLines.pop_front()
 			
 			
 			#reset for loop variables
@@ -215,6 +213,8 @@ func continue_for_loop() -> void:
 			for_loop_string = ""
 			for_loop_variables.clear()
 			return
+		else:
+			turn -= len(for_loop_contents)
 	
 	
 	var code_line = for_loop_contents[for_loop_line].strip_edges()
@@ -232,6 +232,7 @@ func run_base_functions(code: String) -> void:
 	code = code.replace("()", "")
 	
 	
+	turn += 1
 	robot.call(code)
 	print("next tile: ", robot.next_tile)
 	print("robot_dir: ", robot.robot_direction)

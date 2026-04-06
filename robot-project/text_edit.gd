@@ -109,7 +109,7 @@ func stop_running_code() -> void:
 	codeLines.clear()
 	
 	
-	go_button.set_disabled(false)
+	go_button.set_disabled(true)
 	
 	
 	for_looping = false
@@ -282,10 +282,7 @@ func for_loop_validator(code_split: Array[String]) -> Array:
 		
 		if not after_range_split[0].is_valid_int():
 			return [false, inside_range_error]
-			
-			
 	else:
-		get_node("/root/Node2D/code/GoButton").disabled = true
 		return [false, range_error]
 	return [true, "success"]
 
@@ -299,6 +296,7 @@ func init_code_lines() -> void:
 	var for_loop_content = []
 	var previous_line = "previous line"
 	var previous_ind = false
+	
 	
 	for i in range(text_edit.get_line_count()):
 		var ind = text_edit.get_indent_level(i)
@@ -375,6 +373,8 @@ func _on_lines_edited_from(from_line: int, to_line: int) -> void:
 		text_edit.remove_line_at(to_line)
 		return
 	
+	
+	go_button.disabled = true
 	get_node("Timer").start()
 	
 	
@@ -385,8 +385,6 @@ func _on_lines_edited_from(from_line: int, to_line: int) -> void:
 	var old_line = text_edit.get_line(from_line)
 	var old_line_split = old_line.split(" ")
 	var for_loop_valid = for_loop_validator(old_line_split)
-	if for_loop_valid[0] == true:
-		get_node("/root/Node2D/code/GoButton").disabled = false
 	
 	
 	if for_loop_valid[0] or old_line.begins_with("\t"):
@@ -413,9 +411,11 @@ func _on_timer_timeout() -> void:
 		var validation = validation_array[0]
 		var error_message = validation_array[1]
 		
+		
 		if validation:
 			text_edit.set_line_background_color(i, Color(0, 0, 0, 0))
 			continue
+		
 		
 		text_edit.set_line_background_color(i, Color(255,0,0))
 		errors_text.append(error_message)
@@ -424,9 +424,13 @@ func _on_timer_timeout() -> void:
 	
 	if errors_text.is_empty():
 		error_node.text = ""
+		go_button.disabled = false
 		if text_edit.get_line_count() == line_limit:
 			error_node.text = last_line_error
 		return
+	
+	
+	go_button.disabled = true
 	
 	
 	var full_error = ""

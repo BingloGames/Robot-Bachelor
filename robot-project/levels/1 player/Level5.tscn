@@ -72,7 +72,6 @@ offset_bottom = 536.0
 items = 5
 
 [node name="Input pop up" parent="." instance=ExtResource("8_vpjvl")]
-visible = false
 offset_left = 448.0
 offset_right = 736.0
 offset_bottom = 536.0

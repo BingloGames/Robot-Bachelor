@@ -25,26 +25,26 @@ anchor_right = 0.9990001
 anchor_bottom = 1.0
 offset_left = 16.0
 offset_top = 16.0
-offset_right = -15.104065
-offset_bottom = -16.0
+offset_right = -15.040039
+offset_bottom = -48.0
 text = "Default text."
 
 [node name="Close" type="Button" parent="."]
 layout_mode = 0
-offset_left = 933.0
-offset_top = 8.0
-offset_right = 951.0
-offset_bottom = 39.0
-text = "X"
+offset_left = 784.0
+offset_top = 504.0
+offset_right = 880.0
+offset_bottom = 535.0
+text = "Go to level"
 
 [node name="Open" type="Button" parent="."]
 visible = false
 layout_mode = 0
-offset_left = 934.0
-offset_top = 8.0
-offset_right = 950.0
-offset_bottom = 39.0
-text = "?"
+offset_left = 728.0
+offset_top = 504.0
+offset_right = 880.0
+offset_bottom = 535.0
+text = "Open information"
 
 [connection signal="pressed" from="Close" to="." method="_on_Close_pressed"]
 [connection signal="pressed" from="Open" to="." method="_on_Open_pressed"]

@@ -30,7 +30,7 @@ func create_buttons() -> void:
 	
 	
 	list_node.set_allow_rmb_select(true)
-	list_node.set_allow_reselect(true)
+	list_node.set_allow_reselect(true)	
 	
 func restart() -> void:
 	list_node.clear()

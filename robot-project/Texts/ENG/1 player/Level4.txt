@@ -6,3 +6,5 @@ This is another variable:   Y = 2
 To call a variable you just write the variable name, like this: X. 
 
 To change the value of a variable, you would do it like this: X = 3, or X = X + Y. 
+
+Collect the variables and use them to answer the question to open the door.

@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=4 uid="uid://x0flr6gn6rgq"]
+
+[ext_resource type="TileSet" uid="uid://b86b5a6rn7qvr" path="res://TileSet.tres" id="1_njei4"]
+[ext_resource type="TileSet" uid="uid://v2fstb4rhx2m" path="res://coveyorBelts-alt.tres" id="2_paka8"]
+[ext_resource type="PackedScene" uid="uid://dj8bvk78ajlmy" path="res://Item.tscn" id="3_ob4uq"]
+[ext_resource type="PackedScene" uid="uid://ct3ylbdix74av" path="res://button.tscn" id="4_jg4dp"]
+[ext_resource type="PackedScene" uid="uid://ba7flvblhi3ln" path="res://door.tscn" id="5_6aard"]
+[ext_resource type="PackedScene" uid="uid://d1ckbdo8lkn4r" path="res://laser.tscn" id="6_40tsk"]
+[ext_resource type="PackedScene" uid="uid://bkcxr5ltukhr1" path="res://robot.tscn" id="7_qnebk"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="GroundAndWalls" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAJAAcAAQACABcAAAAJAAYAAQACABYAAAAJAAUAAQACABYAAAAJAAQAAQACABYAAAAJAAMAAQACABYAAAAJAAIAAQACABYAAAAJAAEAAQACABYAAAAJAAAAAQACABUAAAAIAAcAAQABABcAAAAIAAYAAQAHABYAAAAIAAUAAQAGABUAAAAIAAQAAQAGABUAAAAIAAMAAQAEABYAAAAIAAIAAQAEABYAAAAIAAEAAQABABYAAAAIAAAAAQABABUAAAAHAAcAAQABABcAAAAHAAYAAQAHABUAAAAHAAUAAQAJABYAAAAHAAQAAQAGABYAAAAHAAIAAQAEABYAAAAHAAEAAQABABYAAAAHAAAAAQABABUAAAAGAAcAAQABABcAAAAGAAYAAQAGABYAAAAGAAUAAQAFAAMAAAAGAAQAAQAHABUAAAAGAAMAAQAJAAMAAAAGAAIAAQAJAAMAAAAGAAEAAQABABYAAAAGAAAAAQABABUAAAAFAAcAAQABABcAAAAFAAYAAQALAAQAAAAFAAUAAQAGAAMAAAAFAAQAAQAHABUAAAAFAAMAAQAJAAMAAAAFAAIAAQAJAAMAAAAFAAEAAQAKAAEAAAAFAAAAAQABABUAAAAEAAcAAQABABcAAAAEAAYAAQAJAAQAAAAEAAUAAQAHABUAAAAEAAQAAQAGABUAAAAEAAMAAQAJAAMAAAAEAAIAAQAJAAMAAAAEAAEAAQAKAAEAAAAEAAAAAQABABUAAAADAAcAAQABABcAAAADAAYAAQAJAAQAAAADAAUAAQAJAAMAAAADAAQAAQAJAAMAAAADAAMAAQAJAAMAAAADAAIAAQABABYAAAADAAEAAQAKAAEAAAADAAAAAQABABUAAAACAAcAAQABABcAAAACAAYAAQAFAAQAAAACAAUAAQAFAAMAAAACAAQAAQAJAAMAAAACAAMAAQAEABYAAAACAAIAAQABABYAAAACAAEAAQAKAAEAAAACAAAAAQABABUAAAABAAcAAQABABcAAAABAAYAAQABAAMAAAABAAUAAQAEAAMAAAABAAQAAQAEABYAAAABAAMAAQAEABYAAAABAAIAAQABABYAAAABAAEAAQAIAAsAAAABAAAAAQABABUAAAAAAAcAAQAAABcAAAAAAAYAAQAAABYAAAAAAAUAAQAAABYAAAAAAAQAAQAAABYAAAAAAAMAAQAAABYAAAAAAAIAAQAAABYAAAAAAAEAAQAAABYAAAAAAAAAAQAAABUAAAAHAAMAAQAJAAMAAAA=")
+tile_set = ExtResource("1_njei4")
+
+[node name="Conveyorbelt" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAEAAIAAQACAAEAAAAEAAMAAQACAAIAAAADAAMAAQADAAAAAAACAAQAAQADAAAAAAABAAUAAQADAAAAAAADAAQAAQACAAIAAAACAAUAAQACAAIAAAACAAYAAQABAAMAAAADAAYAAQABAAMAAAAEAAYAAQABAAMAAAAFAAYAAQAFAAUAAAA=")
+tile_set = ExtResource("2_paka8")
+
+[node name="Stars" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAHAAMAAgAAAAAAAQACAAQAAgAAAAAAAQAFAAEAAgAAAAAAAQA=")
+tile_set = ExtResource("1_njei4")
+
+[node name="items" type="Node2D" parent="."]
+
+[node name="Item" parent="items" instance=ExtResource("3_ob4uq")]
+position = Vector2(48, 208)
+
+[node name="buttons" type="Node2D" parent="."]
+
+[node name="button" parent="buttons" instance=ExtResource("4_jg4dp")]
+position = Vector2(176, 176)
+
+[node name="doors" type="Node2D" parent="."]
+
+[node name="door" parent="doors" instance=ExtResource("5_6aard")]
+position = Vector2(208, 176)
+color = "blue"
+dir = "horisontal"
+
+[node name="lasers" type="Node2D" parent="."]
+
+[node name="laser" parent="lasers" instance=ExtResource("6_40tsk")]
+position = Vector2(208, 112)
+rotation = -1.5707964
+
+[node name="robots" type="Node2D" parent="."]
+
+[node name="robot" parent="robots" instance=ExtResource("7_qnebk")]
+position = Vector2(176, 112)

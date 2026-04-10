@@ -67,7 +67,7 @@ offset_right = 953.0
 offset_bottom = 535.0
 
 [node name="black" type="Sprite2D" parent="."]
-self_modulate = Color(0, 0, 0, 0)
+modulate = Color(1, 1, 1, 0)
 position = Vector2(479.75, 271.75)
 scale = Vector2(960.5, 544.5)
 texture = SubResource("CanvasTexture_04b26")

@@ -1,0 +1,73 @@
+[gd_scene load_steps=12 format=3 uid="uid://cekew7iyw6bir"]
+
+[ext_resource type="Script" uid="uid://bc27vibglbqta" path="res://items_counter.gd" id="1_7knob"]
+[ext_resource type="TileSet" uid="uid://b86b5a6rn7qvr" path="res://TileSet.tres" id="1_y3buq"]
+[ext_resource type="TileSet" uid="uid://cd2adi2gk1aay" path="res://coveyorBelts.tres" id="2_7gxc6"]
+[ext_resource type="PackedScene" uid="uid://b7xm7lsovxbqr" path="res://text_edit.tscn" id="2_x7vpy"]
+[ext_resource type="PackedScene" uid="uid://bdbqr488vc61t" path="res://star counter.tscn" id="3_x7vpy"]
+[ext_resource type="PackedScene" uid="uid://bkcxr5ltukhr1" path="res://robot.tscn" id="4_7gxc6"]
+[ext_resource type="PackedScene" uid="uid://dqdijlggb57o1" path="res://item_list.tscn" id="4_vrj81"]
+[ext_resource type="PackedScene" uid="uid://bu5wqujjgco58" path="res://info_pop_up.tscn" id="5_p82rp"]
+[ext_resource type="PackedScene" uid="uid://lggogupwduwp" path="res://input_pop_up.tscn" id="6_p82rp"]
+[ext_resource type="PackedScene" uid="uid://di21tnjo7imbw" path="res://back.tscn" id="7_dpete"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_dpete"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ground" type="TileMapLayer" parent="."]
+tile_set = ExtResource("1_y3buq")
+
+[node name="walls" type="TileMapLayer" parent="."]
+tile_set = ExtResource("1_y3buq")
+
+[node name="ConveyorBelt" type="TileMapLayer" parent="."]
+tile_set = ExtResource("2_7gxc6")
+
+[node name="special" type="TileMapLayer" parent="."]
+tile_set = ExtResource("1_y3buq")
+
+[node name="lasers" type="Node2D" parent="."]
+
+[node name="items" type="Node2D" parent="."]
+script = ExtResource("1_7knob")
+
+[node name="robot" type="Node2D" parent="."]
+
+[node name="robot" parent="robot" instance=ExtResource("4_7gxc6")]
+
+[node name="code" parent="." instance=ExtResource("2_x7vpy")]
+offset_right = 640.0
+offset_bottom = 536.0
+
+[node name="star counter" parent="." instance=ExtResource("3_x7vpy")]
+offset_left = 160.0
+offset_top = 440.0
+offset_right = 448.0
+offset_bottom = 584.0
+
+[node name="Container" parent="." instance=ExtResource("4_vrj81")]
+offset_left = 640.0
+offset_right = 960.0
+offset_bottom = 536.0
+
+[node name="Info pop up" parent="." instance=ExtResource("5_p82rp")]
+visible = false
+
+[node name="Input pop up" parent="." instance=ExtResource("6_p82rp")]
+offset_left = 448.0
+offset_right = 736.0
+offset_bottom = 536.11
+
+[node name="back" parent="." instance=ExtResource("7_dpete")]
+offset_left = 888.0
+offset_top = 504.0
+offset_right = 953.0
+offset_bottom = 535.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0, 0, 0, 0)
+position = Vector2(479.75003, 271.75003)
+scale = Vector2(960.5, 544.50006)
+texture = SubResource("CanvasTexture_dpete")

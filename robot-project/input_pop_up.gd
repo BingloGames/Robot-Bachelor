@@ -9,7 +9,7 @@ extends Control
 @onready var item_list_node = get_node("/root/Node2D/Container")
 
 
-@export var answers: Array[String] = ["answer ="]
+@export var answers: Array[String] = ["answer="]
 var Counter = 0
 var left_counter = 0
 var right_counter = 0

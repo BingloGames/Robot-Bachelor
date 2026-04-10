@@ -89,7 +89,6 @@ visible = false
 offset_left = 432.0
 offset_right = 432.0
 offset_bottom = 0.0
-answers = Array[String](["answer="])
 
 [node name="Info pop up" parent="." instance=ExtResource("9_hvgfx")]
 offset_right = 960.0
@@ -102,7 +101,7 @@ offset_right = 953.0
 offset_bottom = 535.0
 
 [node name="black" type="Sprite2D" parent="."]
-self_modulate = Color(0, 0, 0, 0)
+modulate = Color(1, 1, 1, 0)
 position = Vector2(479.75, 271.75)
 scale = Vector2(960.5, 544.5)
 texture = SubResource("CanvasTexture_mth2d")

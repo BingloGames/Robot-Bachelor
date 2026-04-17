@@ -74,10 +74,10 @@ offset_bottom = 536.0
 line_limit = 50
 
 [node name="star counter" parent="." instance=ExtResource("8_jgqeb")]
-offset_left = 192.0
-offset_top = 440.0
-offset_right = 192.0
-offset_bottom = 440.0
+offset_left = 200.0
+offset_top = 488.0
+offset_right = 200.0
+offset_bottom = 488.0
 
 [node name="Input pop up" parent="." instance=ExtResource("11_3valm")]
 visible = false

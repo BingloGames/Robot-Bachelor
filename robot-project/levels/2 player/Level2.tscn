@@ -46,7 +46,7 @@ offset_bottom = 544.0
 [node name="code" parent="." instance=ExtResource("7_xum4v")]
 offset_right = 640.0
 offset_bottom = 536.0
-line_limit = 50
+line_limit = 16
 
 [node name="star counter" parent="." instance=ExtResource("8_p51fe")]
 offset_left = 184.0

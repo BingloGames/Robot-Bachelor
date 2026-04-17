@@ -76,7 +76,7 @@ items = 3
 [node name="code" parent="." instance=ExtResource("7_lpv1t")]
 offset_right = 640.0
 offset_bottom = 536.0
-line_limit = 50
+line_limit = 20
 
 [node name="star counter" parent="." instance=ExtResource("8_6j7sl")]
 offset_left = 200.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://cj5x0a534yaa6"]
+[gd_scene load_steps=13 format=4 uid="uid://cj5x0a534yaa6"]
 
 [ext_resource type="TileSet" uid="uid://b86b5a6rn7qvr" path="res://TileSet.tres" id="1_tjh38"]
 [ext_resource type="PackedScene" uid="uid://b7xm7lsovxbqr" path="res://text_edit.tscn" id="2_tjh38"]
@@ -12,8 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://bu5wqujjgco58" path="res://info_pop_up.tscn" id="8_5pfj7"]
 [ext_resource type="PackedScene" uid="uid://lggogupwduwp" path="res://input_pop_up.tscn" id="8_vpjvl"]
 [ext_resource type="PackedScene" uid="uid://di21tnjo7imbw" path="res://back.tscn" id="12_ngd16"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_25xmc"]
 
 [node name="Node2D" type="Node2D"]
 metadata/_edit_vertical_guides_ = [736.0]
@@ -92,8 +90,8 @@ offset_top = 504.0
 offset_right = 952.0
 offset_bottom = 536.0
 
-[node name="black" type="Sprite2D" parent="."]
-modulate = Color(0, 0, 0, 0)
-position = Vector2(479.75, 271.75)
-scale = Vector2(960.5, 544.5)
-texture = SubResource("CanvasTexture_25xmc")
+[node name="black" type="ColorRect" parent="."]
+offset_right = 960.0
+offset_bottom = 544.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0)

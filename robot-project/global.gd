@@ -145,7 +145,7 @@ func complete_level_player_1() -> void:
 	
 	
 	var tween = get_tree().create_tween()
-	tween.tween_property(get_node("/root/Node2D/black"),"modulate:a", 1, 0.5)
+	tween.tween_property(get_node("/root/Node2D/black"),"color:a", 1, 0.5)
 	tween.tween_callback(next_level_player_1).set_delay(0.2)
 
 

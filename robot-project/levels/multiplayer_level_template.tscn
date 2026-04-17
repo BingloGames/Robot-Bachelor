@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://l3qw0qu7nayk"]
+[gd_scene load_steps=12 format=3 uid="uid://l3qw0qu7nayk"]
 
 [ext_resource type="Script" uid="uid://dblchqpqwm05w" path="res://levels/2 player/game multiplayer.gd" id="1_1lja1"]
 [ext_resource type="Script" uid="uid://bi4dvyn34dlfm" path="res://items_counter_multiplayer.gd" id="2_8riqo"]
@@ -11,8 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://bt3h0x7bjh20x" path="res://input_pop_up multiplayer.tscn" id="6_e6qma"]
 [ext_resource type="PackedScene" uid="uid://bu5wqujjgco58" path="res://info_pop_up.tscn" id="7_bslcv"]
 [ext_resource type="PackedScene" uid="uid://cxeawjf1ifbsm" path="res://back_multiplayer.tscn" id="8_sfcki"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_nrbll"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_1lja1")
@@ -74,8 +72,8 @@ offset_top = 504.0
 offset_right = 945.0
 offset_bottom = 535.0
 
-[node name="black" type="Sprite2D" parent="."]
-modulate = Color(0, 0, 0, 0)
-position = Vector2(479.74997, 271.74997)
-scale = Vector2(960.49994, 544.49994)
-texture = SubResource("CanvasTexture_nrbll")
+[node name="black" type="ColorRect" parent="."]
+offset_right = 960.0
+offset_bottom = 544.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0)

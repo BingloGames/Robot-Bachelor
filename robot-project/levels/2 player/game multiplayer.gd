@@ -78,5 +78,5 @@ func success() -> void:
 	
 	
 	var tween = get_tree().create_tween()
-	tween.tween_property(black_fade_node,"modulate:a", 1, 0.5)
+	tween.tween_property(black_fade_node,"color:a", 1, 0.5)
 	tween.tween_callback(Callable(Global, "next_level_player_2")).set_delay(0.2)

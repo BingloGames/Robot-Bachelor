@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ba7flvblhi3ln"]
+[gd_scene load_steps=8 format=3 uid="uid://ba7flvblhi3ln"]
 
 [ext_resource type="Script" uid="uid://uegcnafddenv" path="res://door.gd" id="1_0phs7"]
 [ext_resource type="Texture2D" uid="uid://bltyxdt2ewqgv" path="res://blue door 1.png" id="2_50cdl"]
@@ -59,14 +59,6 @@ _data = {
 &"open door anim": ExtResource("3_y5njw")
 }
 
-[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_5qsjy"]
-properties/0/path = NodePath("CollisionShape2D:disabled")
-properties/0/spawn = true
-properties/0/replication_mode = 1
-properties/1/path = NodePath("Sprite2D:frame")
-properties/1/spawn = true
-properties/1/replication_mode = 1
-
 [node name="door" type="StaticBody2D"]
 script = ExtResource("1_0phs7")
 
@@ -82,6 +74,3 @@ hframes = 11
 libraries = {
 &"": SubResource("AnimationLibrary_goqka")
 }
-
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
-replication_config = SubResource("SceneReplicationConfig_5qsjy")

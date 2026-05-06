@@ -6,7 +6,7 @@ func _ready() -> void:
 	itemsList = ["forward()", "backward()", "wait()", "left()", "right()", "for i in range(n):"]
 	super._ready()
 	
-	pass # Replace with function body.
+	pass 
 
 func restart() -> void:
 	restart_multiplayer.rpc()

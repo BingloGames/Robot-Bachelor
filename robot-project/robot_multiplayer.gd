@@ -9,7 +9,6 @@ func _ready() -> void:
 	super._ready()
 	
 	
-	#this can be done better, right?
 	for player in ConnectionController.players.keys():
 		var player_name = ConnectionController.players[player]
 		

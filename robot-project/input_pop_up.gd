@@ -36,7 +36,6 @@ func show_input() -> void:
 	get_tree().paused = true
 	
 	
-	#code_node.running_code = false
 	show()
 	set_mouse_filter(MOUSE_FILTER_STOP)
 
@@ -88,7 +87,7 @@ func hide_input():
 
 
 func import_func(line_array: Array) -> void:
-	#this should be redone. It will be a hassle to expand
+	
 	if line_array[1] == "left()":
 		if left_counter == 1:
 			return

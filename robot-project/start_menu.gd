@@ -12,7 +12,7 @@ var level_selectors_file_template = "res://{0}_player_menu.tscn"
 func _on_start_pressed() -> void:
 	anim_player.play("start")
 	start_button.set_disabled(true)
-	get_node("players/1").set_disabled(false)#does this do anything?
+	get_node("players/1").set_disabled(false)
 	get_node("players/2").set_disabled(false)
 
 
@@ -37,5 +37,3 @@ func _on_language_selector_item_selected(index: int) -> void:
 		"Norsk":
 			Global.text_language = "/NO/"
 	
-	
-	#reset the text that is already loaded?

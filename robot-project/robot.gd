@@ -9,7 +9,6 @@ var movement_speed = SPEED
 @onready var special_tilemap = get_node("/root/Node2D/special")
 @onready var conveyor_belt_tilemap = get_node_or_null("/root/Node2D/ConveyorBelt")
 @onready var code_node = get_node("/root/Node2D/code")
-#@onready var star_counter = get_node("/root/Node2D/star counter")
 @onready var anim_player = get_node("AnimationPlayer")
 @onready var wait_timer = get_node("wait")
 
@@ -22,7 +21,7 @@ var walking_backwards = false
 var died = false
 
 
-@onready var start_point = global_position#does this need to be @onready?
+@onready var start_point = global_position
 var next_tile
 
 
@@ -53,7 +52,7 @@ func move(delta: float) -> void:
 	
 	if collision:
 		print(name + " collided with: ", collision.get_collider().name, " at position: ", collision.get_position())
-		#play animation before running this code?
+
 		print("conveyoring: ", conveyoring)
 		die()
 		return
@@ -67,12 +66,11 @@ func move(delta: float) -> void:
 		position = special_tilemap.map_to_local(next_tile)
 		if walking_backwards:
 			movement_direction *= -1
-			#direction *= -1
 			walking_backwards = false
 		
 		
 		next_tile = null
-		code_node.robot_changes_wait(self, false)#this feel awkward. change?
+		code_node.robot_changes_wait(self, false)
 		check_tile()
 		
 
@@ -131,8 +129,6 @@ func idle() -> void:
 
 
 func walk_animation() -> void:
-	#if walking_backwards:
-		#walking_direction *= -1
 	play_directional_animation("walk")
 
 
@@ -212,15 +208,15 @@ func continue_conveyor(current_tile: Vector2i, cb_data: TileData) -> void:
 			robot_direction = Vector2(robot_direction).rotated(-PI/2)
 			robot_direction = Vector2i(robot_direction)
 			next_tile = current_tile + (dir)
-			#idle()
+			
 		"right":
 			robot_direction = Vector2(robot_direction).rotated(PI/2)
 			robot_direction = Vector2i(robot_direction)
 			next_tile = current_tile + (dir)
-			#idle()
+			
 		_:
 			next_tile = current_tile + (dir)
-			#idle()
+			
 	
 	print("conveyor belt next tile: ", next_tile)
 	conveyor_duration += 1

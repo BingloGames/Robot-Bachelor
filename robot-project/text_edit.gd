@@ -23,7 +23,7 @@ var range_error = "Invalid syntax with range!"
 var for_loop_content_invalid = "For loop content invalid"
 
 
-var base_functions = ["forward()", "backward()", "left()", "right()", "wait()"]
+var base_functions = ["forward()", "backward()", "left()", "right()", "wait()", "empty"]
 
 
 var codeLines = []
@@ -41,11 +41,11 @@ var for_loop_count = 0
 var for_loop_line = 0
 var for_loop_contents = []
 var for_loop_max = 0
-var for_loop_string = "" #every line in the for loop start with this. What about nested loops?
+var for_loop_string = "" #maybe useless RECHECK!! 
 
 
 var variables = {} #variable_name : variable_value
-var for_loop_variables = {} #what about nested loops?
+var for_loop_variables = {} 
 
 
 func _ready() -> void:
@@ -74,7 +74,6 @@ func _process(_delta: float) -> void:
 func run_code() -> void:
 	if for_looping:
 		if len(for_loop_contents) == 0:
-			#stop_running_code()
 			Global.restart_level()
 		else:
 			continue_for_loop()
@@ -128,34 +127,12 @@ func stop_running_code() -> void:
 func run_line(code: String) -> void:
 	var code_split = code.split(" ", false)
 	
-	
-	##getting the correct next line
-	#var next_code = ""
-	#if not codeLines.is_empty():
-		#next_code = codeLines[0]
-		#if next_code is Array:
-			#next_code = next_code[0]
-	#
-	#
-	##do we need validation here?
-	#var validation_array = code_validator(code, code_split, next_code)
-	#var validation = validation_array[0]
-	#var error_message = validation_array[1]
-	#
-	#
-	#if not validation or error_message == no_code_error:
-		#print("Error: ", error_message)
-		#return
-	
-	
 	if code_split[0] == "for":
 		if for_looping:
-			#print("starting a for loop inside a for loop. What to do if nested loop?")
 			return
 		
 		start_for_loop(code_split, code)
 		return
-	
 	
 	run_base_functions(code)
 
@@ -175,33 +152,11 @@ func start_for_loop(code_split: Array[String], code: String) -> void:
 	
 	for_loop_contents = codeLines.pop_front()
 	print(len(for_loop_contents))
-	#get every line in the for loop and add it to for_loop_contents
-	#var i = 0
-	#while true:
-		#var check_line = codeLines.get(i)
-		#
-		##check_line does not exist
-		#if not check_line:
-			#break
-		##check_line is not in the for loop
-		#if not check_line.begins_with(for_loop_string):
-			#break
-		#
-		#check_line = check_line.replace(for_loop_string, "")
-		#check_line = check_line.dedent()
-		#for_loop_contents.append(check_line)
-		#
-		#
-		#i += 1
-
-	
 	
 	if len(for_loop_contents) == 0:
-		#stop_running_code()
 		Global.restart_level()
 	else:
 		print(len(for_loop_contents))
-		#turn -= len(for_loop_contents)
 		continue_for_loop()
 
 
@@ -211,7 +166,7 @@ func continue_for_loop() -> void:
 		for_loop_count += 1
 		
 		
-		if for_loop_count >= for_loop_max: #verify if correct?
+		if for_loop_count >= for_loop_max: #verify if correct
 			#remove the codeLines in the for loop that just ended
 			
 			
@@ -233,6 +188,7 @@ func continue_for_loop() -> void:
 
 
 func run_base_functions(code: String) -> void:
+	turn += 1
 	if not code in base_functions:
 		print("wrong!")
 		print(code)
@@ -242,7 +198,6 @@ func run_base_functions(code: String) -> void:
 	code = code.replace("()", "")
 	
 	
-	turn += 1
 	robot.call(code)
 	print("next tile: ", robot.next_tile)
 	print("robot_dir: ", robot.robot_direction)
@@ -256,7 +211,6 @@ func code_validator(code: String, code_split: Array[String], next_code: String) 
 	
 	if code_split[0] == "for":
 		if for_looping:
-			#print("starting a for loop inside a for loop. What to do if nested loop?")
 			return [false, nested_loop_error]
 		
 		
@@ -328,8 +282,8 @@ func init_code_lines() -> void:
 		var ind = text_edit.get_indent_level(i)
 		var line = text_edit.get_line(i)
 		
-		
-		if line.is_empty():
+		if line.strip_edges().is_empty():
+			
 			continue
 		
 		
@@ -339,11 +293,9 @@ func init_code_lines() -> void:
 				codeLines.append(for_loop_content.duplicate())
 				for_loop_content.clear()
 			
-			
 			codeLines.append(line)
 			
 		else:
-			previous_ind = true
 			if previous_line.split(" ", false)[0] == "for":
 				for_loop_content.append(line)
 			elif previous_ind == true:
@@ -355,6 +307,7 @@ func init_code_lines() -> void:
 					for_loop_content.clear()
 				
 				codeLines.append(line)
+			previous_ind = true
 		
 		previous_line = line
 

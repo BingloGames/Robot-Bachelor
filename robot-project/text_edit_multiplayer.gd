@@ -14,7 +14,7 @@ var robot_current_line = {}
 
 #save for looping data in dictonary for each robot
 var robot_for_loop_data_default = {"for_looping" : false, "for_loop_count" : 0, 
-"for_loop_line" : 0, "for_loop_contents" : [], "for_loop_max" : 0, "for_loop_string" : ""}
+"for_loop_line" : 0, "for_loop_contents" : [], "for_loop_max" : 0}
 var robot_for_loop_data = {}
 
 

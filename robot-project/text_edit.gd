@@ -41,7 +41,6 @@ var for_loop_count = 0
 var for_loop_line = 0
 var for_loop_contents = []
 var for_loop_max = 0
-var for_loop_string = "" #maybe useless RECHECK!! 
 
 
 var variables = {} #variable_name : variable_value
@@ -117,7 +116,7 @@ func stop_running_code() -> void:
 	for_loop_line = 0
 	for_loop_contents.clear()
 	for_loop_max = 0
-	for_loop_string = ""
+	#for_loop_string = ""
 	
 	
 	variables.clear()
@@ -127,6 +126,10 @@ func stop_running_code() -> void:
 func run_line(code: String) -> void:
 	var code_split = code.split(" ", false)
 	
+	
+	if len(code_split) == 0:#code is empty
+		turn += 1
+		return
 	if code_split[0] == "for":
 		if for_looping:
 			return
@@ -146,7 +149,7 @@ func start_for_loop(code_split: Array[String], code: String) -> void:
 	for_loop_max = after_range_split[0].to_int()
 	
 	for_loop_variables[code_split[1]] = 0 #usually i = 0
-	for_loop_string = code
+	#for_loop_string = code
 	for_looping = true
 	
 	
@@ -175,7 +178,7 @@ func continue_for_loop() -> void:
 			for_loop_count = 0
 			for_loop_contents.clear()
 			for_loop_max = 0
-			for_loop_string = ""
+			#for_loop_string = ""
 			for_loop_variables.clear()
 			return
 		else:
@@ -282,8 +285,16 @@ func init_code_lines() -> void:
 		var ind = text_edit.get_indent_level(i)
 		var line = text_edit.get_line(i)
 		
+		
 		if line.strip_edges().is_empty():
-			
+			if i == text_edit.get_line_count()-1:#last line
+				continue
+			if previous_line.split(" ", false)[0] == "for":#just started a for loop
+				for_loop_content.append("")
+			elif previous_ind:#continues a for loop
+				for_loop_content.append("")
+			else:#not in a for loop
+				codeLines.append("")
 			continue
 		
 		

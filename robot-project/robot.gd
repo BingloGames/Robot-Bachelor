@@ -42,6 +42,10 @@ func _physics_process(delta: float) -> void:
 	move(delta)
 
 
+static func get_speed() -> int:
+	return SPEED
+
+
 func move(delta: float) -> void:
 	if next_tile == null or died:
 		return

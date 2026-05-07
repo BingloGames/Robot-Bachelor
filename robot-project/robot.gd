@@ -41,74 +41,60 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	move(delta)
 
-
+##Gets the SPEED value.
 static func get_speed() -> int:
 	return SPEED
 
 
-func move(delta: float) -> void:
-	if next_tile == null or died:
-		return
+##Makes robot walk forward one tile.
+func forward() -> void:
+	var current_tile = special_tilemap.local_to_map(global_position)
+	next_tile = current_tile + movement_direction
 	
-	
-	var collision = move_and_collide(movement_direction*movement_speed*delta)
-	
-	
-	if collision:
-		print(name + " collided with: ", collision.get_collider().name, " at position: ", collision.get_position())
+	walk_animation()
 
-		print("conveyoring: ", conveyoring)
-		die()
-		return
+##Makes robot walk backwards one tile.
+func backward() -> void:
+	movement_direction = robot_direction * -1
+	walking_backwards = true
+	forward()
 	
-	
-	var halv_a_tile = special_tilemap.tile_set.tile_size/2
-	var current_tile = special_tilemap.local_to_map(Vector2i(global_position)-(halv_a_tile*movement_direction))
-	
-	
-	if current_tile == next_tile:
-		position = special_tilemap.map_to_local(next_tile)
-		if walking_backwards:
-			movement_direction *= -1
-			walking_backwards = false
-		
-		
-		next_tile = null
-		code_node.robot_changes_wait(self, false)
-		check_tile()
-		
+	walk_animation()
 
-
-func respawn() -> void:
-	print("respawning robot: ", name)
-	scale = Vector2(1,1)
-	rotation_degrees = 0
-	set_position(start_point)
-	next_tile = null
-	walking_backwards = false
-	robot_direction = start_direction
+##Makes robot turn 90 degrees to the left, the moves forward one tile.
+func left() -> void:
+	robot_direction = Vector2(robot_direction).rotated(-PI/2)
+	robot_direction = Vector2i(robot_direction)
 	movement_direction = robot_direction
-	died = false
 	
-	
-	print(name, "'s position is: ", position)
-	
-	
-	stop_conveyor()
-	code_node.running_code = false
-	idle()
+	forward()
 
+##Makes robot turn 90 degrees to the right, the moves forward one tile.
+func right() -> void:
+	robot_direction = Vector2(robot_direction).rotated(PI/2)
+	robot_direction = Vector2i(robot_direction)
+	movement_direction = robot_direction
+	
+	forward()
 
+##Leaves the Robot idle for one turn.
+func wait() -> void:
+	code_node.robot_changes_wait(self, true)
+	wait_timer.start(special_tilemap.tile_set.tile_size.x/SPEED)
+
+func _on_wait_timeout() -> void:
+	code_node.robot_changes_wait(self, false)
+	check_tile()
+
+##Starts the correct animation.
 func play_animation(animation: String) -> void:
 	if anim_player.get_current_animation() == animation:
 		return
 	anim_player.play(animation)
 
-
+##Finds which animation the robot needs to do.
 func play_directional_animation(anim_start: String, direction: Vector2i = robot_direction) -> void:
 	var anim = anim_start + " "
-	
-	
 	match direction:
 		Vector2i.LEFT:
 			anim += "left"
@@ -120,22 +106,71 @@ func play_directional_animation(anim_start: String, direction: Vector2i = robot_
 			anim += "down"
 		_:
 			anim += "left"
-			print("????????????????")
-	
 	
 	play_animation(anim)
 
-
+##Idle animation
 func idle() -> void:
 	if died:
 		return
 	play_directional_animation("idle")
 
-
+##Walk animation
 func walk_animation() -> void:
 	play_directional_animation("walk")
 
 
+
+##Plays the dying animation.
+func die() -> void:
+	died = true
+	play_directional_animation("die", movement_direction)
+
+##After the robots finishes the dying animation, restarts the level.
+func robot_finished_dying():
+	Global.restart_level()
+
+##Resets Robot
+func respawn() -> void:
+	scale = Vector2(1,1)
+	rotation_degrees = 0
+	set_position(start_point)
+	next_tile = null
+	walking_backwards = false
+	robot_direction = start_direction
+	movement_direction = robot_direction
+	died = false
+
+	stop_conveyor()
+	code_node.running_code = false
+	idle()
+
+
+##Starts the Robot movement.
+func move(delta: float) -> void:
+	if next_tile == null or died:
+		return
+	
+	var collision = move_and_collide(movement_direction*movement_speed*delta)
+	
+	if collision:
+		die()
+		return
+	
+	var halv_a_tile = special_tilemap.tile_set.tile_size/2
+	var current_tile = special_tilemap.local_to_map(Vector2i(global_position)-(halv_a_tile*movement_direction))
+	
+	if current_tile == next_tile:
+		position = special_tilemap.map_to_local(next_tile)
+		if walking_backwards:
+			movement_direction *= -1
+			walking_backwards = false
+		
+		next_tile = null
+		code_node.robot_changes_wait(self, false)
+		check_tile()
+
+##Checks if the robot is on top of a special tile.
 func check_tile() -> void:
 	if died:
 		return
@@ -154,34 +189,24 @@ func check_tile() -> void:
 	var custom_data = tile_data.get_custom_data("Property")
 	match custom_data:
 		"Hole":
-			print("hole!")
 			anim_player.play("fall in hole")
 			code_node.robot_changes_wait(self, true)
 
-
+##Checks if the robot is on top of a Conveyor belt.
 func check_conveyor(current_tile: Vector2i) -> void:
 	if conveyor_belt_tilemap == null:
 		return
 	
-	
 	var cb_data = conveyor_belt_tilemap.get_cell_tile_data(current_tile)
 	if cb_data == null:
-		print("no conveyor belt data: ", name)
 		stop_conveyor()
 		return
-	
 	
 	if not cb_data.has_custom_data("dir"):
-		print("conveyor belt tile does not have dir for robot: ", name)
 		stop_conveyor()
 		return
 	
-	
-	print("conveyoring_tile: ", current_tile)
-	
-	
 	if not conveyoring:
-		print("start conveyoring: ", name)
 		conveyoring = true
 		conveyor_speed = cb_data.get_custom_data("Speed")
 		movement_speed *= conveyor_speed
@@ -192,116 +217,52 @@ func check_conveyor(current_tile: Vector2i) -> void:
 			stop_conveyor()
 			return
 	
-	
 	continue_conveyor(current_tile, cb_data)
 
-
+##Moves the Robot the appropiate number of tiles according to the Conveyot belt activated.
 func continue_conveyor(current_tile: Vector2i, cb_data: TileData) -> void:
-	print("continue conveyoring: ", name)
 	var dir = cb_data.get_custom_data("dir")
-	#print(dir)
+	
 	var turn = cb_data.get_custom_data("Turn")
 	code_node.running_code = false
 	
-	
 	movement_direction = dir
-	
 	
 	match turn:
 		"left":
 			robot_direction = Vector2(robot_direction).rotated(-PI/2)
 			robot_direction = Vector2i(robot_direction)
 			next_tile = current_tile + (dir)
-			
+		
 		"right":
 			robot_direction = Vector2(robot_direction).rotated(PI/2)
 			robot_direction = Vector2i(robot_direction)
 			next_tile = current_tile + (dir)
-			
+		
 		_:
 			next_tile = current_tile + (dir)
-			
-	
-	print("conveyor belt next tile: ", next_tile)
+		
 	conveyor_duration += 1
 
-
+##Stops the Conveyor movement of the Robot.
 func stop_conveyor() -> void:
-	print("stop conveyoring: ", name)
 	movement_speed = SPEED
 	conveyoring = false
 	conveyor_speed = 0
 	conveyor_duration = 0
 	code_node.running_code = true
 
-
+##If the robot its not moving, checks if its standing on an End tile.
 func check_end() -> void:
 	var current_tile = special_tilemap.local_to_map(global_position)
 	var tile_data = special_tilemap.get_cell_tile_data(current_tile)
-	
 	
 	if tile_data == null:
 		die()
 		return
 	
-	
 	if not tile_data.get_custom_data("Property") == "End":
 		die()
 		return
 	
-	
 	Global.complete_level_player_1()
-
-
-func die() -> void:
-	died = true
-	play_directional_animation("die", movement_direction)
-
-
-func robot_finished_dying():
-	Global.restart_level()
-
-
-func forward() -> void:
-	var current_tile = special_tilemap.local_to_map(global_position)
-	next_tile = current_tile + movement_direction
-	
-	
-	walk_animation()
-
-
-func backward() -> void:
-	movement_direction = robot_direction * -1
-	walking_backwards = true
-	forward()
-	
-	
-	walk_animation()
-
-
-func left() -> void:
-	robot_direction = Vector2(robot_direction).rotated(-PI/2)
-	robot_direction = Vector2i(robot_direction)
-	movement_direction = robot_direction
-	
-	
-	forward()
-
-
-func right() -> void:
-	robot_direction = Vector2(robot_direction).rotated(PI/2)
-	robot_direction = Vector2i(robot_direction)
-	movement_direction = robot_direction
-	
-	
-	forward()
-
-
-func wait() -> void:
-	code_node.robot_changes_wait(self, true)
-	wait_timer.start(special_tilemap.tile_set.tile_size.x/SPEED)
-
-
-func _on_wait_timeout() -> void:
-	code_node.robot_changes_wait(self, false)
-	check_tile()

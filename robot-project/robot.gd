@@ -3,31 +3,43 @@ class_name Robot
 
 
 const SPEED = 100
+##Movement speed of the Robot.
 var movement_speed = SPEED
 
-
+##Gets the special TileMapLayer.
 @onready var special_tilemap = get_node("/root/Node2D/special")
+##Gets the ConveyorBelt TileMapLayer if exists.
 @onready var conveyor_belt_tilemap = get_node_or_null("/root/Node2D/ConveyorBelt")
+##Gets the Code window.
 @onready var code_node = get_node("/root/Node2D/code")
+##Gets the AnimationPlayer node from the Robot.
 @onready var anim_player = get_node("AnimationPlayer")
+##Gets the wait timer.
 @onready var wait_timer = get_node("wait")
 
 
-
+##Start direction of the Robot, can be changed in the Inspector.
 @export var start_direction: Vector2i = Vector2i.RIGHT
+##Variable that indicates the Robot direction.
 var robot_direction = start_direction
+##Variable that indicates the Robot movement direction.
 var movement_direction = robot_direction
+##Variable that indicates if the robot is walking backwards.
 var walking_backwards = false
+##Variable that indicates if the Robot is dead.
 var died = false
 
-
+##Start point for the Robot.
 @onready var start_point = global_position
+##Variable that indicates the next tile the Robot will move to.
 var next_tile
 
-
-var conveyoring = false # are you on a conveyor belt?
-var conveyor_speed = 0 # how fast is the conveyor belt?
-var conveyor_duration = 0 # how long have the robot been on the conveyor?
+##Variable that indicates if the Robot is in a conveyor belt.
+var conveyoring = false 
+##Variable that indicates how many tiles the Conveyor belt moves the Robot.
+var conveyor_speed = 0 
+##Variable that indicates how long the Robot has been in the conveyor belt.
+var conveyor_duration = 0 
 
 
 func _ready() -> void:
@@ -37,14 +49,12 @@ func _ready() -> void:
 	#and to make sure that the correct idle animation plays if start direction is not default
 	idle()
 
-
 func _physics_process(delta: float) -> void:
 	move(delta)
 
 ##Gets the SPEED value.
 static func get_speed() -> int:
 	return SPEED
-
 
 ##Makes robot walk forward one tile.
 func forward() -> void:

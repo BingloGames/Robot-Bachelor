@@ -30,7 +30,7 @@ var num_players = "1"
 
 var robot_turn = 0
 
-
+#
 func get_info_text() -> String:
 	var level_dir = num_players + " player" + "/Level" + current_level
 	var file_path = text_path + text_language + level_dir + ".txt"

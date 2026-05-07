@@ -13,7 +13,7 @@ class_name RobotButton
 ##If true, the player have to answer a question before doors opens. 
 ##This needs an Input pop up object in the sceen tree and the question is decided in that Input pop up.
 ##Currently only one question is supported in a single level. 
-##If you have multiple questions in the same level, it may cause unexpected behaviour.
+##If you have multiple questions in the same level, it may cause unexpected behaviour..
 @export var question = false
 
 

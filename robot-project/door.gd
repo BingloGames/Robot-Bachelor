@@ -2,7 +2,7 @@ extends StaticBody2D
 class_name Door
 ##A door that can be opened and closed, only suppose to be used in a singelplayer setting.
 
-##Color of the door. Only supports red or blue.
+##Color of the door. Only supports red and blue.
 @export_enum("red", "blue") var color: String = "red"
 ##Direction of the door. Supports vertical and horisontal.
 @export_enum("vertical", "horisontal") var dir: String = "vertical"

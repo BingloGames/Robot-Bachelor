@@ -17,8 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Global="*res://global.gd"
-ConnectionController="*res://connection_controller.gd"
+Global="*res://components/singleplayer/global.gd"
+ConnectionController="*res://components/multiplayer/connection_controller.gd"
 
 [display]
 

@@ -1,7 +1,7 @@
 extends Button
 
 
-var single_player_menu = "res://1_player_menu.tscn"
+var single_player_menu = "res://menus/1_player_menu.tscn"
 
 
 func _on_back_pressed() -> void:

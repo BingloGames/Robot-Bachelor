@@ -1,15 +1,15 @@
 [gd_scene load_steps=11 format=4 uid="uid://bsj4r5uvrpxfp"]
 
 [ext_resource type="Script" uid="uid://dblchqpqwm05w" path="res://levels/2 player/game multiplayer.gd" id="1_04b26"]
-[ext_resource type="TileSet" uid="uid://b86b5a6rn7qvr" path="res://TileSet.tres" id="1_mjbxo"]
-[ext_resource type="PackedScene" uid="uid://d2nsbgpi61ctl" path="res://door multiplayer.tscn" id="3_504ga"]
-[ext_resource type="PackedScene" uid="uid://cb4vrqqmf63ik" path="res://button_multiplayer.tscn" id="4_e6vm4"]
-[ext_resource type="PackedScene" uid="uid://b6xvm46atvf7i" path="res://item_list_multiplayer.tscn" id="4_qiixk"]
-[ext_resource type="PackedScene" uid="uid://dj7f68aatv7qu" path="res://robot multiplayer.tscn" id="5_acmd7"]
-[ext_resource type="PackedScene" uid="uid://50q4mg84a340" path="res://text_edit_multiplayer.tscn" id="7_lpv1t"]
-[ext_resource type="PackedScene" uid="uid://cx1504tg7girn" path="res://star_counter_multiplayer.tscn" id="8_6j7sl"]
-[ext_resource type="PackedScene" uid="uid://cxeawjf1ifbsm" path="res://back_multiplayer.tscn" id="8_qiixk"]
-[ext_resource type="PackedScene" uid="uid://bu5wqujjgco58" path="res://info_pop_up.tscn" id="9_hiyu0"]
+[ext_resource type="TileSet" uid="uid://b86b5a6rn7qvr" path="res://components/singleplayer/tileset/TileSet.tres" id="1_mjbxo"]
+[ext_resource type="PackedScene" uid="uid://d2nsbgpi61ctl" path="res://components/multiplayer/door/door multiplayer.tscn" id="3_504ga"]
+[ext_resource type="PackedScene" uid="uid://cb4vrqqmf63ik" path="res://components/multiplayer/button/button_multiplayer.tscn" id="4_e6vm4"]
+[ext_resource type="PackedScene" uid="uid://b6xvm46atvf7i" path="res://components/multiplayer/UI/item list/item_list_multiplayer.tscn" id="4_qiixk"]
+[ext_resource type="PackedScene" uid="uid://dj7f68aatv7qu" path="res://components/multiplayer/robot/robot multiplayer.tscn" id="5_acmd7"]
+[ext_resource type="PackedScene" uid="uid://50q4mg84a340" path="res://components/multiplayer/UI/text edit/text_edit_multiplayer.tscn" id="7_lpv1t"]
+[ext_resource type="PackedScene" uid="uid://cx1504tg7girn" path="res://components/multiplayer/star/star_counter_multiplayer.tscn" id="8_6j7sl"]
+[ext_resource type="PackedScene" uid="uid://cxeawjf1ifbsm" path="res://components/multiplayer/UI/back button/back_multiplayer.tscn" id="8_qiixk"]
+[ext_resource type="PackedScene" uid="uid://bu5wqujjgco58" path="res://components/singleplayer/UI/info pop up/info_pop_up.tscn" id="9_hiyu0"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_04b26")
@@ -43,12 +43,12 @@ color = "blue"
 
 [node name="button" parent="buttons" instance=ExtResource("4_e6vm4")]
 position = Vector2(336, 176)
-doors = Array[NodePath]([NodePath("../../doors/door2"), NodePath("../../doors/door3")])
+doors = Array[NodePath]([NodePath("../../doors/door3"), NodePath("../../doors/door2")])
 needs_holding = true
 
 [node name="button2" parent="buttons" instance=ExtResource("4_e6vm4")]
 position = Vector2(336, 304)
-doors = Array[NodePath]([NodePath("../../doors/door2"), NodePath("../../doors/door3")])
+doors = Array[NodePath]([NodePath("../../doors/door3"), NodePath("../../doors/door2")])
 needs_holding = true
 
 [node name="button3" parent="buttons" instance=ExtResource("4_e6vm4")]

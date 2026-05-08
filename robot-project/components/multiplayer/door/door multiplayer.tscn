@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2nsbgpi61ctl"]
+
+[ext_resource type="PackedScene" uid="uid://ba7flvblhi3ln" path="res://components/singleplayer/door/door.tscn" id="1_goxkn"]
+[ext_resource type="Script" uid="uid://bm71krwx2y2gh" path="res://components/multiplayer/door/door_multiplayer.gd" id="2_25qgc"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_25qgc"]
+properties/0/path = NodePath("Sprite2D:frame")
+properties/0/spawn = true
+properties/0/replication_mode = 2
+properties/1/path = NodePath("CollisionShape2D:disabled")
+properties/1/spawn = true
+properties/1/replication_mode = 2
+
+[node name="door" instance=ExtResource("1_goxkn")]
+script = ExtResource("2_25qgc")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." index="3" groups=["synchronizers"]]
+replication_config = SubResource("SceneReplicationConfig_25qgc")
+public_visibility = false

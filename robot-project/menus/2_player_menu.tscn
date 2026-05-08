@@ -1,0 +1,176 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnpnybd5aqd05"]
+
+[ext_resource type="Script" uid="uid://dg4n465qf1tw3" path="res://menus/2_player_menu.gd" id="1_eeufj"]
+
+[node name="2 player menu" type="Node2D"]
+script = ExtResource("1_eeufj")
+metadata/_edit_vertical_guides_ = [480.0]
+
+[node name="name selector" type="LineEdit" parent="."]
+offset_left = 384.0
+offset_top = 24.0
+offset_right = 576.0
+offset_bottom = 64.0
+placeholder_text = "Your Name"
+
+[node name="name error" type="Label" parent="."]
+offset_left = 392.0
+offset_top = 72.0
+offset_right = 568.0
+offset_bottom = 95.0
+text = "Need a name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="host or join" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 64.0
+offset_bottom = 64.0
+
+[node name="join" type="Button" parent="host or join"]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 128.0
+offset_right = 392.0
+offset_bottom = 176.0
+text = "Join"
+
+[node name="host" type="Button" parent="host or join"]
+layout_mode = 0
+offset_left = 568.0
+offset_top = 128.0
+offset_right = 640.0
+offset_bottom = 176.0
+text = "Host"
+
+[node name="back" type="Button" parent="host or join"]
+layout_mode = 0
+offset_left = 704.0
+offset_top = 64.0
+offset_right = 768.0
+offset_bottom = 96.0
+text = "Back"
+
+[node name="host game" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 368.0
+offset_top = 96.0
+offset_right = 432.0
+offset_bottom = 144.0
+
+[node name="Label" type="Label" parent="host game"]
+layout_mode = 0
+offset_top = 80.0
+offset_right = 224.0
+offset_bottom = 160.0
+text = "Fellow robot: 
+(Name of other player)"
+
+[node name="start" type="Button" parent="host game"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 208.0
+offset_right = 144.0
+offset_bottom = 240.0
+disabled = true
+text = "Start"
+
+[node name="back" type="Button" parent="host game"]
+layout_mode = 0
+offset_left = 336.0
+offset_top = -32.0
+offset_right = 400.0
+offset_bottom = -1.0
+text = "Back"
+
+[node name="ip address" type="Label" parent="host game"]
+layout_mode = 0
+offset_left = 272.0
+offset_top = 96.0
+offset_right = 440.0
+offset_bottom = 145.0
+text = "No valid IP addresses"
+
+[node name="join game" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 400.0
+offset_top = 136.0
+offset_right = 560.0
+offset_bottom = 224.0
+
+[node name="ip address" type="LineEdit" parent="join game"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 24.0
+offset_right = 152.0
+offset_bottom = 55.0
+placeholder_text = "127.0.0.1"
+
+[node name="Label" type="Label" parent="join game"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = -8.0
+offset_right = 152.0
+offset_bottom = 15.0
+text = "IP address:"
+
+[node name="connect" type="Button" parent="join game"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 184.0
+offset_right = 152.0
+offset_bottom = 223.0
+text = "connect"
+
+[node name="back" type="Button" parent="join game"]
+layout_mode = 0
+offset_left = 304.0
+offset_top = -72.0
+offset_right = 368.0
+offset_bottom = -40.0
+text = "Back"
+
+[node name="error" type="Label" parent="join game"]
+layout_mode = 0
+offset_top = 96.0
+offset_right = 160.0
+offset_bottom = 144.0
+
+[node name="joiner connected" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="joiner connected"]
+layout_mode = 0
+offset_left = 352.0
+offset_top = 184.0
+offset_right = 608.0
+offset_bottom = 233.0
+text = "Connected with:
+(host name)"
+
+[node name="cancel" type="Button" parent="joiner connected"]
+layout_mode = 0
+offset_left = 440.0
+offset_top = 352.0
+offset_right = 520.0
+offset_bottom = 392.0
+text = "Cancel"
+
+[connection signal="text_changed" from="name selector" to="." method="_on_name_changed"]
+[connection signal="pressed" from="host or join/join" to="." method="_on_join_pressed"]
+[connection signal="pressed" from="host or join/host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="host or join/back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="host game/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="host game/back" to="." method="_on_host_back_pressed"]
+[connection signal="pressed" from="join game/connect" to="." method="_on_connect_pressed"]
+[connection signal="pressed" from="join game/back" to="." method="_on_join_back_pressed"]
+[connection signal="pressed" from="joiner connected/cancel" to="." method="_on_cancel_pressed"]

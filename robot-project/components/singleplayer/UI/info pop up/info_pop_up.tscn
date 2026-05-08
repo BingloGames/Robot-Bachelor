@@ -1,0 +1,50 @@
+[gd_scene load_steps=2 format=3 uid="uid://bu5wqujjgco58"]
+
+[ext_resource type="Script" uid="uid://cpveoq8deqyi" path="res://components/singleplayer/UI/info pop up/info_pop_up.gd" id="1_i6fiq"]
+
+[node name="Info pop up" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i6fiq")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 960.0
+offset_bottom = 544.0
+color = Color(0.18717614, 0.18717614, 0.18717614, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.9990001
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -15.040039
+offset_bottom = -48.0
+text = "Default text."
+
+[node name="Close" type="Button" parent="."]
+layout_mode = 0
+offset_left = 784.0
+offset_top = 504.0
+offset_right = 880.0
+offset_bottom = 535.0
+text = "Go to level"
+
+[node name="Open" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 728.0
+offset_top = 504.0
+offset_right = 880.0
+offset_bottom = 535.0
+text = "Open information"
+
+[connection signal="pressed" from="Close" to="." method="_on_Close_pressed"]
+[connection signal="pressed" from="Open" to="." method="_on_Open_pressed"]

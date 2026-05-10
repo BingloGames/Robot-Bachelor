@@ -1,4 +1,4 @@
-extends "res://components/singleplayer/UI/text edit/text_edit.gd"
+extends "res://components/singleplayer/UI/code window/codeWindow.gd"
 
 
 var is_ready = false

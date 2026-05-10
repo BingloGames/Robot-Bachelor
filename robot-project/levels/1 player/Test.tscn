@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://l7xyld7tae6d" path="res://components/multiplayer/laser/laser multiplayer.tscn" id="3_hqmr3"]
 [ext_resource type="PackedScene" uid="uid://dj8bvk78ajlmy" path="res://components/singleplayer/item/Item.tscn" id="3_yv7ft"]
 [ext_resource type="PackedScene" uid="uid://bkcxr5ltukhr1" path="res://components/singleplayer/robot/robot.tscn" id="4_hqmr3"]
-[ext_resource type="PackedScene" uid="uid://b7xm7lsovxbqr" path="res://components/singleplayer/UI/text edit/text_edit.tscn" id="5_x3eu1"]
+[ext_resource type="PackedScene" uid="uid://b7xm7lsovxbqr" path="res://components/singleplayer/UI/code window/codeWindow.tscn" id="5_x3eu1"]
 [ext_resource type="PackedScene" uid="uid://bdbqr488vc61t" path="res://components/singleplayer/star/star counter.tscn" id="6_ogay8"]
 [ext_resource type="PackedScene" uid="uid://dqdijlggb57o1" path="res://components/singleplayer/UI/item list/item_list.tscn" id="7_cf3og"]
 [ext_resource type="PackedScene" uid="uid://bu5wqujjgco58" path="res://components/singleplayer/UI/info pop up/info_pop_up.tscn" id="8_j188m"]
@@ -57,7 +57,7 @@ item_name = "right()"
 [node name="robot" parent="robots" instance=ExtResource("4_hqmr3")]
 position = Vector2(144, 144)
 
-[node name="code" parent="." instance=ExtResource("5_x3eu1")]
+[node name="CodeWindow" parent="." instance=ExtResource("5_x3eu1")]
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0

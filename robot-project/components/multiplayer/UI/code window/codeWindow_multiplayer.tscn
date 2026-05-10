@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://50q4mg84a340"]
+
+[ext_resource type="Script" uid="uid://bfqnekbt7hskl" path="res://components/multiplayer/UI/code window/codeWindow_multiplayer.gd" id="1_4xcph"]
+[ext_resource type="PackedScene" uid="uid://b7xm7lsovxbqr" path="res://components/singleplayer/UI/code window/codeWindow.tscn" id="1_ynrjs"]
+
+[node name="CodeWindow" instance=ExtResource("1_ynrjs")]
+script = ExtResource("1_4xcph")

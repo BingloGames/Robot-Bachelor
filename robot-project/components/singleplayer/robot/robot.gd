@@ -11,7 +11,7 @@ var movement_speed = SPEED
 ##Gets the ConveyorBelt TileMapLayer if exists.
 @onready var conveyor_belt_tilemap = get_node_or_null("/root/Node2D/ConveyorBelt")
 ##Gets the Code window.
-@onready var code_node = get_node("/root/Node2D/code")
+@onready var code_node = get_node("/root/Node2D/CodeWindow")
 ##Gets the AnimationPlayer node from the Robot.
 @onready var anim_player = get_node("AnimationPlayer")
 ##Gets the wait timer.

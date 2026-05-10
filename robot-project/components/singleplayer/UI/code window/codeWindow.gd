@@ -1,9 +1,14 @@
 extends Control
+class_name CodeWindow
+##Code window for the player to introduce the Robots commands.
 
-
-@onready var text_edit = get_node("TextEdit")
+##The CodeEdit child of this node.
+@onready var text_edit = get_node("CodeEdit")
+##The particles child of this node.
 @onready var go_button = get_node("GoButton")
+##The particles child of this node.
 @onready var stop_button = get_node("StopButton")
+##The particles child of this node.
 @onready var error_node = get_node("error message")
 
 

@@ -5,7 +5,7 @@
 [ext_resource type="TileSet" uid="uid://b86b5a6rn7qvr" path="res://components/singleplayer/tileset/TileSet.tres" id="2_xsnl2"]
 [ext_resource type="TileSet" uid="uid://cd2adi2gk1aay" path="res://components/singleplayer/tileset/coveyorBelts.tres" id="3_bbrjg"]
 [ext_resource type="PackedScene" uid="uid://b6xvm46atvf7i" path="res://components/multiplayer/UI/item list/item_list_multiplayer.tscn" id="3_xsnl2"]
-[ext_resource type="PackedScene" uid="uid://50q4mg84a340" path="res://components/multiplayer/UI/text edit/text_edit_multiplayer.tscn" id="4_bbrjg"]
+[ext_resource type="PackedScene" uid="uid://50q4mg84a340" path="res://components/multiplayer/UI/code window/codeWindow_multiplayer.tscn" id="4_bbrjg"]
 [ext_resource type="PackedScene" uid="uid://cx1504tg7girn" path="res://components/multiplayer/star/star_counter_multiplayer.tscn" id="5_5mrgi"]
 [ext_resource type="PackedScene" uid="uid://dj7f68aatv7qu" path="res://components/multiplayer/robot/robot multiplayer.tscn" id="5_bbrjg"]
 [ext_resource type="PackedScene" uid="uid://bt3h0x7bjh20x" path="res://components/multiplayer/UI/input pop up/input_pop_up multiplayer.tscn" id="6_e6qma"]
@@ -47,7 +47,7 @@ offset_left = 640.0
 offset_right = 960.0
 offset_bottom = 544.0
 
-[node name="code" parent="." instance=ExtResource("4_bbrjg")]
+[node name="CodeWindow" parent="." instance=ExtResource("4_bbrjg")]
 offset_right = 640.0
 offset_bottom = 536.0
 

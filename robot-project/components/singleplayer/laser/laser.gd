@@ -34,18 +34,14 @@ func _ready() -> void:
 	var robot_speed = float(Robot.get_speed())
 	var tile_size = get_node("/root/Node2D/ground").tile_set.tile_size.x
 	
-	
 	laser_on_time_interval = (laser_on_turns_interval/robot_speed) * tile_size
 	laser_off_time_interval = (laser_off_turns_interval/robot_speed) * tile_size
 	
-	
 	ready_timer()
-
 
 func _physics_process(_delta: float) -> void:
 	if not active:
 		return
-	
 	
 	if raycast.is_colliding():
 		check_collision()
@@ -56,7 +52,6 @@ func ready_timer() -> void:
 		turn_on()
 		timer.set_wait_time(laser_on_time_interval)
 		return
-	
 	
 	turn_off()
 	timer.set_wait_time(laser_off_time_interval)
@@ -79,7 +74,6 @@ func check_raycast_collider() -> void:
 	if raycast_collider is Robot:
 		if raycast_collider.died:
 			return
-		
 		
 		raycast_collider.die()
 
@@ -109,13 +103,11 @@ func turn_on() -> void:
 	raycast.set_enabled(true)
 	particles.emitting = true
 
-
 func _on_timer_timeout() -> void:
 	if active:
 		turn_off()
 		timer.start(laser_off_time_interval)
 		return
-	
 	
 	turn_on()
 	timer.start(laser_on_time_interval)

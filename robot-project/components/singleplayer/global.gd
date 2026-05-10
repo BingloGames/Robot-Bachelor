@@ -121,8 +121,8 @@ func restart_level() -> void:
 		robot.respawn()
 	
 	
-	get_node("/root/Node2D/code").problem_warning()
-	get_node("/root/Node2D/code").stop_running_code()
+	get_node("/root/Node2D/CodeWindow").problem_warning()
+	get_node("/root/Node2D/CodeWindow").stop_running_code()
 	
 	
 	if get_node("/root/Node2D").has_node("doors"):

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bc27vibglbqta" path="res://components/singleplayer/item/items_counter.gd" id="1_7knob"]
 [ext_resource type="TileSet" uid="uid://b86b5a6rn7qvr" path="res://components/singleplayer/tileset/TileSet.tres" id="1_y3buq"]
 [ext_resource type="TileSet" uid="uid://cd2adi2gk1aay" path="res://components/singleplayer/tileset/coveyorBelts.tres" id="2_7gxc6"]
-[ext_resource type="PackedScene" uid="uid://b7xm7lsovxbqr" path="res://components/singleplayer/UI/text edit/text_edit.tscn" id="2_x7vpy"]
+[ext_resource type="PackedScene" uid="uid://b7xm7lsovxbqr" path="res://components/singleplayer/UI/code window/codeWindow.tscn" id="2_x7vpy"]
 [ext_resource type="PackedScene" uid="uid://bdbqr488vc61t" path="res://components/singleplayer/star/star counter.tscn" id="3_x7vpy"]
 [ext_resource type="PackedScene" uid="uid://bkcxr5ltukhr1" path="res://components/singleplayer/robot/robot.tscn" id="4_7gxc6"]
 [ext_resource type="PackedScene" uid="uid://dqdijlggb57o1" path="res://components/singleplayer/UI/item list/item_list.tscn" id="4_vrj81"]
@@ -38,7 +38,7 @@ script = ExtResource("1_7knob")
 
 [node name="robot" parent="robot" instance=ExtResource("4_7gxc6")]
 
-[node name="code" parent="." instance=ExtResource("2_x7vpy")]
+[node name="CodeWindow" parent="." instance=ExtResource("2_x7vpy")]
 offset_right = 640.0
 offset_bottom = 536.0
 

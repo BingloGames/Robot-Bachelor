@@ -33,7 +33,6 @@ func _on_body_entered(body: Node2D) -> void:
 
 ##Shows the question if question is true, or opens the doors if question is false.
 func activate() -> void:
-	print("activate button singleplayer")
 	if question:
 		for door in doors:
 			get_node("/root/Node2D/Input pop up").doors.append(get_node(door))

@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://b7xm7lsovxbqr"]
 
-[ext_resource type="Script" uid="uid://d00d8g8ts5gs8" path="res://components/singleplayer/UI/text edit/text_edit.gd" id="1_gem3i"]
+[ext_resource type="Script" uid="uid://d00d8g8ts5gs8" path="res://components/singleplayer/UI/code window/codeWindow.gd" id="1_gem3i"]
 
-[node name="code" type="Control"]
+[node name="CodeWindow" type="Control"]
 layout_mode = 3
 anchor_right = 1.0
 anchor_bottom = 1.0070001
@@ -11,7 +11,7 @@ offset_bottom = -7.7800293
 script = ExtResource("1_gem3i")
 metadata/_edit_vertical_guides_ = [-320.0]
 
-[node name="TextEdit" type="CodeEdit" parent="."]
+[node name="CodeEdit" type="CodeEdit" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -70,7 +70,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Error:"
 
-[connection signal="lines_edited_from" from="TextEdit" to="." method="_on_lines_edited_from"]
+[connection signal="lines_edited_from" from="CodeEdit" to="." method="_on_lines_edited_from"]
 [connection signal="pressed" from="GoButton" to="." method="_on_go_button_pressed"]
 [connection signal="pressed" from="StopButton" to="." method="_on_stop_button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

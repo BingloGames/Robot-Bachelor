@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bc27vibglbqta" path="res://components/singleplayer/item/items_counter.gd" id="2_eahl7"]
 [ext_resource type="TileSet" uid="uid://v2fstb4rhx2m" path="res://components/singleplayer/tileset/coveyorBelts-alt.tres" id="2_x2v0p"]
 [ext_resource type="PackedScene" uid="uid://bkcxr5ltukhr1" path="res://components/singleplayer/robot/robot.tscn" id="3_x2v0p"]
-[ext_resource type="PackedScene" uid="uid://b7xm7lsovxbqr" path="res://components/singleplayer/UI/text edit/text_edit.tscn" id="4_sl0pf"]
+[ext_resource type="PackedScene" uid="uid://b7xm7lsovxbqr" path="res://components/singleplayer/UI/code window/codeWindow.tscn" id="4_sl0pf"]
 [ext_resource type="PackedScene" uid="uid://bdbqr488vc61t" path="res://components/singleplayer/star/star counter.tscn" id="5_ygfy6"]
 [ext_resource type="PackedScene" uid="uid://dqdijlggb57o1" path="res://components/singleplayer/UI/item list/item_list.tscn" id="6_56eu6"]
 [ext_resource type="PackedScene" uid="uid://bu5wqujjgco58" path="res://components/singleplayer/UI/info pop up/info_pop_up.tscn" id="7_m0chn"]
@@ -37,7 +37,7 @@ script = ExtResource("2_eahl7")
 [node name="robot" parent="robots" instance=ExtResource("3_x2v0p")]
 position = Vector2(336, 304)
 
-[node name="code" parent="." instance=ExtResource("4_sl0pf")]
+[node name="CodeWindow" parent="." instance=ExtResource("4_sl0pf")]
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0

@@ -5,7 +5,7 @@
 [ext_resource type="TileSet" uid="uid://v2fstb4rhx2m" path="res://components/singleplayer/tileset/coveyorBelts-alt.tres" id="2_6rkfh"]
 [ext_resource type="PackedScene" uid="uid://bkcxr5ltukhr1" path="res://components/singleplayer/robot/robot.tscn" id="3_sm5e0"]
 [ext_resource type="PackedScene" uid="uid://dj8bvk78ajlmy" path="res://components/singleplayer/item/Item.tscn" id="4_2hmoo"]
-[ext_resource type="PackedScene" uid="uid://b7xm7lsovxbqr" path="res://components/singleplayer/UI/text edit/text_edit.tscn" id="4_imqa0"]
+[ext_resource type="PackedScene" uid="uid://b7xm7lsovxbqr" path="res://components/singleplayer/UI/code window/codeWindow.tscn" id="4_imqa0"]
 [ext_resource type="PackedScene" uid="uid://bdbqr488vc61t" path="res://components/singleplayer/star/star counter.tscn" id="5_n40p8"]
 [ext_resource type="PackedScene" uid="uid://ba7flvblhi3ln" path="res://components/singleplayer/door/door.tscn" id="5_pfd0j"]
 [ext_resource type="PackedScene" uid="uid://dqdijlggb57o1" path="res://components/singleplayer/UI/item list/item_list.tscn" id="6_6rkfh"]
@@ -102,7 +102,7 @@ laser_off_turns_interval = 4
 [node name="robot" parent="robots" instance=ExtResource("3_sm5e0")]
 position = Vector2(112, 304)
 
-[node name="code" parent="." instance=ExtResource("4_imqa0")]
+[node name="CodeWindow" parent="." instance=ExtResource("4_imqa0")]
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0

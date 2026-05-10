@@ -15,7 +15,7 @@ class_name Door
 @onready var anim_player_node = get_node("AnimationPlayer")
 
 ##The text edit for the game.
-@onready var code_node = get_node("/root/Node2D/code")
+@onready var code_node = get_node("/root/Node2D/CodeWindow")
 
 
 func _ready() -> void:
@@ -25,12 +25,10 @@ func _ready() -> void:
 	else:
 		sprite = "blue door "
 	
-	
 	if dir == "vertical":
 		sprite += "1"
 	else:
 		sprite += "2"
-	
 	
 	sprite_node.texture = load("res://components/singleplayer/door/"+sprite+".png")
 
@@ -56,4 +54,3 @@ func finished() -> void:
 func reset() -> void:
 	sprite_node.frame = 0
 	collision_shape_node.call_deferred("set_disabled", false)
-	

@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=4 uid="uid://q7nu5j63vchf"]
 
 [ext_resource type="TileSet" uid="uid://b86b5a6rn7qvr" path="res://components/singleplayer/tileset/TileSet.tres" id="1_0vw6x"]
-[ext_resource type="PackedScene" uid="uid://b7xm7lsovxbqr" path="res://components/singleplayer/UI/text edit/text_edit.tscn" id="2_sbb5h"]
+[ext_resource type="PackedScene" uid="uid://b7xm7lsovxbqr" path="res://components/singleplayer/UI/code window/codeWindow.tscn" id="2_sbb5h"]
 [ext_resource type="PackedScene" uid="uid://bdbqr488vc61t" path="res://components/singleplayer/star/star counter.tscn" id="3_jfjt6"]
 [ext_resource type="PackedScene" uid="uid://bkcxr5ltukhr1" path="res://components/singleplayer/robot/robot.tscn" id="4_0vw6x"]
 [ext_resource type="PackedScene" uid="uid://dj8bvk78ajlmy" path="res://components/singleplayer/item/Item.tscn" id="4_1g20g"]
@@ -63,7 +63,7 @@ offset_top = 272.0
 offset_right = 160.0
 offset_bottom = 272.0
 
-[node name="code" parent="." instance=ExtResource("2_sbb5h")]
+[node name="CodeWindow" parent="." instance=ExtResource("2_sbb5h")]
 offset_right = 640.0
 offset_bottom = 536.0
 line_limit = 20

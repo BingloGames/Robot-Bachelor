@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=4 uid="uid://cqh6a7oaixmli"]
 
 [ext_resource type="TileSet" uid="uid://b86b5a6rn7qvr" path="res://components/singleplayer/tileset/TileSet.tres" id="1_lmyl5"]
-[ext_resource type="PackedScene" uid="uid://b7xm7lsovxbqr" path="res://components/singleplayer/UI/text edit/text_edit.tscn" id="2_dn5ey"]
+[ext_resource type="PackedScene" uid="uid://b7xm7lsovxbqr" path="res://components/singleplayer/UI/code window/codeWindow.tscn" id="2_dn5ey"]
 [ext_resource type="PackedScene" uid="uid://bdbqr488vc61t" path="res://components/singleplayer/star/star counter.tscn" id="2_mc20k"]
 [ext_resource type="Script" uid="uid://bc27vibglbqta" path="res://components/singleplayer/item/items_counter.gd" id="2_vxtnj"]
 [ext_resource type="PackedScene" uid="uid://bkcxr5ltukhr1" path="res://components/singleplayer/robot/robot.tscn" id="3_cove1"]
@@ -41,7 +41,7 @@ item_name = "right()"
 [node name="robot" parent="robots" instance=ExtResource("3_cove1")]
 position = Vector2(144, 144)
 
-[node name="code" parent="." instance=ExtResource("2_dn5ey")]
+[node name="CodeWindow" parent="." instance=ExtResource("2_dn5ey")]
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0

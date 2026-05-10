@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dblchqpqwm05w" path="res://levels/2 player/game multiplayer.gd" id="1_b4bn5"]
 [ext_resource type="PackedScene" uid="uid://dj7f68aatv7qu" path="res://components/multiplayer/robot/robot multiplayer.tscn" id="5_cwrci"]
 [ext_resource type="PackedScene" uid="uid://b6xvm46atvf7i" path="res://components/multiplayer/UI/item list/item_list_multiplayer.tscn" id="6_b4bn5"]
-[ext_resource type="PackedScene" uid="uid://50q4mg84a340" path="res://components/multiplayer/UI/text edit/text_edit_multiplayer.tscn" id="7_xum4v"]
+[ext_resource type="PackedScene" uid="uid://50q4mg84a340" path="res://components/multiplayer/UI/code window/codeWindow_multiplayer.tscn" id="7_xum4v"]
 [ext_resource type="PackedScene" uid="uid://cx1504tg7girn" path="res://components/multiplayer/star/star_counter_multiplayer.tscn" id="8_p51fe"]
 [ext_resource type="PackedScene" uid="uid://bu5wqujjgco58" path="res://components/singleplayer/UI/info pop up/info_pop_up.tscn" id="9_bfn2g"]
 [ext_resource type="PackedScene" uid="uid://cxeawjf1ifbsm" path="res://components/multiplayer/UI/back button/back_multiplayer.tscn" id="10_b4bn5"]
@@ -43,7 +43,7 @@ offset_left = 640.0
 offset_right = 960.0
 offset_bottom = 544.0
 
-[node name="code" parent="." instance=ExtResource("7_xum4v")]
+[node name="CodeWindow" parent="." instance=ExtResource("7_xum4v")]
 offset_right = 640.0
 offset_bottom = 536.0
 line_limit = 16

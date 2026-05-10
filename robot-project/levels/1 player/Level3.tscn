@@ -2,7 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://b86b5a6rn7qvr" path="res://components/singleplayer/tileset/TileSet.tres" id="1_545p4"]
 [ext_resource type="PackedScene" uid="uid://bdbqr488vc61t" path="res://components/singleplayer/star/star counter.tscn" id="2_84iim"]
-[ext_resource type="PackedScene" uid="uid://b7xm7lsovxbqr" path="res://components/singleplayer/UI/text edit/text_edit.tscn" id="2_qlmxs"]
+[ext_resource type="PackedScene" uid="uid://b7xm7lsovxbqr" path="res://components/singleplayer/UI/code window/codeWindow.tscn" id="2_qlmxs"]
 [ext_resource type="PackedScene" uid="uid://ba7flvblhi3ln" path="res://components/singleplayer/door/door.tscn" id="3_wxujf"]
 [ext_resource type="PackedScene" uid="uid://bkcxr5ltukhr1" path="res://components/singleplayer/robot/robot.tscn" id="4_545p4"]
 [ext_resource type="PackedScene" uid="uid://ct3ylbdix74av" path="res://components/singleplayer/button/button.tscn" id="5_wxujf"]
@@ -42,7 +42,7 @@ dir = "horisontal"
 [node name="robot" parent="robots" instance=ExtResource("4_545p4")]
 position = Vector2(112, 112)
 
-[node name="code" parent="." instance=ExtResource("2_qlmxs")]
+[node name="CodeWindow" parent="." instance=ExtResource("2_qlmxs")]
 offset_right = 640.0
 offset_bottom = 536.0
 line_limit = 12

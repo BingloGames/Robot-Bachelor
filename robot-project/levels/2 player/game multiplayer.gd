@@ -1,11 +1,14 @@
 extends Node2D
+class_name MultiplayerGeneral
 
-
+##Tilemap that contains the special tiles.
 @onready var special_tilemap_node = get_node("special")
+##Star counter node in the scene.
 @onready var star_counter_node = get_node("star counter")
+##The black node for the fadeout.
 @onready var black_fade_node = get_node("black")
 
-
+##Robot paths that has finished the code.
 var robots_finished = []
 
 
@@ -17,7 +20,7 @@ func _ready() -> void:
 	
 	ConnectionController.peer_ready_sync.rpc()
 
-
+##Marks the robot as finished and if all players have finished, checks if they win.
 func robot_finished(robot_path: NodePath) -> void:
 	if robot_path in robots_finished:
 		return
@@ -27,10 +30,10 @@ func robot_finished(robot_path: NodePath) -> void:
 	if not multiplayer.is_server():
 		return
 	
-	if len(robots_finished) == 2:
+	if len(robots_finished) == ConnectionController.NUM_PLAYERS:
 		check_both_robot_end()
 
-
+##Checks if they win and restart the level or go to next level.
 func check_both_robot_end() -> void:
 	var robots_succeded = []
 	
@@ -49,13 +52,13 @@ func check_both_robot_end() -> void:
 		
 		robots_succeded.append(robot)
 	
-	if len(robots_succeded) == 2:
+	if len(robots_succeded) == ConnectionController.NUM_PLAYERS:
 		success.rpc()
 		return
 	
 	Global.restart_level()
 
-
+##Fade to black, save the stars and go to next level.
 @rpc("authority", "call_local", "reliable")
 func success() -> void:
 	print("success!")

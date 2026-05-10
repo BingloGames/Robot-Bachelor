@@ -235,7 +235,7 @@ func check_conveyor(current_tile: Vector2i) -> void:
 	
 	continue_conveyor(current_tile, cb_data)
 
-##Moves the Robot the appropiate number of tiles according to the Conveyot belt activated.
+##Moves the Robot the appropiate number of tiles according to the Conveyor belt activated.
 func continue_conveyor(current_tile: Vector2i, cb_data: TileData) -> void:
 	var dir = cb_data.get_custom_data("dir")
 	

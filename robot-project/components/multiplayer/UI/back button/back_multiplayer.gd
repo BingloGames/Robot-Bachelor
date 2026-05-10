@@ -1,4 +1,4 @@
-extends "res://components/singleplayer/UI/back button/back.gd"
+extends BackButton
 class_name MultiplayerBackButton
 
 func _init():

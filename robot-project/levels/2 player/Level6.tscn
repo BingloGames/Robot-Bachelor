@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=4 uid="uid://dd4cejg2cqmpn"]
+[gd_scene load_steps=3 format=4 uid="uid://dd4cejg2cqmpn"]
 
 [ext_resource type="PackedScene" uid="uid://l3qw0qu7nayk" path="res://levels/multiplayer_level_template.tscn" id="1_gdwxg"]
 [ext_resource type="PackedScene" uid="uid://l7xyld7tae6d" path="res://components/multiplayer/laser/laser multiplayer.tscn" id="2_53uk7"]
-[ext_resource type="TileSet" uid="uid://v2fstb4rhx2m" path="res://components/singleplayer/tileset/coveyorBelts.tres" id="2_re278"]
 
 [node name="Node2D" instance=ExtResource("1_gdwxg")]
 metadata/_edit_horizontal_guides_ = [400.0]
@@ -16,7 +15,6 @@ tile_map_data = PackedByteArray("AAAKAAkAAQAIABcAAAAKAAgAAQAIABcAAAAKAAcAAQAIABc
 
 [node name="ConveyorBelt" parent="." index="2"]
 tile_map_data = PackedByteArray("AAAIAAYAAQABAAIAAAADAAYAAQABAAYAAAAIAAcAAQACAAQAAAAIAAgAAQACAAQAAAAIAAkAAQACAAQAAAAIAAoAAQACAAQAAAAIAAsAAQACAAQAAAAIAAwAAQACAAUAAAAHAAwAAQABAAUAAAAGAAwAAQAAAAUAAAAGAAsAAQAAAAQAAAAGAAoAAQAAAAQAAAAGAAkAAQAAAAQAAAAGAAgAAQAAAAQAAAAFAAgAAQAFAAoAAAAFAAkAAQAFAAoAAAAFAAoAAQAFAAoAAAAFAAsAAQAFAAoAAAAFAAwAAQAFAAsAAAAEAAwAAQAEAAsAAAADAAwAAQADAAsAAAADAAsAAQADAAoAAAADAAoAAQADAAoAAAADAAkAAQADAAoAAAADAAgAAQADAAoAAAADAAcAAQADAAoAAAAHAAIAAQABAAAAAAAIAAIAAQABAAIAAAAJAAIAAQACAAAAAAAJAAMAAQACAAEAAAAJAAQAAQACAAEAAAAJAAUAAQACAAEAAAAJAAYAAQACAAIAAAAEAAIAAQAEAAYAAAADAAIAAQAEAAYAAAACAAIAAQADAAYAAAACAAMAAQACAAcAAAACAAQAAQACAAcAAAACAAUAAQACAAcAAAACAAYAAQADAAgAAAA=")
-tile_set = ExtResource("2_re278")
 
 [node name="special" parent="." index="3"]
 tile_map_data = PackedByteArray("AAAHAAsAAQABABYAAAAKAA0AAQABABYAAAAJAA0AAQABABYAAAAIAA0AAQABABYAAAABAA0AAQABABYAAAACAA0AAQABABYAAAADAA0AAQABABYAAAAEAA0AAQABABYAAAAFAA0AAQABABYAAAAEAAoAAgAAAAAAAQAHAA0AAgAAAAAAAQAFAAUAAgAAAAAAAQAFAAcAAQAKABYAAAAGAAcAAQAIABYAAAA=")
@@ -59,6 +57,3 @@ start_direction = Vector2i(0, 1)
 [node name="robot2" parent="robots" index="1"]
 position = Vector2(144, 48)
 start_direction = Vector2i(0, 1)
-
-[node name="code" parent="." index="10"]
-line_limit = 50

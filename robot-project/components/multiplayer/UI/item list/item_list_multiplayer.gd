@@ -1,17 +1,18 @@
 extends "res://components/singleplayer/UI/item list/item_list.gd"
+class_name MultiplayerItemList
+##Show the list of functions and other information in a multiplayer setting.
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	itemsList = ["forward()", "backward()", "wait()", "left()", "right()", "for i in range(n):"]
 	super._ready()
-	
-	pass 
 
+
+##Reset the items on server/clients.
 func restart() -> void:
 	restart_multiplayer.rpc()
-	
-	
+
+##RPC that resets the items.
 @rpc("call_local")
 func restart_multiplayer() -> void:
 	super.restart()

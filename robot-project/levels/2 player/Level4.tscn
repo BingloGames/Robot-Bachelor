@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dj8bvk78ajlmy" path="res://components/singleplayer/item/Item.tscn" id="6_iadhh"]
 [ext_resource type="Script" uid="uid://bi4dvyn34dlfm" path="res://components/multiplayer/item/items_counter_multiplayer.gd" id="6_mth2d"]
 [ext_resource type="PackedScene" uid="uid://50q4mg84a340" path="res://components/multiplayer/UI/code window/codeWindow_multiplayer.tscn" id="7_mk5yf"]
-[ext_resource type="PackedScene" uid="uid://b6xvm46atvf7i" path="res://components/multiplayer/UI/item list/item_list_multiplayer.tscn" id="8_72kc1"]
+[ext_resource type="PackedScene" uid="uid://b6xvm46atvf7i" path="res://components/multiplayer/UI/information list/informationList_multiplayer.tscn" id="8_72kc1"]
 [ext_resource type="PackedScene" uid="uid://cx1504tg7girn" path="res://components/multiplayer/star/star_counter_multiplayer.tscn" id="8_dr0je"]
 [ext_resource type="PackedScene" uid="uid://bu5wqujjgco58" path="res://components/singleplayer/UI/info pop up/info_pop_up.tscn" id="9_hvgfx"]
 [ext_resource type="PackedScene" uid="uid://bt3h0x7bjh20x" path="res://components/multiplayer/UI/input pop up/input_pop_up multiplayer.tscn" id="12_72kc1"]
@@ -66,7 +66,7 @@ position = Vector2(208, 432)
 [node name="Item2" parent="items" instance=ExtResource("6_iadhh")]
 position = Vector2(176, 176)
 
-[node name="Container" parent="." instance=ExtResource("8_72kc1")]
+[node name="InformationList" parent="." instance=ExtResource("8_72kc1")]
 offset_left = 640.0
 offset_right = 960.32
 offset_bottom = 536.0

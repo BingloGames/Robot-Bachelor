@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b7xm7lsovxbqr" path="res://components/singleplayer/UI/code window/codeWindow.tscn" id="4_imqa0"]
 [ext_resource type="PackedScene" uid="uid://bdbqr488vc61t" path="res://components/singleplayer/star/star counter.tscn" id="5_n40p8"]
 [ext_resource type="PackedScene" uid="uid://ba7flvblhi3ln" path="res://components/singleplayer/door/door.tscn" id="5_pfd0j"]
-[ext_resource type="PackedScene" uid="uid://dqdijlggb57o1" path="res://components/singleplayer/UI/item list/item_list.tscn" id="6_6rkfh"]
+[ext_resource type="PackedScene" uid="uid://dqdijlggb57o1" path="res://components/singleplayer/UI/information list/informationList.tscn" id="6_6rkfh"]
 [ext_resource type="PackedScene" uid="uid://ct3ylbdix74av" path="res://components/singleplayer/button/button.tscn" id="6_jtomr"]
 [ext_resource type="PackedScene" uid="uid://bu5wqujjgco58" path="res://components/singleplayer/UI/info pop up/info_pop_up.tscn" id="7_2hmoo"]
 [ext_resource type="PackedScene" uid="uid://d1ckbdo8lkn4r" path="res://components/singleplayer/laser/laser.tscn" id="7_gq1rj"]
@@ -56,10 +56,13 @@ position = Vector2(272, 368)
 
 [node name="button" parent="buttons" instance=ExtResource("6_jtomr")]
 position = Vector2(176, 400)
+doors = Array[NodePath]([NodePath("../../doors/door")])
+question = true
 
 [node name="button2" parent="buttons" instance=ExtResource("6_jtomr")]
 position = Vector2(368, 336)
 color = "red"
+doors = Array[NodePath]([NodePath("../../doors/door2")])
 
 [node name="lasers" type="Node2D" parent="."]
 
@@ -122,14 +125,13 @@ grow_horizontal = 1
 grow_vertical = 1
 metadata/_edit_group_ = true
 
-[node name="Container" parent="." instance=ExtResource("6_6rkfh")]
+[node name="InformationList" parent="." instance=ExtResource("6_6rkfh")]
 offset_left = 640.0
 offset_right = 960.0
 offset_bottom = 536.0
 items = 6
 
 [node name="Info pop up" parent="." instance=ExtResource("7_2hmoo")]
-visible = false
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0

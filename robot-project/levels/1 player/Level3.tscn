@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ba7flvblhi3ln" path="res://components/singleplayer/door/door.tscn" id="3_wxujf"]
 [ext_resource type="PackedScene" uid="uid://bkcxr5ltukhr1" path="res://components/singleplayer/robot/robot.tscn" id="4_545p4"]
 [ext_resource type="PackedScene" uid="uid://ct3ylbdix74av" path="res://components/singleplayer/button/button.tscn" id="5_wxujf"]
-[ext_resource type="PackedScene" uid="uid://dqdijlggb57o1" path="res://components/singleplayer/UI/item list/item_list.tscn" id="6_545p4"]
+[ext_resource type="PackedScene" uid="uid://dqdijlggb57o1" path="res://components/singleplayer/UI/information list/informationList.tscn" id="6_545p4"]
 [ext_resource type="PackedScene" uid="uid://di21tnjo7imbw" path="res://components/singleplayer/UI/back button/back.tscn" id="9_r1ajk"]
 [ext_resource type="PackedScene" uid="uid://bu5wqujjgco58" path="res://components/singleplayer/UI/info pop up/info_pop_up.tscn" id="9_wxujf"]
 
@@ -53,7 +53,7 @@ offset_top = 272.0
 offset_right = 160.0
 offset_bottom = 272.0
 
-[node name="Container" parent="." instance=ExtResource("6_545p4")]
+[node name="InformationList" parent="." instance=ExtResource("6_545p4")]
 offset_left = 640.0
 offset_right = 960.0
 offset_bottom = 536.0

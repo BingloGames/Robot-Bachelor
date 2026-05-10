@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://dqdijlggb57o1"]
 
-[ext_resource type="Script" uid="uid://b1slommj35oow" path="res://components/singleplayer/UI/item list/item_list.gd" id="1_ujeow"]
+[ext_resource type="Script" uid="uid://b1slommj35oow" path="res://components/singleplayer/UI/information list/informationList.gd" id="1_ujeow"]
 [ext_resource type="Texture2D" uid="uid://oad1da3fp06l" path="res://question.png" id="2_um5md"]
 
-[node name="Container" type="Control"]
+[node name="informationList" type="Control"]
 layout_mode = 3
 anchor_right = 0.333
 anchor_bottom = 1.0070001

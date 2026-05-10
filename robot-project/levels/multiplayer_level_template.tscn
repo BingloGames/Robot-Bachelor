@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bi4dvyn34dlfm" path="res://components/multiplayer/item/items_counter_multiplayer.gd" id="2_8riqo"]
 [ext_resource type="TileSet" uid="uid://b86b5a6rn7qvr" path="res://components/singleplayer/tileset/TileSet.tres" id="2_xsnl2"]
 [ext_resource type="TileSet" uid="uid://v2fstb4rhx2m" path="res://components/singleplayer/tileset/coveyorBelts.tres" id="3_bbrjg"]
-[ext_resource type="PackedScene" uid="uid://b6xvm46atvf7i" path="res://components/multiplayer/UI/item list/item_list_multiplayer.tscn" id="3_xsnl2"]
+[ext_resource type="PackedScene" uid="uid://b6xvm46atvf7i" path="res://components/multiplayer/UI/information list/informationList_multiplayer.tscn" id="3_xsnl2"]
 [ext_resource type="PackedScene" uid="uid://50q4mg84a340" path="res://components/multiplayer/UI/code window/codeWindow_multiplayer.tscn" id="4_bbrjg"]
 [ext_resource type="PackedScene" uid="uid://cx1504tg7girn" path="res://components/multiplayer/star/star_counter_multiplayer.tscn" id="5_5mrgi"]
 [ext_resource type="PackedScene" uid="uid://dj7f68aatv7qu" path="res://components/multiplayer/robot/robot multiplayer.tscn" id="5_bbrjg"]
@@ -42,7 +42,7 @@ script = ExtResource("2_8riqo")
 
 [node name="robot2" parent="robots" instance=ExtResource("5_bbrjg")]
 
-[node name="Container" parent="." instance=ExtResource("3_xsnl2")]
+[node name="InformationList" parent="." instance=ExtResource("3_xsnl2")]
 offset_left = 640.0
 offset_right = 960.0
 offset_bottom = 544.0

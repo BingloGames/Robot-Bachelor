@@ -107,7 +107,7 @@ func restart_level() -> void:
 			laser.reset()
 	
 	if get_node("/root/Node2D").has_node("items"):
-		get_node("/root/Node2D/Container").restart()
+		get_node("/root/Node2D/InformationList").restart()
 		get_node("/root/Node2D/items").reset_items()
 
 ##Completes the level.

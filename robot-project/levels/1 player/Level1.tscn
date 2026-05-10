@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bdbqr488vc61t" path="res://components/singleplayer/star/star counter.tscn" id="2_mc20k"]
 [ext_resource type="Script" uid="uid://bc27vibglbqta" path="res://components/singleplayer/item/items_counter.gd" id="2_vxtnj"]
 [ext_resource type="PackedScene" uid="uid://bkcxr5ltukhr1" path="res://components/singleplayer/robot/robot.tscn" id="3_cove1"]
-[ext_resource type="PackedScene" uid="uid://dqdijlggb57o1" path="res://components/singleplayer/UI/item list/item_list.tscn" id="6_lmyl5"]
+[ext_resource type="PackedScene" uid="uid://dqdijlggb57o1" path="res://components/singleplayer/UI/information list/informationList.tscn" id="6_lmyl5"]
 [ext_resource type="PackedScene" uid="uid://bu5wqujjgco58" path="res://components/singleplayer/UI/info pop up/info_pop_up.tscn" id="6_lrqwn"]
 [ext_resource type="PackedScene" uid="uid://dj8bvk78ajlmy" path="res://components/singleplayer/item/Item.tscn" id="7_qrxcu"]
 [ext_resource type="PackedScene" uid="uid://di21tnjo7imbw" path="res://components/singleplayer/UI/back button/back.tscn" id="9_wcp0l"]
@@ -61,7 +61,7 @@ grow_horizontal = 1
 grow_vertical = 1
 metadata/_edit_group_ = true
 
-[node name="Container" parent="." instance=ExtResource("6_lmyl5")]
+[node name="InformationList" parent="." instance=ExtResource("6_lmyl5")]
 offset_left = 640.0
 offset_right = 960.0
 offset_bottom = 536.0

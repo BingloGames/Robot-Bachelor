@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://bi4dvyn34dlfm" path="res://components/multiplayer/item/items_counter_multiplayer.gd" id="4_f18ai"]
 [ext_resource type="PackedScene" uid="uid://cb4vrqqmf63ik" path="res://components/multiplayer/button/button_multiplayer.tscn" id="7_bcaga"]
 [ext_resource type="PackedScene" uid="uid://bu5wqujjgco58" path="res://components/singleplayer/UI/info pop up/info_pop_up.tscn" id="8_t6xwf"]
-[ext_resource type="PackedScene" uid="uid://b6xvm46atvf7i" path="res://components/multiplayer/UI/item list/item_list_multiplayer.tscn" id="9_f18ai"]
+[ext_resource type="PackedScene" uid="uid://b6xvm46atvf7i" path="res://components/multiplayer/UI/information list/informationList_multiplayer.tscn" id="9_f18ai"]
 [ext_resource type="PackedScene" uid="uid://50q4mg84a340" path="res://components/multiplayer/UI/code window/codeWindow_multiplayer.tscn" id="10_rdv1c"]
 [ext_resource type="PackedScene" uid="uid://cx1504tg7girn" path="res://components/multiplayer/star/star_counter_multiplayer.tscn" id="11_xap0c"]
 [ext_resource type="PackedScene" uid="uid://cxeawjf1ifbsm" path="res://components/multiplayer/UI/back button/back_multiplayer.tscn" id="12_bcaga"]
@@ -63,7 +63,7 @@ position = Vector2(336, 208)
 [node name="Item2" parent="Items" instance=ExtResource("2_rdv1c")]
 position = Vector2(144, 208)
 
-[node name="Container" parent="." instance=ExtResource("9_f18ai")]
+[node name="InformationList" parent="." instance=ExtResource("9_f18ai")]
 offset_left = 640.0
 offset_right = 960.32
 offset_bottom = 544.0

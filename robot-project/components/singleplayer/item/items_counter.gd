@@ -5,7 +5,7 @@ class_name ItemsCounter
 ##Number of picked up items.
 var item_count = 0
 ##Path to the Item List node.
-@onready var item_list_node = get_node("/root/Node2D/Container")
+@onready var item_list_node = get_node("/root/Node2D/InformationList")
 
 @onready var itemsInItemList = item_list_node.items#does this work?
 

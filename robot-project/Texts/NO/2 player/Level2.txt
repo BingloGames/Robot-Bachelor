@@ -1,0 +1,1 @@
+Noen ganger har du en funksjon i en annen fil som du vil bruke. For å gjøre det bruker vi "import".

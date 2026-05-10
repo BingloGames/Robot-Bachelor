@@ -1,5 +1,5 @@
-extends "res://components/singleplayer/UI/item list/item_list.gd"
-class_name MultiplayerItemList
+extends "res://components/singleplayer/UI/information list/informationList.gd"
+class_name MultiplayerInformationList
 ##Show the list of functions and other information in a multiplayer setting.
 
 

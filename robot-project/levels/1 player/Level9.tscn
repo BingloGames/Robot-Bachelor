@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d1ckbdo8lkn4r" path="res://components/singleplayer/laser/laser.tscn" id="3_y55w6"]
 [ext_resource type="PackedScene" uid="uid://b7xm7lsovxbqr" path="res://components/singleplayer/UI/code window/codeWindow.tscn" id="4_y55w6"]
 [ext_resource type="PackedScene" uid="uid://bdbqr488vc61t" path="res://components/singleplayer/star/star counter.tscn" id="5_4iebt"]
-[ext_resource type="PackedScene" uid="uid://dqdijlggb57o1" path="res://components/singleplayer/UI/item list/item_list.tscn" id="6_3wshf"]
+[ext_resource type="PackedScene" uid="uid://dqdijlggb57o1" path="res://components/singleplayer/UI/information list/informationList.tscn" id="6_3wshf"]
 [ext_resource type="PackedScene" uid="uid://bu5wqujjgco58" path="res://components/singleplayer/UI/info pop up/info_pop_up.tscn" id="7_ds4wx"]
 [ext_resource type="PackedScene" uid="uid://di21tnjo7imbw" path="res://components/singleplayer/UI/back button/back.tscn" id="8_5leri"]
 
@@ -72,14 +72,13 @@ grow_horizontal = 1
 grow_vertical = 1
 metadata/_edit_group_ = true
 
-[node name="Container" parent="." instance=ExtResource("6_3wshf")]
+[node name="InformationList" parent="." instance=ExtResource("6_3wshf")]
 offset_left = 640.0
 offset_right = 960.0
 offset_bottom = 536.0
 items = 6
 
 [node name="Info pop up" parent="." instance=ExtResource("7_ds4wx")]
-visible = false
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0

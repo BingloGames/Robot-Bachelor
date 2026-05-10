@@ -1,0 +1,5 @@
+I dette levelet vil du lære om funksjoner. 
+
+En funksjon er linjer med kode som har blitt gitt et navn og kan bli kalt flere ganger uten å skrive de linjene med kode vær eneste gang.
+
+For å kalle en funksjon, skriv navnet på funksjonen og skriv "()" på slutten.

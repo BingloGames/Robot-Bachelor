@@ -1,5 +1,5 @@
 extends Control
-class_name NewName
+class_name InformationList
 ##List of functions and other items with descriptions for each of them.
 
 ##List of preloaded functions

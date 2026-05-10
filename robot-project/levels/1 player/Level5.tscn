@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://bc27vibglbqta" path="res://components/singleplayer/item/items_counter.gd" id="4_ngd16"]
 [ext_resource type="PackedScene" uid="uid://bkcxr5ltukhr1" path="res://components/singleplayer/robot/robot.tscn" id="4_ufpxx"]
 [ext_resource type="PackedScene" uid="uid://ba7flvblhi3ln" path="res://components/singleplayer/door/door.tscn" id="5_5pfj7"]
-[ext_resource type="PackedScene" uid="uid://dqdijlggb57o1" path="res://components/singleplayer/UI/item list/item_list.tscn" id="6_knvoa"]
+[ext_resource type="PackedScene" uid="uid://dqdijlggb57o1" path="res://components/singleplayer/UI/information list/informationList.tscn" id="6_knvoa"]
 [ext_resource type="PackedScene" uid="uid://ct3ylbdix74av" path="res://components/singleplayer/button/button.tscn" id="6_ngd16"]
 [ext_resource type="PackedScene" uid="uid://bu5wqujjgco58" path="res://components/singleplayer/UI/info pop up/info_pop_up.tscn" id="8_5pfj7"]
 [ext_resource type="PackedScene" uid="uid://lggogupwduwp" path="res://components/singleplayer/UI/input pop up/input_pop_up.tscn" id="8_vpjvl"]
@@ -64,7 +64,7 @@ offset_right = 640.0
 offset_bottom = 536.0
 line_limit = 20
 
-[node name="Container" parent="." instance=ExtResource("6_knvoa")]
+[node name="InformationList" parent="." instance=ExtResource("6_knvoa")]
 offset_left = 640.0
 offset_right = 960.0
 offset_bottom = 536.0
@@ -78,7 +78,6 @@ offset_bottom = 536.0
 answers = Array[String](["list[1]"])
 
 [node name="Info pop up" parent="." instance=ExtResource("8_5pfj7")]
-visible = false
 anchors_preset = 10
 anchor_bottom = 0.0
 offset_right = 960.0

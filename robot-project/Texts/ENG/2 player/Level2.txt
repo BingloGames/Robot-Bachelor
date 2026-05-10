@@ -1,0 +1,1 @@
+Some times, you will have a function in another file that you will want to call. For this, we use "import". 

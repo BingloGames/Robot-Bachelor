@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://l3qw0qu7nayk" path="res://levels/multiplayer_level_template.tscn" id="1_gdwxg"]
 [ext_resource type="PackedScene" uid="uid://l7xyld7tae6d" path="res://components/multiplayer/laser/laser multiplayer.tscn" id="2_53uk7"]
-[ext_resource type="TileSet" uid="uid://v2fstb4rhx2m" path="res://components/singleplayer/tileset/coveyorBelts-alt.tres" id="2_re278"]
+[ext_resource type="TileSet" uid="uid://v2fstb4rhx2m" path="res://components/singleplayer/tileset/coveyorBelts.tres" id="2_re278"]
 
 [node name="Node2D" instance=ExtResource("1_gdwxg")]
 metadata/_edit_horizontal_guides_ = [400.0]

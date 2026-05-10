@@ -1,10 +1,11 @@
 extends Button
-##Back button, takes you back to level selector
+class_name BackButton
+##Back button, takes you back to single player level selector.
 
-##Path to the single player menu scene
-var player_menu_file = "res://1_player_menu.tscn"
+##Path to the single player menu scene.
+var player_menu_file = "res://menus/1_player_menu.tscn"
 
-##Changes the scene to the single player player menu file
+##Changes the scene to the single player player menu file.
 func back():
 	get_tree().change_scene_to_file(player_menu_file)
 

@@ -1,11 +1,11 @@
 [gd_resource type="TileSet" load_steps=6 format=3 uid="uid://b86b5a6rn7qvr"]
 
-[ext_resource type="Texture2D" uid="uid://b6tsydf15p2gp" path="res://components/singleplayer/tileset/scifitiles - copia.png" id="2_hhvbn"]
+[ext_resource type="Texture2D" uid="uid://b6tsydf15p2gp" path="res://components/singleplayer/tileset/scifitiles.png" id="1_g50rk"]
 [ext_resource type="PackedScene" uid="uid://ba7flvblhi3ln" path="res://components/singleplayer/door/door.tscn" id="3_2edxk"]
 [ext_resource type="PackedScene" uid="uid://fwhkk0ctks56" path="res://components/singleplayer/star/Star.tscn" id="3_t7fou"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t7fou"]
-texture = ExtResource("2_hhvbn")
+texture = ExtResource("1_g50rk")
 texture_region_size = Vector2i(32, 32)
 0:1/0 = 0
 0:1/0/terrain_set = 0

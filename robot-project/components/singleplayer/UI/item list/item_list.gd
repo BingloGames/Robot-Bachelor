@@ -49,7 +49,15 @@ func _on_button_mouse_entered(source: Button) -> void:
 	var item_num = int(source.name)
 	item = list_node.get_item_text(item_num)
 	item = item.replace(":","")
+	var item_split = item.split(" ")
+	if item_split[0] == "X" or item_split[0] == "Y":
+		item = "Variable"
 	
+	elif item_split[0] == "list":
+		item = "list"
+	else:
+		item = item
+		
 	var file_path = path + language + item + ".txt"
 	if FileAccess.file_exists(file_path):
 		var file = FileAccess.open(file_path, FileAccess.READ)

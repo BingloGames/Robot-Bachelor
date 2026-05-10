@@ -1,11 +1,15 @@
 extends Node2D
+class_name startMenu
+##Menu where you select the language and the number of players.
 
-
+##The animation player child of this node.
 @onready var anim_player = get_node("AnimationPlayer")
+##The start button child of this node.
 @onready var start_button = get_node("start")
+##The language selector child of this node.
 @onready var language_selector = get_node("language selector")
 
-
+##The template for the menu sceenes.
 var level_selectors_file_template = "res://menus/{0}_player_menu.tscn"
 
 
@@ -19,7 +23,6 @@ func _on_start_pressed() -> void:
 func _on_players_pressed(num_players: String) -> void:
 	var level_selector_path = level_selectors_file_template.format([num_players])
 	
-	
 	var tween = get_tree().create_tween()
 	tween.tween_property(self,"modulate:a", 0, 0.5)
 	tween.tween_callback(Callable(get_tree(), "change_scene_to_file").bind(level_selector_path)).set_delay(0.2)
@@ -27,8 +30,6 @@ func _on_players_pressed(num_players: String) -> void:
 
 func _on_language_selector_item_selected(index: int) -> void:
 	var language = language_selector.get_item_text(index)
-	
-	
 	match language:
 		"English":
 			Global.text_language = "/ENG/"
@@ -36,4 +37,3 @@ func _on_language_selector_item_selected(index: int) -> void:
 			Global.text_language = "/ES/"
 		"Norsk":
 			Global.text_language = "/NO/"
-	

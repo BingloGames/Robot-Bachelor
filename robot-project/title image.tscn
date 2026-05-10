@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=4 uid="uid://x0flr6gn6rgq"]
 
 [ext_resource type="TileSet" uid="uid://b86b5a6rn7qvr" path="res://components/singleplayer/tileset/TileSet.tres" id="1_njei4"]
-[ext_resource type="TileSet" uid="uid://v2fstb4rhx2m" path="res://components/singleplayer/tileset/coveyorBelts-alt.tres" id="2_paka8"]
+[ext_resource type="TileSet" uid="uid://v2fstb4rhx2m" path="res://components/singleplayer/tileset/coveyorBelts.tres" id="2_paka8"]
 [ext_resource type="PackedScene" uid="uid://dj8bvk78ajlmy" path="res://components/singleplayer/item/Item.tscn" id="3_ob4uq"]
 [ext_resource type="PackedScene" uid="uid://ct3ylbdix74av" path="res://components/singleplayer/button/button.tscn" id="4_jg4dp"]
 [ext_resource type="PackedScene" uid="uid://ba7flvblhi3ln" path="res://components/singleplayer/door/door.tscn" id="5_6aard"]

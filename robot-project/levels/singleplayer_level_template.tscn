@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bc27vibglbqta" path="res://components/singleplayer/item/items_counter.gd" id="1_7knob"]
 [ext_resource type="TileSet" uid="uid://b86b5a6rn7qvr" path="res://components/singleplayer/tileset/TileSet.tres" id="1_y3buq"]
-[ext_resource type="TileSet" uid="uid://cd2adi2gk1aay" path="res://components/singleplayer/tileset/coveyorBelts.tres" id="2_7gxc6"]
+[ext_resource type="TileSet" uid="uid://v2fstb4rhx2m" path="res://components/singleplayer/tileset/coveyorBelts.tres" id="2_7gxc6"]
 [ext_resource type="PackedScene" uid="uid://b7xm7lsovxbqr" path="res://components/singleplayer/UI/code window/codeWindow.tscn" id="2_x7vpy"]
 [ext_resource type="PackedScene" uid="uid://bdbqr488vc61t" path="res://components/singleplayer/star/star counter.tscn" id="3_x7vpy"]
 [ext_resource type="PackedScene" uid="uid://bkcxr5ltukhr1" path="res://components/singleplayer/robot/robot.tscn" id="4_7gxc6"]

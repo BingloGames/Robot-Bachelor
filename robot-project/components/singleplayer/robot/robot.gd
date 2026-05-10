@@ -1,5 +1,6 @@
 extends CharacterBody2D
 class_name Robot
+##The character that the user will control.
 
 
 const SPEED = 100
@@ -184,7 +185,7 @@ func move(delta: float) -> void:
 		check_tile()
 #endregion
 
-#region cheks 
+#region checks 
 ##Checks if the robot is on top of a special tile.
 func check_tile() -> void:
 	if died:

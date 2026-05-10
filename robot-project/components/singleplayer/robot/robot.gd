@@ -56,6 +56,7 @@ func _physics_process(delta: float) -> void:
 static func get_speed() -> int:
 	return SPEED
 
+#region Basic Robot functions 
 ##Makes robot walk forward one tile.
 func forward() -> void:
 	var current_tile = special_tilemap.local_to_map(global_position)
@@ -95,7 +96,9 @@ func wait() -> void:
 func _on_wait_timeout() -> void:
 	code_node.robot_changes_wait(self, false)
 	check_tile()
+#endregion
 
+#region Robot animations
 ##Starts the correct animation.
 func play_animation(animation: String) -> void:
 	if anim_player.get_current_animation() == animation:
@@ -130,12 +133,13 @@ func walk_animation() -> void:
 	play_directional_animation("walk")
 
 
-
 ##Plays the dying animation.
 func die() -> void:
 	died = true
 	play_directional_animation("die", movement_direction)
+#endregion
 
+#region Reset and main Move function
 ##After the robots finishes the dying animation, restarts the level.
 func robot_finished_dying():
 	Global.restart_level()
@@ -154,7 +158,6 @@ func respawn() -> void:
 	stop_conveyor()
 	code_node.running_code = false
 	idle()
-
 
 ##Starts the Robot movement.
 func move(delta: float) -> void:
@@ -179,7 +182,9 @@ func move(delta: float) -> void:
 		next_tile = null
 		code_node.robot_changes_wait(self, false)
 		check_tile()
+#endregion
 
+#region cheks 
 ##Checks if the robot is on top of a special tile.
 func check_tile() -> void:
 	if died:
@@ -276,3 +281,4 @@ func check_end() -> void:
 		return
 	
 	Global.complete_level_player_1()
+#endregion

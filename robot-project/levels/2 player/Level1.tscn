@@ -81,7 +81,6 @@ offset_bottom = 368.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Info pop up" parent="." instance=ExtResource("8_t6xwf")]
-visible = false
 offset_right = 960.0
 offset_bottom = 544.0
 

@@ -55,7 +55,6 @@ offset_right = 184.0
 offset_bottom = 464.0
 
 [node name="Info pop up" parent="." instance=ExtResource("9_bfn2g")]
-visible = false
 offset_right = 960.0
 offset_bottom = 544.0
 

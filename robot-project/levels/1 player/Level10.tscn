@@ -156,6 +156,7 @@ offset_right = 952.0
 offset_bottom = 536.0
 
 [node name="black" type="ColorRect" parent="."]
+visible = false
 offset_right = 960.0
 offset_bottom = 544.0
 mouse_filter = 2

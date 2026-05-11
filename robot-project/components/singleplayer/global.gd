@@ -125,6 +125,7 @@ func next_level_player_1() -> void:
 	var level_file_name = levels_1_player_path+"/"+levels_file_start+current_level+path_end
 	if not FileAccess.file_exists(level_file_name):
 		get_tree().change_scene_to_file(single_player_menu)
+		return
 	
 	get_tree().change_scene_to_file(level_file_name)
 
@@ -135,5 +136,6 @@ func next_level_player_2() -> void:
 	var level_file_name = levels_2_player_path+"/"+levels_file_start+current_level+path_end
 	if not FileAccess.file_exists(level_file_name):
 		get_tree().change_scene_to_file(multiplayer_level_selector)
+		return
 	
 	get_tree().change_scene_to_file(level_file_name)

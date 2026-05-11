@@ -52,7 +52,7 @@ func _on_button_pressed() -> void:
 		import_func(line_array)
 		return
 	
-	line = line.to_lower().remove_chars(" ")
+	line = line.remove_chars(" ")
 	
 	for answer in answers:
 		if not line == answer:

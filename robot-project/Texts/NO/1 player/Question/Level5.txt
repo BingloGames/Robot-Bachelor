@@ -1,1 +1,2 @@
-Question level 5 about lists
+Hent tallet 3 fra listen med å bruke den riktige indeksen.
+Format: list[n]

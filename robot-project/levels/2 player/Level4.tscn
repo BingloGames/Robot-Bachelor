@@ -62,9 +62,11 @@ script = ExtResource("6_mth2d")
 
 [node name="Item" parent="items" instance=ExtResource("6_iadhh")]
 position = Vector2(208, 432)
+item_name = "X=4"
 
 [node name="Item2" parent="items" instance=ExtResource("6_iadhh")]
 position = Vector2(176, 176)
+item_name = "Y=10"
 
 [node name="InformationList" parent="." instance=ExtResource("8_72kc1")]
 offset_left = 640.0
@@ -87,6 +89,7 @@ visible = false
 offset_left = 432.0
 offset_right = 432.0
 offset_bottom = 0.0
+answers = Array[String](["X+Y", "Y+X", "14"])
 
 [node name="Info pop up" parent="." instance=ExtResource("9_hvgfx")]
 offset_right = 960.0

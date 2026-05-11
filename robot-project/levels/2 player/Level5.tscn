@@ -52,6 +52,7 @@ script = ExtResource("6_sydfi")
 
 [node name="Item" parent="items" instance=ExtResource("4_nabyu")]
 position = Vector2(400, 112)
+item_name = "list=[2,6,0,5,7]"
 
 [node name="robots" type="Node2D" parent="."]
 
@@ -84,6 +85,7 @@ visible = false
 offset_left = 448.0
 offset_right = 736.0
 offset_bottom = 536.11
+answers = Array[String](["list[4]"])
 
 [node name="Info pop up" parent="." instance=ExtResource("9_yywvu")]
 offset_right = 960.0

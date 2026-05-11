@@ -1,6 +1,2 @@
-In the previous level you picked up the functions "left()" and "right()". 
-Try importing them with "import left() from Level 1" and "import right() from Level 2".
-
-
 I det forrige nivået plukket du opp funksjonene "left()" og "right()". 
 Prøv å importere de med "import left() from Level 1" og "import right() from Level 2".

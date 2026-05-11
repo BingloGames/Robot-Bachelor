@@ -1,2 +1,2 @@
-Change the variable "answer" to 3 by calling the list with the correct index.
-Format: answer = list[n]
+Get 3 by calling the list with the correct index.
+Format: list[n]

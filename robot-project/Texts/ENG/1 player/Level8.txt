@@ -1,0 +1,1 @@
+Lasers will kill the robot. Use wait() to time with the laser.

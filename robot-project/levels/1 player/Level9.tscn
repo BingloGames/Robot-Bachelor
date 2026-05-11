@@ -39,6 +39,7 @@ rotation = -1.5707964
 [node name="laser2" parent="lasers" instance=ExtResource("3_y55w6")]
 position = Vector2(336, 240)
 rotation = 3.1415927
+laser_off_turns_interval = 6
 
 [node name="laser3" parent="lasers" instance=ExtResource("3_y55w6")]
 position = Vector2(272, 112)
@@ -79,6 +80,7 @@ offset_bottom = 536.0
 items = 6
 
 [node name="Info pop up" parent="." instance=ExtResource("7_ds4wx")]
+visible = false
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://dqg65glpcepl0"]
+[gd_scene load_steps=15 format=4 uid="uid://dqg65glpcepl0"]
 
 [ext_resource type="TileSet" uid="uid://b86b5a6rn7qvr" path="res://components/singleplayer/tileset/TileSet.tres" id="1_qaj34"]
 [ext_resource type="Script" uid="uid://bc27vibglbqta" path="res://components/singleplayer/item/items_counter.gd" id="2_5p22j"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bu5wqujjgco58" path="res://components/singleplayer/UI/info pop up/info_pop_up.tscn" id="7_2hmoo"]
 [ext_resource type="PackedScene" uid="uid://d1ckbdo8lkn4r" path="res://components/singleplayer/laser/laser.tscn" id="7_gq1rj"]
 [ext_resource type="PackedScene" uid="uid://di21tnjo7imbw" path="res://components/singleplayer/UI/back button/back.tscn" id="8_pfd0j"]
+[ext_resource type="PackedScene" uid="uid://lggogupwduwp" path="res://components/singleplayer/UI/input pop up/input_pop_up.tscn" id="13_2hmoo"]
 
 [node name="Node2D" type="Node2D"]
 metadata/_edit_vertical_guides_ = [0.0, 320.0]
@@ -139,6 +140,13 @@ offset_right = 960.0
 offset_bottom = 544.0
 grow_horizontal = 1
 grow_vertical = 1
+
+[node name="Input pop up" parent="." instance=ExtResource("13_2hmoo")]
+visible = false
+offset_left = 640.0
+offset_right = 640.0
+offset_bottom = 0.0
+answers = Array[String](["answer"])
 
 [node name="back" parent="." instance=ExtResource("8_pfd0j")]
 offset_left = 888.0

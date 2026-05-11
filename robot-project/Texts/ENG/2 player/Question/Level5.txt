@@ -1,0 +1,2 @@
+Get 7 by calling the list with the correct index.
+Format: list[n]

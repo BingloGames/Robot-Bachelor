@@ -1,1 +1,3 @@
-Some times, you will have a function in another file that you will want to call. For this, we use "import". 
+Sometimes, you will want to do the same action over and over. For this we use a for loop, like this:
+	for i in range(5):
+		forward()

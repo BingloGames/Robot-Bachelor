@@ -1,23 +1,29 @@
 extends Node2D
+class_name MultiplayerConnectionMenu
+##Menu to connect the players.
 
-
+##The host or join layer node.
 @onready var host_or_join_node = get_node("host or join")
+##The host layer node.
 @onready var host_node = get_node("host game")
+##The join layer node.
 @onready var join_node = get_node("join game")
+##The peer connected layer node.
 @onready var join_connected = get_node("joiner connected")
+##The name error node to display name errors.
 @onready var name_error_node = get_node("name error")
 
 
-var start_menu_file = "res://menus/start_menu.tscn"
-var level_selector = "res://menus/2_player_level_selector.tscn"
+const start_menu_file = "res://menus/start_menu.tscn"
+const level_selector = "res://menus/2_player_level_selector.tscn"
 
 
 #change with text file for language support
-var invalid_ip_text = "Invalid IP address"
-var IP_addresses_text = "Your IP addresses"
-var not_connected_text = "No connected robots"
-var other_player_connected_text = "Fellow robot"
-var need_name_error_text = "You need a name"
+const invalid_ip_text = "Invalid IP address"
+const IP_addresses_text = "Your IP addresses"
+const not_connected_text = "No connected robots"
+const other_player_connected_text = "Fellow robot"
+const need_name_error_text = "You need a name"
 
 
 func _ready() -> void:
@@ -69,12 +75,12 @@ func _on_connect_pressed() -> void:
 func _on_start_pressed() -> void:
 	move_to_selector.rpc()
 
-
+##RPC that moves the peer to the level selector.
 @rpc("call_local", "reliable")
 func move_to_selector():
 	get_tree().change_scene_to_file(level_selector)
 
-
+##RPC that disconnect the peer from the other peers.
 @rpc("any_peer", "reliable")
 func disconnect_peer(id: int) -> void:
 	multiplayer.multiplayer_peer.disconnect_peer(id)
@@ -83,7 +89,7 @@ func disconnect_peer(id: int) -> void:
 	
 	host_node.get_node("Label").text = not_connected_text
 
-
+##Shows the name of the other peer.
 func show_names(new_name: String) -> void:
 	var node_path = ""
 	
@@ -121,7 +127,7 @@ func _on_host_back_pressed() -> void:
 func _on_back_pressed() -> void:
 	get_tree().change_scene_to_file(start_menu_file)
 
-
+##Verify that the name is acceptable.
 func verify_name(player_name: String) -> Array:
 	if player_name == "":
 		return [false, need_name_error_text]
@@ -139,7 +145,6 @@ func _on_name_changed(new_text: String) -> void:
 	
 	
 	name_error_node.text = ""
-	print("new player name: ", new_text)
 	ConnectionController.player_name = new_text
 	
 	

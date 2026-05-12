@@ -1,4 +1,4 @@
-extends "res://components/singleplayer/UI/information list/informationList.gd"
+extends InformationList
 class_name MultiplayerInformationList
 ##Show the list of functions and other information in a multiplayer setting.
 

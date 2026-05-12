@@ -1,4 +1,4 @@
-extends "res://menus/1_player_menu.gd"
+extends SinglePlayerMenu
 class_name MultiPlayerMenu
 ##Multi player menu level selector.
 

@@ -1,5 +1,7 @@
 extends Node2D
 class_name MultiplayerGeneral
+##Manages the ending in a multiplayer setting. Singleplayer levels handle it automatically.
+
 
 ##Tilemap that contains the special tiles.
 @onready var special_tilemap_node = get_node("special")

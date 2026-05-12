@@ -1,28 +1,29 @@
 extends Node
 
 
-var levels_1_player_path = "res://levels/1 player"
-var levels_2_player_path = "res://levels/2 player"
+const levels_1_player_path = "res://levels/1 player"
+const levels_2_player_path = "res://levels/2 player"
 
-var levels_file_start = "Level"
-var path_end = ".tscn"
+const levels_file_start = "Level"
+const path_end = ".tscn"
 
-var text_path = "res://Texts"
+const text_path = "res://Texts"
+##The language folder that will be used.
 var text_language = "/ENG/"
 
-var save_file_text = "user://stars.save"
+const save_file_text = "user://stars.save"
 
-var single_player_menu = "res://menus/1_player_menu.tscn"
-var multiplayer_level_selector = "res://menus/2_player_level_selector.tscn"
+const single_player_menu = "res://menus/1_player_menu.tscn"
+const multiplayer_level_selector = "res://menus/2_player_level_selector.tscn"
 
-var inventory = []
 
+##The stars for each level.
 var stars = {}
+##The current level as a string.
 var current_level = "0"
+##The number of players as a string.
 var num_players = "1"
 
-
-var robot_turn = 0
 
 ##Gets text from text file to show in Info pop up.
 func get_info_text() -> String:

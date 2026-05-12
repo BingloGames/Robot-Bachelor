@@ -13,19 +13,19 @@ class_name CodeWindow
 
 
 #update with language. Errors in default english.
-var last_line_error = "Warning: Last line"
-var code_stopped_text = "Code stopped"
-var line_problem_text = "Problem at line: "
-var no_code_error = "No code"
-var nested_loop_error = "Nested loop"
-var unknown_func_error = "Unknown function: "
-var syntax_error = "Syntax error"
-var for_loop_var_exists_error_1 = "Variable: "
-var for_loop_var_exists_error_2 = " in for loop already exist"
-var for_loop_in_error = "Syntax error (no 'in' or 'in' at wrong place)"
-var inside_range_error = "Syntax error! (error inside range())"
-var range_error = "Invalid syntax with range!"
-var for_loop_content_invalid = "For loop content invalid"
+const last_line_error = "Warning: Last line"
+const code_stopped_text = "Code stopped"
+const line_problem_text = "Problem at line: "
+const no_code_error = "No code"
+const nested_loop_error = "Nested loop"
+const unknown_func_error = "Unknown function: "
+const syntax_error = "Syntax error"
+const for_loop_var_exists_error_1 = "Variable: "
+const for_loop_var_exists_error_2 = " in for loop already exist"
+const for_loop_in_error = "Syntax error (no 'in' or 'in' at wrong place)"
+const inside_range_error = "Syntax error! (error inside range())"
+const range_error = "Invalid syntax with range!"
+const for_loop_content_invalid = "For loop content invalid"
 
 ##list of the Robot's base functions.
 var base_functions = ["forward()", "backward()", "left()", "right()", "wait()"]
@@ -56,8 +56,9 @@ var for_loop_contents = []
 ##Number of times the loop has to run.
 var for_loop_max = 0
 
-
+##Variable names and their values. Not used.
 var variables = {} #variable_name : variable_value
+##For loop variable names and their values. Not used.
 var for_loop_variables = {} 
 
 
@@ -137,13 +138,13 @@ func run_line(code: String) -> void:
 		if for_looping:
 			return
 		
-		start_for_loop(code_split, code)
+		start_for_loop(code_split)
 		return
 	
 	run_base_functions(code)
 
 ##Starts a loop. 
-func start_for_loop(code_split: Array[String], code: String) -> void:
+func start_for_loop(code_split: Array[String]) -> void:
 	#for loop already validated, so we know this works
 	turn += 1
 	var range_split = code_split[3].split("(", false) #should have range_split[0] = "range", range_split[1] = "n):"

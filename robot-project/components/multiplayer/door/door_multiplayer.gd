@@ -2,7 +2,7 @@ extends Door
 class_name MultiplayerDoor
 ##A door that is only suppose to be used in a multiplayer setting. Relies on functionality from the door class.
 
-
+#region Open
 ##Calls open_multiplayer.rpc() on all clients and server. Does not do anything if not called on the server.
 func open() -> void:
 	if not multiplayer.is_server():
@@ -17,7 +17,9 @@ func open_multiplayer() -> void:
 	
 	
 	super.open()
+#endregion
 
+#region Close
 ##Calls close_multiplayer.rpc() on all clients and server. Does not do anything if not called on the server.
 func close() -> void:
 	if not multiplayer.is_server():
@@ -32,20 +34,9 @@ func close_multiplayer() -> void:
 	
 	
 	super.close()
+#endregion
 
-##Resumes the game when the door is ready. Automatically called when the door animation is finished. 
-func finished() -> void:
-	if not multiplayer.is_server():
-		return
-	
-	
-	super.finished()
-	
-	
-	print("door finished opening")
-	for robot in code_node.robot_waiting_data.keys():
-		code_node.robot_waiting_data[robot]["running_code"] = true
-
+#region Reset
 ##Calls reset_multiplayer.rpc() on all clients and server. Does not do anything if not called on the server.
 func reset() -> void:
 	if not multiplayer.is_server():
@@ -56,3 +47,16 @@ func reset() -> void:
 @rpc("call_local")
 func reset_multiplayer() -> void:
 	super.reset()
+#endregion
+
+##Resumes the game when the door is ready. Automatically called when the door animation is finished. 
+func finished() -> void:
+	if not multiplayer.is_server():
+		return
+	
+	
+	super.finished()
+	
+	
+	for robot in code_node.robot_waiting_data.keys():
+		code_node.robot_waiting_data[robot]["running_code"] = true

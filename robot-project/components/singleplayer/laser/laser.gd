@@ -39,12 +39,14 @@ func _ready() -> void:
 	
 	ready_timer()
 
+
 func _physics_process(_delta: float) -> void:
 	if not active:
 		return
 	
 	if raycast.is_colliding():
 		check_collision()
+
 
 ##Changes the state of the laser to be ready to start, but does not start the laser.
 func ready_timer() -> void:
@@ -56,12 +58,14 @@ func ready_timer() -> void:
 	turn_off()
 	timer.set_wait_time(laser_off_time_interval)
 
+
 ##Checks the collision and updates the laser visually.
 func check_collision() -> void:
 	raycast.force_raycast_update()
 	var raycast_point = raycast.get_collision_point()
 	visual_change(raycast_point)
 	check_raycast_collider()
+
 
 ##Updates the lasers visuals.
 func visual_change(collision_point: Vector2) -> void:

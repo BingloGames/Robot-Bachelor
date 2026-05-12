@@ -2,12 +2,14 @@ extends Node2D
 class_name startMenu
 ##Menu where you select the language and the number of players.
 
+#region Node references
 ##The animation player child of this node.
 @onready var anim_player = get_node("AnimationPlayer")
 ##The start button child of this node.
 @onready var start_button = get_node("start")
 ##The language selector child of this node.
 @onready var language_selector = get_node("language selector")
+#endregion
 
 ##The template for the menu sceenes.
 var level_selectors_file_template = "res://menus/{0}_player_menu.tscn"

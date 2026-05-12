@@ -2,6 +2,7 @@ extends Control
 class_name InfoPopUp
 ##Text window for explanations at the begining of each level. It gets the text from a text file automatically, if it exists.
 
+#region Node references
 ##The ColorRect child of this node.
 @onready var color_rect_node = get_node("ColorRect")
 ##The Label child of this node.
@@ -10,7 +11,7 @@ class_name InfoPopUp
 @onready var close_node = get_node("Close")
 ##The Open button child of this node.
 @onready var open_node = get_node("Open")
-
+#endregion
 
 func _ready() -> void:
 	var text = Global.get_info_text()

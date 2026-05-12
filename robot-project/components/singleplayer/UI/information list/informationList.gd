@@ -12,12 +12,14 @@ var path = Global.text_path
 ##Selected language for the text files.
 var language = Global.text_language
 
+#region Node references
 ##The ItemList child of this node.
 @onready var list_node = get_node("ItemList")
 ##The label child of this node.
 @onready var text_node = get_node("Text")
 ##Path to the Code edit node.
 @onready var code_node = get_node("/root/Node2D/CodeWindow")
+#endregion
 
 
 var button = ""
@@ -83,6 +85,7 @@ func _on_item_clicked(index: int, _at_position: Vector2, _mouse_button_index: in
 	var last_line = text_edit.get_line_count()-1
 	var line_text = text_edit.get_line(current_line)
 	var check_empty = line_text.strip_edges()
+	
 	
 	if check_empty == "":
 		if current_line < last_line:

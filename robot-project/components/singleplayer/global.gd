@@ -1,6 +1,6 @@
 extends Node
 
-
+#region File references
 const levels_1_player_path = "res://levels/1 player"
 const levels_2_player_path = "res://levels/2 player"
 
@@ -15,7 +15,7 @@ const save_file_text = "user://stars.save"
 
 const single_player_menu = "res://menus/1_player_menu.tscn"
 const multiplayer_level_selector = "res://menus/2_player_level_selector.tscn"
-
+#endregion
 
 ##The stars for each level.
 var stars = {}
@@ -24,7 +24,7 @@ var current_level = "0"
 ##The number of players as a string.
 var num_players = "1"
 
-
+#region File handeling
 ##Gets text from text file to show in Info pop up.
 func get_info_text() -> String:
 	var level_dir = num_players + " player" + "/Level" + current_level
@@ -86,6 +86,8 @@ func load_stars() -> void:
 	for players in stars:
 		for level in stars[players]:
 			stars[players][level] = int(stars[players][level])
+#endregion
+
 
 ##Restarts the current level.
 func restart_level() -> void:
@@ -111,6 +113,7 @@ func restart_level() -> void:
 		get_node("/root/Node2D/InformationList").restart()
 		get_node("/root/Node2D/items").reset_items()
 
+
 ##Completes the level.
 func complete_level_player_1() -> void:
 	get_node("/root/Node2D/star counter").save_stars()
@@ -118,6 +121,7 @@ func complete_level_player_1() -> void:
 	var tween = get_tree().create_tween()
 	tween.tween_property(get_node("/root/Node2D/black"),"color:a", 1, 0.5)
 	tween.tween_callback(next_level_player_1).set_delay(0.2)
+
 
 ##Loads the next level scene for single play.
 func next_level_player_1() -> void:
@@ -129,6 +133,7 @@ func next_level_player_1() -> void:
 		return
 	
 	get_tree().change_scene_to_file(level_file_name)
+
 
 ##Loads the next level scene for multi play.
 func next_level_player_2() -> void:

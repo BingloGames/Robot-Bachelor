@@ -2,6 +2,7 @@ extends Node2D
 class_name SinglePlayerMenu
 ##Single player menu level selector
 
+#region File references
 ##Path for the level files.
 var levels_path = "res://levels/1 player"
 ##Start of the file name.
@@ -11,6 +12,7 @@ var path_end = ".tscn"
 
 ##Path to the start menu.
 var start_menu_file = "res://menus/start_menu.tscn"
+#endregion
 
 ##Path to the Buttons design for level selector scene.
 var level_buttons = preload("res://menus/level button.tscn")
@@ -56,6 +58,7 @@ func add_level_buttons(levels: Array) -> void:
 		button.level_file_name = levels_path+"/"+levels_file_start+level+path_end
 		button.get_child(0).text = level
 		get_node("levels").add_child(button, true)
+
 
 ##Transitions to the given level.
 func change_level(level_file_name: String, level: int) -> void:

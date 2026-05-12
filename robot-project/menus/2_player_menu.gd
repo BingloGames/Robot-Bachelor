@@ -2,6 +2,7 @@ extends Node2D
 class_name MultiplayerConnectionMenu
 ##Menu to connect the players.
 
+#region Node references
 ##The host or join layer node.
 @onready var host_or_join_node = get_node("host or join")
 ##The host layer node.
@@ -12,24 +13,26 @@ class_name MultiplayerConnectionMenu
 @onready var join_connected = get_node("joiner connected")
 ##The name error node to display name errors.
 @onready var name_error_node = get_node("name error")
-
+#endregion
 
 const start_menu_file = "res://menus/start_menu.tscn"
 const level_selector = "res://menus/2_player_level_selector.tscn"
 
-
+#region Text
 #change with text file for language support
 const invalid_ip_text = "Invalid IP address"
 const IP_addresses_text = "Your IP addresses"
 const not_connected_text = "No connected robots"
 const other_player_connected_text = "Fellow robot"
 const need_name_error_text = "You need a name"
+#endregion
 
 
 func _ready() -> void:
 	Global.num_players = "2"
 
 
+#region Button pressed signals
 func _on_host_pressed() -> void:
 	host_node.show()
 	host_or_join_node.hide()
@@ -75,6 +78,33 @@ func _on_connect_pressed() -> void:
 func _on_start_pressed() -> void:
 	move_to_selector.rpc()
 
+
+func _on_cancel_pressed() -> void:
+	disconnect_peer.rpc_id(1, multiplayer.get_unique_id())
+	
+	
+	join_connected.hide()
+	host_or_join_node.show()
+
+
+func _on_join_back_pressed() -> void:
+	join_node.hide()
+	host_or_join_node.show()
+
+
+func _on_host_back_pressed() -> void:
+	host_node.hide()
+	host_or_join_node.show()
+	
+	
+	ConnectionController.close_game.rpc()
+
+
+func _on_back_pressed() -> void:
+	get_tree().change_scene_to_file(start_menu_file)
+#endregion
+
+
 ##RPC that moves the peer to the level selector.
 @rpc("call_local", "reliable")
 func move_to_selector():
@@ -102,30 +132,6 @@ func show_names(new_name: String) -> void:
 	
 	get_node(node_path).text = other_player_connected_text + ": \n" + new_name
 
-
-func _on_cancel_pressed() -> void:
-	disconnect_peer.rpc_id(1, multiplayer.get_unique_id())
-	
-	
-	join_connected.hide()
-	host_or_join_node.show()
-
-
-func _on_join_back_pressed() -> void:
-	join_node.hide()
-	host_or_join_node.show()
-
-
-func _on_host_back_pressed() -> void:
-	host_node.hide()
-	host_or_join_node.show()
-	
-	
-	ConnectionController.close_game.rpc()
-
-
-func _on_back_pressed() -> void:
-	get_tree().change_scene_to_file(start_menu_file)
 
 ##Verify that the name is acceptable.
 func verify_name(player_name: String) -> Array:

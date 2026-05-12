@@ -2,6 +2,7 @@ extends ItemsCounter
 class_name MultiplayerItemCounter
 ##Keeps track of which Items have been picked up in a multiplayer setting.
 
+#region New item
 ##Adds the item in the server/clients.
 func new_item(item_path: NodePath) -> void:
 	if not multiplayer.is_server():
@@ -12,7 +13,9 @@ func new_item(item_path: NodePath) -> void:
 @rpc("call_local")
 func new_item_multiplayer(item_path: NodePath) -> void:
 	super.new_item(item_path)
+#endregion
 
+#region Reset items
 ##Resets the items for server/clients.
 func reset_items() -> void:
 	if not multiplayer.is_server():
@@ -23,3 +26,4 @@ func reset_items() -> void:
 @rpc("call_local")
 func reset_items_multiplayer() -> void:
 	super.reset_items()
+#endregion

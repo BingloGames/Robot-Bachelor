@@ -2,6 +2,7 @@ extends Control
 class_name CodeWindow
 ##Code window for the player to introduce the Robots commands.
 
+#region Node references
 ##The CodeEdit child of this node.
 @onready var text_edit = get_node("CodeEdit")
 ##The particles child of this node.
@@ -10,8 +11,9 @@ class_name CodeWindow
 @onready var stop_button = get_node("StopButton")
 ##The particles child of this node.
 @onready var error_node = get_node("error message")
+#endregion
 
-
+#region Text variables
 #update with language. Errors in default english.
 const last_line_error = "Warning: Last line"
 const code_stopped_text = "Code stopped"
@@ -26,8 +28,9 @@ const for_loop_in_error = "Syntax error (no 'in' or 'in' at wrong place)"
 const inside_range_error = "Syntax error! (error inside range())"
 const range_error = "Invalid syntax with range!"
 const for_loop_content_invalid = "For loop content invalid"
+#endregion
 
-##list of the Robot's base functions.
+##list of the Robot's basic functions.
 var base_functions = ["forward()", "backward()", "left()", "right()", "wait()"]
 
 ##Variable that stores the players commands for the robot.
@@ -45,6 +48,7 @@ var waiting = false: set = set_waiting
 ##Indicates if the code is currently running.
 var running_code = false
 
+#region For loop
 ##Indicates if the robot is inside a loop.
 var for_looping = false
 ##How many times has the loop been running.
@@ -55,6 +59,7 @@ var for_loop_line = 0
 var for_loop_contents = []
 ##Number of times the loop has to run.
 var for_loop_max = 0
+#endregion
 
 ##Variable names and their values. Not used.
 var variables = {} #variable_name : variable_value
@@ -106,6 +111,8 @@ func problem_warning() -> void:
 		error_node.set_text(line_problem_text+str(turn))
 		text_edit.set_line_background_color(turn-1, Color(255,0,0))
 
+
+#region Code process
 ##Stops the player's commands from running.
 func stop_running_code() -> void:
 	turn = 0
@@ -126,6 +133,7 @@ func stop_running_code() -> void:
 	variables.clear()
 	for_loop_variables.clear()
 
+
 ##Runs the given command.
 func run_line(code: String) -> void:
 	var code_split = code.split(" ", false)
@@ -142,6 +150,43 @@ func run_line(code: String) -> void:
 		return
 	
 	run_base_functions(code)
+
+
+#region For loop
+##Checks if the command is a for loop, if it has a proper number for the range, if its properly written, and if it has contents.
+##If not, it gives the appropriate error for each case.
+func for_loop_validator(code_split: Array[String], next_code: String) -> Array:
+	if not len(code_split) == 4:
+		return [false, syntax_error]
+	
+	if code_split[1] in variables.keys():
+		return [false, for_loop_var_exists_error_1 + str(code_split[1]) + for_loop_var_exists_error_2]
+	
+	if not code_split[2] == "in":
+		return [false, for_loop_in_error]
+	
+	if code_split[3].begins_with("range(") and code_split[3].ends_with("):"):
+	#if code_split[3].begins_with("range("):
+		var range_split = code_split[3].split("(", false) #should have range_split[0] = "range", range_split[1] = "n):"
+		var after_range_split = range_split[1].split(")", false) # should have after_range_split[0] = "n", after_range_split[1] = ":"
+		
+		if not after_range_split[0].is_valid_int():
+			return [false, inside_range_error]
+	else:
+		return [false, range_error]
+	
+	if not next_code.begins_with("\t"):
+		return [false, for_loop_content_invalid]
+	
+	next_code = next_code.strip_edges()
+	var next_line_validation = base_func_validator(next_code)
+	
+	#check if next line is valid
+	if not next_line_validation[0]:
+		return [false, for_loop_content_invalid]
+	
+	return [true, "success"]
+
 
 ##Starts a loop. 
 func start_for_loop(code_split: Array[String]) -> void:
@@ -185,6 +230,8 @@ func continue_for_loop() -> void:
 	run_line(code_line)
 	for_loop_line += 1
 
+
+#endregion
 ##If the Command is one of the base functions, sends it to the robot node for it to run.
 func run_base_functions(code: String) -> void:
 	turn += 1
@@ -194,9 +241,8 @@ func run_base_functions(code: String) -> void:
 	code = code.replace("()", "")
 	
 	robot.call(code)
-	print("next tile: ", robot.next_tile)
-	print("robot_dir: ", robot.robot_direction)
 	waiting = true
+
 
 ##Checks for misspellings in the code window.
 func code_validator(code: String, code_split: Array[String], next_code: String) -> Array:
@@ -210,48 +256,13 @@ func code_validator(code: String, code_split: Array[String], next_code: String) 
 		return for_loop_validator(code_split, next_code)
 	return base_func_validator(code)
 
+
 ##Checks if the command is one of the basic functions, if not, gives an error.
 func base_func_validator(code: String) -> Array:
 	if not code in base_functions:
 		return [false, unknown_func_error + code]
 	return [true, code]
 
-##Checks if the command is a for loop, if it has a proper number for the range, if its properly written, and if it has contents.
-##  If not, it gives the apropiate error for each case.
-func for_loop_validator(code_split: Array[String], next_code: String) -> Array:
-	if not len(code_split) == 4:
-		return [false, syntax_error]
-	
-	if code_split[1] in variables.keys():
-		return [false, for_loop_var_exists_error_1 + str(code_split[1]) + for_loop_var_exists_error_2]
-	
-	if not code_split[2] == "in":
-		return [false, for_loop_in_error]
-	
-	if code_split[3].begins_with("range(") and code_split[3].ends_with("):"):
-	#if code_split[3].begins_with("range("):
-		var range_split = code_split[3].split("(", false) #should have range_split[0] = "range", range_split[1] = "n):"
-		var after_range_split = range_split[1].split(")", false) # should have after_range_split[0] = "n", after_range_split[1] = ":"
-		
-		if not after_range_split[0].is_valid_int():
-			return [false, inside_range_error]
-	else:
-		return [false, range_error]
-	
-	if not next_code.begins_with("\t"):
-		return [false, for_loop_content_invalid]
-	
-	next_code = next_code.strip_edges()
-	var next_line_validation = base_func_validator(next_code)
-	
-	#next line not valid
-	if not next_line_validation[0]:
-		return [false, for_loop_content_invalid]
-	
-	return [true, "success"]
-
-func _on_go_button_pressed() -> void:
-	start_code()
 
 ##Takes the commands from the code window and puts them in a list.
 func init_code_lines() -> void:
@@ -302,6 +313,7 @@ func init_code_lines() -> void:
 	if len(for_loop_content) > 0:
 		codeLines.append(for_loop_content)
 
+
 ##Starts the code.
 func start_code() -> void:
 	go_button.hide()
@@ -312,6 +324,12 @@ func start_code() -> void:
 	if get_node("/root/Node2D").has_node("lasers"):
 		for laser in get_node("/root/Node2D/lasers").get_children():
 			laser.start()
+#endregion
+
+
+func _on_go_button_pressed() -> void:
+	start_code()
+
 
 ##Puts robot in waiting mode.
 func robot_changes_wait(temp_robot: Robot, new_wait: bool) -> void:
@@ -321,6 +339,7 @@ func robot_changes_wait(temp_robot: Robot, new_wait: bool) -> void:
 
 func set_waiting(value: bool) -> void:
 	waiting = value
+
 
 func _on_lines_edited_from(from_line: int, to_line: int) -> void:
 	var valid_lines = 0
@@ -353,6 +372,7 @@ func _on_lines_edited_from(from_line: int, to_line: int) -> void:
 		#set line only updates the text internally, so we need to wait until after the frame is done to update the caret
 		await get_tree().process_frame
 		text_edit.set_caret_column(len(text_edit.get_line(to_line)))
+
 
 func _on_timer_timeout() -> void:
 	var errors_text = []

@@ -2,6 +2,7 @@ extends Control
 class_name InputPopUp
 ##Text window for questions and tasks for levels. It gets the text from a text file automatically, if it exists. Can be used to add questions for buttons.
 
+#region Node references
 ##The Line Edit child node.
 @onready var line_edit_node = get_node("LineEdit")
 ##Path to the Code window node.
@@ -10,6 +11,7 @@ class_name InputPopUp
 @onready var item_list_node = get_node("/root/Node2D/InformationList")
 ##Path to the items inside Item List node.
 @onready var itemsInItemList = item_list_node.items
+#endregion
 
 ##List of possible accepted answer to the question or task.
 @export var answers: Array[String] = ["answer="]
@@ -36,6 +38,7 @@ func _ready() -> void:
 		return 
 	
 	get_node("RichTextLabel").set_text(text)
+
 
 ##Opens the input pop up.
 func show_input() -> void:

@@ -31,25 +31,16 @@ func _physics_process(delta: float) -> void:
 ##Moves the Robot the appropiate number of tiles according to the Conveyor belt activated.
 func continue_conveyor(current_tile: Vector2i, cb_data: TileData) -> void:
 	super.continue_conveyor(current_tile, cb_data)
-	
-	
-	#for robot in code_node.robot_waiting_data:
 	code_node.robot_waiting_data[self]["running_code"] = false
 
 ##Stops the Conveyor movement of the Robot.
 func stop_conveyor() -> void:
 	super.stop_conveyor()
-	
-	
-	#for robot in code_node.robot_waiting_data:
 	code_node.robot_waiting_data[self]["running_code"] = true
 
 ##Resets Robot.
 func respawn() -> void:
 	super.respawn()
-	
-	
-	#for robot in code_node.robot_waiting_data:
 	code_node.robot_waiting_data[self]["running_code"] = false
 
 ##Plays the dying animation. Only works in from the server.

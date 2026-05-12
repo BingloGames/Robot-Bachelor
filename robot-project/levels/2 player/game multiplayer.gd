@@ -2,13 +2,14 @@ extends Node2D
 class_name MultiplayerGeneral
 ##Manages the ending in a multiplayer setting. Singleplayer levels handle it automatically.
 
-
+#region Node references
 ##Tilemap that contains the special tiles.
 @onready var special_tilemap_node = get_node("special")
 ##Star counter node in the scene.
 @onready var star_counter_node = get_node("star counter")
 ##The black node for the fadeout.
 @onready var black_fade_node = get_node("black")
+#endregion
 
 ##Robot paths that has finished the code.
 var robots_finished = []

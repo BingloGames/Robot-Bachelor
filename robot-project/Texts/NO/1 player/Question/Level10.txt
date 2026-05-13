@@ -1,2 +1,2 @@
 Hva er fornavnene til de som lagde spillet?
-Format: VariableA[your slice] + VariableB[your slice]
+Format: X[your slice] + Y[your slice]

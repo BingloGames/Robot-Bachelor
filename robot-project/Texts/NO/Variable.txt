@@ -1,0 +1,3 @@
+En Variabel blir brukt til å lagre en verdi.
+
+Advarsel: Variabler navn skiller mellom store og små bokstaver. 

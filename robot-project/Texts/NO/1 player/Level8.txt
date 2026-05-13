@@ -1,1 +1,1 @@
-Laserene will ødelegge roboten. Bruk wait() til å time med laseren.
+Laserene will ødelegge roboten. Bruk wait() til å velge tidspunktet til å gå forbi laserene.

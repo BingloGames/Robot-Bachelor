@@ -5,3 +5,5 @@ Python begynner telling med 0, så for å få den første verdien i en liste skr
 list[0]
 
 Finn listen og bruk den riktige indeksen til å svare på spørsmålet for å åpne døren.
+
+Begge må svare riktig.

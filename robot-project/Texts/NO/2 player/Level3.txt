@@ -1,6 +1,1 @@
-For å kjøre en linje med kode flere ganger, kan det være nytting å bruke løkker.
-
-for i in range(5):
-	forward()
-
-Prøv å bruke løkker for å få roboten til slutten av brettet med bare 12 linjer.
+Samarbeid sammen!

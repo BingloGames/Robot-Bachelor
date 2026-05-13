@@ -10,3 +10,7 @@ x = 3
 eller
 
 x = x + y
+
+Hent variablene og bruk dem til å svare på spørsmålet for å åpne døren.
+
+Begge må svare riktig.

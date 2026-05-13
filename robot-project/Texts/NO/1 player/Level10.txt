@@ -1,1 +1,15 @@
-Alt du har lært har bygd opp til dette!
+En variabel kan lagre tekst, denne typen variabel kalles en streng. 
+Noen ganger vil du ta en del av strengen. For å gjøre dette må du dele opp strengen fra indeks a til indeks b som dette:
+	
+	streng[a:b]
+	
+Det vil gi deg bokstavene fra indeksen a til b, men vil ikke inkludere bokstaven i indeks b.
+For å hente en delstreng fra begynnelsen til en gitt indeks, skriver du: 
+	
+	streng[:b]
+	
+Og for å hent en delstreng fra en indeks til slutten, skriver du:
+	
+	streng[a:]
+	
+Hent begge variablene og del dem opp for å svare på spørsmålet som vil åpne døren.

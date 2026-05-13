@@ -1,1 +1,1 @@
-Skriv in summen av variablene X og Y.
+Skriv in summen av variablene X og Y. Husk at variabler skiller mellom store og små bokstaver.

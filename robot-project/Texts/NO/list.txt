@@ -1,0 +1,6 @@
+Lister blir brukt til å lagre flere verdier i en variabel. 
+For å hente en variabel fra en liste skriver du:
+
+liste[indeks]
+
+Advarsel: Lister skiller mellom små og store bokstaver.

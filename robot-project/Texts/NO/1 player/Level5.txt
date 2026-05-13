@@ -1,4 +1,4 @@
-Lister blir brukt til å lagre flere verdier.
+Lister blir brukt til å lagre flere verdier and kan bli definest med å skrive hakeparanteser [].
 
 Python begynner telling med 0, så for å få den første verdien i en liste skriver du som dette:
 

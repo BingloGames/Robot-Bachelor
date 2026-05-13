@@ -1,7 +1,14 @@
 A variable can store strings, strings are texts or words. Sometimes, you will want a partial part of a string. For this, we can slice the string from index a to index b like this:
+	
 	string[a:b]
+	
 This will give you all the letters in indexes a to b, b not included. 
-To get a slice from the beginning to a certain index you can do: string[:b]
-To get a slice from a certain index to the end you can do: string[a:]
+To get a slice from the beginning to a certain index you can do: 
+	
+	string[:b]
+	
+To get a slice from a certain index to the end you can do: 
+	
+	string[a:]
 
 Pick up both variables and slice them correctly to answer the question to open the first door. 

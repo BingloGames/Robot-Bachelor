@@ -1,8 +1,10 @@
 Las listas son usadas para guardar varios valores.
 
-Para llamar un valor de la lista, llamas la lista y el númer de índice.
+Para llamar un valor de la lista, llamas la lista y el número de índice.
 Para llamar el primer valor de nuestra lista usaríamos:
 	List[0]
 Recuerda que python siempre empieza a contar desde 0.
 
-Ecuentra la lista y usa el númer de índice correcto para responder a la pregunta y abrir la puerta.
+Encuentra la lista y usa el número de índice correcto para responder a la pregunta y abrir la puerta.
+
+Ambos jugadores tienen que responder correctamente.

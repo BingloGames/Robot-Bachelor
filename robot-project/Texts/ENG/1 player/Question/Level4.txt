@@ -1,2 +1,2 @@
-Write the sum of the variables X and Y. Remember tha variables are case sensitive.
+Write the sum of the variables X and Y. Remember that variables are case sensitive.
 Format: "your answer"

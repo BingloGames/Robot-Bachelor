@@ -1,4 +1,1 @@
-Algunas veces, querras usar la misma funcion varias veces seguidas. Para esto usamos un bucle de esta manera:
-	for i in range(5):
-		forward()
-Prueba a usar bucles para llegar al final usando solo 12 lineas de codigo.
+¡Trabajad juntos!

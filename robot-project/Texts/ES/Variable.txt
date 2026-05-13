@@ -1,1 +1,3 @@
-Text for X =
+Una variable se usa para guardar un valor. Las variables se crean usando paréntesis. Puedes llamar una variable usando su nombre. 
+
+AVISO: Los nombres de las variables distinguen entre mayúsculas y minúsculas.

@@ -1,4 +1,4 @@
-Una variable es el nombre que le damos a un valor para poder usarlo en otras partes del codigo, como las funciones.
+Una variable es el nombre que le damos a un valor para poder usarlo en otras partes del código, como las funciones.
 
 Esto es una variable:      X = 1  
 Esto es otra variable:     Y = 2

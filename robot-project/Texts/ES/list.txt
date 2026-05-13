@@ -1,1 +1,5 @@
-Text for List
+Las listas se usan para guardar varios valores en una unica variable. Las listas se crean utilizando corchetes. Para llamar un valor de una lista, llama el nombre de la lista y el índice del valor, por ejemplo:
+
+list = [3]
+
+AVISO: Los nombres de las listas distinguen entre mayúsculas y minúsculas. 

@@ -1,1 +1,6 @@
-Text for List
+Lists are used to store multiple values in a single variable. Lists are created using square brackets. 
+To call a value from a list you call the list name and the index, for example:
+
+list = [3]
+
+WARNING: Lists names are case sensitive.

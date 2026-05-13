@@ -1,5 +1,5 @@
-En este nivel aprenderas sobre funciones.
+En este nivel aprenderás sobre funciones.
 
-Una funcion es un numero de lineas de codigo al que le damos un nombre para que podamos usarlas varias veces sin tener que escribir las lineas de codigo todas las veces.
+Una función es un numero de líneas de código al que le damos un nombre para que podamos usarlas varias veces sin tener que escribir las líneas de código todas las veces.
 
-Para usar una funcion, escribe el nombre de la funcion seguido de "()".
+Para usar una función, escribe el nombre de la función seguido de "()".

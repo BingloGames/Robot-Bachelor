@@ -1,1 +1,3 @@
-Algunas veces, querrás usar una función que tienes en otro archivo. Para esto usamos "import".
+Algunas veces, querrás usar la misma función varias veces seguidas. Para esto usamos un bucle de esta manera:
+	for i in range(5):
+		forward()

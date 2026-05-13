@@ -1,4 +1,4 @@
-Una variable es el nombre que le damos a un valor para poder usarlo en otras partes del codigo, como las funciones.
+Una variable es el nombre que le damos a un valor para poder usarlo en otras partes del código, como las funciones.
 
 Esto es una variable:      X = 1  
 Esto es otra variable:     Y = 2
@@ -6,3 +6,7 @@ Esto es otra variable:     Y = 2
 Para usar una variable, tan solo necesitas escribir el nombre de la variable de esta manera: X.
 
 Para cambiar el valor de una variable, se hace de esta manera: X = 3, o X = X + Y.
+
+Recoge las variables y úsalas para responder la pregunta y abrir la puerta
+
+Ambos jugadores tienen que responder correctamente.

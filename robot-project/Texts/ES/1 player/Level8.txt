@@ -1,0 +1,1 @@
+Los laseres matarán al robot! Utiliza wait() para evitar los laseres.

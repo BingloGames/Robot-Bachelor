@@ -6,3 +6,5 @@ To call the first value of our list, we would do:
 Remember that python always starts counting from 0.
 
 Find the list and use the correct index to answer the question and open the door.
+
+Both of you needs to answer correctly.

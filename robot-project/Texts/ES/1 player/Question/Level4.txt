@@ -1,4 +1,2 @@
-Write the sum of the variables X and Y. Remember that variables are case sensitive.
-Format: "your answer"
 Escribe la suma de las variables X e Y. Recuerda que las variables distinguen entre mayúsculas y minúsculas.
 Formato: tu respuesta

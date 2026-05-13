@@ -39,9 +39,11 @@ script = ExtResource("2_5p22j")
 
 [node name="Item" parent="items" instance=ExtResource("4_2hmoo")]
 position = Vector2(112, 400)
+item_name = "X = \"Sebastian Helgeland\""
 
 [node name="Item2" parent="items" instance=ExtResource("4_2hmoo")]
 position = Vector2(144, 144)
+item_name = "Y = \"Lisa V. E. Cabot\""
 
 [node name="doors" type="Node2D" parent="."]
 
@@ -104,9 +106,10 @@ laser_off_turns_interval = 4
 [node name="robots" type="Node2D" parent="."]
 
 [node name="robot" parent="robots" instance=ExtResource("3_sm5e0")]
-position = Vector2(176, 366)
+position = Vector2(112, 304)
 
 [node name="CodeWindow" parent="." instance=ExtResource("4_imqa0")]
+visible = false
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -115,6 +118,7 @@ offset_bottom = 536.0
 line_limit = 99
 
 [node name="star counter" parent="." instance=ExtResource("5_n40p8")]
+visible = false
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -127,6 +131,7 @@ grow_vertical = 1
 metadata/_edit_group_ = true
 
 [node name="InformationList" parent="." instance=ExtResource("6_6rkfh")]
+visible = false
 offset_left = 640.0
 offset_right = 960.0
 offset_bottom = 536.0
@@ -137,9 +142,10 @@ visible = false
 offset_left = 448.0
 offset_right = 448.0
 offset_bottom = 0.0
-answers = Array[String](["answer"])
+answers = Array[String](["X[0:9]+[0:4]", "X[:9]+Y[:4]", "Y[0:4]+X[0:9]", "Y[:4]+X[:9]"])
 
 [node name="back" parent="." instance=ExtResource("8_pfd0j")]
+visible = false
 offset_left = 888.0
 offset_top = 504.0
 offset_right = 952.0

@@ -1,0 +1,2 @@
+Cuales son los nombres propios de los creadores de este juego?
+Formato: VariableA[tu segmento] + VariableB[tu segmento]

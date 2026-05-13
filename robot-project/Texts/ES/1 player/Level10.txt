@@ -1,1 +1,7 @@
-Everything you have learned so far have built up to this!
+Una variable puede almacenar una cadena de caracteres, una cadena de caracteres son textos o palabras. A veces querrás una parte de una cadena de caracteres. Para esto, podemos segmentar la variable desde el índice a al índice b de esta manera:
+	string[a:b]
+Este segmento te dará las letras en los indices a hasta la b, b no incluida.
+Para hacer un segmento desde el principio hasta cierto índice puedes hacer: string[:b]
+Para hacer un segmento desde cierto índice hasta el final puedes hacer: string[a:]
+
+Recoge ambas variables y haz los segmentos correctos para responder a la pregunta y abrir la primera puerta.

@@ -1,0 +1,2 @@
+Llama la lista con el índice correcto para que te devuelva 7.
+Formato: list[n]

@@ -1,0 +1,2 @@
+Escribe la suma de las variables X e Y. Recuerda que las variables diferencian entre mayúsculas y minúsculas. 
+Formato: tu respuesta

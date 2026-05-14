@@ -29,6 +29,9 @@ var robot_waiting_data = {}
 
 
 func _ready() -> void:
+	get_node("line limit").text += str(line_limit)
+	
+	
 	if multiplayer.is_server():
 		for temp_robot in get_node("/root/Node2D/robots").get_children():
 			robot_for_loop_data[temp_robot] = robot_for_loop_data_default.duplicate_deep()

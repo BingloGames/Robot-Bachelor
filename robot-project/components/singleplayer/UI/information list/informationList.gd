@@ -95,12 +95,10 @@ func _on_item_clicked(index: int, _at_position: Vector2, _mouse_button_index: in
 		elif current_line == last_line and last_line == line_limit:
 			text_edit.insert_text_at_caret(thing, 0)
 			text_edit.grab_focus()
-			print("current line is last line and in last possible line")
 		
 		elif current_line == last_line and last_line < line_limit:
 			text_edit.insert_text_at_caret(function, 0)
 			text_edit.grab_focus()
-			print("current line is last line and smaller than line limit")
 		
 		else: 
 			print ("How did you get here?")

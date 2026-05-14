@@ -37,11 +37,12 @@ func _ready() -> void:
 		print("error in getting text")
 		return 
 	
-	get_node("RichTextLabel").set_text(text)
+	get_node("RichTextLabel").text = text
 
 
 ##Opens the input pop up.
 func show_input() -> void:
+	print("the text again: ", get_node("RichTextLabel").text)
 	get_tree().paused = true
 	
 	show()

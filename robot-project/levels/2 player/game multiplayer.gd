@@ -64,7 +64,6 @@ func check_both_robot_end() -> void:
 ##Fade to black, save the stars and go to next level.
 @rpc("authority", "call_local", "reliable")
 func success() -> void:
-	print("success!")
 	star_counter_node.save_stars()
 	
 	for sync in get_tree().get_nodes_in_group("synchronizers"):

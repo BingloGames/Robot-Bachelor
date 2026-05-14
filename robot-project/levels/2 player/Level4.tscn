@@ -76,7 +76,7 @@ offset_bottom = 536.0
 [node name="CodeWindow" parent="." instance=ExtResource("7_mk5yf")]
 offset_right = 640.0
 offset_bottom = 536.0
-line_limit = 100
+line_limit = 99
 
 [node name="star counter" parent="." instance=ExtResource("8_dr0je")]
 offset_left = 88.0
@@ -85,6 +85,7 @@ offset_right = 88.0
 offset_bottom = -24.0
 
 [node name="Input pop up" parent="." instance=ExtResource("12_72kc1")]
+visible = false
 offset_left = 448.0
 offset_right = 448.0
 offset_bottom = 0.0

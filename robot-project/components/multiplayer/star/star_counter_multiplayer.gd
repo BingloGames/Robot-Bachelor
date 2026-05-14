@@ -11,7 +11,6 @@ func new_star(star_index) -> void:
 ##RPC that picks up the star.
 @rpc("call_local", "reliable")
 func new_star_multiplayer(star_index: int) -> void:
-	print("multiplayer new star!")
 	super.new_star(star_index)
 #endregion
 

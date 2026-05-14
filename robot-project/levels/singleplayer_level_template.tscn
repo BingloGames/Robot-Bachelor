@@ -54,12 +54,13 @@ offset_right = 960.0
 offset_bottom = 536.0
 
 [node name="Info pop up" parent="." instance=ExtResource("5_p82rp")]
-visible = false
+offset_right = 960.0
+offset_bottom = 544.0
 
 [node name="Input pop up" parent="." instance=ExtResource("6_p82rp")]
 offset_left = 448.0
 offset_right = 736.0
-offset_bottom = 536.11
+offset_bottom = 544.0
 
 [node name="back" parent="." instance=ExtResource("7_dpete")]
 offset_left = 888.0

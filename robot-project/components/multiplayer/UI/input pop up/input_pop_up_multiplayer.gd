@@ -40,7 +40,6 @@ func robot_answer_correct() -> void:
 	
 	
 	if len(player_correct_answer) == ConnectionController.NUM_PLAYERS:
-		print("correct answer from both multiplayer")
 		success_question()
 		
 		

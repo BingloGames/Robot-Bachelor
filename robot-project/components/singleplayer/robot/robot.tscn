@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://bkcxr5ltukhr1"]
 
-[ext_resource type="Script" uid="uid://g0voy427r38" path="res://components/singleplayer/robot/robot.gd" id="1_dfm56"]
+[ext_resource type="Script" uid="uid://djbtyug1m5qvr" path="res://components/singleplayer/robot/robot.gd" id="1_dfm56"]
 [ext_resource type="Texture2D" uid="uid://4syj2wtvlvjb" path="res://components/singleplayer/robot/robot walk new.png" id="2_yhfw1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ru5oq"]

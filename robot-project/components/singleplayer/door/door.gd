@@ -36,7 +36,6 @@ func _ready() -> void:
 ##Play the open door animation and disable collision.
 func open() -> void:
 	collision_shape_node.call_deferred("set_disabled", true)
-	print("anim path: ", anim_player_node.get_path())
 	anim_player_node.play("open door anim")
 	code_node.running_code = false
 

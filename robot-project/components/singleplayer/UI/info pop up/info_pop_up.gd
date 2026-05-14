@@ -19,7 +19,7 @@ func _ready() -> void:
 		print("error in getting text")
 		return
 	
-	get_node("RichTextLabel").set_text(text)
+	text_node.text = text
 
 func _on_Close_pressed() -> void:
 	color_rect_node.hide()

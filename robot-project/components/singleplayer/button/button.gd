@@ -25,10 +25,6 @@ func _ready() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if not body is Robot:
 		return
-	if name == "button2":
-		print("ENTERED BUTTON 2")
-	else:
-		print("entered wrong button: ", name)
 	activate()
 
 ##Shows the question if question is true, or opens the doors if question is false.

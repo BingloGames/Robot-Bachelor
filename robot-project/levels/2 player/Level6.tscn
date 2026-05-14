@@ -61,3 +61,6 @@ items = 6
 
 [node name="CodeWindow" parent="." index="10"]
 line_limit = 99
+
+[node name="Input pop up" parent="." index="12"]
+visible = false

@@ -67,6 +67,7 @@ position = Vector2(144, 208)
 offset_left = 640.0
 offset_right = 960.32
 offset_bottom = 544.0
+items = 3
 
 [node name="CodeWindow" parent="." instance=ExtResource("10_rdv1c")]
 offset_right = 640.0

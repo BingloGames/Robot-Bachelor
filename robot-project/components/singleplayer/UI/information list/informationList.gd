@@ -3,7 +3,7 @@ class_name InformationList
 ##List of functions and other items with descriptions for each of them.
 
 ##List of preloaded functions
-var itemsList = ["forward()", "backward()", "left()", "right()", "for i in range(n):", "wait()"]
+var itemsList = ["forward()", "backward()", "wait()", "left()", "right()", "for i in range(n):"]
 ##How many of the preloaded functions we show in each level.
 @export var items = 2
 

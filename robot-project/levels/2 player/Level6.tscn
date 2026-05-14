@@ -57,12 +57,7 @@ position = Vector2(144, 48)
 start_direction = Vector2i(0, 1)
 
 [node name="InformationList" parent="." index="9"]
-items = 3
+items = 6
 
 [node name="CodeWindow" parent="." index="10"]
 line_limit = 99
-
-[node name="Info pop up" parent="." index="13"]
-visible = true
-offset_right = 960.0
-offset_bottom = 544.0

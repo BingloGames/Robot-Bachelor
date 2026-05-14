@@ -71,7 +71,7 @@ start_direction = Vector2i(0, -1)
 offset_left = 640.0
 offset_right = 960.32
 offset_bottom = 536.0
-items = 3
+items = 6
 
 [node name="CodeWindow" parent="." instance=ExtResource("7_lpv1t")]
 offset_right = 640.0

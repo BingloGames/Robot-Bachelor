@@ -72,6 +72,7 @@ item_name = "Y=10"
 offset_left = 640.0
 offset_right = 960.32
 offset_bottom = 536.0
+items = 6
 
 [node name="CodeWindow" parent="." instance=ExtResource("7_mk5yf")]
 offset_right = 640.0

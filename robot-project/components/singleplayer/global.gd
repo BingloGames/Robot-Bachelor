@@ -53,10 +53,11 @@ func get_question_text() -> String:
 
 ##Saves current number of stars at the end of a level, always keeps the higher number,
 func save_stars(star_count: int) -> void:
-	#if player already has completed level, and they got more stars last time, don't do anything.
 	if not stars.has(num_players):
 		stars[num_players] = {}
 	
+	
+	#if player already has completed level, and they got more stars last time, don't do anything.
 	if stars[num_players].has(current_level):
 		if stars[num_players][current_level] > star_count:
 			return
@@ -128,7 +129,8 @@ func next_level_player_1() -> void:
 	current_level = str(int(current_level)+1)
 	
 	var level_file_name = levels_1_player_path+"/"+levels_file_start+current_level+path_end
-	if not FileAccess.file_exists(level_file_name):
+	
+	if not ResourceLoader.exists(level_file_name):
 		get_tree().change_scene_to_file(single_player_menu)
 		return
 	
@@ -140,7 +142,7 @@ func next_level_player_2() -> void:
 	current_level = str(int(current_level)+1)
 	
 	var level_file_name = levels_2_player_path+"/"+levels_file_start+current_level+path_end
-	if not FileAccess.file_exists(level_file_name):
+	if not ResourceLoader.exists(level_file_name):
 		get_tree().change_scene_to_file(multiplayer_level_selector)
 		return
 	

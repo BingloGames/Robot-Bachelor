@@ -68,6 +68,8 @@ func _on_button_mouse_entered(source: Button) -> void:
 			text_node.set_text(content)
 		else: 
 			print("Error opening file: ", file)
+	else:
+		print("file: ", file_path, " does not exist")
 	
 	text_node.show()
 

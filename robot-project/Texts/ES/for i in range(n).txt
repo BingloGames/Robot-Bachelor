@@ -1,6 +1,4 @@
 for i in range(n) es un bucle que se repite n veces. Cambia n por el numero de veces que quieres que se ejecute el código dentro del bucle.
-
 for i in range(5):
 	forward()
-
 AVISO: el código dentro del bucle tiene que tener una tabulación, para escribir código fuera del bucle, escribe el código sin tabulación.

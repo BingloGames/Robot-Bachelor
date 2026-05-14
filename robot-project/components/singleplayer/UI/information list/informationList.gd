@@ -53,7 +53,7 @@ func _on_button_mouse_entered(source: Button) -> void:
 	item = item.replace(":","")
 	var item_split = item.split(" ")
 	if item_split[0] == "X" or item_split[0] == "Y":
-		item = "Variable"
+		item = "variable"
 	
 	elif item_split[0] == "list":
 		item = "list"
